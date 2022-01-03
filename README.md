@@ -27,6 +27,11 @@ DB_PASSWORD=Your database password
 SESSION_DRIVER=database
 ```
 
+## [Migration database](https://laravel.com/docs/8.x/migrations)
+```shell
+php artisan migrate
+```
+
 ## Launch
 ```shell
 php artisan serv
@@ -36,7 +41,4 @@ php artisan serv
 --port=your_port #Your server port
 ```
 
-## [Migration database](https://laravel.com/docs/8.x/migrations)
-```shell
-php artisan migrate
-```
+
