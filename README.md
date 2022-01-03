@@ -3,7 +3,22 @@
 ## Requirement
 [Composer](https://getcomposer.org/download/)
 
-PHP ^8.0
+## Install PHP ^8.0
+- ### WAMP
+Download [WAMP](https://www.wampserver.com/) or update with [PHP 8.0.14](https://sourceforge.net/projects/wampserver/files/WampServer%203/WampServer%203.0.0/Addons/Php/wampserver3_x64_addon_php8.0.14.exe/download)
+
+
+ - ### Linux
+    Add PHP repository
+```shell
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+```
+Install PHP with extensions
+```
+sudo apt install php8.0
+sudo apt install php8.1-{bcmath,xml,fpm,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbstring,pgsql,opcache,soap,cgi}
+```
 
 ## Install project
 ### Clone project
