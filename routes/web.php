@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,"home"])
     ->name("Home");
+
+require_once "auth.php";
+
+
+
