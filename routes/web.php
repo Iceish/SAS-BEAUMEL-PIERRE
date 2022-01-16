@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\VitrineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class,"home"])
+Route::get('/', [VitrineController::class,"home"])
     ->name("Home");
+
+Route::get('/about', [VitrineController::class,"about"])
+    ->name("About");
+
+Route::get('/clients', [VitrineController::class,"clients"])
+    ->name("Clients");
+
+Route::get('/partners', [VitrineController::class,"partners"])
+    ->name("Partners");
+
+
+Route::name('Dashboard.')->prefix("dashboard/")->group(function (){
+    Route::get('users', [UserController::class,"index"])
+        ->name("Users.View");
+});
 
 require_once "auth.php";
 

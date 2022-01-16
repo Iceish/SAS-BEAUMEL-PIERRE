@@ -44,7 +44,7 @@ class ForgotPasswordController extends Controller
 
 
         DB::table('password_resets')->updateOrInsert(
-            ['email' => $user->email],
+            ['user_id' => $user->id],
             [
                 'token' => $token,
                 'created_at' => Carbon::now()
@@ -52,7 +52,7 @@ class ForgotPasswordController extends Controller
         );
 
 
-        $token = Crypt::encryptString($email." ".$token);
+        $token = Crypt::encryptString($user->id." ".$token);
         Mail::send('Mail.forgot_password', ['token' => $token,'user'=>$user], function($message) use($user){
             $message->to($user->email);
             $message->subject('Reset Password');
@@ -75,23 +75,24 @@ class ForgotPasswordController extends Controller
 
         $token = Crypt::decryptString($validated["token"]);
         $token_parts = explode(" ", $token);
-        $email = $token_parts[0];
+        $user_id = $token_parts[0];
         $token = $token_parts[1];
 
+
+
         $updatePassword = DB::table('password_resets')->where([
-            'email' => $email,
+            'user_id' => $user_id,
             'token' => $token
         ])->first();
 
         if(!$updatePassword){
             return back()->withErrors('error', 'Invalid token!');
         }
-
-        User::where('email', $email)->update([
+        User::find($user_id)->update([
             'password' => Hash::make($password)
         ]);
 
-        DB::table('password_resets')->where(['email'=> $email])->delete();
+        DB::table('password_resets')->where(['user_id'=> $user_id])->delete();
 
         return redirect()->route("Auth.Login.View")->with('message', 'Your password has been changed!');
     }
