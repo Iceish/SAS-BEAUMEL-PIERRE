@@ -6,25 +6,25 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
-class VitrineController extends Controller
+class GuestController extends Controller
 {
     public function home(): Factory|View|Application
     {
-        return view("Vitrine.home");
+        return view("web.sections.static.home.show");
     }
 
     public function about(): Factory|View|Application
     {
-        return view("Vitrine.about");
+        return view("web.sections.static.about.show");
     }
 
     public function clients(): Factory|View|Application
     {
-        return view("Vitrine.clients");
+        return view("web.sections.static.clients.show");
     }
 
     public function partners(): Factory|View|Application
     {
-        return view("Vitrine.partners");
+        return view("web.sections.static.partners.show");
     }
 }

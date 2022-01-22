@@ -39,7 +39,7 @@ git clone https://github.com/EnzoGzz/SAS-BEAUMEL-PIERRE.git
 composer install
 ```
 
-### Rename [.env.example](.env.example) in .env
+### Rename [.env.example](.env) in .env
 ### Modify .env
 ```dotenv
 APP_NAME=SAS-BEAUMEL-PIERRE

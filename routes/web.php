@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\UserController;
-use App\Http\Controllers\VitrineController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,16 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [VitrineController::class,"home"])
+Route::get('/', [GuestController::class,"home"])
     ->name("Home");
 
-Route::get('/about', [VitrineController::class,"about"])
+Route::get('/about', [GuestController::class,"about"])
     ->name("About");
 
-Route::get('/clients', [VitrineController::class,"clients"])
+Route::get('/clients', [GuestController::class,"clients"])
     ->name("Clients");
 
-Route::get('/partners', [VitrineController::class,"partners"])
+Route::get('/partners', [GuestController::class,"partners"])
     ->name("Partners");
 
 

@@ -10,7 +10,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option controls the default session "driver" that will be used on
-    | requests. By default, we will use the lightweight native driver but
+    | requests. By default, web will use the lightweight native driver but
     | you may specify any of the other wonderful drivers provided here.
     |
     | Supported: "file", "cookie", "database", "apc",
@@ -53,7 +53,7 @@ return [
     | Session File Location
     |--------------------------------------------------------------------------
     |
-    | When using the native session driver, we need a location where session
+    | When using the native session driver, web need a location where session
     | files may be stored. A default has been set for you but a different
     | location may be specified. This is only needed for file sessions.
     |
@@ -79,7 +79,7 @@ return [
     | Session Database Table
     |--------------------------------------------------------------------------
     |
-    | When using the "database" session driver, you may specify the table we
+    | When using the "database" session driver, you may specify the table web
     | should use to manage the sessions. Of course, a sensible default is
     | provided for you; however, you are free to change this as needed.
     |
@@ -189,7 +189,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option determines how your cookies behave when cross-site requests
-    | take place, and can be used to mitigate CSRF attacks. By default, we
+    | take place, and can be used to mitigate CSRF attacks. By default, web
     | will set this value to "lax" since this is a secure default value.
     |
     | Supported: "lax", "strict", "none", null
