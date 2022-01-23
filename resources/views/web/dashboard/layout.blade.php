@@ -1,6 +1,10 @@
 @extends('web.index')
 
-@section('title', 'dashboard')
+@push('css')
+    <link rel="stylesheet" href="{{ asset('css/dashboard/dashboard.css') }}">
+@endpush
+
+@section('title', 'dashboard.css')
 
 @section('head')
     @include('web.dashboard.layout.head.links')

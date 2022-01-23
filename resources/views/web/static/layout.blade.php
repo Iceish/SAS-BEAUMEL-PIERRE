@@ -1,5 +1,9 @@
 @extends('web.index')
 
+@push('css')
+    <link rel="stylesheet" href="{{ asset('css/static/static.css') }}">
+@endpush
+
 @section('title', 'static')
 
 @section('head')
