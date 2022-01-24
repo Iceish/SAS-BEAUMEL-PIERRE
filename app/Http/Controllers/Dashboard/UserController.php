@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -29,9 +28,9 @@ class UserController extends Controller
         $users = User::query()
             ->whereLike(["email","name"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.users.index",[
-            "users"=>$users
-        ]);
+        return view("web.dashboard.sections.users.index",
+            compact("users")
+        );
     }
 
     /**
@@ -53,23 +52,21 @@ class UserController extends Controller
     public function store(StoreUserRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $user = User::create($validated);
-        $user->save();
-        return redirect()->route("dashboard.users.index")->with("message","Success");
+        User::create($validated)->save();
+        return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $user_id
+     * @param User $user
      * @return Application|Factory|View
      */
-    public function show(int $user_id): View|Factory|Application
+    public function show(User $user): View|Factory|Application
     {
-        $user = User::find($user_id);
-        return view("web.dashboard.sections.users.show",[
-            "user"=>$user
-        ]);
+        return view("web.dashboard.sections.users.show",
+            compact("user")
+        );
     }
 
     /**
@@ -81,32 +78,34 @@ class UserController extends Controller
     public function edit(int $user_id): Application|Factory|View
     {
         $user = User::find($user_id);
-        return view("web.dashboard.sections.users.show",[
-            "user"=>$user
-        ]);
+        return view("web.dashboard.sections.users.show",
+            compact("user")
+        );
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $user_id
-     * @return Response
+     * @param UpdateUserRequest $request
+     * @param User $user
+     * @return RedirectResponse
      */
-    public function update(Request $request, int $user_id): Response
+    public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-
+        $validated = $request->validated();
+        $user->update($validated);
+        return redirect()->route("dashboard.users.index")->with("success",__("messages.user.update.success"));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $user_id
+     * @param User $user
      * @return RedirectResponse
      */
-    public function destroy(int $user_id): RedirectResponse
+    public function destroy(User $user): RedirectResponse
     {
-        User::destroy($user_id);
+        $user->delete();
         return redirect()->route("Dashboard.Users.View")->with('message',__("messages.user.delete.success"));
     }
 }
