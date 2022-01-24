@@ -26,7 +26,7 @@ class ForgotPasswordController extends Controller
      */
     public function forgotPasswordView(): Factory|View|Application
     {
-        return view("Auth.forgot_password");
+        return view("auth.forgot_password");
     }
 
 
@@ -61,13 +61,21 @@ class ForgotPasswordController extends Controller
         return back()->with('message', 'We have e-mailed your password reset link!');
     }
 
+    /**
+     * @param string $token
+     * @return Factory|View|Application
+     */
     public function resetPasswordView(string $token): Factory|View|Application
     {
-        return view('Auth.reset_password',[
+        return view('auth.reset_password',[
             'token' => $token,
         ]);
     }
 
+    /**
+     * @param ResetPasswordRequest $request
+     * @return Redirector|Application|RedirectResponse
+     */
     public function resetPassword(ResetPasswordRequest $request): Redirector|Application|RedirectResponse
     {
         $validated = $request->validated();
@@ -89,11 +97,11 @@ class ForgotPasswordController extends Controller
             return back()->withErrors('error', 'Invalid token!');
         }
         User::find($user_id)->update([
-            'password' => Hash::make($password)
+            'password' => $password
         ]);
 
         DB::table('password_resets')->where(['user_id'=> $user_id])->delete();
 
-        return redirect()->route("Auth.Login.View")->with('message', 'Your password has been changed!');
+        return redirect()->route("auth.login.view")->with('message', 'Your password has been changed!');
     }
 }

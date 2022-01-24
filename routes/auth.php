@@ -5,23 +5,23 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
-Route::name('Auth.')->group(function (){
+Route::name('auth.')->group(function (){
     Route::get('/login',[LoginController::class,"loginView"])
-        ->name("Login.View");
+        ->name("login.view");
 
     Route::post('/login',[LoginController::class,"login"])
-        ->name("Login");
+        ->name("login");
 
     Route::get('/forgot-password',[ForgotPasswordController::class,"forgotPasswordView"])
-        ->name('ForgotPassword.View');
+        ->name('forgotPassword.view');
 
     Route::post('/forgot-password',[ForgotPasswordController::class,"forgotPassword"])
-        ->name('ForgotPassword');
+        ->name('forgotPassword');
 
     Route::get('/reset-password/{token}', [ForgotPasswordController::class,"resetPasswordView"])
-        ->name('Password.Reset.View');
+        ->name('password.reset.view');
 
     Route::post('/reset-password', [ForgotPasswordController::class,"resetPassword"])
-        ->name('Password.Reset');
+        ->name('password.reset');
 });
 

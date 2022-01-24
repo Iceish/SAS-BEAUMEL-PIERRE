@@ -2,19 +2,19 @@
     <p>Header</p>
     <ul>
         <li>
-            <a href={{ route('Home') }}>Home</a>
+            <a href={{ route('home') }}>Home</a>
         </li>
         <li>
-            <a href={{ route('About') }}>About us</a>
+            <a href={{ route('about') }}>About us</a>
         </li>
         <li>
-            <a href={{ route('Partners') }}>Partners</a>
+            <a href={{ route('partners') }}>Partners</a>
         </li>
         <li>
-            <a href={{ route('Clients') }}>Cliens</a>
+            <a href={{ route('clients') }}>Cliens</a>
         </li>
         <li>
-            <a href="{{ route('Auth.Login.View') }}">Login</a>
+            <a href="{{ route('auth.login.view') }}">Login</a>
         </li>
     </ul>
 </header>

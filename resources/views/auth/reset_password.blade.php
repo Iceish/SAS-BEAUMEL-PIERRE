@@ -1,4 +1,4 @@
-<form action="{{route("Auth.Password.Reset")}}" method="post">
+<form action="{{route("auth.password.reset")}}" method="post">
     @csrf
     <label for="passwordInput">
 

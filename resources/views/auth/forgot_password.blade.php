@@ -1,4 +1,4 @@
-<form method="post" action="{{ route("Auth.ForgotPassword") }}">
+<form method="post" action="{{ route("auth.forgotPassword") }}">
     @csrf
     <div>
         <label for="emailInput">
