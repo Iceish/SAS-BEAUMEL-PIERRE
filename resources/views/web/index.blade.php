@@ -11,12 +11,6 @@
     @yield('head')
 </head>
 <body>
-    <div class="un">
-        <p>Un</p>
-    </div>
-    <div class="deux">
-        <p>Deux</p>
-    </div>
     @yield('body')
 </body>
 </html>
