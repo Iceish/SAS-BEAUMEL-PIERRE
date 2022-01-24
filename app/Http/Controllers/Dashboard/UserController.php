@@ -16,6 +16,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param SearchRequest $request
      * @return Application|Factory|View
      */
     public function index(SearchRequest $request): Application|Factory|View
@@ -24,9 +25,9 @@ class UserController extends Controller
 
         $searchText = $validated["search"] ?? "";
         $users = User::query()
-            ->whereLike([],$searchText)
+            ->whereLike(["email","name"],$searchText)
             ->paginate(25);
-        return view("Dashboard.User.users",[
+        return view("web.dashboard.sections.users.show",[
             "users"=>$users
         ]);
     }

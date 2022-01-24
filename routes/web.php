@@ -29,8 +29,10 @@ Route::get('/partners', [GuestController::class,"partners"])
 
 
 Route::name('Dashboard.')->prefix("dashboard/")->group(function (){
-    Route::get('users', [UserController::class,"index"])
-        ->name("Users.View");
+    Route::name('Users.')->prefix("users/")->middleware(['role:super-admin'])->group(function (){
+        Route::get('/', [UserController::class,"index"])
+            ->name("View");
+    });
 });
 
 require_once "auth.php";
