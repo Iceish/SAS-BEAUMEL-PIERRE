@@ -16,23 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [GuestController::class,"home"])
-    ->name("Home");
+    ->name("home");
 
 Route::get('/about', [GuestController::class,"about"])
-    ->name("About");
+    ->name("about");
 
 Route::get('/clients', [GuestController::class,"clients"])
-    ->name("Clients");
+    ->name("clients");
 
 Route::get('/partners', [GuestController::class,"partners"])
-    ->name("Partners");
+    ->name("partners");
 
 
-Route::name('Dashboard.')->prefix("dashboard/")->group(function (){
-    Route::name('Users.')->prefix("users/")->middleware(['role:super-admin'])->group(function (){
-        Route::get('/', [UserController::class,"index"])
-            ->name("View");
-    });
+Route::name('dashboard.')->prefix("dashboard/")->group(function (){
+    Route::resource('users',UserController::class);
 });
 
 require_once "auth.php";
