@@ -1,10 +1,6 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    @foreach($users as $user)
-        {{$user->name}}
-        {{$user->email}}
-        {{$user->email}}
-    @endforeach
+    <p>Only one user here.</p>
 @endsection
 

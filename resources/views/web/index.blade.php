@@ -6,11 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>S.B.P @yield('title')</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     @stack('css')
     @yield('head')
 </head>
 <body>
+    <div class="un">
+        <p>Un</p>
+    </div>
+    <div class="deux">
+        <p>Deux</p>
+    </div>
     @yield('body')
 </body>
 </html>

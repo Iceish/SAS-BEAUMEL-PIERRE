@@ -36,6 +36,3 @@ Route::name('Dashboard.')->prefix("dashboard/")->group(function (){
 });
 
 require_once "auth.php";
-
-
-
