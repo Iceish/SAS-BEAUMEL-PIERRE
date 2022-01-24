@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
-class ResetPasswordRequest extends FormRequest
+class SearchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,11 @@ class ResetPasswordRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['token' => "array", 'password' => "array", 'password_confirmation' => "array"])]
+    #[ArrayShape(["search" => "array"])]
     public function rules(): array
     {
         return [
-            'password' => ['required','string','min:8','confirmed'],
-            'password_confirmation' => ['required'],
-            'token' => ['required']
+            "search" => ["string","max:255"]
         ];
     }
 }
