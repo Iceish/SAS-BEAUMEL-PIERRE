@@ -11,6 +11,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -40,7 +41,10 @@ class UserController extends Controller
      */
     public function create(): Application|Factory|View
     {
-        return view("web.dashboard.sections.users.create");
+        $roles = Role::all()->whereNotIn("name",["SuperAdmin"]);
+        return view("web.dashboard.sections.users.create",
+            compact("roles")
+        );
     }
 
     /**
@@ -64,22 +68,25 @@ class UserController extends Controller
      */
     public function show(User $user): View|Factory|Application
     {
+        $roles = Role::all()->whereNotIn("name",["SuperAdmin"]);
         return view("web.dashboard.sections.users.show",
-            compact("user")
+            compact("user"),
+            compact("roles")
         );
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $user_id
+     * @param User $user
      * @return Application|Factory|View
      */
-    public function edit(int $user_id): Application|Factory|View
+    public function edit(User $user): Application|Factory|View
     {
-        $user = User::find($user_id);
+        $roles = Role::all()->whereNotIn("name",["SuperAdmin"]);
         return view("web.dashboard.sections.users.show",
-            compact("user")
+            compact("user"),
+            compact("roles")
         );
     }
 

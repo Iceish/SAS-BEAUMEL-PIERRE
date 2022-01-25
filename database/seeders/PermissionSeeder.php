@@ -18,11 +18,18 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
-        Permission::create(['name' => 'edit users']);
-        Permission::create(['name' => 'delete users']);
-        Permission::create(['name' => 'add users']);
-        Permission::create(['name' => 'show users']);
-        Permission::create(['name' => 'show user']);
+
+        $permissionsGroups = [
+            "users" =>  ["index","create","edit","delete","show"],
+            "dashboard" =>  ["index"],
+            "invoice" =>  ["index","create","edit","delete","show"],
+        ];
+
+        foreach ($permissionsGroups as $permissionsGroupName=>$permissions){
+            foreach($permissions as $permission){
+                Permission::create(['name' => "${$permissionsGroupName}${$permission}"]);
+            }
+        }
 
         $role = Role::create(['name' => 'SuperAdmin']);
         $user = User::factory()->create([
@@ -30,6 +37,5 @@ class PermissionSeeder extends Seeder
         ]);
 
         $user->assignRole($role);
-
     }
 }
