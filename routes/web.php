@@ -28,7 +28,7 @@ Route::get('/partners', [GuestController::class,"partners"])
     ->name("partners");
 
 
-Route::name('dashboard.')->prefix("dashboard/")->group(function (){
+Route::name('dashboard')->prefix("dashboard")->middleware(["permission:show users"])->group(function (){
     Route::resource('users',UserController::class);
 });
 
