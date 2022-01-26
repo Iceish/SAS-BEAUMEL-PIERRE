@@ -1,0 +1,54 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr .125fr;
+}
+
+header{
+    position: fixed;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    width: 100%;
+
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        background-color: lawngreen;
+
+        ul{
+            display: grid;
+            grid-template-rows: 1fr;
+
+            padding: 0;
+
+            text-align: center;
+        }
+    }
+
+    input[type=checkbox]#dropdown{
+        display: none;
+
+        &:checked ~ nav{
+            display: none;
+        }
+    }
+
+    #dropdown__btn{
+        display: block;
+        margin-top: 4px;
+        width: 20px;
+        height: 20px;
+        background-color: blueviolet;
+    }
+
+}
+
+main{
+    background-color: antiquewhite;
+}
