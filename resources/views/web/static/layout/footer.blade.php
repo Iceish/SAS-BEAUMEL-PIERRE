@@ -1,3 +1,3 @@
 <footer>
-    <p>Static Footer</p>
+    <p>All right <i>pas encore</i> reserved 2021 ©</p>
 </footer>
