@@ -90,7 +90,13 @@ php artisan serv
 
 ## Optional features
 
-### Configure [filewatcher](https://www.jetbrains.com/help/phpstorm/using-file-watchers.html) for sass
+### Sass compile
+Launch ```npm run watch``` on another terminal. It will open you a new localhost web page (port 3000 by default) on hot refresh scss.
+Npm will watch edit and directly compile & send to browser.
+This is the best way to compile sass.
+
+### Or Configure [filewatcher](https://www.jetbrains.com/help/phpstorm/using-file-watchers.html) for sass _(deprecied)_
+⚠️ This way for compiling is actually depressed because of the slowness of ``npm run dev``.
 1. Open File > Settings > File Watchers
 2. Add a new one with following parameters :
    - **name** : scss
