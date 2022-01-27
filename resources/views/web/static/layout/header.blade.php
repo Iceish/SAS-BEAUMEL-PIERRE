@@ -1,11 +1,11 @@
 <header>
 
-    <input id="dropdown" type="checkbox"/>
+    <input id="dropdown" type="checkbox" checked/>
 
     <label for="dropdown" id="dropdown__btn"></label>
 
     <nav>
-        <p>Menu</p>
+        <p>Sas-beaumel-pierre</p>
         <ul role="list">
             <li>
                 <a href={{ route('home') }}>Home</a>

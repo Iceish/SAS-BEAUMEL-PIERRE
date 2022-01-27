@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 body{
     display: grid;
     grid-template-columns: 1fr;
@@ -13,27 +15,8 @@ header{
 
     width: 100%;
 
-    nav{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-
-        background-color: lawngreen;
-
-        ul{
-            display: grid;
-            grid-template-rows: 1fr;
-
-            padding: 0;
-
-            text-align: center;
-        }
-    }
-
     input[type=checkbox]#dropdown{
         display: none;
-
         &:checked ~ nav{
             display: none;
         }
@@ -47,8 +30,57 @@ header{
         background-color: blueviolet;
     }
 
+    nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        min-height: 96px;
+        @include padding-x(32px);
+
+        background-color: lightgreen;
+
+        ul{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(128px,1fr));
+            grid-template-rows: 1fr;
+
+            width: 100%;
+            padding: 0;
+
+            text-align: center;
+        }
+
+    }
+
 }
 
 main{
     background-color: antiquewhite;
+}
+
+// Desktop screen
+@media screen and (min-width: 768px){
+    $height-nav: 96px;
+
+    header {
+
+        nav{
+            display: flex !important;
+            height: $height-nav;
+            flex-direction: row;
+        }
+
+        #dropdown__btn{
+            display: none;
+        }
+
+
+    }
+
+    main{
+        padding-top: $height-nav;
+    }
 }
