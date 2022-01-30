@@ -27,13 +27,13 @@ class PermissionSeeder extends Seeder
 
         foreach ($permissionsGroups as $permissionsGroupName=>$permissions){
             foreach($permissions as $permission){
-                Permission::create(['name' => "${$permissionsGroupName}${$permission}"]);
+                Permission::create(['name' => "$permissionsGroupName.$permission"]);
             }
         }
 
         $role = Role::create(['name' => 'SuperAdmin']);
         $user = User::factory()->create([
-            'email' => 'rmurat.murat@gmail.com',
+            'email' => 'test@test.com',
         ]);
 
         $user->assignRole($role);

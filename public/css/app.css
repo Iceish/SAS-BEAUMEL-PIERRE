@@ -124,17 +124,23 @@ header nav ul {
 footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 32px;
-  padding-right: 32px;
+  align-items: flex-start;
+  padding: 32px;
 }
 footer ul {
   display: grid;
-  text-align: center;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / 2 - 40px )));
+  width: 50%;
+  grid-gap: 20px;
   padding: 0;
+}
+footer hr {
+  background-color: black;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  height: 2px;
+  width: 100%;
 }
 
 main {
