@@ -14,7 +14,7 @@ class InvoiceDetailFactory extends Factory
     public function definition()
     {
         return [
-            'transport' => $this->faker->(),
+            'transport' => $this->faker->word(),
             'VAT' => $this->faker->randomFloat(),
 
         ];

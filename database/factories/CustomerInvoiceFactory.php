@@ -16,8 +16,7 @@ class CustomerInvoiceFactory extends Factory
         return [
             'totalTTC' => $this->faker->randomFloat(),
             'payment_date' => $this->faker->date(),
-            'payment_mode' => $this->faker->creditCardType(),
-
+            'payment_mode' => $this->faker->paymentMode(),
         ];
     }
 }
