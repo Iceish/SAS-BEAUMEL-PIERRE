@@ -1,20 +1,21 @@
 <header id="dashboard">
-    <p>Header</p>
-    <ul>
-        <li>
-            <a href={{ route('home') }}>Home</a>
-        </li>
-        <li>
-            <a href={{ route('about') }}>About us</a>
-        </li>
-        <li>
-            <a href={{ route('partners') }}>Partners</a>
-        </li>
-        <li>
-            <a href={{ route('clients') }}>Clients</a>
-        </li>
-        <li>
-            <a href="{{ route('auth.login.view') }}">Login</a>
-        </li>
-    </ul>
+
+    <input id="dropdown" type="checkbox" checked/>
+
+    <label for="dropdown" id="dropdown__btn"></label>
+
+    <nav>
+        <h1>Dashboard</h1>
+        <ul role="list">
+            <li><a href="{{ route('dashboard.home') }}"><i class="fa-solid fa-house-user"></i>Home</a></li>
+            <li><a href=""><i class="fa-solid fa-video"></i>Cameras</a></li>
+            <li><a href=""><i class="fa-solid fa-cash-register"></i>Client</a></li>
+            <li><a href=""><i class="fa-solid fa-briefcase"></i>Equipments</a></li>
+            <li><a href=""><i class="fa-solid fa-file-invoice"></i>Invoices</a></li>
+            <li><a href=""><i class="fa-solid fa-handshake"></i>Partners</a></li>
+            <li><a href=""><i class="fa-solid fa-feather-pointed"></i>Products</a></li>
+            <li><a href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-users"></i>Users</a></li>
+            <li><a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+        </ul>
+    </nav>
 </header>
