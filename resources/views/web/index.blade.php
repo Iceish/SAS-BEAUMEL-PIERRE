@@ -10,7 +10,7 @@
     @stack('css')
     @yield('head')
 </head>
-<body>
+<body id="@yield('title')">
     @yield('body')
 </body>
 </html>
