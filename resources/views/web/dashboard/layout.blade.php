@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard/dashboard.css') }}">
 @endpush
 
-@section('title', 'dashboard.css')
+@section('title', 'dashboard')
 
 @section('head')
     @include('web.dashboard.layout.head.links')
