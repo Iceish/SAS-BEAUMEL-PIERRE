@@ -23,7 +23,7 @@ class StoreClientRequest extends FormRequest
      * @return array
      */
     #[ArrayShape(["email" => "string[]", "name" => "string[]", "postal_code" => "char[]","address" => "string[]","city" =>"string[]"])]
-    public function rules()
+    public function rules(): array
     {
         return [
             "email" => ["required","email","max:255"],

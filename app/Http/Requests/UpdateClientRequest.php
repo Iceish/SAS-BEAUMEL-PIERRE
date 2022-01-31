@@ -31,7 +31,6 @@ class UpdateClientRequest extends FormRequest
             "postal_code" => ["required","max:5","min:5"],
             "address" => ["required","max:255","min:30"],
             "city" => ["required","max:40","min:1"]
-
         ];
     }
 }
