@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
-    public function loginView(): Factory|View|Application
+    public function loginView(): Application|Factory|View|RedirectResponse
     {
+        if(Auth::check()){
+            return redirect()->route("dashboard.home");
+        }
         return view("auth.login");
     }
 
@@ -31,6 +34,7 @@ class LoginController extends Controller
         }else{
             $remember = false;
         }
+
         if (Auth::attempt($validated,$remember)) {
             $request->session()->regenerate();
 

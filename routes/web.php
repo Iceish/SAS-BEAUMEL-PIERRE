@@ -29,7 +29,7 @@ Route::get('/partners', [GuestController::class,"partners"])
     ->name("partners");
 
 
-Route::name('dashboard')->prefix("dashboard")->middleware(["permission:show users"])->group(function (){
+Route::name('dashboard.')->prefix("dashboard")->middleware(["permission:show users"])->group(function (){
     Route::get('/', [HomeController::class,"index"])
         ->name("home");
     Route::resource('users',UserController::class);
