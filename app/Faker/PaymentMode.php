@@ -7,13 +7,9 @@ use Faker\Provider\Base;
 class PaymentMode extends Base
 {
     protected static $names = [
-        'CakePHP',
-        'CodeIgniter',
-        'Laravel',
-        'Lumen',
-        'Phalcon',
-        'Slim',
-        'Symfony',
+        'bank_card',
+        'bank_cheque',
+        'cash'
     ];
     public function paymentMode(): string
     {
