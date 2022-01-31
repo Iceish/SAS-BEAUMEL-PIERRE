@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function loginView(): Factory|View|Application
     {
-        return view("Auth.login");
+        return view("auth.login");
     }
 
     /**

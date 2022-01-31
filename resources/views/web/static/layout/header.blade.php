@@ -1,20 +1,28 @@
 <header>
-    <p>Header</p>
-    <ul>
-        <li>
-            <a href={{ route('Home') }}>Home</a>
-        </li>
-        <li>
-            <a href={{ route('About') }}>About us</a>
-        </li>
-        <li>
-            <a href={{ route('Partners') }}>Partners</a>
-        </li>
-        <li>
-            <a href={{ route('Clients') }}>Cliens</a>
-        </li>
-        <li>
-            <a href="{{ route('Auth.Login.View') }}">Login</a>
-        </li>
-    </ul>
+
+    <input id="dropdown" type="checkbox" checked/>
+
+    <label for="dropdown" id="dropdown__btn"></label>
+
+    <nav>
+        <p>Sas-beaumel-pierre</p>
+        <ul role="list">
+            <li>
+                <a href={{ route('home') }}>Home</a>
+            </li>
+            <li>
+                <a href={{ route('about') }}>About us</a>
+            </li>
+            <li>
+                <a href={{ route('partners') }}>Partners</a>
+            </li>
+            <li>
+                <a href={{ route('clients') }}>Clients</a>
+            </li>
+            <li>
+                <a href="{{ route('auth.login.view') }}">Login</a>
+            </li>
+        </ul>
+    </nav>
+
 </header>

@@ -11,7 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
+// mix.js('resources/js/app.js', 'public/js')
+//     .postCss('resources/css/app.css', 'public/css', [
+//         //
+//     ]);
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+    .sass('resources/sass/app.scss', 'public/css')
+    .copyDirectory('resources/img', 'public/img')
+    .options({
+        processCssUrls: false
+    })
+    .browserSync('http://127.0.0.1:8000')
+    .options({
+        watchOptions : {
+            ignored : /node_modules/
+        }
+    });
+mix.disableNotifications();

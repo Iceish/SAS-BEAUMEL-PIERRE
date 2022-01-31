@@ -1,7 +1,7 @@
 @error('failed')
 <div class="alert alert-danger">{{ $message }}</div>
 @enderror
-<form action="{{ route("Auth.Login") }}" method="post">
+<form action="{{ route("auth.login") }}" method="post">
     @csrf
     <div>
         <label for="emailInput">
@@ -31,7 +31,7 @@
     <input type="submit" value="{{ ucfirst(__("word.submit")) }}">
 
     <div>
-        <a href="{{ route("Auth.ForgotPassword.View") }}">{{__("auth.passwordForgotten")}}</a>
+        <a href="{{ route("auth.forgotPassword.view") }}">{{__("auth.passwordForgotten")}}</a>
     </div>
 </form>
 
