@@ -28,5 +28,6 @@ class InvoiceDetail extends Model
     protected $fillable = [
         'transport',
         'VAT',
+        'quantity',
     ];
 }
