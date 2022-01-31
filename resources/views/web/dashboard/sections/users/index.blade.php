@@ -3,8 +3,8 @@
 @section('main')
     <p>All users</p>
     @foreach($users as $user)
-        {{$user->name}}
+        {{$user->name}}<br>
         {{$user->email}}
-        {{$user->email}}
+        <hr>
     @endforeach
 @endsection
