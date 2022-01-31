@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use JetBrains\PhpStorm\ArrayShape;
 
 class SettingFactory extends Factory
 {
@@ -11,10 +12,11 @@ class SettingFactory extends Factory
      *
      * @return array
      */
+    #[ArrayShape(['VAT' => "mixed"])]
     public function definition()
     {
         return [
-            'VAT' => $this->faker->randomFloat(),
+            'VAT' => $this->faker->vatPercent(),
         ];
     }
 }

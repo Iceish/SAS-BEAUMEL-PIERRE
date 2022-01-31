@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 
-use App\Faker\PaymentMode;
-use App\Faker\Registration;
+use App\Faker\Economy;
+use App\Faker\Vehicle;
 use Faker\{Factory, Generator};
 use Illuminate\Support\ServiceProvider;
 
@@ -19,8 +19,8 @@ class FakerServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Generator::class, function () {
             $faker = Factory::create();
-            $faker->addProvider(new Registration($faker));
-            $faker->addProvider(new PaymentMode($faker));
+            $faker->addProvider(new Vehicle($faker));
+            $faker->addProvider(new Economy($faker));
             return $faker;
         });
     }

@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\InvoiceDetail;
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInvoicesDetailsHasProductsTable extends Migration
+class CreateInvoicesDetailsProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +15,10 @@ class CreateInvoicesDetailsHasProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('invoices_details_has_products', function (Blueprint $table) {
+        Schema::create('invoices_details_products', function (Blueprint $table) {
             $table->id();
-            $table->foreign('detail_id')->references('id')->on('invoice_details');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreignIdFor(InvoiceDetail::class)->references('id')->on('invoice_details');
+            $table->foreignIdFor(Product::class)->references('id')->on('products');
         });
     }
 

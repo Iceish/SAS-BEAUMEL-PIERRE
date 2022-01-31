@@ -15,7 +15,7 @@ class InvoiceDetailFactory extends Factory
     {
         return [
             'transport' => $this->faker->word(),
-            'VAT' => $this->faker->randomFloat(),
+            'VAT' => $this->faker->vatPercent(),
 
         ];
     }
