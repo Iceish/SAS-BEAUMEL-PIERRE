@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ClientFactory extends Factory
+class CameraFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,10 +15,11 @@ class ClientFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'postal_code' => $this->faker->postcode(),
-            'city' => $this->faker->city(),
-            'address' => $this->faker->address(),
+            'ip' => $this->faker->ipv6(),
+            'user_name' => $this->faker->userName(),
+            'password' => $this->faker->password(),
+            'place' => $this->faker->streetName(),
         ];
     }
 }
+
