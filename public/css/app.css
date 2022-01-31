@@ -88,8 +88,20 @@ a:visited, a:hover, a:focus, a:active {
   color: black;
 }
 
+hr {
+  background-color: black;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  height: 1px;
+  width: 100%;
+  border: 0;
+}
+
 body#dashboard {
   background-color: lightgreen;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.125fr;
 }
 body#dashboard header {
   position: fixed;
@@ -129,6 +141,10 @@ body#dashboard header nav ul {
 body#dashboard header nav ul li a {
   display: flex;
   flex-direction: column;
+}
+body#dashboard footer {
+  padding: 32px;
+  background-color: lightpink;
 }
 @media screen and (min-width: 1024px) {
   body#dashboard {
@@ -207,13 +223,6 @@ body#static footer ul {
   width: 50%;
   grid-gap: 20px;
   padding: 0;
-}
-body#static footer hr {
-  background-color: black;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  height: 2px;
-  width: 100%;
 }
 body#static main {
   background-color: antiquewhite;

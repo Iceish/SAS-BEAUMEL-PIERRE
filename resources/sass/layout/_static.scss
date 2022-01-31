@@ -79,12 +79,7 @@ body#static {
             padding: 0;
         }
 
-        hr {
-            background-color: black;
-            @include margin-y(32px);
-            height: 2px;
-            width: 100%;
-        }
+
     }
 
     main {

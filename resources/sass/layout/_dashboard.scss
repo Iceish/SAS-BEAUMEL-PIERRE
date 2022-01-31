@@ -1,6 +1,10 @@
 body#dashboard{
     background-color: lightgreen;
 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.125fr;
+
     header{
         position: fixed;
         bottom: 0;
@@ -53,6 +57,11 @@ body#dashboard{
                 }
             }
         }
+    }
+
+    footer{
+        padding: 32px;
+        background-color: lightpink;
     }
 
     // Desktop screen
