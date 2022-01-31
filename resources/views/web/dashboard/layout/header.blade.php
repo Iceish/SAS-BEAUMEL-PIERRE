@@ -1,4 +1,4 @@
-<header>
+<header id="dashboard">
     <p>Header</p>
     <ul>
         <li>

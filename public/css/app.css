@@ -75,33 +75,32 @@ select {
     scroll-behavior: auto !important;
   }
 }
-body {
+body#static {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 0.125fr;
 }
-
-header {
+body#static header {
   position: fixed;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   width: 100%;
 }
-header input[type=checkbox]#dropdown {
+body#static header input[type=checkbox]#dropdown {
   display: none;
 }
-header input[type=checkbox]#dropdown:checked ~ nav {
+body#static header input[type=checkbox]#dropdown:checked ~ nav {
   display: none;
 }
-header #dropdown__btn {
+body#static header #dropdown__btn {
   display: block;
   margin-top: 4px;
   width: 20px;
   height: 20px;
   background-color: blueviolet;
 }
-header nav {
+body#static header nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,7 +111,7 @@ header nav {
   padding-right: 32px;
   background-color: lightgreen;
 }
-header nav ul {
+body#static header nav ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   grid-template-rows: 1fr;
@@ -120,44 +119,40 @@ header nav ul {
   padding: 0;
   text-align: center;
 }
-
-footer {
+body#static footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 32px;
 }
-footer ul {
+body#static footer ul {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / 2 - 40px )));
+  grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / 2 - 40px)));
   width: 50%;
   grid-gap: 20px;
   padding: 0;
 }
-footer hr {
+body#static footer hr {
   background-color: black;
   margin-top: 32px;
   margin-bottom: 32px;
   height: 2px;
   width: 100%;
 }
-
-main {
+body#static main {
   background-color: antiquewhite;
 }
-
 @media screen and (min-width: 1024px) {
-  header nav {
+  body#static header nav {
     display: flex !important;
     height: 96px;
     flex-direction: row;
   }
-  header #dropdown__btn {
+  body#static header #dropdown__btn {
     display: none;
   }
-
-  main {
+  body#static main {
     padding-top: 96px;
   }
 }

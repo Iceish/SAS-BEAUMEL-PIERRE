@@ -1,118 +1,120 @@
 @use '../abstracts/mixins' as *;
 
-body{
+body#static {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr .125fr;
-}
 
-header{
-    position: fixed;
+    header {
+        position: fixed;
 
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-
-    width: 100%;
-
-    input[type=checkbox]#dropdown{
-        display: none;
-        &:checked ~ nav{
-            display: none;
-        }
-    }
-
-    #dropdown__btn{
-        display: block;
-        margin-top: 4px;
-        width: 20px;
-        height: 20px;
-        background-color: blueviolet;
-    }
-
-    nav{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: column-reverse;
         align-items: center;
 
         width: 100%;
-        min-height: 96px;
-        @include padding-x(32px);
 
-        background-color: lightgreen;
+        input[type=checkbox]#dropdown {
+            display: none;
 
-        ul{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(128px,1fr));
-            grid-template-rows: 1fr;
+            &:checked ~ nav {
+                display: none;
+            }
+        }
+
+        #dropdown__btn {
+            display: block;
+            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            background-color: blueviolet;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
             width: 100%;
+            min-height: 96px;
+            @include padding-x(32px);
+
+            background-color: lightgreen;
+
+            ul {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+                grid-template-rows: 1fr;
+
+                width: 100%;
+                padding: 0;
+
+                text-align: center;
+            }
+
+        }
+
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 32px;
+
+        ul {
+            $columns-max: 2;
+            $gap: 20px;
+
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / #{$columns-max} - #{$gap*2})));
+
+            width: 50%;
+
+
+            grid-gap: $gap;
             padding: 0;
+        }
 
-            text-align: center;
+        hr {
+            background-color: black;
+            @include margin-y(32px);
+            height: 2px;
+            width: 100%;
+        }
+    }
+
+    main {
+        background-color: antiquewhite;
+    }
+
+
+    // Desktop screen
+    @media screen and (min-width: 1024px) {
+        $height-nav: 96px;
+
+        header {
+
+            nav {
+                display: flex !important;
+                height: $height-nav;
+                flex-direction: row;
+            }
+
+            #dropdown__btn {
+                display: none;
+            }
+
+
+        }
+
+        main {
+            padding-top: $height-nav;
         }
 
     }
-
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    padding: 32px;
-
-    ul {
-        $columns-max : 2;
-        $gap : 20px;
-
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: repeat(auto-fit, minmax(128px,calc(100% / #{$columns-max} - #{$gap*2} )));
-
-        width: 50%;
-
-
-        grid-gap: $gap;
-        padding: 0;
-    }
-
-    hr{
-        background-color: black;
-        @include margin-y(32px);
-        height: 2px;
-        width: 100%;
-    }
-}
-
-main{
-    background-color: antiquewhite;
-}
-
-// Desktop screen
-@media screen and (min-width: 1024px){
-    $height-nav: 96px;
-
-    header {
-
-        nav{
-            display: flex !important;
-            height: $height-nav;
-            flex-direction: row;
-        }
-
-        #dropdown__btn{
-            display: none;
-        }
-
-
-    }
-
-    main{
-        padding-top: $height-nav;
-    }
-
 
 }
