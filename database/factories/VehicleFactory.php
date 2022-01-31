@@ -14,7 +14,7 @@ class VehicleFactory extends Factory
     public function definition()
     {
         return [
-            'registration' => $this->faker->registration(),
+            'licence_plate' => $this->faker->licencePlate(),
             'revision_date' => $this->faker->date(),
             'available' => $this->faker->boolean(),
         ];

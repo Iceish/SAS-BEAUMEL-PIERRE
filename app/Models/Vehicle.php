@@ -26,7 +26,7 @@ class Vehicle extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'registration',
+        'licence_plate',
         'revision_date',
         'available',
     ];
