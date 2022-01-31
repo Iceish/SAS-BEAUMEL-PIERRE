@@ -10,7 +10,7 @@ class LicencePlate extends Base
      * Generate a random licence plate
      * @return string
      */
-    public function licence_plate(): string
+    public function licencePlate(): string
     {
         $licence_plate = null;
         for($i =0;$i<2;$i++){
