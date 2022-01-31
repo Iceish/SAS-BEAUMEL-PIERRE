@@ -21,7 +21,7 @@ mix.js('resources/js/app.js', 'public/js')
     .options({
         processCssUrls: false
     })
-    .browserSync('http://127.0.0.1:8000')
+    .browserSync(process.env.APP_URL)
     .options({
         watchOptions : {
             ignored : /node_modules/

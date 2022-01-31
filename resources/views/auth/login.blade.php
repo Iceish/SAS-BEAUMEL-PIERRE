@@ -1,3 +1,6 @@
+@extends('web.static.layout')
+@section('main')
+
 @error('failed')
 <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -34,5 +37,6 @@
         <a href="{{ route("auth.forgotPassword.view") }}">{{__("auth.passwordForgotten")}}</a>
     </div>
 </form>
+@endsection
 
 
