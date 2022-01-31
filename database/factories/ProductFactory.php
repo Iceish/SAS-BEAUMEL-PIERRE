@@ -17,7 +17,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->word(),
             'quantity' => $this->faker->numberBetween(1,20),
             'image_path' => $this->faker->filePath(),
-            'price' => $this->faker->randomFloat(),
+            'price' => $this->faker->price(),
         ];
     }
 }

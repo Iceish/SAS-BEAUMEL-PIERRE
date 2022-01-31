@@ -14,7 +14,7 @@ class CustomerInvoiceFactory extends Factory
     public function definition()
     {
         return [
-            'totalTTC' => $this->faker->randomFloat(),
+            'totalTTC' => $this->faker->price(),
             'payment_date' => $this->faker->date(),
             'payment_mode' => $this->faker->paymentMode(),
         ];

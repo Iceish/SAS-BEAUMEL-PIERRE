@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Provider;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ class CreateProviderInvoicesTable extends Migration
             $table->id();
             $table->string('path');
             $table->date('date');
-            $table->foreign('provider_id')->references('id')->on('providers');
+            $table->foreignIdFor(Provider::class)->references('id')->on('providers');
             $table->timestamps();
         });
     }
