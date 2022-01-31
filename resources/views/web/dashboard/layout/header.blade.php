@@ -15,6 +15,7 @@
             <li><a href=""><i class="fa-solid fa-handshake"></i>Partners</a></li>
             <li><a href=""><i class="fa-solid fa-feather-pointed"></i>Products</a></li>
             <li><a href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-users"></i>Users</a></li>
+            <li><a href=""><i class="fa-solid fa-gears"></i>Settings</a></li>
             <li><a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
         </ul>
     </nav>

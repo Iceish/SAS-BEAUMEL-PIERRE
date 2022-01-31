@@ -3,8 +3,11 @@
 @section('main')
     <p>All users</p>
     @foreach($users as $user)
-        {{$user->name}}<br>
+        <a href="{{ route('dashboard.users.show', ['user' => $user->id]) }}">{{$user->name}}</a><br>
         {{$user->email}}
         <hr>
+        @if($user->hasRole('SuperAdmin'))
+            <p>lolll</p>
+        @endif
     @endforeach
 @endsection
