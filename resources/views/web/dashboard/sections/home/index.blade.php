@@ -1,7 +1,5 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    <p>Only one user here.</p>
-
+    <p>Home dashboard page</p>
 @endsection
-
