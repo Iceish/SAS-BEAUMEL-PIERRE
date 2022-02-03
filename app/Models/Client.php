@@ -19,7 +19,7 @@ class Client extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'client_id';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *

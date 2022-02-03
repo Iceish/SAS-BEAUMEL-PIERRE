@@ -19,7 +19,7 @@ class Camera extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'camera_id';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *

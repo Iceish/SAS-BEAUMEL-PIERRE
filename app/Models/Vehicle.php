@@ -19,7 +19,7 @@ class Vehicle extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'vehicle_id';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *

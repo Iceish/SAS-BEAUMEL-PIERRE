@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CustomerInvoice;
 use Illuminate\Database\Seeder;
 
 class CustomerInvoiceSeeder extends Seeder
@@ -13,6 +14,8 @@ class CustomerInvoiceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        CustomerInvoice::factory()
+            ->count(10)
+            ->create();
     }
 }

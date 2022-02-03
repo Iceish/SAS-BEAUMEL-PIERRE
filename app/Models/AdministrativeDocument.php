@@ -19,7 +19,7 @@ class AdministrativeDocument extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'document_id';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *

@@ -19,7 +19,7 @@ class ProviderInvoice extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'provider_invoice_id';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *

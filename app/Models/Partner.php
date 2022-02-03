@@ -19,7 +19,7 @@ class Partner extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'partner_id';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *

@@ -22,7 +22,6 @@ class CreateInvoiceDetailsTable extends Migration
             $table->unsignedInteger('quantity');
             $table->foreignIdFor(Product::class)->references('id')->on('products');
             $table->foreignIdFor(CustomerInvoice::class)->references('id')->on('customer_invoices');
-
         });
     }
 

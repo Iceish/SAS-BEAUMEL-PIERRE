@@ -19,7 +19,7 @@ class InvoiceDetail extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'invoice_detail_id';
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *
