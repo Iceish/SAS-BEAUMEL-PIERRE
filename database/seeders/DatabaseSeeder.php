@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissionsGroups = [
-            "users" =>  ["index","create","edit","delete","show"],
+            "users" =>  ["list","create","edit","delete"],
             "dashboard" =>  ["index"],
-            "invoice" =>  ["index","create","edit","delete","show"],
+            "invoice" =>  ["list","create","edit","delete"],
         ];
 
         foreach ($permissionsGroups as $permissionsGroupName=>$permissions){

@@ -15,6 +15,13 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:users.list', ['only' => ['index','show']]);
+        $this->middleware('permission:users.create', ['only' => ['create','store']]);
+        $this->middleware('permission:users.edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:users.delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -84,7 +91,7 @@ class UserController extends Controller
     public function edit(User $user): Application|Factory|View
     {
         $roles = Role::all()->whereNotIn("name",["SuperAdmin"]);
-        return view("web.dashboard.sections.users.show",
+        return view("web.dashboard.sections.users.edit",
             compact("user"),
             compact("roles")
         );

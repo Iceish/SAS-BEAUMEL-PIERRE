@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
@@ -16,23 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [GuestController::class,"home"])
-    ->name("home");
+Route::get('/', [GuestController::class,'home'])
+    ->name('home');
 
-Route::get('/about', [GuestController::class,"about"])
-    ->name("about");
+Route::get('/about', [GuestController::class,'about'])
+    ->name('about');
 
-Route::get('/clients', [GuestController::class,"clients"])
-    ->name("clients");
+Route::get('/clients', [GuestController::class,'clients'])
+    ->name('clients');
 
-Route::get('/partners', [GuestController::class,"partners"])
-    ->name("partners");
+Route::get('/partners', [GuestController::class,'partners'])
+    ->name('partners');
 
 
-Route::name('dashboard.')->prefix("dashboard")->middleware(["permission:show users"])->group(function (){
-    Route::get('/', [HomeController::class,"index"])
-        ->name("home");
+Route::name('dashboard.')->prefix('dashboard')->middleware(['permission:dashboard.*'])->group(function (){
+    Route::get('/', [HomeController::class,'index'])
+        ->name('home');
     Route::resource('users',UserController::class);
+    Route::resource('roles',RoleController::class);
 });
 
-require_once "auth.php";
+require_once 'auth.php';
