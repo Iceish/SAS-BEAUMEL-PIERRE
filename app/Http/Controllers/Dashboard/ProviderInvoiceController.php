@@ -8,6 +8,7 @@ use App\Models\ProviderInvoice;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use function view;
@@ -29,7 +30,7 @@ class ProviderInvoiceController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create()
+    public function create(): View|Factory|Application
     {
         return view("web.dashboard.sections.providerInvoice.create");
     }
@@ -38,9 +39,9 @@ class ProviderInvoiceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validated();
         ProviderInvoice::create($validated)->save();
@@ -50,33 +51,37 @@ class ProviderInvoiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param ProviderInvoice $providerInvoice
      * @return Application|Factory|View
      */
-    public function show($id)
+    public function show(ProviderInvoice $providerInvoice): View|Factory|Application
     {
-        return view("web.dashboard.sections.providerInvoice.show");
+        return view("web.dashboard.sections.providerInvoice.show",
+            compact("providerInvoice"),
+        );
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param ProviderInvoice $providerInvoice
      * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit(ProviderInvoice $providerInvoice): View|Factory|Application
     {
-        return view("web.dashboard.sections.providerInvoice.edit");
+        return view("web.dashboard.sections.providerInvoice.edit",
+            compact("providerInvoice")
+        );
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param UpdateProviderInvoiceRequest $request
+     * @param ProviderInvoice $provider
+     * @return RedirectResponse
      */
-    public function update(UpdateProviderInvoiceRequest $request,ProviderInvoice $provider)
+    public function update(UpdateProviderInvoiceRequest $request,ProviderInvoice $provider): RedirectResponse
     {
         $validated = $request->validated();
         $provider->update($validated);
@@ -86,10 +91,10 @@ class ProviderInvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param ProviderInvoice $provider
+     * @return RedirectResponse
      */
-    public function destroy(ProviderInvoice $provider)
+    public function destroy(ProviderInvoice $provider): RedirectResponse
     {
         $provider->delete();
         return redirect()->route("Dashboard.providerInvoice.View")->with('message',__("messages.providerInvoice.delete.success"));
