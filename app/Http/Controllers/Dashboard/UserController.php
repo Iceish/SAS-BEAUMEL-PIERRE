@@ -7,6 +7,7 @@ use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -23,7 +24,7 @@ class UserController extends Controller
         $this->middleware('permission:users.delete', ['only' => ['destroy']]);
     }
     /**
-     * Display a listing of the resource.
+     * Display a listing of user.
      *
      * @param SearchRequest $request
      * @return Application|Factory|View
@@ -42,7 +43,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new user.
      *
      * @return Application|Factory|View
      */
@@ -55,7 +56,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created user in storage.
      *
      * @param StoreUserRequest $request
      * @return RedirectResponse
@@ -63,12 +64,18 @@ class UserController extends Controller
     public function store(StoreUserRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        User::create($validated)->save();
-        return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
+        $user = User::create($validated);
+        try{
+            $user->save();
+            return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success",['user'=>$user]));
+        }catch (Exception){
+            return redirect()->route("dashboard.users.index")->with("errors",__("messages.user.create.failed",['user'=>$user]));
+
+        }
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user.
      *
      * @param User $user
      * @return Application|Factory|View
@@ -83,7 +90,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified user.
      *
      * @param User $user
      * @return Application|Factory|View
@@ -98,7 +105,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in storage.
      *
      * @param UpdateUserRequest $request
      * @param User $user
@@ -107,19 +114,27 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
         $validated = $request->validated();
-        $user->update($validated);
-        return redirect()->route("dashboard.users.index")->with("success",__("messages.user.update.success"));
+        try{
+            $user->update($validated);
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success',['user'=>$user]));
+        }catch (Exception){
+            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.update.failed',['user'=>$user]));
+        }
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified user from storage.
      *
      * @param User $user
      * @return RedirectResponse
      */
     public function destroy(User $user): RedirectResponse
     {
-        $user->delete();
-        return redirect()->route("Dashboard.Users.View")->with('message',__("messages.user.delete.success"));
+        try{
+            $user->delete();
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success',['user'=>$user]));
+        }catch (Exception){
+            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.delete.failed',['user'=>$user]));
+        }
     }
 }

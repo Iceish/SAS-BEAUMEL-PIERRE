@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
-class StoreRoleRequest extends FormRequest
+class StoreCustomerInvoiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,13 @@ class StoreRoleRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["role_name" => "string[]", "permissions" => "string[]"])]
-    public function rules(): array
+    #[ArrayShape(["totalTTC" => "float[]", "payment_date" => "string[]","payment_mode" => "string[]"])]
+    public function rules()
     {
         return [
-            "role_name" => ["required","max:255"],
-            "permissions" => ["required"]
+            "totalTTC" => ["required","float","max:255"],
+            "payment_date" => ["required","date"],
+            "payment_mode" => ["required","string","max:255"]
         ];
     }
 }
