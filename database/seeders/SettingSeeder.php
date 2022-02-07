@@ -13,5 +13,6 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+
     }
 }
