@@ -26,7 +26,7 @@ class StoreProviderInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "path" => ["required","path","max:255"],
+            "path" => ["required","string","max:255"],
             "date" => ["required","date"]
         ];
     }
