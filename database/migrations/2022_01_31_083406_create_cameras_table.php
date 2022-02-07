@@ -20,6 +20,7 @@ class CreateCamerasTable extends Migration
             $table->string('user_name')->nullable();
             $table->string('password');
             $table->string('place');
+            $table->timestamps();
         });
     }
 

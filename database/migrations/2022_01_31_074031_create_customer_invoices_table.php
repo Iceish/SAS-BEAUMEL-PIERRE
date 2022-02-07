@@ -18,7 +18,7 @@ class CreateCustomerInvoicesTable extends Migration
             $table->id();
             $table->float('totalTTC');
             $table->date('payment_date');
-            $table->date('payment_mode');
+            $table->string('payment_mode');
             $table->foreignIdFor(Client::class)->references('id')->on('clients');
             $table->timestamps();
         });

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\CustomerInvoice;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class InvoiceDetailFactory extends Factory
@@ -17,6 +19,8 @@ class InvoiceDetailFactory extends Factory
             'transport' => $this->faker->word(),
             'VAT' => $this->faker->vatPercent(),
             'quantity' => $this->faker->randomFloat(),
+            'product_id' => Product::all()->random()->id,
+            'customer_invoice_id' => CustomerInvoice::all()->random()->id,
         ];
     }
 }

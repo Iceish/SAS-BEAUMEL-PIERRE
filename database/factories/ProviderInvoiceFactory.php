@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Provider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProviderInvoiceFactory extends Factory
@@ -16,6 +17,7 @@ class ProviderInvoiceFactory extends Factory
         return [
             'path' => $this->faker->filePath(),
             'date' => $this->faker->date(),
+            'provider_id' => Provider::all()->random()->id,
         ];
     }
 }
