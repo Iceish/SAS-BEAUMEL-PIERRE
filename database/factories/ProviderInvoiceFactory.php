@@ -15,9 +15,9 @@ class ProviderInvoiceFactory extends Factory
     public function definition()
     {
         return [
-            'path' => $this->faker->filePath(),
-            'date' => $this->faker->date(),
-            'provider_id' => Provider::all()->random()->id,
+            'path' => $this->faker->filePath(),                // path: filePath / ex: C:\Users\adrie\AppData\Local\Temp\fakEF2D.tmp
+            'date' => $this->faker->date(),                    // date: date / ex: 1977-09-23
+            'provider_id' => Provider::all()->random()->id,    // provider_id: id / ex: 4
         ];
     }
 }

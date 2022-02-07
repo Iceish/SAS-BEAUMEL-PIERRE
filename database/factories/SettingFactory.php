@@ -16,7 +16,7 @@ class SettingFactory extends Factory
     public function definition()
     {
         return [
-            'VAT' => $this->faker->vatPercent(),
+            'VAT' => $this->faker->vatPercent(),   // VAT: vatPercent / ex: 44.25 / Creation faker: app/Faker/Economy.php
         ];
     }
 }

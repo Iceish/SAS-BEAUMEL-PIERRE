@@ -9,7 +9,7 @@ class CreatePermissionTables extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the permissions table in database
      * @return void
      */
     public function up()

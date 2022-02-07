@@ -14,11 +14,11 @@ class ProviderFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'postal_code' => $this->faker->frenchPostalCode(),
-            'city' => $this->faker->city(),
-            'address' => $this->faker->address(),
+            'name' => $this->faker->name(),                      // name: name / ex: Travis Wehner
+            'email' => $this->faker->unique()->safeEmail(),      // email: safeEmail / ex: leonie.thompson@example.org
+            'postal_code' => $this->faker->frenchPostalCode(),   // postal_code: frenchPostalCode / ex: 44981 / Creation faker: app/Faker/Geography.php
+            'city' => $this->faker->city(),                      // city: city / ex: North Antwon
+            'address' => $this->faker->address(),                // address: address / ex: 78919 Isai Key East Alysa, VA
         ];
     }
 }

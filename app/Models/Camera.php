@@ -11,7 +11,7 @@ class Camera extends Model
     /**
      * The table associated with the model.
      *
-     * @var string
+     * @var string = table name
      */
     protected $table = 'cameras';
     /**

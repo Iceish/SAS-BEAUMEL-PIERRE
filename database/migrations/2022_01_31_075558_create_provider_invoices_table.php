@@ -9,7 +9,7 @@ class CreateProviderInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the provider_invoices table in database
      * @return void
      */
     public function up()

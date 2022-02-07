@@ -16,9 +16,9 @@ class VehicleFactory extends Factory
     public function definition(): array
     {
         return [
-            'licence_plate' => $this->faker->licencePlate(),
-            'revision_date' => $this->faker->date(),
-            'available' => $this->faker->boolean(),
+            'licence_plate' => $this->faker->licencePlate(),     // licence_plate: licencePlate / ex: WR-002-KF / Creation faker: app/Faker/Vehicle.php
+            'revision_date' => $this->faker->date(),             // revision_date: date / ex: 1972-09-30
+            'available' => $this->faker->boolean(),              // available: boolean / ex: 0
         ];
     }
 }

@@ -9,7 +9,7 @@ class CameraSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Adds in database the datasets created by the factory CameraFactory
      * @return void
      */
     public function run()

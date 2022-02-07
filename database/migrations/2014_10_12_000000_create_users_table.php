@@ -8,7 +8,7 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the users table in database
      * @return void
      */
     public function up()
@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email')->unique();                   // email: No duplication
+            $table->timestamp('email_verified_at')->nullable();  // email_verified_at: Can be null
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

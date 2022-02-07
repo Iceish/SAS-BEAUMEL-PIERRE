@@ -9,7 +9,7 @@ class EditPasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the password_resets table in database
      * @return void
      */
     public function up()

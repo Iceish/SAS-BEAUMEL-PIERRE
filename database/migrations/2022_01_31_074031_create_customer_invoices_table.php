@@ -9,7 +9,7 @@ class CreateCustomerInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the customer_invoices table in database
      * @return void
      */
     public function up()

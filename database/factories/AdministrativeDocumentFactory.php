@@ -14,8 +14,8 @@ class AdministrativeDocumentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
-            'path' => $this->faker->filePath(),
+            'name' => $this->faker->word(),           // name: word / ex: animi
+            'path' => $this->faker->filePath(),       // path: filePath / ex: C:\Users\adrie\AppData\Local\Temp\fakCE16.tmp
         ];
     }
 }

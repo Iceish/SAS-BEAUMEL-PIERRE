@@ -8,7 +8,7 @@ class CreateProvidersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the providers table in database
      * @return void
      */
     public function up()

@@ -8,7 +8,7 @@ class CreateCamerasTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the cameras table in database
      * @return void
      */
     public function up()

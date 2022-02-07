@@ -8,7 +8,7 @@ class CreateAdministrativeDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the administrative_documents table in database
      * @return void
      */
     public function up()

@@ -8,7 +8,7 @@ class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the clients table in database
      * @return void
      */
     public function up()

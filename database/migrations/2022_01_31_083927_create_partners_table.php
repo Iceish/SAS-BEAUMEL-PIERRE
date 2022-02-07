@@ -8,7 +8,7 @@ class CreatePartnersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the partners table in database
      * @return void
      */
     public function up()

@@ -8,7 +8,7 @@ class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the products table in database
      * @return void
      */
     public function up()

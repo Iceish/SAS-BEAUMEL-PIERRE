@@ -16,11 +16,11 @@ class InvoiceDetailFactory extends Factory
     public function definition()
     {
         return [
-            'transport' => $this->faker->word(),
-            'VAT' => $this->faker->vatPercent(),
-            'quantity' => $this->faker->randomFloat(),
-            'product_id' => Product::all()->random()->id,
-            'customer_invoice_id' => CustomerInvoice::all()->random()->id,
+            'transport' => $this->faker->word(),                            // transport: word / ex: saepe
+            'VAT' => $this->faker->vatPercent(),                            // VAT: vatPercent / ex: 44.25 / Creation faker: app/Faker/Economy.php
+            'quantity' => $this->faker->randomFloat(),                      // quantity: randomFloat / ex: 16
+            'product_id' => Product::all()->random()->id,                   // product_id: id / ex: 1
+            'customer_invoice_id' => CustomerInvoice::all()->random()->id,  // customer_invoice_id: id / ex: 3
         ];
     }
 }

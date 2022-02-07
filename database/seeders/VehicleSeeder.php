@@ -9,7 +9,7 @@ class VehicleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Adds in database the datasets created by the factory VehicleFactory
      * @return void
      */
     public function run()

@@ -8,7 +8,7 @@ class CreateSessionsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the sessions table in database
      * @return void
      */
     public function up()

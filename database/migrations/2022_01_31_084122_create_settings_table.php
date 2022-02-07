@@ -8,7 +8,7 @@ class CreateSettingsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the settings table in database
      * @return void
      */
     public function up()

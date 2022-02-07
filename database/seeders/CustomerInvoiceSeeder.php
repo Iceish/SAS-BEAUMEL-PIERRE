@@ -9,7 +9,7 @@ class CustomerInvoiceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Adds in database the datasets created by the factory CustomerInvoiceFactory
      * @return void
      */
     public function run()

@@ -10,7 +10,7 @@ class CreateInvoiceDetailsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the invoice_details table in database
      * @return void
      */
     public function up()

@@ -8,7 +8,7 @@ class CreateVehiclesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Allows to migrate the vehicles table in database
      * @return void
      */
     public function up()

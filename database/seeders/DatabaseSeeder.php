@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
+     * Adds in database the datasets
      * @return void
      */
     public function run()
