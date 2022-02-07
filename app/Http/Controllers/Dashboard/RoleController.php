@@ -99,21 +99,24 @@ class RoleController extends Controller
      *
      * @param UpdateRoleRequest $request
      * @param Role $role
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update(UpdateRoleRequest $request, Role $role): Response
+    public function update(UpdateRoleRequest $request, Role $role): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+        $role->update($validated);
+        return redirect()->route("dashboard.users.index")->with("success",__("messages.client.update.success"));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Role $role
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy(Role $role): Response
+    public function destroy(Role $role): RedirectResponse
     {
-        //
+        $role->delete();
+        return redirect()->route("Dashboard.Users.View")->with('message',__("messages.client.delete.success"));
     }
 }

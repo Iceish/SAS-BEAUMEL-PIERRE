@@ -7,6 +7,7 @@ use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -63,8 +64,14 @@ class UserController extends Controller
     public function store(StoreUserRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        User::create($validated)->save();
-        return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
+        $user = User::create($validated);
+        try{
+            $user->save();
+            return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success",['user'=>$user]));
+        }catch (Exception){
+            return redirect()->route("dashboard.users.index")->with("errors",__("messages.user.create.failed",['user'=>$user]));
+
+        }
     }
 
     /**
@@ -107,8 +114,12 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
         $validated = $request->validated();
-        $user->update($validated);
-        return redirect()->route("dashboard.users.index")->with("success",__("messages.user.update.success"));
+        try{
+            $user->update($validated);
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success',['user'=>$user]));
+        }catch (Exception){
+            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.update.failed',['user'=>$user]));
+        }
     }
 
     /**
@@ -119,7 +130,11 @@ class UserController extends Controller
      */
     public function destroy(User $user): RedirectResponse
     {
-        $user->delete();
-        return redirect()->route("Dashboard.Users.View")->with('message',__("messages.user.delete.success"));
+        try{
+            $user->delete();
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success',['user'=>$user]));
+        }catch (Exception){
+            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.delete.failed',['user'=>$user]));
+        }
     }
 }

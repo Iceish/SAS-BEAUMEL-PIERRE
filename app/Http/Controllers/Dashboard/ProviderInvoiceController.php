@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProviderInvoiceRequest;
 use App\Http\Requests\UpdateProviderInvoiceRequest;
 use App\Models\ProviderInvoice;
 use Illuminate\Contracts\Foundation\Application;
@@ -41,7 +40,7 @@ class ProviderInvoiceController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreProviderInvoiceRequest $request)
+    public function store(Request $request)
     {
         $validated = $request->validated();
         ProviderInvoice::create($validated)->save();
@@ -67,7 +66,7 @@ class ProviderInvoiceController extends Controller
      */
     public function edit($id)
     {
-        return view("web.dashboard.sections.providerInvoice.edit",);
+        return view("web.dashboard.sections.providerInvoice.edit");
     }
 
     /**

@@ -16,7 +16,7 @@ class Economy extends Base
         return static::randomElement($names);
     }
 
-    public function price(float $min, float $max): string
+    public function price(float $min = 0, float $max = 10000): string
     {
         return static::randomFloat(2,$min,$max);
     }
