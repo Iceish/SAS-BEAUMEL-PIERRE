@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProviderInvoiceRequest;
+use App\Models\ProviderInvoice;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -25,44 +27,46 @@ class ProviderInvoiceController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function create()
     {
-        //
+        return view("web.dashboard.sections.providerInvoice.create");
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validated();
+        ProviderInvoice::create($validated)->save();
+        return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.create.success"));
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return Application|Factory|View
      */
     public function show($id)
     {
-        //
+        return view("web.dashboard.sections.providerInvoice.show");
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return Application|Factory|View
      */
     public function edit($id)
     {
-        //
+        return view("web.dashboard.sections.providerInvoice.edit");
     }
 
     /**
@@ -70,21 +74,24 @@ class ProviderInvoiceController extends Controller
      *
      * @param Request $request
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProviderInvoiceRequest $request,ProviderInvoice $provider)
     {
-        //
+        $validated = $request->validated();
+        $provider->update($validated);
+        return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.update.success"));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(ProviderInvoice $provider)
     {
-        //
+        $provider->delete();
+        return redirect()->route("Dashboard.providerInvoice.View")->with('message',__("messages.providerInvoice.delete.success"));
     }
 }
