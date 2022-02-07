@@ -7,6 +7,7 @@ use App\Http\Requests\SearchRequest;
 use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -52,8 +53,13 @@ class ClientController extends Controller
     public function store(StoreClientRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        Client::create($validated)->save();
-        return redirect()->route("dashboard.client.index")->with("success",__("messages.client.create.success"));
+        $client = Client::create($validated);
+        try{
+            $client->save();
+            return redirect()->route("dashboard.client.index")->with("success",__("messages.client.create.success",['client'=>$client]));
+        }catch (Exception){
+            return redirect()->route("dashboard.client.index")->with("errors",__("messages.client.create.failed",['client'=>$client]));
+        }
     }
 
     /**
@@ -92,8 +98,12 @@ class ClientController extends Controller
     public function update(UpdateClientRequest $request, Client $client): RedirectResponse
     {
         $validated = $request->validated();
-        $client->update($validated);
-        return redirect()->route("dashboard.users.index")->with("success",__("messages.client.update.success"));
+        try{
+            $client->update($validated);
+            return redirect()->route("dashboard.client.index")->with("success",__("messages.client.update.success",['client'=>$client]));
+        }catch (Exception){
+            return redirect()->route("dashboard.client.index")->with("errors",__("messages.client.update.success",['client'=>$client]));
+        }
     }
 
     /**
@@ -104,7 +114,11 @@ class ClientController extends Controller
      */
     public function destroy(Client $client): RedirectResponse
     {
-        $client->delete();
-        return redirect()->route("Dashboard.Users.View")->with('message',__("messages.client.delete.success"));
+        try{
+            $client->delete();
+            return redirect()->route("dashboard.client.index")->with('success',__("messages.client.delete.success",['client'=>$client]));
+        }catch (Exception){
+            return redirect()->route("dashboard.client.index")->with('errors',__("messages.client.delete.success",['client'=>$client]));
+        }
     }
 }

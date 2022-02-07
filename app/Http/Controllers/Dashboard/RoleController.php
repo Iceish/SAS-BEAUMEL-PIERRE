@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -24,7 +24,7 @@ class RoleController extends Controller
         $this->middleware('permission:roles.delete', ['only' => ['destroy']]);
     }
     /**
-     * Display a listing of the resource.
+     * Display a listing of the role.
      *
      * @return Application|Factory|View
      */
@@ -37,7 +37,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new role.
      *
      * @return Application|Factory|View
      */
@@ -50,7 +50,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created role in storage.
      *
      * @param StoreRoleRequest $request
      * @return RedirectResponse
@@ -62,14 +62,18 @@ class RoleController extends Controller
         $role = Role::create(['name' => $validated["role_name"]]);
 
         $permissions = DB::table('permissions')->whereIn("id",$validated["permissions"])->whereNotIn("name",["SuperAdmin"])->get();
-        foreach($permissions as $permission){
-            $role->givePermissionTo($permission->name);
+        try{
+            foreach($permissions as $permission){
+                $role->givePermissionTo($permission->name);
+            }
+            return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.create.success",["role"=>$role]));
+        }catch (Exception){
+            return redirect()->route("dashboard.roles.index")->with("errors",__("messages.role.create.failed",["role"=>$role]));
         }
-        return redirect()->route("dashboard.roles.index")->with("");
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified role.
      *
      * @param Role $role
      * @return Application|Factory|View
@@ -82,7 +86,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified role.
      *
      * @param Role $role
      * @return Application|Factory|View
@@ -95,7 +99,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified role in storage.
      *
      * @param UpdateRoleRequest $request
      * @param Role $role
@@ -104,19 +108,27 @@ class RoleController extends Controller
     public function update(UpdateRoleRequest $request, Role $role): RedirectResponse
     {
         $validated = $request->validated();
-        $role->update($validated);
-        return redirect()->route("dashboard.users.index")->with("success",__("messages.client.update.success"));
+        try{
+            $role->update($validated);
+            return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.update.success",["role"=>$role]));
+        }catch (Exception){
+            return redirect()->route("dashboard.roles.index")->with("errors",__("messages.role.update.failed",["role"=>$role]));
+        }
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified role from storage.
      *
      * @param Role $role
      * @return RedirectResponse
      */
     public function destroy(Role $role): RedirectResponse
     {
-        $role->delete();
-        return redirect()->route("Dashboard.Users.View")->with('message',__("messages.client.delete.success"));
+        try{
+            $role->delete();
+            return redirect()->route("dashboard.roles.index")->with('success',__("messages.role.delete.success",["role"=>$role]));
+        }catch (Exception){
+            return redirect()->route("dashboard.roles.index")->with('errors',__("messages.role.delete.failed",["role"=>$role]));
+        }
     }
 }

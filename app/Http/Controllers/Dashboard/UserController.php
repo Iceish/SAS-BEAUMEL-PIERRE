@@ -24,7 +24,7 @@ class UserController extends Controller
         $this->middleware('permission:users.delete', ['only' => ['destroy']]);
     }
     /**
-     * Display a listing of the resource.
+     * Display a listing of user.
      *
      * @param SearchRequest $request
      * @return Application|Factory|View
@@ -43,7 +43,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new user.
      *
      * @return Application|Factory|View
      */
@@ -56,7 +56,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created user in storage.
      *
      * @param StoreUserRequest $request
      * @return RedirectResponse
@@ -75,7 +75,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user.
      *
      * @param User $user
      * @return Application|Factory|View
@@ -90,7 +90,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified user.
      *
      * @param User $user
      * @return Application|Factory|View
@@ -105,7 +105,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in storage.
      *
      * @param UpdateUserRequest $request
      * @param User $user
@@ -123,7 +123,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified user from storage.
      *
      * @param User $user
      * @return RedirectResponse
