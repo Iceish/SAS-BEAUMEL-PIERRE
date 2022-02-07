@@ -272,3 +272,31 @@ body#static main {
 #checkboxes label:hover {
   background-color: #1e90ff;
 }
+
+#loginform {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+  max-height: 400px;
+  padding: 5%;
+  margin-top: 20%;
+  background: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#loginform input {
+  width: 100%;
+  border: 1px solid black;
+}
+
+@media screen and (min-width: 1024px) {
+  #loginform {
+    margin-top: 5%;
+    padding: 5%;
+    width: 60%;
+    height: 100%;
+  }
+}

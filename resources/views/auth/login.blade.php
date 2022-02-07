@@ -4,7 +4,7 @@
 @error('failed')
 <div class="alert alert-danger">{{ $message }}</div>
 @enderror
-<form action="{{ route("auth.login") }}" method="post">
+<form action="{{ route("auth.login") }}" method="post" id="loginform" >
     @csrf
     <div>
         <label for="emailInput">
