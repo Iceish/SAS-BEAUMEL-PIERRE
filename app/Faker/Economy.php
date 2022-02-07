@@ -16,9 +16,9 @@ class Economy extends Base
         return static::randomElement($names);
     }
 
-    public function price(): string
+    public function price(float $min, float $max): string
     {
-        return static::randomFloat(2);
+        return static::randomFloat(2,$min,$max);
     }
 
     public function vatPercent(): float
