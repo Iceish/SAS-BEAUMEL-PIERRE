@@ -2,7 +2,9 @@
 
     <input id="dropdown" type="checkbox" checked/>
 
-    <label for="dropdown" id="dropdown__btn"></label>
+    <label for="dropdown" id="dropdown__btn">
+        <i class="fa-solid fa-angle-down fa-xl"></i>
+    </label>
 
     <nav>
         <img src="{{ @asset('img/logo.png') }}" alt="logo" height="96px">

@@ -2,7 +2,9 @@
 
     <input id="dropdown" type="checkbox" checked/>
 
-    <label for="dropdown" id="dropdown__btn"></label>
+    <label for="dropdown" id="dropdown__btn">
+        <i class="fa-solid fa-angle-down fa-xl"></i>
+    </label>
 
     <nav>
         <h1>Dashboard</h1>
