@@ -1,5 +1,5 @@
 <footer>
-    <p>SAS-BEAUMEL-PIERRE</p>
+    <p>{{ __('word.company-name') }}</p>
     <hr>
-    <p>© 2022 - All right <i>pas encore</i> reserved.</p>
+    <p>{{ __('text.copyright') }}</p>
 </footer>
