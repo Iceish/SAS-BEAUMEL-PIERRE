@@ -10,19 +10,19 @@
         <img src="{{ @asset('img/logo.png') }}" alt="logo" height="96px">
         <ul role="list">
             <li>
-                <a href={{ route('home') }}>Home</a>
+                <a href={{ route('home') }}>{{ ucfirst(__("word.home")) }}</a>
             </li>
             <li>
-                <a href={{ route('about') }}>About us</a>
+                <a href={{ route('about') }}>{{ ucfirst(__("word.about-us")) }}</a>
             </li>
             <li>
-                <a href={{ route('partners') }}>Partners</a>
+                <a href={{ route('partners') }}>{{ ucfirst(__("word.partners")) }}</a>
             </li>
             <li>
-                <a href={{ route('clients') }}>Clients</a>
+                <a href={{ route('clients') }}>{{ ucfirst(__("word.clients")) }}</a>
             </li>
             <li>
-                <a href="{{ route('auth.login.view') }}">Login</a>
+                <a href="{{ route('auth.login.view') }}">{{ ucfirst(__("word.login")) }}</a>
             </li>
         </ul>
     </nav>

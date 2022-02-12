@@ -9,7 +9,7 @@
         @foreach($permissions as $permission)
             <label>
                 <input type="checkbox" name="permissions[]" value="{{$permission->id}}"/>
-                {{$permission->name}}
+                {{ __($permission->name) }}
             </label>
         @endforeach
         <input type="submit">

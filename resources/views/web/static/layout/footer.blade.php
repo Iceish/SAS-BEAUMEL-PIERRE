@@ -1,7 +1,7 @@
 <footer>
-    <p>SAS-BEAUMEL-PIERRE</p>
+    <p>{{ __('word.company-name') }}</p>
     <ul role="list">
-        <li><a href="{{route("contactus")}}">Contact us</a></li>
+        <li><a href="{{route("contactus")}}">{{ ucfirst(__('word.contact-us')) }}</a></li>
         <li><a href="">CGU</a></li>
         <li><a href="">Foo</a></li>
         <li><a href="">Foo</a></li>
@@ -9,5 +9,5 @@
 
     <hr>
 
-    <p>© 2022 - All right <i>pas encore</i> reserved.</p>
+    <p>{{ ucfirst(__('text.copyright')) }}</p>
 </footer>
