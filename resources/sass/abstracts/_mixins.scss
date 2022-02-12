@@ -17,3 +17,7 @@
     margin-top: $val;
     margin-bottom: $val;
 }
+
+@mixin separator($pos){
+    border-#{$pos} : 1px solid rgba(230, 230, 230, 1);
+}

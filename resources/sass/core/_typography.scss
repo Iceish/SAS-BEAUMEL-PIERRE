@@ -1,14 +1,14 @@
-@use '../abstracts/mixins' as *;
+@use '../abstracts' as *;
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 body{
     font-family: Nunito, sans-serif;
-    color: black;
 }
 
 a{
     text-decoration: none;
-    &:visited, &:hover, &:focus, &:active { color: black }
+    &:visited, &:focus, &:active { color: $primary-dark }
+    &:hover { color: $primary-light }
 }
 
 hr {

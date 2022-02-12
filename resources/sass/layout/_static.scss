@@ -1,4 +1,4 @@
-@use '../abstracts/mixins' as *;
+@use '../abstracts' as *;
 
 body#static {
     display: grid;
@@ -13,6 +13,8 @@ body#static {
         align-items: center;
 
         width: 100%;
+
+        @include separator('bottom');
 
         input[type=checkbox]#dropdown {
             display: none;
@@ -40,7 +42,7 @@ body#static {
             min-height: 96px;
             @include padding-x(32px);
 
-            background-color: lightgreen;
+            background-color: $background-light;
 
             ul {
                 display: grid;
@@ -51,6 +53,7 @@ body#static {
                 padding: 0;
 
                 text-align: center;
+
             }
 
         }
@@ -63,6 +66,10 @@ body#static {
         align-items: flex-start;
 
         padding: 32px;
+
+        background-color: $background-light;
+
+        @include separator(top);
 
         ul {
             $columns-max: 2;
@@ -83,7 +90,7 @@ body#static {
     }
 
     main {
-        background-color: antiquewhite;
+        background-color: $background-light;
     }
 
 

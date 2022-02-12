@@ -5,7 +5,7 @@
     <label for="dropdown" id="dropdown__btn"></label>
 
     <nav>
-        <p>Sas-beaumel-pierre</p>
+        <img src="{{ @asset('img/logo.png') }}" alt="logo" height="96px">
         <ul role="list">
             <li>
                 <a href={{ route('home') }}>Home</a>
