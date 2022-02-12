@@ -20,8 +20,10 @@
 
                         @endforeach
 
-                    @else
+                    @elseif( count( $row->{substr($key[0], 1)}()->toArray() ) == 1)
                         <p>{{ $row->{substr($key[0], 1)}()->toArray()[0] }}</p>
+                    @else
+                        <p>...</p>
                     @endif
 
                 @else
