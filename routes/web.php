@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\CustomerInvoiceController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\RoleController;
@@ -44,6 +45,7 @@ Route::name('dashboard.')->prefix('dashboard')->middleware(['permission:dashboar
     Route::resource('users',UserController::class);
     Route::resource('roles',RoleController::class);
     Route::resource('customer-invoices', CustomerInvoiceController::class);
+    Route::resource('clients', ClientController::class);
 });
 
 require_once 'auth.php';
