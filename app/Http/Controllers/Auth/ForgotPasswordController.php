@@ -53,7 +53,7 @@ class ForgotPasswordController extends Controller
 
 
         $token = Crypt::encryptString($user->id." ".$token);
-        Mail::send('Mail.forgot_password', ['token' => $token,'user'=>$user], function($message) use($user){
+        Mail::send('mail.forgot_password', ['token' => $token,'user'=>$user], function($message) use($user){
             $message->to($user->email);
             $message->subject('Reset Password');
         });

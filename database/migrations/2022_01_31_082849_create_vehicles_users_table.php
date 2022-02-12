@@ -20,8 +20,8 @@ class CreateVehiclesUsersTable extends Migration
             $table->text('reason');
             $table->date('start_date');
             $table->date('end_date');
-            $table->foreignIdFor(Vehicle::class)->references('id')->on('vehicles');
-            $table->foreignIdFor(User::class)->references('id')->on('users');
+            $table->foreignIdFor(Vehicle::class)->references('id')->on('vehicles')->onDelete("cascade");;
+            $table->foreignIdFor(User::class)->references('id')->on('users')->onDelete("cascade");;
         });
     }
 
@@ -32,6 +32,6 @@ class CreateVehiclesUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehicles_has_users');
+        Schema::dropIfExists('vehicles_users');
     }
 }

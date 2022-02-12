@@ -22,10 +22,11 @@ class StoreCustomerInvoiceRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["totalTTC" => "float[]", "payment_date" => "string[]","payment_mode" => "string[]"])]
-    public function rules()
+    #[ArrayShape(["client_id" => "string[]", "totalTTC" => "string[]", "payment_date" => "string[]", "payment_mode" => "string[]"])]
+    public function rules(): array
     {
         return [
+            "client_id" => ["required","integer","exists:clients"],
             "totalTTC" => ["required","float","max:255"],
             "payment_date" => ["required","date"],
             "payment_mode" => ["required","string","max:255"]

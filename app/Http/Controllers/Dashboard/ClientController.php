@@ -15,6 +15,13 @@ use Illuminate\Http\RedirectResponse;
 
 class ClientController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:clients.list', ['only' => ['index','show']]);
+        $this->middleware('permission:clients.create', ['only' => ['create','store']]);
+        $this->middleware('permission:clients.edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:clients.delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
