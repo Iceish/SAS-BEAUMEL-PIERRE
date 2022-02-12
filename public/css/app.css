@@ -1,4 +1,31 @@
 @import url(https://fonts.googleapis.com/css2?family=Nunito&display=swap);
+h2 {
+  position: relative;
+  border-left: 4px solid #E29578;
+  padding-left: 15px;
+}
+h2:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background-color: #FFDDD2;
+  left: 0;
+}
+
+.custom-table {
+  display: flex;
+  flex-direction: column;
+}
+.custom-table__head {
+  background-color: #EDF6F9;
+}
+.custom-table > * {
+  display: grid;
+  grid-auto-flow: column;
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -158,6 +185,9 @@ body#dashboard header nav ul li a {
 }
 body#dashboard header nav ul li a i {
   color: #006D77;
+}
+body#dashboard main {
+  margin: 32px;
 }
 body#dashboard footer {
   padding: 32px;

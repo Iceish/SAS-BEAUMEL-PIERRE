@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\View\Components\customTable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Arr;

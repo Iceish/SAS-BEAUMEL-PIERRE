@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.custom-table{
+    display: flex;
+    flex-direction: column;
+    &__head{
+        background-color: $background-dark;
+    }
+    & > *{
+        display: grid;
+        grid-auto-flow: column;
+    }
+}
