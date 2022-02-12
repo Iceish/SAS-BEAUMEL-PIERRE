@@ -3,26 +3,35 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreCustomerInvoiceRequest;
 use App\Http\Requests\UpdateCustomerInvoiceRequest;
 use App\Models\CustomerInvoice;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class CustomerInvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param SearchRequest $request
      * @return Application|Factory|View
      */
-    public function index(): View|Factory|Application
+    public function index(SearchRequest $request): View|Factory|Application
     {
-        return view("web.dashboard.sections.customerInvoice.index");
+        $validated= $request->validated();
+        $searchText = $validated["search"] ?? "";
+
+        $customerInvoices = CustomerInvoice::with('client')
+            ->whereLike(["client.email","client.name","payment_mode"],$searchText)
+            ->paginate(25);
+        return view("web.dashboard.sections.customerInvoice.index",
+            compact("customerInvoices")
+        );
     }
 
     /**
@@ -47,8 +56,13 @@ class CustomerInvoiceController extends Controller
     public function store(StoreCustomerInvoiceRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        CustomerInvoice::create($validated)->save();
-        return redirect()->route("dashboard.customerInvoice.index")->with("success",__("messages.customerInvoice.create.success"));
+        $customerInvoice = CustomerInvoice::create($validated);
+        try{
+            $customerInvoice->save();
+            return redirect()->route("dashboard.customerInvoice.index")->with("success",__("messages.customerInvoice.create.success"));
+        }catch (Exception){
+            return redirect()->route("dashboard.customerInvoice.index")->with("errors",__("messages.customerInvoice.create.failed"));
+        }
     }
 
     /**
@@ -59,6 +73,7 @@ class CustomerInvoiceController extends Controller
      */
     public function show(CustomerInvoice $customerInvoice): View|Factory|Application
     {
+        $customerInvoice->load('client');
         return view("web.dashboard.sections.customerInvoice.show",
             compact("customerInvoice")
         );
@@ -87,8 +102,12 @@ class CustomerInvoiceController extends Controller
     public function update(UpdateCustomerInvoiceRequest $request,CustomerInvoice $customer): RedirectResponse
     {
         $validated = $request->validated();
-        $customer->update($validated);
-        return redirect()->route("dashboard.customerInvoice.index")->with("success",__("messages.customerInvoice.update.success"));
+        try{
+            $customer->update($validated);
+            return redirect()->route("dashboard.customerInvoice.index")->with("success",__("messages.customerInvoice.update.success"));
+        }catch (Exception){
+            return redirect()->route("dashboard.customerInvoice.index")->with("errors",__("messages.customerInvoice.update.failed"));
+        }
     }
 
     /**
@@ -99,7 +118,11 @@ class CustomerInvoiceController extends Controller
      */
     public function destroy(CustomerInvoice $customer): RedirectResponse
     {
-        $customer->delete();
-        return redirect()->route("Dashboard.providerInvoice.View")->with('message',__("messages.providerInvoice.delete.success"));
+        try{
+            $customer->delete();
+            return redirect()->route("dashboard.customerInvoice.index")->with('success',__("messages.customerInvoice.delete.success"));
+        }catch (Exception){
+            return redirect()->route("dashboard.customerInvoice.index")->with('errors',__("messages.customerInvoice.delete.failed"));
+        }
     }
 }

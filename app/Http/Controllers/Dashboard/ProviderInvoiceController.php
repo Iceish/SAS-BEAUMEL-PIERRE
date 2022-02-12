@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreProviderInvoiceRequest;
 use App\Http\Requests\UpdateProviderInvoiceRequest;
+use App\Models\Provider;
 use App\Models\ProviderInvoice;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -15,14 +17,28 @@ use function view;
 
 class ProviderInvoiceController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:providerInvoices.list', ['only' => ['index','show']]);
+        $this->middleware('permission:providerInvoices.create', ['only' => ['create','store']]);
+        $this->middleware('permission:providerInvoices.edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:providerInvoices.delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of provider invoice.
      *
+     * @param SearchRequest $request
      * @return Application|Factory|View
      */
-    public function index(): View|Factory|Application
+    public function index(SearchRequest $request): View|Factory|Application
     {
-        $providerInvoices = ProviderInvoice::all();
+        $validated= $request->validated();
+        $searchText = $validated["search"] ?? "";
+
+        $providerInvoices = ProviderInvoice::with('provider')
+            ->whereLike(["provider.email","provider.name"],$searchText)
+            ->paginate(25);
         return view("web.dashboard.sections.providerInvoice.index",
             compact("providerInvoices")
         );
@@ -35,7 +51,10 @@ class ProviderInvoiceController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        return view("web.dashboard.sections.providerInvoice.create");
+        $providers = Provider::all();
+        return view("web.dashboard.sections.providerInvoice.create",
+            compact("providers")
+        );
     }
 
     /**
