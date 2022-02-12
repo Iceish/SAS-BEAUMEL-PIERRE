@@ -27,4 +27,9 @@ class GuestController extends Controller
     {
         return view("web.static.sections.partners.show");
     }
+
+    public function contactus(): Factory|View|Application
+    {
+        return view("web.static.sections.contactus.show");
+    }
 }

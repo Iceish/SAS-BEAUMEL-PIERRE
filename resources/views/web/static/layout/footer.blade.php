@@ -1,7 +1,7 @@
 <footer>
     <p>SAS-BEAUMEL-PIERRE</p>
     <ul role="list">
-        <li><a href="">Contact us</a></li>
+        <li><a href="{{route("contactus")}}">Contact us</a></li>
         <li><a href="">CGU</a></li>
         <li><a href="">Foo</a></li>
         <li><a href="">Foo</a></li>
