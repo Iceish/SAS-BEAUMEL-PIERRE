@@ -156,6 +156,9 @@ body#dashboard header nav ul li a {
   display: flex;
   flex-direction: column;
 }
+body#dashboard header nav ul li a i {
+  color: #006D77;
+}
 body#dashboard footer {
   padding: 32px;
   background-color: #FFFFFF;

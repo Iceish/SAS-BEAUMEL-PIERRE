@@ -72,6 +72,9 @@ body#dashboard{
                 li a{
                     display: flex;
                     flex-direction: column;
+                    i{
+                        color: $primary-dark;
+                    }
                 }
             }
         }
