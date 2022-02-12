@@ -1,5 +1,7 @@
+@use '../abstracts' as *;
+
 body#dashboard{
-    background-color: lightgreen;
+    background-color: $background-light;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -15,7 +17,7 @@ body#dashboard{
         flex-direction: column-reverse;
         align-items: center;
 
-        background-color: cornflowerblue;
+        //background-color: red;
 
         input[type=checkbox]{
             display: none;
@@ -52,7 +54,11 @@ body#dashboard{
 
             text-align: center;
 
-            background-color: lightblue;
+            background-color: $background-light;
+
+            @include separator('right');
+            @include separator('top');
+
 
             ul{
                 display: inline-grid;
@@ -73,7 +79,9 @@ body#dashboard{
 
     footer{
         padding: 32px;
-        background-color: lightpink;
+        background-color: $background-light;
+
+        @include separator('top');
     }
 
     // Desktop screen

@@ -1,9 +1,5 @@
 @extends('web.index')
 
-@push('css')
-    <link rel="stylesheet" href="{{ asset('css/dashboard/dashboard.css') }}">
-@endpush
-
 @section('title', 'dashboard')
 
 @section('head')
