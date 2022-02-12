@@ -14,8 +14,6 @@ body#static {
 
         width: 100%;
 
-        @include separator('bottom');
-
         input[type=checkbox]#dropdown {
             display: none;
 
@@ -41,6 +39,8 @@ body#static {
             width: 100%;
             min-height: 96px;
             @include padding-x(32px);
+
+            @include separator('bottom');
 
             background-color: $background-light;
 
