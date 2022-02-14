@@ -92,7 +92,7 @@ body#dashboard{
     }
 
     // Desktop screen
-    @media screen and (min-width: 1024px) {
+    @include respond-to('large') {
         padding-left: 17.5%;
 
         header {
