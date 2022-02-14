@@ -109,7 +109,7 @@ body#static {
 
 
     // Desktop screen
-    @media screen and (min-width: 1024px) {
+    @include respond-to('large'){
         $height-nav: 96px;
 
         header {
