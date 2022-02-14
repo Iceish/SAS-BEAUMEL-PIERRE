@@ -11,6 +11,10 @@ use Faker\Provider\DateTime;
 use Faker\Provider\Text;
 use Illuminate\Support\Str;
 
+/**
+ * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
+ * Fill the run function with the given number of faults
+ */
 class VehicleUserSeeder extends Seeder
 {
     /**
