@@ -22,11 +22,11 @@ class StoreUserRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["role_id" => "string[]", "email" => "string[]", "name" => "string[]", "password" => "string[]"])]
+    #[ArrayShape(["roles_id" => "string[]", "email" => "string[]", "name" => "string[]", "password" => "string[]"])]
     public function rules(): array
     {
         return [
-            "role_id" => ["present", "integer", "nullable"],
+            "roles_id.*" => ["array"],
             "email" => ["required","email","max:255"],
             "name" => ["required","string","max:255"],
             "password" => ["max:255","min:8"],

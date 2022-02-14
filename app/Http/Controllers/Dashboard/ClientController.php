@@ -33,11 +33,11 @@ class ClientController extends Controller
         $validated= $request->validated();
         $searchText = $validated["search"] ?? "";
 
-        $client = Client::query()
+        $clients = Client::query()
             ->whereLike(["email","name"],$searchText)
             ->paginate(25);
         return view("web.dashboard.sections.client.index",
-            compact("client")
+            compact("clients")
         );
     }
 

@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StorePartnerRequest;
-use App\Http\Requests\UpdateCustomerInvoiceRequest;
 use App\Http\Requests\UpdatePartnerRequest;
 use App\Models\Partner;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class PartnerController extends Controller
@@ -22,9 +26,9 @@ class PartnerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
-    public function index(SearchRequest $request): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function index(SearchRequest $request): View|Factory|Application
     {
         $validated= $request->validated();
 
@@ -40,9 +44,9 @@ class PartnerController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
-    public function create(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function create(): View|Factory|Application
     {
         return view("web.dashboard.sections.partner.create");
     }
@@ -50,10 +54,10 @@ class PartnerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(StorePartnerRequest $request): \Illuminate\Http\RedirectResponse
+    public function store(StorePartnerRequest $request): RedirectResponse
     {
         $validated = $request->validated();
         $partner = Partner::create($validated);
@@ -69,10 +73,10 @@ class PartnerController extends Controller
      * Display the specified resource.
      *
      *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Partner $partner
+     * @return Application|Factory|View
      */
-    public function show(Partner $partner): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function show(Partner $partner): View|Factory|Application
     {
         return view("web.dashboard.sections.partner.show",
             compact("partner")
@@ -82,10 +86,10 @@ class PartnerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Partner $partner
+     * @return Application|Factory|View
      */
-    public function edit(Partner $partner): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function edit(Partner $partner): View|Factory|Application
     {
         return view("web.dashboard.sections.partner.edit",
              compact($partner)
@@ -95,11 +99,11 @@ class PartnerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param UpdatePartnerRequest $request
+     * @param Partner $partner
+     * @return RedirectResponse
      */
-    public function update(UpdatePartnerRequest $request, Partner $partner): \Illuminate\Http\RedirectResponse
+    public function update(UpdatePartnerRequest $request, Partner $partner): RedirectResponse
     {
         $validated = $request->validated();
         try{
@@ -113,10 +117,10 @@ class PartnerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Partner $partner
+     * @return RedirectResponse
      */
-    public function destroy(Partner $partner): \Illuminate\Http\RedirectResponse
+    public function destroy(Partner $partner): RedirectResponse
     {
         try{
             $partner->delete();
