@@ -348,15 +348,18 @@ body#static main {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #loginform input {
-  width: 100%;
+  width: 80%;
   border: 1px solid black;
+}
+#loginform #submit {
+  max-width: 40%;
 }
 
 @media screen and (min-width: 1024px) {
   #loginform {
     margin-top: 5%;
     padding: 5%;
-    width: 60%;
+    width: 30%;
     height: 100%;
   }
 }
