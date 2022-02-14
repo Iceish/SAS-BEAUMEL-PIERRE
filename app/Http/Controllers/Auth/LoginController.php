@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
+    /**
+     * Show the form for login.
+     * @return Application|Factory|View|RedirectResponse
+     */
     public function loginView(): Application|Factory|View|RedirectResponse
     {
         if(Auth::check()){
@@ -22,6 +25,7 @@ class LoginController extends Controller
     }
 
     /**
+     * Login a user
      * @param LoginRequest $request
      * @return RedirectResponse
      */
@@ -43,6 +47,16 @@ class LoginController extends Controller
         return back()->withErrors([
             'failed' => __("auth.failed"),
         ]);
+    }
+
+    /**
+     * Logout a user
+     * @return RedirectResponse
+     */
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 
 

@@ -23,7 +23,7 @@ class ClientController extends Controller
         $this->middleware('permission:clients.delete', ['only' => ['destroy']]);
     }
     /**
-     * Display a listing of the resource.
+     * Display a listing of the clients.
      *
      * @param SearchRequest $request
      * @return Application|Factory|View
@@ -42,7 +42,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new client.
      *
      * @return Application|Factory|View
      */
@@ -52,7 +52,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created client in storage.
      *
      * @param StoreClientRequest $request
      * @return RedirectResponse
@@ -70,7 +70,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified client.
      *
      * @param Client $client
      * @return Application|Factory|View
@@ -83,7 +83,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified client.
      *
      * @param Client $client
      * @return Application|Factory|View
@@ -96,7 +96,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified client in storage.
      *
      * @param UpdateClientRequest $request
      * @param Client $client
@@ -114,7 +114,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified client from storage.
      *
      * @param Client $client
      * @return RedirectResponse

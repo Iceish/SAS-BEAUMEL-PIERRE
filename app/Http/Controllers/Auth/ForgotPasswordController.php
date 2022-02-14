@@ -21,6 +21,7 @@ class ForgotPasswordController extends Controller
 {
 
     /**
+     * Show the form for forgetting password.
      * @return Factory|View|Application
      */
     public function forgotPasswordView(): Factory|View|Application
@@ -30,6 +31,7 @@ class ForgotPasswordController extends Controller
 
 
     /**
+     * Send an Email to user with reset password link
      * @param ForgotPasswordRequest $request
      * @return RedirectResponse
      */
@@ -61,6 +63,7 @@ class ForgotPasswordController extends Controller
     }
 
     /**
+     * Show the form for reset the password;
      * @param string $token
      * @return Factory|View|Application
      */
@@ -72,6 +75,7 @@ class ForgotPasswordController extends Controller
     }
 
     /**
+     * Reset password with forgot password link
      * @param ResetPasswordRequest $request
      * @return Redirector|Application|RedirectResponse
      */
