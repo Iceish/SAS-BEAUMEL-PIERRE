@@ -3,7 +3,7 @@
 @section('main')
     <h2>Roles</h2>
     @foreach($roles as $role)
-        {{ $role->name }}
+        {{ $role->name }} <br>
     @endforeach
 
     <h2>Add new role</h2>
