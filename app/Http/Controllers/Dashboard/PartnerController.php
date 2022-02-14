@@ -20,7 +20,7 @@ class PartnerController extends Controller
     {
         $this->middleware('permission:partner.list',['only ' => ['index','show']]);
         $this->middleware('permission:partner.create',['only' => ['create','store']]);
-        $this->middleware('permission:parter.edit',['only' => ['edit','update']]);
+        $this->middleware('permission:partner.edit',['only' => ['edit','update']]);
         $this->middleware('permission:partner.delete',['only' => ['destroy']]);
     }
     /**
