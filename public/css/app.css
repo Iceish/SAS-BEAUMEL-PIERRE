@@ -14,6 +14,21 @@ h2:before {
   left: 0;
 }
 
+.card {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(256px, calc(100% / 2 - 40px)));
+  grid-gap: 20px;
+  background-color: #EDF6F9;
+}
+.card > .card__general {
+  grid-row: 1/span 2;
+}
+.card > .card__general > img {
+  border: 3px solid #E29578;
+  border-radius: 64px;
+}
+
 .custom-table {
   display: flex;
   flex-direction: column;
@@ -221,6 +236,7 @@ body#static {
 }
 body#static header {
   position: fixed;
+  z-index: 1;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -348,15 +364,18 @@ body#static main {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #loginform input {
-  width: 100%;
+  width: 80%;
   border: 1px solid black;
+}
+#loginform #submit {
+  max-width: 40%;
 }
 
 @media screen and (min-width: 1024px) {
   #loginform {
     margin-top: 5%;
     padding: 5%;
-    width: 60%;
+    width: 30%;
     height: 100%;
   }
 }
