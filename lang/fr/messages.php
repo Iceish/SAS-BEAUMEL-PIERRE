@@ -35,4 +35,11 @@ return [
     "providerInvoice.create.failed" => "Ajout de la facture fournisseur :providerInvoice échoué",
     "providerInvoice.update.failed" => "Mise à jour de la facture fournisseur :providerInvoice échoué",
     "providerInvoice.delete.failed" => "Supression de la facture fournisseur :providerInvoice échoué",
+
+    "vehicle.create.success" => "Ajout du vehicule :vehicle réussi",
+    "vehicle.update.success" => "Mise à jour du vehicule :vehicle réussi",
+    "vehicle.delete.success" => "Supression du vehicule :vehicle réussi",
+    "vehicle.create.failed" => "Ajout du vehicule :vehicle échoué",
+    "vehicle.update.failed" => "Mise à jour du vehicule :vehicle échoué",
+    "vehicle.delete.failed" => "Supression du vehicule :vehicle échoué",
 ];

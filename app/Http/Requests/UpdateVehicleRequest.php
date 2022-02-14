@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use JetBrains\PhpStorm\ArrayShape;
 
 class UpdateVehicleRequest extends FormRequest
 {
@@ -11,9 +12,9 @@ class UpdateVehicleRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +22,13 @@ class UpdateVehicleRequest extends FormRequest
      *
      * @return array
      */
+    #[ArrayShape(["licence_plate" => "char[]", "revision_date" => "date", "available" => "boolean"])]
     public function rules()
     {
         return [
-            //
+            "licence_plate" => ["required","max:9","min:9"],
+            "revision_date" => ["required","date"],
+            "available" => ["required","boolean"]
         ];
     }
 }
