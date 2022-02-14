@@ -10,7 +10,7 @@
         <div class="card__header">
             {{ $user->name }}
             {{ $user->getRoleNames()->first() }}
-            <button>Edit</button>
+            <button>Edit user</button>
         </div>
         <div class="card__description">desc</div>
     </div>
