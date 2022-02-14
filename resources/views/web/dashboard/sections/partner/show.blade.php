@@ -1,5 +1,5 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    Client show page
+    Partner show page
 @endsection
