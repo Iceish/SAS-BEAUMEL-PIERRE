@@ -19,6 +19,9 @@ use Laravel\Sanctum\PersonalAccessToken;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
+ * The models are created with the command « php artisan make:model ModelName »
+ */
+/**
  * App\Models\User
  *
  * @property int $id

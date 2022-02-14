@@ -12,6 +12,9 @@ class CreateInvoiceDetailsTable extends Migration
      * Run the migrations.
      * Allows to migrate the invoice_details table in database
      * @return void
+     * Create with the command « php artisan make:migration create_name_of_table_table »
+     * Fill up() with the attributes of the table
+     * Migrate tables with the command « php artisan migrate»
      */
     public function up()
     {

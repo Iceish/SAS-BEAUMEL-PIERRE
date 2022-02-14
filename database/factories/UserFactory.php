@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use JetBrains\PhpStorm\ArrayShape;
 
+/**
+ * The factories are created with the command « php artisan make:factory ModelNameFactory ».
+ * Fill the definition function using the models
+ */
 class UserFactory extends Factory
 {
     /**

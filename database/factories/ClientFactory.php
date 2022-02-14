@@ -4,6 +4,10 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * The factories are created with the command « php artisan make:factory ModelNameFactory ».
+ * Fill the definition function using the models
+ */
 class ClientFactory extends Factory
 {
     /**

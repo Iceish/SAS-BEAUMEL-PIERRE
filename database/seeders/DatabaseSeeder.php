@@ -8,6 +8,10 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
+/**
+ * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
+ * Fill the run function with the given number of faults
+ */
 class DatabaseSeeder extends Seeder
 {
     /**

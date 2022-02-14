@@ -5,6 +5,10 @@ namespace Database\Factories;
 use App\Models\Provider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * The factories are created with the command « php artisan make:factory ModelNameFactory ».
+ * Fill the definition function using the models
+ */
 class ProviderInvoiceFactory extends Factory
 {
     /**

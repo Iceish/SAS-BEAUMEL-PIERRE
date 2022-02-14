@@ -56,20 +56,32 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created user in storage.
+     * Store a newly created user in storage and assign roles.
      *
      * @param StoreUserRequest $request
      * @return RedirectResponse
      */
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = $request->only(['email','name','password']);
+        $validatedRole = $request->only(['roles_id']);
+        $validatedRole = $validatedRole['roles_id'] ?? ['roles_id'=>[]];
+        $saRole = Role::whereIn("name",["SuperAdmin"])->first();
+
         $user = User::create($validated);
         try{
             $user->save();
-            return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success",['user'=>$user]));
+            foreach ($validatedRole as $keyRole=>$bool){
+                $role = Role::whereIn("id",[$keyRole])->first();
+                if($keyRole != $saRole->id){
+                    if($bool){
+                        $user->assignRole($role->name);
+                    }
+                }
+            }
+            return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success",['user'=>$user->name]));
         }catch (Exception){
-            return redirect()->route("dashboard.users.index")->with("errors",__("messages.user.create.failed",['user'=>$user]));
+            return redirect()->route("dashboard.users.index")->with("errors",__("messages.user.create.failed",['user'=>$user->name]));
 
         }
     }
@@ -105,7 +117,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified user in storage.
+     * Update the specified user in storage and update roles.
      *
      * @param UpdateUserRequest $request
      * @param User $user
@@ -113,12 +125,25 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        $validated = $request->validated();
+        $validatedRole = $request->only(['roles_id']);
+        $validatedRole = $validatedRole['roles_id'] ?? ['roles_id'=>[]];
+        $validated = $request->only(['email','name','password']);
+        $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         try{
             $user->update($validated);
-            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success',['user'=>$user]));
+            foreach ($validatedRole as $keyRole=>$bool){
+                $role = Role::whereIn("id",[$keyRole])->first();
+                if($keyRole != $saRole->id){
+                    if($bool){
+                        $user->assignRole($role->name);
+                    }else{
+                        $user->removeRole($role->name);
+                    }
+                }
+            }
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success',['user'=>$user->name]));
         }catch (Exception){
-            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.update.failed',['user'=>$user]));
+            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.update.failed',['user'=>$user->name]));
         }
     }
 
@@ -132,9 +157,9 @@ class UserController extends Controller
     {
         try{
             $user->delete();
-            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success',['user'=>$user]));
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success',['user'=>$user->name]));
         }catch (Exception){
-            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.delete.failed',['user'=>$user]));
+            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.delete.failed',['user'=>$user->name]));
         }
     }
 }

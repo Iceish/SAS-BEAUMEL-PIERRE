@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * The models are created with the command « php artisan make:model ModelName »
+ */
 class Client extends Model
 {
     use HasFactory;
