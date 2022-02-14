@@ -19,7 +19,7 @@
             <li><a href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-users"></i>{{ ucfirst(__('word.users')) }}</a></li>
             <li><a href="{{ route('dashboard.roles.index') }}"><i class="fas fa-balance-scale-right"></i>{{ ucfirst(__('word.roles')) }}</a></li>
             <li><a href=""><i class="fa-solid fa-gears"></i>{{ ucfirst(__('word.settings')) }}</a></li>
-            <li><a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>{{ ucfirst(__('word.logout')) }}</a></li>
+            <li><a href="{{ route('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i>{{ ucfirst(__('word.logout')) }}</a></li>
         </ul>
     </nav>
 </header>
