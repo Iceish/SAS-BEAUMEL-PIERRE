@@ -31,7 +31,7 @@
         <input id="rememberInput" type="checkbox" name="remember">
     </div>
 
-    <input type="submit" value="{{ ucfirst(__("word.submit")) }}">
+    <input id="submit" type="submit" value="{{ ucfirst(__("word.submit")) }}">
 
     <div>
         <a href="{{ route("auth.forgotPassword.view") }}">{{__("auth.passwordForgotten")}}</a>
