@@ -15,4 +15,3 @@
         <div class="card__description">desc</div>
     </div>
 @endsection
-
