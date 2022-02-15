@@ -1,35 +1,96 @@
-.multiselect {
-    width: 200px;
+@use '../../abstracts' as *;
 
-    background-color: lightseagreen;
-}
+#users{
 
-.selectBox {
-    position: relative;
+    /*Show*/
+    .card{
+        display: grid;
+        grid-template-rows: 1fr 3fr;
+        grid-template-columns: 1fr;
 
-    select{
-        width: 100%;
-        font-weight: bold;
+        grid-gap: 20px;
+
+        > * {
+            width: 100%;
+            height: 100%;
+        }
+
+        > .card__general{
+            grid-row: 1 / span 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            > img{
+                border: 3px solid var(--secondary-dark);
+                border-radius: 64px;
+            }
+
+        }
+
+        > .card__header{
+            display: grid;
+            grid-template: 1fr / 1fr 1fr;
+
+            > .btn{
+                justify-self: center;
+                align-self: center;
+            }
+        }
+
+        > .card__description{
+
+            > ul{
+                padding-left: 0;
+            }
+        }
+
+        background-color: $background-dark;
+
+        @include respond-to('large'){
+            grid-template-columns: 1fr 2fr;
+        }
+
     }
-}
 
-.overSelect {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
+    /*Edit*/
+    .multiselect {
+        width: 200px;
 
-#checkboxes {
-    display: none;
-    border: 1px #dadada solid;
+        background-color: lightseagreen;
+    }
 
-    label {
-        display: block;
-        &:hover{
-            background-color: #1e90ff;
+    .selectBox {
+        position: relative;
+
+        select{
+            width: 100%;
+            font-weight: bold;
         }
     }
 
+    .overSelect {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    #checkboxes {
+        display: none;
+        border: 1px #dadada solid;
+
+        label {
+            display: block;
+            &:hover{
+                background-color: #1e90ff;
+            }
+        }
+
+    }
+
 }
+
+

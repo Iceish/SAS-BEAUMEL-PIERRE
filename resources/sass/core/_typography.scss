@@ -7,9 +7,9 @@ body{
 
 a{
     text-decoration: none;
-    color: $primary-dark;
-    &:visited, &:focus, &:active { color: $primary-dark }
-    &:hover { color: $primary-light }
+    color: var(--primary-dark);
+    &:visited, &:focus, &:active { color: var(--primary-dark) }
+    &:hover { color: var(--primary-light) }
 }
 
 hr {

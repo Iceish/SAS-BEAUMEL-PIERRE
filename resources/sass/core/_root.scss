@@ -1,2 +1,12 @@
+@use '../abstracts' as *;
+
 :root{
+    --primary-dark: #{$primary-dark};
+    --primary-light: #{$primary-light};
+
+    --secondary-dark: #{$secondary-dark};
+    --secondary-light: #{$secondary-light};
+
+    --background-dark: #{$background-dark};
+    --background-light: #{$background-light};
 }

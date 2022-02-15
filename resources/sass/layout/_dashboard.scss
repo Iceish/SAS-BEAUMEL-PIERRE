@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 body#dashboard{
-    background-color: $background-light;
+    background-color: var(--background-light);
 
     display: grid;
     grid-template-columns: 1fr;
@@ -54,7 +54,7 @@ body#dashboard{
 
             text-align: center;
 
-            background-color: $background-light;
+            background-color: var(--background-light);
 
             @include separator('right');
             @include separator('top');
@@ -73,7 +73,7 @@ body#dashboard{
                     display: flex;
                     flex-direction: column;
                     i{
-                        color: $primary-dark;
+                        color: var(--primary-dark);
                     }
                 }
             }
@@ -86,7 +86,7 @@ body#dashboard{
 
     footer{
         padding: 32px;
-        background-color: $background-light;
+        background-color: var(--background-light);
 
         @include separator('top');
     }
