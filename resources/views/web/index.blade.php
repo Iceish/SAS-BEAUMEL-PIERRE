@@ -12,5 +12,7 @@
 </head>
 <body id="@yield('title')">
     @yield('body')
+
+    @stack('js')
 </body>
 </html>

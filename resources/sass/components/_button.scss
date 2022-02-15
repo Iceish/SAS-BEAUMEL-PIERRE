@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-a.btn{
+input[type="submit"].btn, a.btn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,5 +40,13 @@ a.btn{
         color: var(--color-light);
         border: var(--border-size) solid var(--color-light);
     }
+}
 
+a.backBtn i{
+    color: var(--primary-light);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    &:hover{
+        color: var(--primary-dark);
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    }
 }

@@ -23,7 +23,7 @@
             align-items: center;
 
             > img{
-                border: 3px solid var(--secondary-dark);
+                border: 3px solid var(--primary-dark);
                 border-radius: 64px;
             }
 
@@ -55,41 +55,49 @@
     }
 
     /*Edit*/
-    .multiselect {
-        width: 200px;
+    form#edit{
+        width: 50%;
+        @include margin-y(20px);
 
-        background-color: lightseagreen;
-    }
+        #multiselect{
+            .selectBox {
+                position: relative;
 
-    .selectBox {
-        position: relative;
+                select{
+                    width: 100%;
+                    font-style: italic;
+                }
+            }
 
-        select{
-            width: 100%;
-            font-weight: bold;
-        }
-    }
+            .overSelect {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
 
-    .overSelect {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
+            #checkboxes {
+                display: none;
+                border: 1px solid rgba(230, 230, 230, 1);
+                grid-column-start: 2;
 
-    #checkboxes {
-        display: none;
-        border: 1px #dadada solid;
+                label {
+                    display: block;
+                    &:hover{
+                        background-color: var(--primary-light);
+                    }
+                }
 
-        label {
-            display: block;
-            &:hover{
-                background-color: #1e90ff;
             }
         }
 
+
     }
+
+
+
+
 
 }
 

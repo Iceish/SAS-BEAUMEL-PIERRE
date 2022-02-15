@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Nunito&display=swap);
 h2 {
   position: relative;
-  border-left: 4px solid var(--secondary-dark);
+  border-left: 4px solid var(--primary-dark);
   padding-left: 15px;
 }
 h2:before {
@@ -10,11 +10,11 @@ h2:before {
   position: absolute;
   width: 8px;
   height: 100%;
-  background-color: var(--secondary-light);
+  background-color: var(--primary-light);
   left: 0;
 }
 
-a.btn {
+input[type=submit].btn, a.btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,24 +26,33 @@ a.btn {
   --border-size: 1px;
   border: var(--border-size) solid var(--color-dark);
 }
-a.btn--primary {
+input[type=submit].btn--primary, a.btn--primary {
   --color-dark: var(--primary-dark);
   --color-light: var(--primary-light);
 }
-a.btn--secondary {
+input[type=submit].btn--secondary, a.btn--secondary {
   --color-dark: var(--secondary-dark);
   --color-light: var(--secondary-light);
 }
-a.btn--bold {
+input[type=submit].btn--bold, a.btn--bold {
   --border-size: 2px;
   font-weight: bold;
 }
-a.btn, a.btn:hover {
+input[type=submit].btn, input[type=submit].btn:hover, input[type=submit].btn:visited, a.btn, a.btn:hover, a.btn:visited {
   color: var(--color-dark);
 }
-a.btn:active {
+input[type=submit].btn:active, a.btn:active {
   color: var(--color-light);
   border: var(--border-size) solid var(--color-light);
+}
+
+a.backBtn i {
+  color: var(--primary-light);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+a.backBtn i:hover {
+  color: var(--primary-dark);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .custom-table {
@@ -56,6 +65,38 @@ a.btn:active {
 .custom-table > * {
   display: grid;
   grid-auto-flow: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form > .field {
+  display: grid;
+  grid-template: 1fr/1fr 3fr;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+form > .field > input, form > .field select {
+  background-color: transparent;
+}
+form > .field > input {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--primary-light);
+}
+form > .field > input:active, form > .field > input:focus {
+  border-bottom: 2px solid var(--primary-dark);
+}
+form > .field select {
+  border: 2px solid var(--primary-light);
+  border-radius: 5px;
+}
+form > input[type=submit] {
+  align-self: flex-end;
 }
 
 /* Box sizing rules */
@@ -366,7 +407,7 @@ body#static main {
   align-items: center;
 }
 #users .card > .card__general > img {
-  border: 3px solid var(--secondary-dark);
+  border: 3px solid var(--primary-dark);
   border-radius: 64px;
 }
 #users .card > .card__header {
@@ -385,62 +426,46 @@ body#static main {
     grid-template-columns: 1fr 2fr;
   }
 }
-#users .multiselect {
-  width: 200px;
-  background-color: lightseagreen;
+#users form#edit {
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-#users .selectBox {
+#users form#edit #multiselect .selectBox {
   position: relative;
 }
-#users .selectBox select {
+#users form#edit #multiselect .selectBox select {
   width: 100%;
-  font-weight: bold;
+  font-style: italic;
 }
-#users .overSelect {
+#users form#edit #multiselect .overSelect {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
 }
-#users #checkboxes {
+#users form#edit #multiselect #checkboxes {
   display: none;
-  border: 1px #dadada solid;
+  border: 1px solid #e6e6e6;
+  grid-column-start: 2;
 }
-#users #checkboxes label {
+#users form#edit #multiselect #checkboxes label {
   display: block;
 }
-#users #checkboxes label:hover {
-  background-color: #1e90ff;
+#users form#edit #multiselect #checkboxes label:hover {
+  background-color: var(--primary-light);
 }
 
-#loginform {
-  margin-left: auto;
-  margin-right: auto;
+section#auth {
+  width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  width: 50%;
-  max-height: 400px;
-  padding: 5%;
-  margin-top: 20%;
-  background: white;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-#loginform input {
-  width: 80%;
-  border: 1px solid black;
-}
-#loginform #submit {
-  max-width: 40%;
 }
 
-@media screen and (min-width: 1024px) {
-  #loginform {
-    margin-top: 5%;
-    padding: 5%;
-    width: 30%;
-    height: 100%;
-  }
+form#login {
+  width: 30%;
 }

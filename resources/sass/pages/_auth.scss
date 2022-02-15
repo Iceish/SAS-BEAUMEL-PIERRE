@@ -1,32 +1,16 @@
 @use '../abstracts/mixins' as *;
 
-#loginform{
-    @include margin-x(auto);
+section#auth{
+    width: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    width: 50%;
-    max-height: 400px;
-    padding: 5%;
-    margin-top: 20%;
-
-    background: white;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-
-    input{
-        width: 80%;
-        border: 1px solid black;
-    }
-    #submit{
-        max-width: 40%;
-    }
 }
-@media screen and (min-width: 1024px) {
-    #loginform {
-        margin-top: 5%;
-        padding: 5%;
-        width: 30%;
-        height: 100%;
-    }
+
+form#login{
+    width: 30%;
 }
+
+

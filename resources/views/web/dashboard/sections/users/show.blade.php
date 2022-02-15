@@ -3,6 +3,8 @@
 @section('tag','users')
 
 @section('main')
+    <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
+
     <h2>User</h2>
 
     <div class="card">
@@ -17,8 +19,7 @@
                 <h3>{{ $user->name }}</h3>
                 {{ $user->getRoleNames()->first() }}
             </div>
-            <a class="btn btn--primary btn--bold">Edit</a>
-            <a class="btn btn--secondary">Edit</a>
+            <a class="btn btn--primary btn--bold" href="{{ route('dashboard.users.edit', ['user' => $user->id]) }}">Edit</a>
 
         </div>
 
