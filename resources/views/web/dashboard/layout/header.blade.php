@@ -1,4 +1,4 @@
-<header id="dashboard">
+<header>
 
     <input id="dropdown" type="checkbox" checked/>
 

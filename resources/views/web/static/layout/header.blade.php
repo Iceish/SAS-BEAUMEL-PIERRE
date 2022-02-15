@@ -1,4 +1,4 @@
-<header id="static">
+<header>
 
     <input id="dropdown" type="checkbox" checked/>
 
