@@ -32,7 +32,7 @@ a.btn{
 
     border: var(--border-size) solid var(--color-dark);
 
-    &, &:hover{
+    &, &:hover, &:visited{
         color: var(--color-dark);
     }
 
