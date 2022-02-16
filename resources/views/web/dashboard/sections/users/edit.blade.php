@@ -4,40 +4,38 @@
 
 @section('main')
     <a class="backBtn" href="{{ route('dashboard.users.show',['user'=> $user->id]) }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
-    <h2>Editing user id "{{ $user->id }}"</h2>
+    <h2>{{ ucfirst(__('text.editing_user')) }} {{ $user->name }}</h2>
     <form id="edit" action="">
         <div class="field">
-            <label for="name">Name</label>
-            <input type="text" name="name" value="{{ $user->name }}" />
+            <label for="name">{{ ucfirst(__('word.name')) }}</label>
+            <input type="text" id="name" name="name" value="{{ $user->name }}" />
         </div>
 
         <div class="field">
-            <label for="email">Email</label>
-            <input type="email" name="email" value="{{ $user->email }}" />
+            <label for="email">{{ ucfirst(__('word.email')) }}</label>
+            <input type="email" id="email" name="email" value="{{ $user->email }}" />
         </div>
         <div id="multiselect" class="field">
-            <label for="selectBoxOption">Roles</label>
+            <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
             <div id="selectBoxOption" class="selectBox" onclick="showCheckboxes()">
-                <select>
-                    <option>Click to open</option>
-                </select>
+                <label>
+                    <select>
+                        <option>{{ ucfirst(__('text.click_open')) }}</option>
+                    </select>
+                </label>
                 <div class="overSelect"></div>
             </div>
 
             <div id="checkboxes">
                 @foreach($roles as $role)
-                    @if($user->hasRole($role))
-                        <label for="checkbox-{{ $loop->iteration }}">
-                            <input type="checkbox" id="checkbox-{{ $loop->iteration }}" name="test[{{ $role->name }}]" checked/>{{ $role->name }}</label>
-                    @else
-                        <label for="checkbox-{{ $loop->iteration }}">
-                            <input type="checkbox" id="checkbox-{{ $loop->iteration }}" name="test[{{ $role->name }}]"  />{{ $role->name }}</label>
-                    @endif
+                    <label for="checkbox-{{ $loop->iteration }}">
+                        <input type="checkbox" id="checkbox-{{ $loop->iteration }}" name="test[{{ $role->name }}]" {{ $user->hasRole($role) ? "checked" : "" }} />{{ $role->name }}
+                    </label>
                 @endforeach
             </div>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="Confirm update" />
+        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
     </form>
 @endsection
 
@@ -46,7 +44,7 @@
         let expanded = false;
 
         function showCheckboxes() {
-            const checkboxes = document.getElementById("checkboxes");
+            const checkboxes = document.querySelector("#checkboxes");
             if (!expanded) {
                 checkboxes.style.display = "block";
                 expanded = true;
