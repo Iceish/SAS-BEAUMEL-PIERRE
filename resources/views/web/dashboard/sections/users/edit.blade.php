@@ -8,6 +8,7 @@
     <form id="edit" action="{{ route('dashboard.users.update',['user'=>$user->id]) }}" method="post">
         @csrf
         @method('put')
+        <h4>Edit</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.name')) }}</label>
             <input type="text" id="name" name="name" value="{{ $user->name }}" />
@@ -36,6 +37,7 @@
                     </label>
                 @endforeach
             </div>
+
         </div>
 
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
@@ -47,20 +49,15 @@
         let expanded = false;
 
         function showCheckboxes() {
-            const checkboxes = document.querySelector("#checkboxes");
-            if (!expanded) {
-                checkboxes.style.display = "block";
-                expanded = true;
-            } else {
-                checkboxes.style.display = "none";
-                expanded = false;
-            }
+            const multiselect = document.querySelector("#multiselect");
+            expanded ? multiselect.classList.remove('active') : multiselect.classList.add('active');
+            expanded = !expanded;
         }
 
         function inputCheckBox(element){
-            let id = element.getAttribute("id")
-            let hiddenElement = document.querySelector(`#${id}-hidden`)
-            hiddenElement.value = !!element.checked
+            let id = element.getAttribute("id");
+            let hiddenElement = document.querySelector(`#${id}-hidden`);
+            hiddenElement.value = !!element.checked;
         }
     </script>
 @endpush

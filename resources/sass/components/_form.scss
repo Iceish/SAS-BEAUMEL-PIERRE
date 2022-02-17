@@ -5,7 +5,16 @@ form{
     justify-content: center;
     align-items: center;
 
+    > h4{
+        color: var(--primary-dark);
+        align-self: flex-start;
+        padding-left: 10%;
+        margin-bottom: 15px;
+    }
+
+
     > .field{
+        $field : &;
         display: grid;
         grid-template: 1fr / 1fr 3fr;
         width: 100%;
@@ -22,21 +31,36 @@ form{
             border-bottom: 2px solid var(--primary-light);
 
             &:active, &:focus{
-                border-bottom: 2px solid var(--primary-dark);
+                border-bottom: 2px solid var(--primary);
             }
         }
+
         select{
             border: 2px solid var(--primary-light);
             border-radius: 5px;
+        }
+        &.active select{
+            border: 2px solid var(--primary);
         }
     }
 
     > input[type="submit"]{
         align-self: flex-end;
     }
-
-    #checkboxes{
-
+    > a{
+        align-self: flex-start;
     }
+
+    #multiselect{
+        #checkboxes{
+            display: none;
+        }
+        &.active #checkboxes{
+            display: block;
+        }
+    }
+
+
+
 
 }

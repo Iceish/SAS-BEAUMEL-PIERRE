@@ -1,3 +1,7 @@
+@extends('web.static.layout')
+
+@section('main')
+
 <form action="{{route("auth.password-reset")}}" method="post">
     @csrf
     <label for="passwordInput">
@@ -21,3 +25,5 @@
         </ul>
     </div>
 @endif
+
+@endsection

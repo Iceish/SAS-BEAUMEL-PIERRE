@@ -8,17 +8,18 @@
     @enderror
     <form id="login" action="{{ route("auth.login") }}" method="post">
         @csrf
+        <h4>Login</h4>
         <div class="field">
             <label for="emailInput">
                 {{ ucfirst(__("word.email")) }}
             </label>
-            <input id="emailInput" name="email" type="email" placeholder="{{__("word.email")}}"/>
+            <input id="emailInput" name="email" type="email" placeholder="john.doe@example.com" autocomplete="off"/>
         </div>
         <div class="field">
             <label for="passwordInput">
                 {{ ucfirst(__("word.password")) }}
             </label>
-            <input id="passwordInput" name="password" type="password" placeholder="{{__("word.password")}}"/>
+            <input id="passwordInput" name="password" type="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" autocomplete="off"/>
         </div>
         <div class="field">
             <label for="rememberInput">
@@ -29,9 +30,7 @@
 
         <input id="submit" class="btn btn--primary" type="submit" value="{{ ucfirst(__("word.submit")) }}">
 
-        <div>
-            <a href="{{ route("auth.forgotPassword.view") }}">{{__("auth.passwordForgotten")}}</a>
-        </div>
+        <a href="{{ route("auth.forgotPassword.view") }}">{{ucfirst(__("auth.passwordForgotten"))}}</a>
     </form>
 </section>
 @endsection
