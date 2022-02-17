@@ -29,7 +29,7 @@
                 <li>{{ ucfirst(__("word.email")) }} : {{ $user->email }}</li>
                 <li>{{ ucfirst(__("word.roles")) }} :
                     @foreach( $user->getRoleNames() as $role)
-                        {{ $role }},
+                        {{ $role }}{{ $loop->last ? "" : "," }}
                     @endforeach
                 </li>
                 <li>{{ ucfirst(__("text.account_creation_date")) }} : {{ $user->created_at }}</li>
