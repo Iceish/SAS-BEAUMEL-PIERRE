@@ -1,9 +1,22 @@
-$primary-dark: #006D77;
-$primary-light: #83C5BE;
+$colors: (
+    white: (
+        'default' : #FFFFFF
+    ),
+    teal: (
+        50 : #E0F2F1,
+        100 : #B2DFDB,
+        200 : #80CBC4,
+        300 : #4DB6AC,
+        400 : #26A69A,
+        500 : #009688,
+        600 : #00897B,
+        700 : #00796B,
+        800 : #00695C,
+        900 : #004D40,
+        'default' : #009688
+    )
+);
 
-$background-light: #FFFFFF;
-$background-dark: #EDF6F9;
-
-$secondary-light: #FFDDD2;
-$secondary-dark: #E29578;
-
+@function setColor($scheme, $tone: 'default') {
+    @return map-get(map-get($colors, $scheme), $tone);
+}

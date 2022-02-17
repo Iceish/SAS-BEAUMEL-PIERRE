@@ -1,12 +1,11 @@
 @use '../abstracts' as *;
 
 :root{
-    --primary-dark: #{$primary-dark};
-    --primary-light: #{$primary-light};
+    --primary-unlit: #{setColor(teal, 900)};
+    --primary-dark: #{setColor(teal, 700)};
+    --primary: #{setColor(teal, 400)};
+    --primary-light: #{setColor(teal, 100)};
+    --primary-ghost: #{setColor(teal, 50)};
 
-    --secondary-dark: #{$secondary-dark};
-    --secondary-light: #{$secondary-light};
-
-    --background-dark: #{$background-dark};
-    --background-light: #{$background-light};
+    --background: #{setColor(white)};
 }

@@ -46,7 +46,7 @@
             }
         }
 
-        background-color: $background-dark;
+        background-color: var(--primary-ghost);
 
         @include respond-to('large'){
             grid-template-columns: 1fr 2fr;

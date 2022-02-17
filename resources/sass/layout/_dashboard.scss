@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 body#dashboard{
-    background-color: var(--background-light);
+    background-color: var(--background);
 
     display: grid;
     grid-template-columns: 1fr;
@@ -54,7 +54,7 @@ body#dashboard{
 
             text-align: center;
 
-            background-color: var(--background-light);
+            background-color: var(--background);
 
             @include separator('right');
             @include separator('top');
@@ -86,7 +86,7 @@ body#dashboard{
 
     footer{
         padding: 32px;
-        background-color: var(--background-light);
+        background-color: var(--background);
 
         @include separator('top');
     }
