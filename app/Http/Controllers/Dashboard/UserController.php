@@ -125,13 +125,14 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        $validatedRole = $request->only(['roles_id']);
-        $validatedRole = $validatedRole['roles_id'] ?? ['roles_id'=>[]];
+        $validatedRole = $request->only(['roles']);
+        $validatedRole = $validatedRole['roles'] ?? ['roles'=>[]];
         $validated = $request->only(['email','name','password']);
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         try{
             $user->update($validated);
             foreach ($validatedRole as $keyRole=>$bool){
+                $bool = $bool === "true";
                 $role = Role::whereIn("id",[$keyRole])->first();
                 if($keyRole != $saRole->id){
                     if($bool){
@@ -141,9 +142,9 @@ class UserController extends Controller
                     }
                 }
             }
-            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success',['user'=>$user->name]));
-        }catch (Exception){
-            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.update.failed',['user'=>$user->name]));
+            return redirect()->route('dashboard.users.show',["user"=>$user])->with('success',__('messages.user.update.success',['user'=>$user->name]));
+        }catch (Exception $e){
+            return redirect()->route('dashboard.users.show',["user"=>$user])->with('errors',__('messages.user.update.failed',['user'=>$user->name]));
         }
     }
 

@@ -5,7 +5,9 @@
 @section('main')
     <a class="backBtn" href="{{ route('dashboard.users.show',['user'=> $user->id]) }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.editing_user')) }} {{ $user->name }}</h2>
-    <form id="edit" action="">
+    <form id="edit" action="{{ route('dashboard.users.update',['user'=>$user->id]) }}" method="post">
+        @csrf
+        @method('put')
         <div class="field">
             <label for="name">{{ ucfirst(__('word.name')) }}</label>
             <input type="text" id="name" name="name" value="{{ $user->name }}" />
@@ -29,7 +31,8 @@
             <div id="checkboxes">
                 @foreach($roles as $role)
                     <label for="checkbox-{{ $loop->iteration }}">
-                        <input type="checkbox" id="checkbox-{{ $loop->iteration }}" name="test[{{ $role->name }}]" {{ $user->hasRole($role) ? "checked" : "" }} />{{ $role->name }}
+                        <input type="hidden" id="checkbox-{{ $loop->iteration }}-hidden" name="roles[{{ $role->id }}]" value="{{ $user->hasRole($role) ? "true" : "false" }}"/>
+                        <input type="checkbox" id="checkbox-{{ $loop->iteration }}" {{ $user->hasRole($role) ? "checked" : "" }} onclick="inputCheckBox(this)" />{{ $role->name }}
                     </label>
                 @endforeach
             </div>
@@ -52,6 +55,12 @@
                 checkboxes.style.display = "none";
                 expanded = false;
             }
+        }
+
+        function inputCheckBox(element){
+            let id = element.getAttribute("id")
+            let hiddenElement = document.querySelector(`#${id}-hidden`)
+            hiddenElement.value = !!element.checked
         }
     </script>
 @endpush
