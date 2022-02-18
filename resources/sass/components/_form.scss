@@ -47,8 +47,11 @@ form{
     > input[type="submit"]{
         align-self: flex-end;
     }
-    > a{
+    > a, > p{
         align-self: flex-start;
+    }
+    > p.caption{
+        color: grey;
     }
 
     #multiselect{

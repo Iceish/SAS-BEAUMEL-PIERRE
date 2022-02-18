@@ -23,5 +23,5 @@ return [
     'products' => 'products',
     'edit' => 'edit',
     'name' => 'name',
-    'confirm' => 'comfim',
+    'confirm' => 'confirm',
 ];

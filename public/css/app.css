@@ -103,8 +103,11 @@ form > .field.active select {
 form > input[type=submit] {
   align-self: flex-end;
 }
-form > a {
+form > a, form > p {
   align-self: flex-start;
+}
+form > p.caption {
+  color: grey;
 }
 form #multiselect #checkboxes {
   display: none;
