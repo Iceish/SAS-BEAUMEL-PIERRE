@@ -15,31 +15,28 @@ h2:before {
 }
 
 input[type=submit].btn, a.btn {
-  display: flex;
+  display: inline-flex;
+  padding: 5px;
   justify-content: center;
   align-items: center;
-  width: 125px;
-  height: 30px;
+  min-width: 125px;
+  min-height: 30px;
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
   --border-size: 1px;
-  border: var(--border-size) solid var(--color-dark);
-}
-input[type=submit].btn--primary, a.btn--primary {
-  --color-dark: var(--primary-dark);
-  --color-light: var(--primary-light);
+  border: var(--border-size) solid var(--primary-dark);
 }
 input[type=submit].btn--bold, a.btn--bold {
   --border-size: 2px;
   font-weight: bold;
 }
 input[type=submit].btn, input[type=submit].btn:hover, input[type=submit].btn:visited, a.btn, a.btn:hover, a.btn:visited {
-  color: var(--color-dark);
+  color: var(--primary-dark);
 }
 input[type=submit].btn:active, a.btn:active {
-  color: var(--color-light);
-  border: var(--border-size) solid var(--color-light);
+  color: var(--primary);
+  border: var(--border-size) solid var(--primary);
 }
 
 a.backBtn i {
