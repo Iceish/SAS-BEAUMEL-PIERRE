@@ -13,13 +13,13 @@
                 <a href={{ route('home') }}>{{ ucfirst(__("word.home")) }}</a>
             </li>
             <li>
-                <a href={{ route('about') }}>{{ ucfirst(__("word.about-us")) }}</a>
-            </li>
-            <li>
                 <a href={{ route('partners') }}>{{ ucfirst(__("word.partners")) }}</a>
             </li>
             <li>
                 <a href={{ route('clients') }}>{{ ucfirst(__("word.clients")) }}</a>
+            </li>
+            <li>
+                <a href={{ route('about') }}>{{ ucfirst(__("word.about-us")) }}</a>
             </li>
             <li>
                 <a href="{{ route('auth.login.view') }}">{{ ucfirst(__("word.login")) }}</a>
