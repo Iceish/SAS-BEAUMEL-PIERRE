@@ -1,6 +1,6 @@
 @extends('web.dashboard.layout')
 
-@section('tag','users')
+@section('tag','roles')
 
 @section('main')
     <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>

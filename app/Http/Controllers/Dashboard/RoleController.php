@@ -93,8 +93,10 @@ class RoleController extends Controller
      */
     public function edit(Role $role): Application|Factory|View
     {
+        $permissions = Permission::all();
         return view("web.dashboard.sections.roles.edit",
             compact("role"),
+            compact('permissions')
         );
     }
 
