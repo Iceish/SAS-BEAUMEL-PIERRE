@@ -20,7 +20,11 @@
                 {{ $user->getRoleNames()->first() }}
             </div>
             <a class="btn btn--primary btn--bold" href="{{ route('dashboard.users.edit', ['user' => $user->id]) }}">{{ ucfirst(__('word.edit')) }}</a>
-
+            <form method="post" action="{{ route('dashboard.users.destroy', ['user' => $user->id]) }}">
+                @csrf
+                @method('DELETE')
+                <input class="btn btn--primary btn--bold" type="submit" value="{{ ucfirst(__('word.delete')) }}">
+            </form>
         </div>
 
         <div class="card__description">

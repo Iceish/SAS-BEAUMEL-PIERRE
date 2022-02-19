@@ -3,7 +3,7 @@
 @section('tag','roles')
 
 @section('main')
-    <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
+    <a class="backBtn" href="{{ route('dashboard.roles.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
 
     <h2>{{ ucfirst(__('word.user')) }}</h2>
 

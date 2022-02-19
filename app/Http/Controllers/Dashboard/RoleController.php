@@ -109,9 +109,16 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = $request->only(['name']);
+        $validatedPermissions = $request->only(['permissions']);
+        $validatedPermissions = $validatedPermissions['permissions'];
         try{
             $role->update($validated);
+            foreach ($validatedPermissions as $key=>$bool){
+                $bool = $bool === "true";
+                $permission = Permission::whereIn("id",[$key])->first();
+                $bool ? $role->givePermissionTo($permission->name) : $role->revokePermissionTo($permission->name);
+            }
             return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.update.success",["role"=>$role]));
         }catch (Exception){
             return redirect()->route("dashboard.roles.index")->with("errors",__("messages.role.update.failed",["role"=>$role]));

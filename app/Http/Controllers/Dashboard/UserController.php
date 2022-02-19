@@ -66,14 +66,15 @@ class UserController extends Controller
     public function store(StoreUserRequest $request): RedirectResponse
     {
         $validated = $request->only(['email','name']);
-        $validatedRole = $request->only(['roles_id']);
-        $validatedRole = $validatedRole['roles_id'] ?? ['roles_id'=>[]];
+        $validatedRole = $request->only(['roles']);
+        $validatedRole = $validatedRole['roles'];
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         $validated = Arr::add($validated,"password",Str::random());
         $user = User::create($validated);
         try{
             $user->save();
             foreach ($validatedRole as $keyRole=>$bool){
+                $bool = $bool === "true";
                 $role = Role::whereIn("id",[$keyRole])->first();
                 if($keyRole != $saRole->id){
                     if($bool){
@@ -128,21 +129,16 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
         $validatedRole = $request->only(['roles']);
-        $validatedRole = $validatedRole['roles'] ?? ['roles'=>[]];
+        $validatedRole = $validatedRole['roles'] ;
         $validated = $request->only(['email','name','password']);
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         try{
             $user->update($validated);
-            foreach ($validatedRole as $keyRole=>$bool){
+            foreach ($validatedRole as $key=>$bool){
                 $bool = $bool === "true";
-                $role = Role::whereIn("id",[$keyRole])->first();
-                if($keyRole != $saRole->id){
-                    if($bool){
-                        $user->assignRole($role->name);
-                    }else{
-                        $user->removeRole($role->name);
-                    }
-                }
+                $role = Role::whereIn("id",[$key])->first();
+                if($key === $saRole->id)continue;
+                $bool ? $user->assignRole($role->name) : $user->removeRole($role->name);
             }
             return redirect()->route('dashboard.users.show',["user"=>$user])->with('success',__('messages.user.update.success',['user'=>$user->name]));
         }catch (Exception $e){
