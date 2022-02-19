@@ -33,11 +33,11 @@ class PartnerController extends Controller
         $validated= $request->validated();
 
         $searchText = $validated["search"] ?? "";
-        $partner = Partner::query()
+        $partners = Partner::query()
             ->whereLike(["email","name"],$searchText)
             ->paginate(25);
         return view("web.dashboard.sections.partner.index",
-            compact("partner")
+            compact("partners")
         );
     }
 

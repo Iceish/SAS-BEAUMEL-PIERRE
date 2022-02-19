@@ -6,5 +6,7 @@ return [
     'email_verification_date' => 'email verification date',
     'editing_user' => 'editing user',
     'creating_user' => 'creating user',
+    'creating.client' => 'creating client',
+    'creating.partner' => 'creating partner',
     'click_open' => 'click to open',
 ];

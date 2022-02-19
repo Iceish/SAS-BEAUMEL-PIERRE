@@ -24,4 +24,7 @@ return [
     'edit' => 'editer',
     'name' => 'nom',
     'confirm' => 'comfimer',
+    'postal' => 'code postal',
+    'address' => 'adresse',
+    'city' => 'Ville'
 ];
