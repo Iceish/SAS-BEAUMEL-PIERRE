@@ -14,7 +14,7 @@
 
         <div class="field">
             <label for="email">{{ ucfirst(__('word.email')) }}</label>
-            <input type="email" id="email" name="email" placeholder="john.doe@example.com"/>
+            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}"/>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>

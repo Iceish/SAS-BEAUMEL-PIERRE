@@ -1,6 +1,10 @@
 <?php
 
 return [
+    "greeting.morning" => "Bonjour :name",
+    "greeting.afternoon" => "Bonjour :name",
+    "greeting.evening" => "Bonsoir :name",
+
     "user.create.success" => "Ajout de l'utilisateur :user réussi",
     "user.update.success" => "Mise à jour de l'utilisateur :user réussi",
     "user.delete.success" => "Supression de l'utilisateur :user réussi",

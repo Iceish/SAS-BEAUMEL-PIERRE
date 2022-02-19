@@ -91,12 +91,20 @@ form > .field > input {
 form > .field > input:active, form > .field > input:focus {
   border-bottom: 2px solid var(--primary);
 }
-form > .field select {
+form > .field select, form > .field textarea {
+  outline: none;
   border: 2px solid var(--primary-light);
   border-radius: 5px;
 }
+form > .field select:active, form > .field select:focus, form > .field textarea:active, form > .field textarea:focus {
+  border: 2px solid var(--primary);
+}
 form > .field.active select {
   border: 2px solid var(--primary);
+}
+form > .field textarea {
+  resize: none;
+  height: 150px;
 }
 form > input[type=submit] {
   align-self: flex-end;
@@ -477,6 +485,18 @@ body#static main {
 }
 #users form#edit #multiselect #checkboxes label:hover {
   background-color: var(--primary-light);
+}
+
+section#contactus {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section#contactus form {
+  width: 60%;
 }
 
 section#auth {
