@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
+use JetBrains\PhpStorm\ArrayShape;
 use function view;
 
 class Table extends Component
@@ -29,19 +30,23 @@ class Table extends Component
         $this->columns = $this->formatColumnString($columns);
     }
 
+    /**
+     * @param string $columnsString
+     * @return array
+     */
     private function formatColumnString(string $columnsString): array
     {
         $columns = [];
 
-        $columnsStringArr = Str::of($columnsString)->explode(" ");
+        $columnsStringArr = explode(" ",$columnsString);
         foreach ($columnsStringArr as $columnString){
-            $columnArr = Str::of($columnString)->explode("|");
+            $columnArr = explode("|",$columnString);
             $columnName = $columnArr[0];
             if($columnName !== ""){
                 $column = [];
                 $column["name"] = $columnName;
                 $columnAttributeString = $columnArr[1] ?? $columnName;
-                $columnAttributeArr = Str::of($columnAttributeString)->explode(":");
+                $columnAttributeArr = explode(":",$columnAttributeString);
                 $column["attributeName"] = $columnAttributeArr[0];
                 $column["attributeNameF"] = $columnAttributeArr[1] ?? null;
                 $columns[] = $column;
@@ -50,9 +55,14 @@ class Table extends Component
         return $columns;
     }
 
-    private function formatRouteString(string $routeString)
+    /**
+     * @param string $routeString
+     * @return array
+     */
+    #[ArrayShape(["route" => "string", "parameters" => "string"])]
+    private function formatRouteString(string $routeString): array
     {
-        $routeArr = Str::of($routeString)->explode(":");
+        $routeArr = explode(":",$routeString);
         return [
             "route" => $routeArr[0],
             "parameters"=> $routeArr[1] ?? ""
@@ -61,7 +71,7 @@ class Table extends Component
 
     /**
      * Get the view / contents that represent the component.
-     *
+     * @return Application|Factory|View
      */
     public function render(): Application|Factory|View
     {
