@@ -5,7 +5,7 @@
 @section('main')
     <a class="backBtn" href="{{ route('dashboard.roles.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
 
-    <h2>{{ ucfirst(__('word.user')) }}</h2>
+    <h2>{{ ucfirst(__('word.role')) }}</h2>
 
     <div class="card">
         <div class="card__header">

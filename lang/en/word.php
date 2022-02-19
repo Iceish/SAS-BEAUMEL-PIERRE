@@ -15,6 +15,7 @@ return [
     'cameras' => 'cameras',
     'users' => 'users',
     'user' => 'user',
+    'role' => 'role',
     'roles' => 'roles',
     'logout' => 'logout',
     'settings' => 'settings',

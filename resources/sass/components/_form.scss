@@ -65,15 +65,40 @@ form{
     }
 
     #multiselect{
-        #checkboxes{
+
+        #checkboxes {
             display: none;
+            border: 1px solid rgba(230, 230, 230, 1);
+            grid-column-start: 2;
+
+            label {
+                display: block;
+                &:hover{
+                    background-color: var(--primary-light);
+                }
+            }
         }
+
         &.active #checkboxes{
             display: block;
         }
+
+        .selectBox {
+            position: relative;
+
+            select{
+                width: 100%;
+                font-style: italic;
+            }
+        }
+
+        .overSelect {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
     }
-
-
-
 
 }

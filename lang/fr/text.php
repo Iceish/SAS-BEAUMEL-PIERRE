@@ -5,6 +5,7 @@ return [
     'account_creation_date' => 'date de création du compte',
     'email_verification_date' => 'date de vérification de l\'email',
     'editing_user' => 'edition de l\'utilisateur',
+    'editing.role' => 'edition du role',
     'creating_user' => 'creation de l\'utilisateur',
     'creating.client' => 'creation du client',
     'creating.partner' => 'creation du partenaire',

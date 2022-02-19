@@ -117,9 +117,31 @@ form > p.caption {
 }
 form #multiselect #checkboxes {
   display: none;
+  border: 1px solid #e6e6e6;
+  grid-column-start: 2;
+}
+form #multiselect #checkboxes label {
+  display: block;
+}
+form #multiselect #checkboxes label:hover {
+  background-color: var(--primary-light);
 }
 form #multiselect.active #checkboxes {
   display: block;
+}
+form #multiselect .selectBox {
+  position: relative;
+}
+form #multiselect .selectBox select {
+  width: 100%;
+  font-style: italic;
+}
+form #multiselect .overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 /* Box sizing rules */
@@ -461,30 +483,6 @@ body#static main {
   width: 50%;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-#users form#edit #multiselect .selectBox {
-  position: relative;
-}
-#users form#edit #multiselect .selectBox select {
-  width: 100%;
-  font-style: italic;
-}
-#users form#edit #multiselect .overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-#users form#edit #multiselect #checkboxes {
-  border: 1px solid #e6e6e6;
-  grid-column-start: 2;
-}
-#users form#edit #multiselect #checkboxes label {
-  display: block;
-}
-#users form#edit #multiselect #checkboxes label:hover {
-  background-color: var(--primary-light);
 }
 
 section#contactus {
