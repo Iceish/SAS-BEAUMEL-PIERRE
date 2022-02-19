@@ -58,6 +58,7 @@ a.backBtn i:hover {
 .custom-table > * {
   display: grid;
   grid-auto-flow: column;
+  grid-auto-columns: 1fr;
 }
 
 form {

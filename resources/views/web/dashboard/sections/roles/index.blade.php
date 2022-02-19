@@ -1,11 +1,7 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    <h2>Roles</h2>
-    @foreach($roles as $role)
-        {{ $role->name }} <br>
-    @endforeach
-
-    <h2>Add new role</h2>
-    <a href="{{ route('dashboard.roles.create') }}">Add new role.</a>
+    <h2>All Roles</h2>
+    <x-Table.Table :content="$roles" columns="Name|name" route="dashboard.roles.show:role"/>
+    <a class="btn" href="{{ route('dashboard.users.create') }}">Create a user</a>
 @endsection
