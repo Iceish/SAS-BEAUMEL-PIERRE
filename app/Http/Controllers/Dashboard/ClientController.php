@@ -63,9 +63,9 @@ class ClientController extends Controller
         $client = Client::create($validated);
         try{
             $client->save();
-            return redirect()->route("dashboard.client.index")->with("success",__("messages.client.create.success",['client'=>$client]));
+            return redirect()->route("dashboard.clients.index")->with("success",__("messages.client.create.success",['client'=>$client]));
         }catch (Exception){
-            return redirect()->route("dashboard.client.index")->with("errors",__("messages.client.create.failed",['client'=>$client]));
+            return redirect()->back()->withInput();
         }
     }
 

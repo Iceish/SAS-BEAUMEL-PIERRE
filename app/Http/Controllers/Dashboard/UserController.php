@@ -82,9 +82,9 @@ class UserController extends Controller
                     }
                 }
             }
-            return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success",['user'=>$user->name]));
+            return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.users.index")->with("errors",__("messages.user.create.failed",['user'=>$user->name]));
+            return redirect()->back()->withInput()->with("error",__('messages.user.create.failed'));
 
         }
     }
@@ -140,9 +140,9 @@ class UserController extends Controller
                 if($key === $saRole->id)continue;
                 $bool ? $user->assignRole($role->name) : $user->removeRole($role->name);
             }
-            return redirect()->route('dashboard.users.show',["user"=>$user])->with('success',__('messages.user.update.success',['user'=>$user->name]));
-        }catch (Exception $e){
-            return redirect()->route('dashboard.users.show',["user"=>$user])->with('errors',__('messages.user.update.failed',['user'=>$user->name]));
+            return redirect()->route('dashboard.users.show',["user"=>$user])->with('success',__('messages.user.update.success'));
+        }catch (Exception){
+            return redirect()->back()->with('errors',__('messages.user.update.failed'))->withInput();
         }
     }
 
@@ -158,7 +158,7 @@ class UserController extends Controller
             $user->delete();
             return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success',['user'=>$user->name]));
         }catch (Exception){
-            return redirect()->route('dashboard.users.index')->with('errors',__('messages.user.delete.failed',['user'=>$user->name]));
+            return redirect()->with('errors',__('messages.user.delete.failed'));
         }
     }
 }
