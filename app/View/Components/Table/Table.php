@@ -3,18 +3,17 @@
 namespace App\View\Components\Table;
 
 
+use ArrayAccess;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use JetBrains\PhpStorm\ArrayShape;
 use function view;
 
 class Table extends Component
 {
-    public array|Collection $content;
+    public array|ArrayAccess $content;
     public array $columns;
     public array $route;
 
@@ -23,7 +22,7 @@ class Table extends Component
      *
      * @return void
      */
-    public function __construct(array|Collection $content, string $columns, string $route)
+    public function __construct(array|ArrayAccess $content, string $columns, string $route)
     {
         $this->content = $content ?? [];
         $this->route = $this->formatRouteString($route);

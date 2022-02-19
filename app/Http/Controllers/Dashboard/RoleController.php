@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 use Exception;
@@ -23,14 +24,21 @@ class RoleController extends Controller
         $this->middleware('permission:roles.edit', ['only' => ['edit','update']]);
         $this->middleware('permission:roles.delete', ['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the role.
      *
+     * @param SearchRequest $request
      * @return Application|Factory|View
      */
-    public function index(): Application|Factory|View
+    public function index(SearchRequest $request): Application|Factory|View
     {
-        $roles = Role::all();
+        $validated = $request->validated();
+        $searchText = $validated["search"] ?? "";
+        $roles = Role::query()
+            ->whereNotIn("name",["SuperAdmin"])
+            ->whereLike(["name"],$searchText)
+            ->paginate(25);
         return view("web.dashboard.sections.roles.index",
             compact("roles")
         );
@@ -80,6 +88,7 @@ class RoleController extends Controller
      */
     public function show(Role $role): Application|Factory|View
     {
+        if($role->id === Role::findByName("SuperAdmin")->id)abort(404);
         return view("web.dashboard.sections.roles.show",
             compact("role"),
         );
@@ -93,6 +102,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role): Application|Factory|View
     {
+        if($role->id === Role::findByName("SuperAdmin")->id)abort(404);
         $permissions = Permission::all();
         return view("web.dashboard.sections.roles.edit",
             compact("role"),
@@ -109,6 +119,7 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role): RedirectResponse
     {
+        if($role->id === Role::findByName("SuperAdmin")->id)abort(404);
         $validated = $request->only(['name']);
         $validatedPermissions = $request->only(['permissions']);
         $validatedPermissions = $validatedPermissions['permissions'];
@@ -133,6 +144,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role): RedirectResponse
     {
+        if($role->id === Role::findByName("SuperAdmin")->id)abort(404);
         try{
             $role->delete();
             return redirect()->route("dashboard.roles.index")->with('success',__("messages.role.delete.success",["role"=>$role]));
