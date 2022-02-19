@@ -59,37 +59,6 @@
     form#edit{
         width: 50%;
         @include margin-y(20px);
-
-        #multiselect{
-            .selectBox {
-                position: relative;
-
-                select{
-                    width: 100%;
-                    font-style: italic;
-                }
-            }
-
-            .overSelect {
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-            }
-
-            #checkboxes {
-                border: 1px solid rgba(230, 230, 230, 1);
-                grid-column-start: 2;
-
-                label {
-                    display: block;
-                    &:hover{
-                        background-color: var(--primary-light);
-                    }
-                }
-            }
-        }
     }
 }
 

@@ -3,6 +3,7 @@
 @section('tag','users')
 
 @section('main')
+    <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.creating_user')) }}</h2>
     <form id="edit" action="{{ route("dashboard.users.store") }}" method="post">
         @csrf
@@ -14,7 +15,7 @@
 
         <div class="field">
             <label for="email">{{ ucfirst(__('word.email')) }}</label>
-            <input type="email" id="email" name="email" placeholder="john.doe@example.com"/>
+            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}"/>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>

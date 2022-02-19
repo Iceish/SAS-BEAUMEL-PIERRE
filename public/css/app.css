@@ -91,12 +91,20 @@ form > .field > input {
 form > .field > input:active, form > .field > input:focus {
   border-bottom: 2px solid var(--primary);
 }
-form > .field select {
+form > .field select, form > .field textarea {
+  outline: none;
   border: 2px solid var(--primary-light);
   border-radius: 5px;
 }
+form > .field select:active, form > .field select:focus, form > .field textarea:active, form > .field textarea:focus {
+  border: 2px solid var(--primary);
+}
 form > .field.active select {
   border: 2px solid var(--primary);
+}
+form > .field textarea {
+  resize: none;
+  height: 150px;
 }
 form > input[type=submit] {
   align-self: flex-end;
@@ -109,9 +117,31 @@ form > p.caption {
 }
 form #multiselect #checkboxes {
   display: none;
+  border: 1px solid #e6e6e6;
+  grid-column-start: 2;
+}
+form #multiselect #checkboxes label {
+  display: block;
+}
+form #multiselect #checkboxes label:hover {
+  background-color: var(--primary-light);
 }
 form #multiselect.active #checkboxes {
   display: block;
+}
+form #multiselect .selectBox {
+  position: relative;
+}
+form #multiselect .selectBox select {
+  width: 100%;
+  font-style: italic;
+}
+form #multiselect .overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 /* Box sizing rules */
@@ -454,29 +484,17 @@ body#static main {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-#users form#edit #multiselect .selectBox {
-  position: relative;
-}
-#users form#edit #multiselect .selectBox select {
+
+section#contactus {
   width: 100%;
-  font-style: italic;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#users form#edit #multiselect .overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-#users form#edit #multiselect #checkboxes {
-  border: 1px solid #e6e6e6;
-  grid-column-start: 2;
-}
-#users form#edit #multiselect #checkboxes label {
-  display: block;
-}
-#users form#edit #multiselect #checkboxes label:hover {
-  background-color: var(--primary-light);
+section#contactus form {
+  width: 60%;
 }
 
 section#auth {

@@ -15,6 +15,7 @@ return [
     'cameras' => 'cameras',
     'users' => 'users',
     'user' => 'user',
+    'role' => 'role',
     'roles' => 'roles',
     'logout' => 'logout',
     'settings' => 'settings',
@@ -24,4 +25,7 @@ return [
     'edit' => 'edit',
     'name' => 'name',
     'confirm' => 'confirm',
+    'postal' => 'postal code',
+    'address' => 'address',
+    'city' => 'city',
 ];

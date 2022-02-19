@@ -13,7 +13,7 @@
             <label for="emailInput">
                 {{ ucfirst(__("word.email")) }}
             </label>
-            <input id="emailInput" name="email" type="email" placeholder="john.doe@example.com" autocomplete="off"/>
+            <input id="emailInput" name="email" type="email" placeholder="{{ __('form.placeholder.email') }}" autocomplete="off"/>
         </div>
         <div class="field">
             <label for="passwordInput">

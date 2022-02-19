@@ -15,6 +15,7 @@ return [
     'cameras' => 'cameras',
     'users' => 'utilisateurs',
     'user' => 'utilisateur',
+    'role' => 'role',
     'roles' => 'roles',
     'logout' => 'se déconnecter',
     'settings' => 'paramètres',
@@ -24,4 +25,7 @@ return [
     'edit' => 'editer',
     'name' => 'nom',
     'confirm' => 'comfimer',
+    'postal' => 'code postal',
+    'address' => 'adresse',
+    'city' => 'Ville'
 ];
