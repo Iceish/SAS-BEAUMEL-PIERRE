@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use JetBrains\PhpStorm\ArrayShape;
 
 class StoreUserRequest extends FormRequest
@@ -22,14 +23,14 @@ class StoreUserRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["roles_id" => "string[]", "email" => "string[]", "name" => "string[]", "password" => "string[]"])]
+    #[ArrayShape(["roles" => "string[]", "roles.*" => "array", "email" => "array", "name" => "string[]"])]
     public function rules(): array
     {
         return [
-            "roles_id.*" => ["array"],
-            "email" => ["required","email","max:255"],
+            "roles" => ["array"],
+            "roles.*" => ["required",Rule::in(['true', 'false'])],
+            "email" => ["required","email","max:255",Rule::unique('users')],
             "name" => ["required","string","max:255"],
-            "password" => ["max:255","min:8"],
         ];
     }
 }

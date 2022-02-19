@@ -4,9 +4,8 @@
 
 @section('main')
     <h2>{{ ucfirst(__('text.creating_user')) }}</h2>
-    <form id="edit" action="" method="post">
+    <form id="edit" action="{{ route("dashboard.users.store") }}" method="post">
         @csrf
-        @method('put')
         <h4>Create</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.name')) }}</label>
@@ -31,7 +30,7 @@
             <div id="checkboxes">
                 @foreach($roles as $role)
                     <label for="checkbox-{{ $loop->iteration }}">
-                        <input type="hidden" id="checkbox-{{ $loop->iteration }}-hidden" name="roles[{{ $role->id }}]"/>
+                        <input type="hidden" id="checkbox-{{ $loop->iteration }}-hidden" name="roles[{{ $role->id }}]" value="false"/>
                         <input type="checkbox" id="checkbox-{{ $loop->iteration }}" onclick="inputCheckBox(this)" />{{ $role->name }}
                     </label>
                 @endforeach

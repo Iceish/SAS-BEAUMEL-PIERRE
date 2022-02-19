@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use JetBrains\PhpStorm\ArrayShape;
 
 class UpdateUserRequest extends FormRequest
@@ -22,15 +23,15 @@ class UpdateUserRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["roles_id.*" => "string[]", "email" => "string[]", "name" => "string[]", "password" => "string[]"])]
+    #[ArrayShape(["roles" => "string[]", "roles.*" => "array", "email" => "string[]", "name" => "string[]"])]
     public function rules(): array
     {
+        $user = $this->route('user');
         return [
-            "roles_id" => ["array"],
-            "roles_id.*" => ["accepted"],
-//            "email" => ["required","email","max:255"],
-//            "name" => ["required","string","max:255"],
-//            "password" => ["max:255","min:8"],
+            "roles" => ["array"],
+            "roles.*" => ["required",Rule::in(['true', 'false'])],
+            "email" => ["required","email","max:255",Rule::unique('users')->ignore($user->id)],
+            "name" => ["required","string","max:255"],
         ];
     }
 }

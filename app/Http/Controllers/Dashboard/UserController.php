@@ -12,6 +12,8 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -63,11 +65,11 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $validated = $request->only(['email','name','password']);
+        $validated = $request->only(['email','name']);
         $validatedRole = $request->only(['roles_id']);
         $validatedRole = $validatedRole['roles_id'] ?? ['roles_id'=>[]];
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
-
+        $validated = Arr::add($validated,"password",Str::random());
         $user = User::create($validated);
         try{
             $user->save();
