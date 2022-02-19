@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\View\Components\customTable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
@@ -49,6 +50,17 @@ class AppServiceProvider extends ServiceProvider
             });
 
             return $this;
+        });
+
+        Carbon::macro('greet', function () {
+            $hour = Carbon::now()->hour;
+            if ($hour < 12) {
+                return 'Good morning';
+            }
+            if ($hour < 17) {
+                return 'Good afternoon';
+            }
+            return 'Good evening';
         });
     }
 }

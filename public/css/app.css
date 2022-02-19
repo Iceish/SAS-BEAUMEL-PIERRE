@@ -19,7 +19,7 @@ input[type=submit].btn, a.btn {
   padding: 5px;
   justify-content: center;
   align-items: center;
-  min-width: 125px;
+  min-width: 96px;
   min-height: 30px;
   border-radius: 4px;
   background-color: transparent;
@@ -221,6 +221,10 @@ hr {
   height: 1px;
   width: 100%;
   border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
 }
 
 body#dashboard {
@@ -432,8 +436,9 @@ body#static main {
   grid-template: 1fr/1fr 1fr;
 }
 #users .card > .card__header > .btn {
-  justify-self: center;
-  align-self: center;
+  justify-self: flex-end;
+  align-self: flex-start;
+  margin: 6px;
 }
 #users .card > .card__description > ul {
   padding-left: 0;

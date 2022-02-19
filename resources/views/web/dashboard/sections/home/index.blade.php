@@ -1,7 +1,6 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    <p>Home dashboard page</p>
-
+    <h2>{{ \Carbon\Carbon::greet() }} {{ Auth::user()->name }}.</h2>
 
 @endsection

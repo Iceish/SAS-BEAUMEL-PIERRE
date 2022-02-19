@@ -34,8 +34,9 @@
             grid-template: 1fr / 1fr 1fr;
 
             > .btn{
-                justify-self: center;
-                align-self: center;
+                justify-self: flex-end;
+                align-self: flex-start;
+                margin: 6px;
             }
         }
 
