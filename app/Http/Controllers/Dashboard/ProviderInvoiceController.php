@@ -66,13 +66,11 @@ class ProviderInvoiceController extends Controller
     public function store(StoreProviderInvoiceRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $providerInvoice =  ProviderInvoice::create($validated);
-
         try{
-            $providerInvoice->save();
-            return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
+            ProviderInvoice::create($validated);
+            return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.create.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.providerInvoice.index")->with("errors",__("messages.providerInvoice.create.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->back()->with("errors",__("messages.providerInvoice.create.failed"))->withInput();
         }
     }
 
@@ -114,9 +112,9 @@ class ProviderInvoiceController extends Controller
         $validated = $request->validated();
         try{
             $providerInvoice->update($validated);
-            return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.update.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.providerInvoice.index")->with("errors",__("messages.providerInvoice.update.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->back()->with("errors",__("messages.providerInvoice.update.failed"))->withInput();
         }
     }
 
@@ -130,9 +128,9 @@ class ProviderInvoiceController extends Controller
     {
         try{
             $providerInvoice->delete();
-            return redirect()->route("Dashboard.providerInvoice.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("Dashboard.providerInvoice.index")->with('success',__("messages.providerInvoice.delete.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.providerInvoice.index")->with('errors',__("messages.providerInvoice.delete.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->back()->with('errors',__("messages.providerInvoice.delete.failed"));
         }
     }
 }

@@ -70,8 +70,8 @@ class UserController extends Controller
         $validatedRole = $validatedRole['roles'];
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         $validated = Arr::add($validated,"password",Str::random());
-        $user = User::create($validated);
         try{
+            $user = User::create($validated);
             $user->save();
             foreach ($validatedRole as $keyRole=>$bool){
                 $bool = $bool === "true";
@@ -84,7 +84,7 @@ class UserController extends Controller
             }
             return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
         }catch (Exception){
-            return redirect()->back()->withInput()->with("error",__('messages.user.create.failed'));
+            return redirect()->back()->with("error",__('messages.user.create.failed'))->withInput();
 
         }
     }
@@ -156,7 +156,7 @@ class UserController extends Controller
     {
         try{
             $user->delete();
-            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success',['user'=>$user->name]));
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success'));
         }catch (Exception){
             return redirect()->with('errors',__('messages.user.delete.failed'));
         }

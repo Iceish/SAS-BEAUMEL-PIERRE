@@ -110,7 +110,7 @@ class PartnerController extends Controller
         $validated = $request->validated();
         try{
             $partner->update($validated);
-            return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.update.success", ['partner'=>$partner]));
+            return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.update.success"));
         }catch (Exception){
             return redirect()->back()->with("errors",__("messages.partner.update.success"))->withInput();
         }
@@ -126,7 +126,7 @@ class PartnerController extends Controller
     {
         try{
             $partner->delete();
-            return redirect()->route("dashboard.partners.index")->with('success',__("messages.partner.delete.success",['partner'=>$partner]));
+            return redirect()->route("dashboard.partners.index")->with('success',__("messages.partner.delete.success"));
         }catch (Exception){
             return redirect()->back()->with('errors',__("messages.partner.delete.success"));
         }
