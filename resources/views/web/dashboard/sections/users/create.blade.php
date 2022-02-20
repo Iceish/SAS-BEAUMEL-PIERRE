@@ -16,6 +16,11 @@
         <div class="field">
             <label for="email">{{ ucfirst(__('word.email')) }}</label>
             <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}"/>
+            <div>
+                @foreach ($errors->get('email') as $message)
+                {{$message}}
+                @endforeach
+            </div>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>

@@ -94,7 +94,7 @@ class PartnerController extends Controller
     public function edit(Partner $partner): View|Factory|Application
     {
         return view("web.dashboard.sections.partners.edit",
-             compact($partner)
+             compact("partner")
         );
     }
 

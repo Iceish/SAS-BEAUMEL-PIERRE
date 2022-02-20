@@ -143,9 +143,9 @@ return [
         'username'              => 'nom d\'utilisateur',
         'year'                  => 'année',
     ],
-    'custom'               => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+    'custom' => [
+        'email' => [
+            'unique' => 'L\'email est déjà utilisé.',
         ],
     ],
 ];
