@@ -33,11 +33,11 @@ class VehicleController extends Controller
         $validated= $request->validated();
         $searchText = $validated["search"] ?? "";
 
-        $vehicle = Vehicle::query()
+        $vehicles = Vehicle::query()
             ->whereLike(["licence_plate"],$searchText)
             ->paginate(25);
         return view("web.dashboard.sections.vehicle.index",
-            compact("vehicle")
+            compact("vehicles")
         );
     }
 

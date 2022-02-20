@@ -3,7 +3,7 @@
 @section('tag','users')
 
 @section('main')
-    <h2>All users</h2>
+    <h2>Users</h2>
     <x-Table.Table :content="$users" columns="Name|name Roles|roles:name" route="dashboard.users.show:user"/>
     <a class="btn" href="{{ route('dashboard.users.create') }}">Create a user</a>
 @endsection

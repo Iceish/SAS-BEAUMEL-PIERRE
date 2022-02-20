@@ -20,6 +20,7 @@ return [
     'logout' => 'logout',
     'settings' => 'settings',
     'equipments' => 'equipments',
+    'vehicles' => 'vehicles',
     'invoices' => 'invoices',
     'products' => 'products',
     'edit' => 'edit',
