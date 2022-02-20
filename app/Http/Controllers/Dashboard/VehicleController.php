@@ -60,12 +60,11 @@ class VehicleController extends Controller
     public function store(StoreVehicleRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $vehicle = Vehicle::create($validated);
         try {
-            $vehicle->save();
-            return redirect()->route("dashboard.vehicle.index")->with("success", __("messages.vehicle.create.success", ['vehicle' => $vehicle]));
+            Vehicle::create($validated);
+            return redirect()->route("dashboard.vehicle.index")->with("success", __("messages.vehicle.create.success"));
         } catch (Exception) {
-            return redirect()->route("dashboard.vehicle.index")->with("errors", __("messages.vehicle.create.failed", ['vehicle' => $vehicle]));
+            return redirect()->back()->with("errors", __("messages.vehicle.create.failed"))->withInput();
         }
     }
 
@@ -107,9 +106,9 @@ class VehicleController extends Controller
         $validated = $request->validated();
         try{
             $vehicle->update($validated);
-            return redirect()->route("dashboard.vehicle.index")->with("success",__("messages.vehicle.update.success",['vehicle'=>$vehicle]));
+            return redirect()->route("dashboard.vehicle.index")->with("success",__("messages.vehicle.update.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.vehicle.index")->with("errors",__("messages.vehicle.update.success",['vehicle'=>$vehicle]));
+            return redirect()->back()->with("errors",__("messages.vehicle.update.success"))->withInput();
         }
     }
 
@@ -123,9 +122,9 @@ class VehicleController extends Controller
     {
         try{
             $vehicle->delete();
-            return redirect()->route("dashboard.vehicle.index")->with('success',__("messages.vehicle.delete.success",['vehicle'=>$vehicle]));
+            return redirect()->route("dashboard.vehicle.index")->with('success',__("messages.vehicle.delete.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.vehicle.index")->with('errors',__("messages.vehicle.delete.success",['vehicle'=>$vehicle]));
+            return redirect()->back()->with('errors',__("messages.vehicle.delete.success"));
         }
     }
 }

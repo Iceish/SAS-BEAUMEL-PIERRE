@@ -69,10 +69,10 @@ class InvoiceSupplierController extends Controller
         $providerInvoice =  ProviderInvoice::create($validated);
 
         try{
-            $providerInvoice->save();
+            ProviderInvoice::create($validated);
             return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("errors",__("messages.providerInvoice.create.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->back()->with("errors",__("messages.providerInvoice.create.failed"))->withInput();
         }
     }
 
@@ -116,7 +116,7 @@ class InvoiceSupplierController extends Controller
             $providerInvoice->update($validated);
             return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("errors",__("messages.providerInvoice.update.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->back()->with("errors",__("messages.providerInvoice.update.failed"))->withInput();
         }
     }
 
@@ -132,7 +132,7 @@ class InvoiceSupplierController extends Controller
             $providerInvoice->delete();
             return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with('errors',__("messages.providerInvoice.delete.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->back()->with('errors',__("messages.providerInvoice.delete.failed"));
         }
     }
 }

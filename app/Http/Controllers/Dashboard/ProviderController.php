@@ -63,12 +63,11 @@ class ProviderController extends Controller
     public function store(StoreProviderRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $client = Provider::create($validated);
         try{
-            $client->save();
-            return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.create.success",['provider'=>$client]));
+            $client = Provider::create($validated);
+            return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.create.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.provider.index")->with("errors",__("messages.provider.create.failed",['provider'=>$client]));
+            return redirect()->back()->with("errors",__("messages.provider.create.failed"))->withInput();
         }
     }
 
@@ -110,9 +109,9 @@ class ProviderController extends Controller
         $validated = $request->validated();
         try{
             $provider->update($validated);
-            return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.update.success",['provider'=>$provider]));
+            return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.update.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.provider.index")->with("errors",__("messages.provider.update.success",['provider'=>$provider]));
+            return redirect()->back()->with("errors",__("messages.provider.update.success"))->withInput();
         }
     }
 
@@ -126,9 +125,9 @@ class ProviderController extends Controller
     {
         try{
             $provider->delete();
-            return redirect()->route("dashboard.provider.index")->with('success',__("messages.provider.delete.success",['provider'=>$provider]));
+            return redirect()->route("dashboard.provider.index")->with('success',__("messages.provider.delete.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.provider.index")->with('errors',__("messages.provider.delete.success",['provider'=>$provider]));
+            return redirect()->back()->with('errors',__("messages.provider.delete.success"));
         }
     }
 }

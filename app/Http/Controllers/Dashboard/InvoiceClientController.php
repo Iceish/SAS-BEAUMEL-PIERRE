@@ -58,10 +58,10 @@ class InvoiceClientController extends Controller
         $validated = $request->validated();
         $customerInvoice = CustomerInvoice::create($validated);
         try{
-            $customerInvoice->save();
+            CustomerInvoice::create($validated);
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.create.success"));
         }catch (Exception){
-            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("errors",__("messages.customerInvoice.create.failed"));
+            return redirect()->back()->with("errors",__("messages.customerInvoice.create.failed"))->withInput();
         }
     }
 
@@ -107,6 +107,7 @@ class InvoiceClientController extends Controller
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.update.success"));
         }catch (Exception){
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with("errors",__("messages.customerInvoice.update.failed"));
+            return redirect()->back()->with("errors",__("messages.customerInvoice.update.failed"))->withInput();
         }
     }
 
@@ -122,7 +123,7 @@ class InvoiceClientController extends Controller
             $customer->delete();
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with('success',__("messages.customerInvoice.delete.success"));
         }catch (Exception){
-            return redirect()->route("web.dashboard.sections.invoices.client.index")->with('errors',__("messages.customerInvoice.delete.failed"));
+            return redirect()->back()->with('errors',__("messages.customerInvoice.delete.failed"));
         }
     }
 }
