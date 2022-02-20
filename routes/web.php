@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\Dashboard\ClientController;
-use App\Http\Controllers\Dashboard\CustomerInvoiceController;
+use App\Http\Controllers\Dashboard\InvoiceClientController;
 use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProviderController;
-use App\Http\Controllers\Dashboard\ProviderInvoiceController;
+use App\Http\Controllers\Dashboard\InvoiceSupplierController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VehicleController;
@@ -48,10 +49,14 @@ Route::name('dashboard.')->prefix('dashboard')->middleware(['permission:dashboar
         ->name('home');
     Route::resource('users',UserController::class);
     Route::resource('roles',RoleController::class);
-    Route::resource('customer-invoices', CustomerInvoiceController::class);
+
+    Route::name('invoices.')->prefix('invoices')->group(function (){
+        Route::get('/', [InvoiceController::class,'index'])->name('index');
+        Route::resource('client', InvoiceClientController::class);
+        Route::resource('supplier', InvoiceSupplierController::class);
+    });
     Route::resource('clients', ClientController::class);
     Route::resource('providers', ProviderController::class);
-    Route::resource('provider-invoices', ProviderInvoiceController::class);
     Route::resource('vehicles', VehicleController::class);
     Route::resource('partners', PartnerController::class);
 });

@@ -15,7 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use Exception;
 use function view;
 
-class ProviderInvoiceController extends Controller
+class InvoiceSupplierController extends Controller
 {
     function __construct()
     {
@@ -39,7 +39,7 @@ class ProviderInvoiceController extends Controller
         $providerInvoices = ProviderInvoice::with('provider')
             ->whereLike(["provider.email","provider.name"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.providerInvoice.index",
+        return view("web.dashboard.sections.invoices.supplier.index",
             compact("providerInvoices")
         );
     }
@@ -70,9 +70,9 @@ class ProviderInvoiceController extends Controller
 
         try{
             $providerInvoice->save();
-            return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->route("dashboard.providerInvoice.index")->with("errors",__("messages.providerInvoice.create.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("errors",__("messages.providerInvoice.create.failed",["providerInvoice"=>$providerInvoice]));
         }
     }
 
@@ -84,7 +84,7 @@ class ProviderInvoiceController extends Controller
      */
     public function show(ProviderInvoice $providerInvoice): View|Factory|Application
     {
-        return view("web.dashboard.sections.providerInvoice.show",
+        return view("web.dashboard.sections.invoices.supplier.show",
             compact("providerInvoice"),
         );
     }
@@ -97,7 +97,7 @@ class ProviderInvoiceController extends Controller
      */
     public function edit(ProviderInvoice $providerInvoice): View|Factory|Application
     {
-        return view("web.dashboard.sections.providerInvoice.edit",
+        return view("web.dashboard.sections.invoices.supplier.edit",
             compact("providerInvoice")
         );
     }
@@ -114,9 +114,9 @@ class ProviderInvoiceController extends Controller
         $validated = $request->validated();
         try{
             $providerInvoice->update($validated);
-            return redirect()->route("dashboard.providerInvoice.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->route("dashboard.providerInvoice.index")->with("errors",__("messages.providerInvoice.update.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("errors",__("messages.providerInvoice.update.failed",["providerInvoice"=>$providerInvoice]));
         }
     }
 
@@ -130,9 +130,9 @@ class ProviderInvoiceController extends Controller
     {
         try{
             $providerInvoice->delete();
-            return redirect()->route("Dashboard.providerInvoice.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->route("dashboard.providerInvoice.index")->with('errors',__("messages.providerInvoice.delete.failed",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with('errors',__("messages.providerInvoice.delete.failed",["providerInvoice"=>$providerInvoice]));
         }
     }
 }

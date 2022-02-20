@@ -13,7 +13,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class CustomerInvoiceController extends Controller
+class InvoiceClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class CustomerInvoiceController extends Controller
         $customerInvoices = CustomerInvoice::with('client')
             ->whereLike(["client.email","client.name","payment_mode"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.customerInvoice.index",
+        return view("web.dashboard.sections.invoices.client.index",
             compact("customerInvoices")
         );
     }
@@ -42,7 +42,7 @@ class CustomerInvoiceController extends Controller
     public function create(): View|Factory|Application
     {
         $customerInvoice = CustomerInvoice::all();
-        return view("web.dashboard.sections.customerInvoice.create",
+        return view("web.dashboard.sections.invoices.client.create",
             compact("customerInvoice")
         );
     }
@@ -59,9 +59,9 @@ class CustomerInvoiceController extends Controller
         $customerInvoice = CustomerInvoice::create($validated);
         try{
             $customerInvoice->save();
-            return redirect()->route("dashboard.customerInvoice.index")->with("success",__("messages.customerInvoice.create.success"));
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.create.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.customerInvoice.index")->with("errors",__("messages.customerInvoice.create.failed"));
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("errors",__("messages.customerInvoice.create.failed"));
         }
     }
 
@@ -74,7 +74,7 @@ class CustomerInvoiceController extends Controller
     public function show(CustomerInvoice $customerInvoice): View|Factory|Application
     {
         $customerInvoice->load('client');
-        return view("web.dashboard.sections.customerInvoice.show",
+        return view("web.dashboard.sections.invoices.client.show",
             compact("customerInvoice")
         );
     }
@@ -87,7 +87,7 @@ class CustomerInvoiceController extends Controller
      */
     public function edit(CustomerInvoice $customerInvoice): View|Factory|Application
     {
-        return view("web.dashboard.sections.customerInvoice.edit",
+        return view("web.dashboard.sections.invoices.client.edit",
             compact("customerInvoice")
         );
     }
@@ -104,9 +104,9 @@ class CustomerInvoiceController extends Controller
         $validated = $request->validated();
         try{
             $customer->update($validated);
-            return redirect()->route("dashboard.customerInvoice.index")->with("success",__("messages.customerInvoice.update.success"));
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.update.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.customerInvoice.index")->with("errors",__("messages.customerInvoice.update.failed"));
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("errors",__("messages.customerInvoice.update.failed"));
         }
     }
 
@@ -120,9 +120,9 @@ class CustomerInvoiceController extends Controller
     {
         try{
             $customer->delete();
-            return redirect()->route("dashboard.customerInvoice.index")->with('success',__("messages.customerInvoice.delete.success"));
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with('success',__("messages.customerInvoice.delete.success"));
         }catch (Exception){
-            return redirect()->route("dashboard.customerInvoice.index")->with('errors',__("messages.customerInvoice.delete.failed"));
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with('errors',__("messages.customerInvoice.delete.failed"));
         }
     }
 }
