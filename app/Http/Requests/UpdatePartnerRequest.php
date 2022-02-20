@@ -22,15 +22,15 @@ class UpdatePartnerRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape([ "name" => "string[]", "postal_code" => "string[]", "city" => "string[]", "address" => "string[]","email" => "string[]"])]
+    #[ArrayShape([ 'name' => 'string[]', 'postal_code' => 'string[]', 'city' => 'string[]', 'address' => 'string[]','email' => 'string[]'])]
     public function rules(): array
     {
         return [
-            "name" => ["required","string","max:50"],
-            "postal_code" => ["required","max:5","min:5"],
-            "city" => ["required","max:40","min:1"],
-            "address" => ["required","max:255","min:30"],
-            "email" => ["required","email","max:255"]
+            'name' => ['required','string','max:50'],
+            'postal_code' => ['required','max:5','min:5'],
+            'city' => ['required','max:40'],
+            'address' => ['required','max:255'],
+            'email' => ['required','email','max:255']
         ];
     }
 }

@@ -22,11 +22,11 @@ class ResetPasswordRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['token' => "array", 'password' => "array", 'password_confirmation' => "array"])]
+    #[ArrayShape(['token' => 'array', 'password' => 'array', 'password_confirmation' => 'array'])]
     public function rules(): array
     {
         return [
-            'password' => ['required','string','min:8','confirmed',"max:255"],
+            'password' => ['required','string','min:8','confirmed','max:255'],
             'password_confirmation' => ['required'],
             'token' => ['required']
         ];

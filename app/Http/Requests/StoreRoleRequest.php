@@ -22,12 +22,12 @@ class StoreRoleRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["role_name" => "string[]", "permissions" => "string[]"])]
+    #[ArrayShape(['role_name' => 'string[]', 'permissions' => 'string[]'])]
     public function rules(): array
     {
         return [
-            "role_name" => ["required","max:255"],
-            "permissions" => ["required"]
+            'role_name' => ['required','max:255'],
+            'permissions' => ['required']
         ];
     }
 }

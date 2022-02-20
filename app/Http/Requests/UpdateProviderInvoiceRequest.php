@@ -14,7 +14,7 @@ class UpdateProviderInvoiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,13 +22,13 @@ class UpdateProviderInvoiceRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["provider_id" => "string[]", "path" => "string[]", "date" => "string[]"])]
+    #[ArrayShape(['provider_id' => 'string[]', 'path' => 'string[]', 'date' => 'string[]'])]
     public function rules(): array
     {
         return [
-            "provider_id" => ["required","integer","exists:providers"],
-            "path" => ["required","string","max:255"],
-            "date" => ["required","date"]
+            'provider_id' => ['required','integer','exists:providers'],
+            'path' => ['required','string','max:255'],
+            'date' => ['required','date']
         ];
     }
 }

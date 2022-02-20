@@ -22,13 +22,13 @@ class StoreVehicleRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["licence_plate" => "char[]", "revision_date" => "date", "available" => "boolean"])]
+    #[ArrayShape(['licence_plate' => 'char[]', 'revision_date' => 'date', 'available' => 'boolean'])]
     public function rules(): array
     {
         return [
-            "licence_plate" => ["required","max:9","min:9"],
-            "revision_date" => ["required","date"],
-            "available" => ["required","boolean"]
+            'licence_plate' => ['required','max:9','min:9'],
+            'revision_date' => ['required','date'],
+            'available' => ['required','boolean']
         ];
     }
 }

@@ -22,11 +22,11 @@ class SearchRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["search" => "array"])]
+    #[ArrayShape(['search' => 'array'])]
     public function rules(): array
     {
         return [
-            "search" => ["string","max:255"]
+            'search' => ['string','max:255']
         ];
     }
 }

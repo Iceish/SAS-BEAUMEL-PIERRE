@@ -7,6 +7,7 @@ use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePartnerRequest;
 use App\Models\Partner;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -54,18 +55,17 @@ class PartnerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StorePartnerRequest $request
      * @return RedirectResponse
      */
     public function store(StorePartnerRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $partner = Partner::create($validated);
         try{
-            $partner->save();
-            return redirect()->route("dashboard.partner.index")->with("success",__("messages.partner.create.success",['partner'=>$partner]));
-        }catch (\Exception){
-            return redirect()->route("dashboard.partner.index")->with("errors",__("messages.partner.create",['partner'=>$partner]));
+            Partner::create($validated);
+            return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.create.success"));
+        }catch (Exception){
+            return redirect()->back()->with("errors",__("messages.partner.create"))->withInput();
         }
     }
 
@@ -80,7 +80,7 @@ class PartnerController extends Controller
     {
         return view("web.dashboard.sections.partner.show",
             compact("partner")
-                );
+        );
     }
 
     /**
@@ -108,9 +108,9 @@ class PartnerController extends Controller
         $validated = $request->validated();
         try{
             $partner->update($validated);
-            return redirect()->route("dashboard.partner.index")->with("success",__("messages.partner.update.success", ['partner'=>$partner]));
-        }catch (\Exception){
-            return redirect()->route("dashboard.partner.index")->with("errors",__("messages.partner.update.success", ['partner'=>$partner]));
+            return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.update.success", ['partner'=>$partner]));
+        }catch (Exception){
+            return redirect()->back()->with("errors",__("messages.partner.update.success"))->withInput();
         }
     }
 
@@ -124,9 +124,9 @@ class PartnerController extends Controller
     {
         try{
             $partner->delete();
-            return redirect()->route("dashboard.partner.index")->with('success',__("messages.partner.delete.success",['partner'=>$partner]));
-        }catch (\Exception){
-            return redirect()->route("dashboard.partner.index")->with('errors',__("messages.partner.delete.success",['partner'=>$partner]));
+            return redirect()->route("dashboard.partners.index")->with('success',__("messages.partner.delete.success",['partner'=>$partner]));
+        }catch (Exception){
+            return redirect()->back()->with('errors',__("messages.partner.delete.success"));
         }
 
     }

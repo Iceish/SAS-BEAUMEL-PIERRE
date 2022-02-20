@@ -23,14 +23,14 @@ class StoreUserRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["roles" => "string[]", "roles.*" => "array", "email" => "array", "name" => "string[]"])]
+    #[ArrayShape(['roles' => 'string[]', 'roles.*' => 'array', 'email' => 'array', 'name' => 'string[]'])]
     public function rules(): array
     {
         return [
-            "roles" => ["array"],
-            "roles.*" => ["required",Rule::in(['true', 'false'])],
-            "email" => ["required","email","max:255",Rule::unique('users')],
-            "name" => ["required","string","max:255"],
+            'roles' => ['array'],
+            'roles.*' => ['required',Rule::in(['true', 'false'])],
+            'email' => ['required','email','max:255',Rule::unique('users')],
+            'name' => ['required','string','max:255'],
         ];
     }
 }

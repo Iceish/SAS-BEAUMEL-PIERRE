@@ -23,13 +23,13 @@ class UpdateRoleRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["role_name" => "string[]", "permissions" => "string[]"])]
+    #[ArrayShape(['name' => "string[]", 'permissions' => "string[]", 'permissions.*' => "array"])]
     public function rules(): array
     {
         return [
-            "name" => ["required","max:255"],
-            "permissions" => ["array"],
-            "permissions.*" => ["required",Rule::in(['true', 'false'])],
+            'name' => ['required','max:255'],
+            'permissions' => ['array'],
+            'permissions.*' => ['required',Rule::in(['true', 'false'])],
         ];
     }
 }
