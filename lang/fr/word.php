@@ -20,6 +20,7 @@ return [
     'logout' => 'se déconnecter',
     'settings' => 'paramètres',
     'equipments' => 'equipements',
+    'vehicles' => 'vehicules',
     'invoices' => 'factures',
     'products' => 'produits',
     'edit' => 'editer',
