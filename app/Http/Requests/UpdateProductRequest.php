@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use JetBrains\PhpStorm\ArrayShape;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -11,9 +13,9 @@ class UpdateProductRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +23,14 @@ class UpdateProductRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    #[ArrayShape(['name' => "array", 'quantity' => "string[]", 'file' => "string[]", 'price' => "string[]"])]
+    public function rules(): array
     {
         return [
-            //
+            'name' => ['required','string',Rule::unique('products')],
+            'quantity' => ['required','integer'],
+            'file' => ['image','size:10000'],
+            'price' => ['digits:6']
         ];
     }
 }
