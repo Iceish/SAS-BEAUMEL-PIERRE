@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\InvoiceClientController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\PartnerController;
+use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\ProviderController;
 use App\Http\Controllers\Dashboard\InvoiceSupplierController;
 use App\Http\Controllers\Dashboard\RoleController;
@@ -59,6 +60,7 @@ Route::name('dashboard.')->prefix('dashboard')->middleware(['permission:dashboar
     Route::resource('providers', ProviderController::class);
     Route::resource('vehicles', VehicleController::class);
     Route::resource('partners', PartnerController::class);
+    Route::resource('products', ProductController::class);
 });
 
 require_once 'auth.php';
