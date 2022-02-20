@@ -24,9 +24,11 @@ class PartnerController extends Controller
         $this->middleware('permission:partner.edit',['only' => ['edit','update']]);
         $this->middleware('permission:partner.delete',['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *
+     * @param SearchRequest $request
      * @return Application|Factory|View
      */
     public function index(SearchRequest $request): View|Factory|Application
@@ -37,7 +39,7 @@ class PartnerController extends Controller
         $partners = Partner::query()
             ->whereLike(["email","name"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.partner.index",
+        return view("web.dashboard.sections.partners.index",
             compact("partners")
         );
     }
@@ -49,7 +51,7 @@ class PartnerController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        return view("web.dashboard.sections.partner.create");
+        return view("web.dashboard.sections.partners.create");
     }
 
     /**
@@ -78,7 +80,7 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner): View|Factory|Application
     {
-        return view("web.dashboard.sections.partner.show",
+        return view("web.dashboard.sections.partners.show",
             compact("partner")
         );
     }
@@ -91,7 +93,7 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner): View|Factory|Application
     {
-        return view("web.dashboard.sections.partner.edit",
+        return view("web.dashboard.sections.partners.edit",
              compact($partner)
         );
     }

@@ -36,7 +36,7 @@ class ClientController extends Controller
         $clients = Client::query()
             ->whereLike(["email","name"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.client.index",
+        return view("web.dashboard.sections.clients.index",
             compact("clients")
         );
     }
@@ -48,7 +48,7 @@ class ClientController extends Controller
      */
     public function create(): Application|Factory|View
     {
-        return view("web.dashboard.sections.client.create");
+        return view("web.dashboard.sections.clients.create");
     }
 
     /**
@@ -77,7 +77,7 @@ class ClientController extends Controller
      */
     public function show(Client $client): View|Factory|Application
     {
-        return view("web.dashboard.sections.client.show",
+        return view("web.dashboard.sections.clients.show",
             compact("client")
         );
     }
@@ -90,7 +90,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client): Application|Factory|View
     {
-        return view("web.dashboard.sections.client.edit",
+        return view("web.dashboard.sections.clients.edit",
             compact($client)
         );
     }
