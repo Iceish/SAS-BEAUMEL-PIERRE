@@ -84,7 +84,7 @@ class ProductController extends Controller
     public function edit(Product $product): View|Factory|Application
     {
         return view("web.dashboard.sections.products.edit",
-            compact($product)
+            compact('product')
         );
     }
 
