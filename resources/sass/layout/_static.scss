@@ -76,6 +76,9 @@ body#static {
 
     main{
         margin: 32px;
+        p{
+            text-justify: inter-word;
+        }
     }
 
     footer {

@@ -1,7 +1,8 @@
 @extends('web.static.layout')
 
 @section('main')
-    <h1>Partenaire</h1>
+    <h1>Partenaires</h1>
+    <div>
     <h2>L’entreprise Philicot</h2>
     <h3>Une PME familiale fortement impliquée dans l’est de la France</h3>
     <p>
@@ -35,7 +36,9 @@
         2007 Acquisition de la SOCIAG à Bollene dans le Vaucluse. Ce site produit essentiellement des aliments Volailles et Ovins-Caprins pour une production annuelle de 35 000 T.
         Acquisition des Ets ARMATAFFET à Annecy en Haute Savoie
     </p>
-
+    </div>
+    <a href="http://www.philicot.fr" target="_blank"> Acceder a leur site</a>
+    <div>
     <h2>L'entreprise Galloway</h2>
     <h3>Nutrition equine</h3>
     <p>
@@ -43,6 +46,7 @@
         Les produits de la Gamme GALLOWAY peuvent vous être livrés en sacs de 25 Kg. Nous pouvons également vous livrer en vrac.
         GALLOWAY est la marque qui revendique sa spécificité régionale en adaptant ses formules à son terroir tout en étant à la pointe de la nutrition équine.
         GALLOWAY Le partenaire de votre passion.
-        www.galloway-nutrition.com
     </p>
+    </div>
+    <a href="https://galloway-nutrition.com/" target="_blank"> Acceder a leur site</a>
 @endsection
