@@ -76,11 +76,40 @@ body#static {
 
     main{
         margin: 32px;
+        // partie test leo
         p{
             text-justify: inter-word;
+            transform: scale(0);
+        }
+
+        span.pageText{
+            overflow: hidden;
+
+            input[type="checkbox"]{
+                display: none;
+            }
+
+            label{
+                color: blue;
+
+            }
+
+            input[type="checkbox"]:checked~[data-p~="text"]{
+                animation: .3s forwards apparition ;
+            }
         }
     }
-
+    @keyframes apparition{
+        50%{
+            opacity: 0.5;
+            transform: scale(0.5);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+// partie test leo fin
     footer {
         display: flex;
         flex-direction: column;

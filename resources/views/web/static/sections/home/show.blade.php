@@ -17,14 +17,27 @@
                 Les cookies sont importants pour le fonctionnement de notre site.
                 Certains sont obligatoires.
             </p>
-            <input id="btnTout" class="btn btn--primary" type="submit" value="Accepter tout">
-            <input id="btnNece" class="btn btn--primary" type="submit" value="Accepter que ceux nécéssaires">
+            <input id="btnTout" class="btn btn--primary" type="submit" value="Accepter">
         </div>
     </div>
 
     <script>
+        function getCookie(nom){
+            let cookieArr = document.cookie.split(";");
+            for (let i =0; i< cookieArr.length; i++){
+                let cookPair = cookieArr[i].split("=");
+                if (' '+nom == cookPair[0]){
+                    return decodeURIComponent(cookPair[1]);
+                }
+            }
+            return null;
+        }
+        let repCookie = getCookie('accept');
+
+        //console.log(repCookie);
         // Verify if cookie was accepted
-        if (1) {
+        if ( repCookie == "non" || repCookie == null) {
+            document.cookie = 'accept=non';
             // Get the modal
             var modal = document.getElementById("myModal");
 
@@ -49,14 +62,10 @@
 
             var btnTout = document.querySelector("#btnTout");
             btnTout.onclick = function () {
-                console.log("btnTout");
+                document.cookie = 'accept=oui';
                 modal.style.display = "none";
             }
-            var btnNece = document.querySelector("#btnNece");
-            btnNece.onclick = function () {
-                console.log("btnNece");
-                modal.style.display = "none";
-            }
+
         }
     </script>
 @endsection
