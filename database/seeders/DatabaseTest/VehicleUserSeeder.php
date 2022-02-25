@@ -1,14 +1,12 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\DatabaseTest;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Vehicle;
-use App\Models\VehicleUser;
 use Faker\Provider\DateTime;
-use Faker\Provider\Text;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**

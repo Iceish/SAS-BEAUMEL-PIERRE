@@ -1,24 +1,24 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\DatabaseTest;
 
-use App\Models\Product;
+use App\Models\AdministrativeDocument;
 use Illuminate\Database\Seeder;
 
 /**
  * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
  * Fill the run function with the given number of faults
  */
-class ProductSeeder extends Seeder
+class AdministrativeDocumentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Adds in database the datasets created by the factory ProductFactory
+     * Adds in database the datasets created by the factory AdministrativeDocumentFactory
      * @return void
      */
     public function run()
     {
-        Product::factory()
+        AdministrativeDocument::factory()
             ->count(10)
             ->create();
     }

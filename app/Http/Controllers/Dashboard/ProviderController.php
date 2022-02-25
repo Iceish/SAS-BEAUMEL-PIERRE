@@ -64,7 +64,7 @@ class ProviderController extends Controller
     {
         $validated = $request->validated();
         try{
-            $client = Provider::create($validated);
+            Provider::create($validated);
             return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.create.success"));
         }catch (Exception){
             return redirect()->back()->with("errors",__("messages.provider.create.failed"))->withInput();
@@ -111,7 +111,7 @@ class ProviderController extends Controller
             $provider->update($validated);
             return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.provider.update.success"))->withInput();
+            return redirect()->back()->with("errors",__("messages.provider.update.failed"))->withInput();
         }
     }
 

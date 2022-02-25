@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use Database\Seeders\RolePermission\RolePermissionSeeder;
+use Database\Seeders\Translation\TranslationSeeder;
+use Database\Seeders\User\UserSeeder;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\PermissionRegistrar;
 
 /**
  * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
@@ -21,30 +20,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        $this->call(TranslationSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(RolePermissionSeeder::class);
 
-        $permissionsGroups = [
-            "users" =>  ["list","create","edit","delete"],
-            "dashboard" =>  ["index"],
-            "invoice" =>  ["list","create","edit","delete"],
-            "partners" =>  ["list","create","edit","delete"],
-            "clients" =>  ["list","create","edit","delete"],
-            "providers" =>  ["list","create","edit","delete"],
-            "vehicles" =>  ["list","create","edit","delete"],
-            "roles" =>  ["list","create","edit","delete"],
-        ];
-
-        foreach ($permissionsGroups as $permissionsGroupName=>$permissions){
-            foreach($permissions as $permission){
-                Permission::create(['name' => "$permissionsGroupName.$permission"]);
-            }
-        }
-
-        $role = Role::create(['name' => 'SuperAdmin']);
-        $user = User::factory()->create([
-            'email' => 'test@test.com',
-        ]);
-
-        $user->assignRole($role);
     }
 }
