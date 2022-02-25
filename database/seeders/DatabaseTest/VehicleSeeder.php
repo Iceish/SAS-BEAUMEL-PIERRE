@@ -1,24 +1,24 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\DatabaseTest;
 
-use App\Models\Partner;
+use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 
 /**
  * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
  * Fill the run function with the given number of faults
  */
-class PartnerSeeder extends Seeder
+class VehicleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Adds in database the datasets created by the factory PartnerFactory
+     * Adds in database the datasets created by the factory VehicleFactory
      * @return void
      */
     public function run()
     {
-        Partner::factory()
+        Vehicle::factory()
             ->count(10)
             ->create();
     }

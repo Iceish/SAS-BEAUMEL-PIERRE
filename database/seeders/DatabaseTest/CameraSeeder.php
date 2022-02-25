@@ -1,24 +1,24 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\DatabaseTest;
 
-use App\Models\CustomerInvoice;
+use App\Models\Camera;
 use Illuminate\Database\Seeder;
 
 /**
  * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
  * Fill the run function with the given number of faults
  */
-class CustomerInvoiceSeeder extends Seeder
+class CameraSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Adds in database the datasets created by the factory CustomerInvoiceFactory
+     * Adds in database the datasets created by the factory CameraFactory
      * @return void
      */
     public function run()
     {
-        CustomerInvoice::factory()
+        Camera::factory()
             ->count(10)
             ->create();
     }

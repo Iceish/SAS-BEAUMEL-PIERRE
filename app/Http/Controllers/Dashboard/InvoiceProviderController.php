@@ -15,7 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use Exception;
 use function view;
 
-class InvoiceSupplierController extends Controller
+class InvoiceProviderController extends Controller
 {
     function __construct()
     {
@@ -67,7 +67,6 @@ class InvoiceSupplierController extends Controller
     {
         $validated = $request->validated();
         $providerInvoice =  ProviderInvoice::create($validated);
-
         try{
             ProviderInvoice::create($validated);
             return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));

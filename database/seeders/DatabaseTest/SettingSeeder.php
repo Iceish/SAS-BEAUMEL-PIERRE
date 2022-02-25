@@ -1,25 +1,22 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\DatabaseTest;
 
-use App\Models\Provider;
 use Illuminate\Database\Seeder;
 
 /**
  * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
  * Fill the run function with the given number of faults
  */
-class ProviderSeeder extends Seeder
+class SettingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Adds in database the datasets created by the factory ProviderFactory
+     * Adds in database the datasets created by the factory SettingFactory
      * @return void
      */
     public function run()
     {
-        Provider::factory()
-            ->count(10)
-            ->create();
+
     }
 }
