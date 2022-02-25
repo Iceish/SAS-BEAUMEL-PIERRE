@@ -412,40 +412,6 @@ body#static main {
 }
 body#static main p {
   text-justify: inter-word;
-  transform: scale(0);
-}
-body#static main span.pageText {
-  overflow: hidden;
-}
-body#static main span.pageText input[type=checkbox] {
-  display: none;
-}
-body#static main span.pageText label {
-  color: blue;
-}
-body#static main span.pageText input[type=checkbox]:checked ~ [data-p~=text] {
-  -webkit-animation: 0.3s forwards apparition;
-          animation: 0.3s forwards apparition;
-}
-@-webkit-keyframes apparition {
-  50% {
-    opacity: 0.5;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes apparition {
-  50% {
-    opacity: 0.5;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 body#static footer {
   display: flex;
