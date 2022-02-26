@@ -19,6 +19,7 @@ class CreateLanguageLanguageLineTable extends Migration
             $table->foreignIdFor(LanguageLine::class)->references('id')->on('language_lines')->onDelete("cascade");;
             $table->foreignIdFor(Language::class)->references('id')->on('languages')->onDelete("cascade");
             $table->string('text');
+            $table->primary(['language_line_id','language_id']);
         });
     }
 

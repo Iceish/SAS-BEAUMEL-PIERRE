@@ -30,6 +30,6 @@ class Fr extends Seeder
     {
         $group = ['group' => 'validation'];
 
-        LanguageLine::create(array_merge($group,['key' => 'custom.email.unique']))->setTranslation($this->lang,'L\'email est déjà utilisé.');
+        LanguageLine::firstOrCreate(array_merge($group,['key' => 'custom.email.unique']))->setTranslation($this->lang,'L\'email est déjà utilisé.');
     }
 }

@@ -17,6 +17,7 @@ class CreateLanguageLinesTable extends Migration
             $table->string('group')->index();
             $table->string('key');
             $table->timestamps();
+            $table->unique(['group','key']);
         });
     }
 

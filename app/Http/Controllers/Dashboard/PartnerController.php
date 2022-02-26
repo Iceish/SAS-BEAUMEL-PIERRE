@@ -19,10 +19,10 @@ class PartnerController extends Controller
 
     function __construct()
     {
-        $this->middleware('permission:partner.list',['only ' => ['index','show']]);
-        $this->middleware('permission:partner.create',['only' => ['create','store']]);
-        $this->middleware('permission:partner.edit',['only' => ['edit','update']]);
-        $this->middleware('permission:partner.delete',['only' => ['destroy']]);
+        $this->middleware('permission:partners.list',['only ' => ['index','show']]);
+        $this->middleware('permission:partners.create',['only' => ['create','store']]);
+        $this->middleware('permission:partners.edit',['only' => ['edit','update']]);
+        $this->middleware('permission:partners.delete',['only' => ['destroy']]);
     }
 
     /**
