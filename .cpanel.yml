@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=~/dev/dev.beaumel43.com/
+    - /bin/cp -R . $DEPLOYPATH
