@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\ResetPasswordRequest;
+use App\Mail\ForgotPassword;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
@@ -54,10 +55,9 @@ class ForgotPasswordController extends Controller
 
 
         $token = Crypt::encryptString($user->id." ".$token);
-        Mail::send('mail.forgot_password', ['token' => $token,'user'=>$user], function($message) use($user){
-            $message->to($user->email);
-            $message->subject('Reset Password');
-        });
+
+        $message = (new ForgotPassword($token,$user))->onQueue('emails');
+        Mail::to($user)->queue($message);
 
         return back()->with('message', 'We have e-mailed your password reset link!');
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Mail\CreateUser;
 use App\Models\User;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -84,10 +85,8 @@ class UserController extends Controller
                     }
                 }
             }
-            Mail::send('mail.create_user', ['user'=>$user,'password'=>$password], function($message) use($user){
-                $message->to($user->email);
-                $message->subject('User created');
-            });
+            $message = (new CreateUser($user,$password))->onQueue('emails');
+            Mail::to($user)->queue($message);
             return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
         }catch (Exception $e){
             return redirect()->back()->with("error",__('messages.user.create.failed'))->withInput();
