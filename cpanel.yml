@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/jeps7278/dev/dev.beaumel43.com
+    - /bin/cp -R * $DEPLOYPATH
