@@ -16,17 +16,19 @@ class Table extends Component
     public array|ArrayAccess $content;
     public array $columns;
     public array $route;
+    public array $crud;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(array|ArrayAccess $content, string $columns, string $route)
+    public function __construct(array|ArrayAccess $content, string $columns, string $route, string $crud)
     {
         $this->content = $content ?? [];
         $this->route = $this->formatRouteString($route);
         $this->columns = $this->formatColumnString($columns);
+        $this->crud = $this->formatCrudString($crud);
     }
 
     /**
@@ -67,6 +69,16 @@ class Table extends Component
             "parameters"=> $routeArr[1] ?? ""
         ];
     }
+
+    /**
+     * @param string $crudString
+     * @return array
+     */
+    private function formatCrudString(string $crudString): array
+    {
+        return $crudArr = explode(" ",$crudString);
+    }
+
 
     /**
      * Get the view / contents that represent the component.
