@@ -134,7 +134,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
         $validatedRole = $request->only(['roles']);
-        $validatedRole = $validatedRole['roles'] ;
+        $validatedRole = $validatedRole['roles'] ?? [];
         $validated = $request->only(['email','name','password']);
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         try{
