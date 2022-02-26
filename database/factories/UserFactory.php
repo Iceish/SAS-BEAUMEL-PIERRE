@@ -26,6 +26,9 @@ class UserFactory extends Factory
             'email_verified_at' => now(),                      // email_verified_at: now() / ex: 2022-02-07 08:11:26
             'password' => 'password',                          // password: password
             'remember_token' => Str::random(10),         // remember_token: Str::random(10) / ex: CyI10JkNlN
+            'postal_code' => $this->faker->frenchPostalCode(),  // postal_code: frenchPostalCode / ex: 65131 / Creation faker: app/Faker/Geography.php
+            'city' => $this->faker->city(),                     // city: city / ex: Port Henriette
+            'address' => $this->faker->address(),               // address: address / ex: 927 Jalon Via Apt. 755 Port Nicholas, OR 84357
         ];
     }
 

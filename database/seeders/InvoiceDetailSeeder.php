@@ -19,7 +19,7 @@ class InvoiceDetailSeeder extends Seeder
     public function run()
     {
         InvoiceDetail::factory()
-            ->count(10)
+            ->count(500)
             ->create();
     }
 }

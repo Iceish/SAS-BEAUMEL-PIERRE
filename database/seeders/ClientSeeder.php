@@ -19,7 +19,7 @@ class ClientSeeder extends Seeder
     public function run()
     {
         Client::factory()
-            ->count(10)
+            ->count(1000)
             ->create();
     }
 }

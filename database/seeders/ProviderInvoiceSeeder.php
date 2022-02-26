@@ -19,7 +19,7 @@ class ProviderInvoiceSeeder extends Seeder
     public function run()
     {
         ProviderInvoice::factory()
-            ->count(10)
+            ->count(500)
             ->create();
     }
 }

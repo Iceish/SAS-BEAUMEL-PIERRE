@@ -19,7 +19,7 @@ class CustomerInvoiceSeeder extends Seeder
     public function run()
     {
         CustomerInvoice::factory()
-            ->count(10)
+            ->count(2000)
             ->create();
     }
 }

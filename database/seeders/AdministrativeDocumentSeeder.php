@@ -19,7 +19,7 @@ class AdministrativeDocumentSeeder extends Seeder
     public function run()
     {
         AdministrativeDocument::factory()
-            ->count(10)
+            ->count(500)
             ->create();
     }
 }
