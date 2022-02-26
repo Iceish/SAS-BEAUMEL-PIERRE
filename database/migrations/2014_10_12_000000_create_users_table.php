@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();                   // email: No duplication
             $table->timestamp('email_verified_at')->nullable();  // email_verified_at: Can be null
             $table->string('password');
-            $table->char('postal_code',5);
-            $table->string('city');
-            $table->string('address');
+            $table->char('postal_code',5)->nullable();
+            $table->string('city')->nullable();
+            $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
