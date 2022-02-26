@@ -51,16 +51,27 @@ a.backBtn i:hover {
 .custom-table {
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 .custom-table__head {
-  background-color: var(--primary-ghost);
+  font-weight: bold;
 }
-.custom-table > * {
+.custom-table__row, .custom-table__head {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #e6e6e6;
 }
-
+.custom-table__row > div.actions i, .custom-table__head > div.actions i {
+  font-size: 1.5em;
+  margin-right: 20px;
+}
+.custom-table__row:hover, .custom-table__head:hover {
+  background-color: var(--primary-ghost);
+}
 form {
   display: flex;
   flex-direction: column;

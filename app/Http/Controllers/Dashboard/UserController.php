@@ -144,7 +144,7 @@ class UserController extends Controller
                 if($key === $saRole->id)continue;
                 $bool ? $user->assignRole($role->name) : $user->removeRole($role->name);
             }
-            return redirect()->route('dashboard.users.show',["user"=>$user])->with('success',__('messages.user.update.success'));
+            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success'));
         }catch (Exception){
             return redirect()->back()->with('errors',__('messages.user.update.failed'))->withInput();
         }

@@ -3,12 +3,35 @@
 .custom-table{
     display: flex;
     flex-direction: column;
+
+    @include margin-y(16px);
+
     &__head{
-        background-color: var(--primary-ghost);
+        //background-color: var(--primary-light);
+        font-weight: bold;
     }
-    & > *{
+    &__row, &__head{
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: 1fr;
+        align-items: center;
+
+        padding: 10px;
+        @include separator('bottom');
+
+        > div.actions {
+            i{
+                font-size: 1.5em;
+                margin-right: 20px;
+            }
+        }
+
+        &:hover{
+            background-color: var(--primary-ghost);
+        }
+    }
+
+    & > *:nth-child(2n){
+        //background-color: var(--primary-ghost);
     }
 }
