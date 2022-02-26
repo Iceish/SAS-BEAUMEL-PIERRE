@@ -41,9 +41,13 @@ class LanguageLine extends Model
 
     public function setTranslation(Language $lang, string $trad)
     {
-        $this->language()->attach($lang,[
-            'text' => $trad
-        ]);
+        $this->language()->syncWithoutDetaching(
+            [
+                $lang->id => [
+                    'text' => $trad
+                ]
+            ]
+        );
     }
 
     public function getTranslation(Language $lang):string
