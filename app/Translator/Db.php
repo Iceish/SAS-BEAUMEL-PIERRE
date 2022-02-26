@@ -4,7 +4,6 @@ namespace App\Translator;
 
 use App\Models\Language;
 use App\Models\LanguageLine;
-use Spatie\TranslationLoader\TranslationLoaders\TranslationLoader;
 
 class Db implements TranslationLoader
 {
