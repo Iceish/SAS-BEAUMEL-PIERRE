@@ -11,7 +11,3 @@
         </p>
     </div>
 @endsection
-
-@push('js')
-
-@endpush
