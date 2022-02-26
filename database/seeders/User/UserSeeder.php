@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@test.com',
         ],[
             'name' => 'admin',
-            'password' => 'rootroot',
+            'password' => 'password',
         ]);
     }
 }
