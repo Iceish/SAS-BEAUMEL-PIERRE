@@ -45,7 +45,7 @@ class Table extends Component
             $columnName = $columnArr[0];
             if($columnName !== ""){
                 $column = [];
-                $column["name"] = $columnName;
+                $column["name"] = str_replace('_',' ',$columnName);
                 $columnAttributeString = $columnArr[1] ?? $columnName;
                 $columnAttributeArr = explode(":",$columnAttributeString);
                 $column["attributeName"] = $columnAttributeArr[0];
