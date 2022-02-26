@@ -145,7 +145,7 @@ return [
     ],
     'custom' => [
         'email' => [
-            'unique' => 'L\'email est déjà utilisé.',
+//            'unique' => 'L\'email est déjà utilisé.',
         ],
     ],
 ];

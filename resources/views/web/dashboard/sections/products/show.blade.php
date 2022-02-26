@@ -7,7 +7,10 @@
     <div>
         <h3>{{ $product->name }}</h3>
         <ul>
-            <li>{{ $product->name }}</li>
+            <li>{{ $product->quantity }}</li>
+            <li>{{ $product->price }}</li>
+            <li>{{ $product->created_at }}</li>
+            <li>{{ $product->updated_at }}</li>
         </ul>
     </div>
 @endsection

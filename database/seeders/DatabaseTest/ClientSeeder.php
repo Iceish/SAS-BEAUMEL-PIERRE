@@ -1,25 +1,25 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\DatabaseTest;
 
-use App\Models\InvoiceDetail;
+use App\Models\Client;
 use Illuminate\Database\Seeder;
 
 /**
  * The seeders are created with the command « php artisan make:seeder ModelNameSeeder »
  * Fill the run function with the given number of faults
  */
-class InvoiceDetailSeeder extends Seeder
+class ClientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Adds in database the datasets created by the factory InvoiceDetailFactory
+     * Adds in database the datasets created by the factory ClientFactory
      * @return void
      */
     public function run()
     {
-        InvoiceDetail::factory()
-            ->count(500)
+        Client::factory()
+            ->count(1000)
             ->create();
     }
 }

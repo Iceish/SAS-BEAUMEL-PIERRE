@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
@@ -69,7 +70,8 @@ class UserController extends Controller
         $validatedRole = $request->only(['roles']);
         $validatedRole = $validatedRole['roles'];
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
-        $validated = Arr::add($validated,"password",Str::random());
+        $password = Str::random();
+        $validated = Arr::add($validated,"password",$password);
         try{
             $user = User::create($validated);
             $user->save();
@@ -82,10 +84,13 @@ class UserController extends Controller
                     }
                 }
             }
+            Mail::send('mail.create_user', ['user'=>$user,'password'=>$password], function($message) use($user){
+                $message->to($user->email);
+                $message->subject('User created');
+            });
             return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
-        }catch (Exception){
+        }catch (Exception $e){
             return redirect()->back()->with("error",__('messages.user.create.failed'))->withInput();
-
         }
     }
 

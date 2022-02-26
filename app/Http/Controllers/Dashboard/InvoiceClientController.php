@@ -15,6 +15,13 @@ use Illuminate\Http\RedirectResponse;
 
 class InvoiceClientController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:clientInvoices.list', ['only' => ['index','show']]);
+        $this->middleware('permission:clientInvoices.create', ['only' => ['create','store']]);
+        $this->middleware('permission:clientInvoices.edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:clientInvoices.delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

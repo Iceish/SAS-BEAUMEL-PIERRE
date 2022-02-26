@@ -7,7 +7,7 @@ use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\ProviderController;
-use App\Http\Controllers\Dashboard\InvoiceSupplierController;
+use App\Http\Controllers\Dashboard\InvoiceProviderController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VehicleController;
@@ -43,8 +43,6 @@ Route::controller(GuestController::class)->group(function (){
 
 });
 
-
-
 Route::name('dashboard.')->prefix('dashboard')->middleware(['permission:dashboard.*'])->group(function (){
     Route::get('/', [HomeController::class,'index'])
         ->name('home');
@@ -54,7 +52,7 @@ Route::name('dashboard.')->prefix('dashboard')->middleware(['permission:dashboar
     Route::name('invoices.')->prefix('invoices')->group(function (){
         Route::get('/', [InvoiceController::class,'index'])->name('index');
         Route::resource('client', InvoiceClientController::class);
-        Route::resource('supplier', InvoiceSupplierController::class);
+        Route::resource('provider', InvoiceProviderController::class);
     });
     Route::resource('clients', ClientController::class);
     Route::resource('providers', ProviderController::class);

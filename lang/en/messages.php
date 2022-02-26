@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "cookies.message" => "Our website is using cookies for user experience. Do you agree ?",
     "greeting.morning" => "Good morning :name",
     "greeting.afternoon" => "Good afternoon :name",
     "greeting.evening" => "Good evening :name",
