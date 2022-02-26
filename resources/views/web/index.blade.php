@@ -14,6 +14,30 @@
 <body id="@yield('title')">
     @yield('body')
 
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <script type="text/javascript">
+        if(Cookies.getCookie('cookies') !== 'true'){
+            Swal.fire({
+                toast: true,
+                position: 'bottom-end',
+                title: 'Cookies Privacy Policy.',
+                text: "{{ __('messages.cookies.message') }}",
+                imageUrl: '{{ asset('img/cookie.png') }}',
+                imageWidth: 100,
+                imageHeight: 100,
+                imageAlt: 'Cookie image',
+                confirmButtonColor: getComputedStyle(document.body).getPropertyValue('--primary'),
+                confirmButtonText: '{{ __('word.accept') }} !',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Cookies.setCookie('cookies','true',30);
+                }
+            });
+
+        }
+    </script>
+
     @stack('js')
 </body>
 </html>

@@ -32,4 +32,5 @@ return [
     'postal' => 'postal code',
     'address' => 'address',
     'city' => 'city',
+    'accept' => 'Accept'
 ];

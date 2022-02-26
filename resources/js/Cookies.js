@@ -1,4 +1,4 @@
-class Cookies{
+window.Cookies = class Cookies{
 
     static getCookie(name) {
         var nameEQ = name + "=";

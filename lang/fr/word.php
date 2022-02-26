@@ -31,5 +31,6 @@ return [
     'confirm' => 'comfimer',
     'postal' => 'code postal',
     'address' => 'adresse',
-    'city' => 'Ville'
+    'city' => 'Ville',
+    'accept' => 'Accepter'
 ];
