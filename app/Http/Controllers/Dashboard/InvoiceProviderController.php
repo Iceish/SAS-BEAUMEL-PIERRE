@@ -39,7 +39,7 @@ class InvoiceProviderController extends Controller
         $providerInvoices = ProviderInvoice::with('provider')
             ->whereLike(["provider.email","provider.name"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.invoices.supplier.index",
+        return view("web.dashboard.sections.invoices.provider.index",
             compact("providerInvoices")
         );
     }
@@ -69,7 +69,7 @@ class InvoiceProviderController extends Controller
         $providerInvoice =  ProviderInvoice::create($validated);
         try{
             ProviderInvoice::create($validated);
-            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
             return redirect()->back()->with("errors",__("messages.providerInvoice.create.failed"))->withInput();
         }
@@ -83,7 +83,7 @@ class InvoiceProviderController extends Controller
      */
     public function show(ProviderInvoice $providerInvoice): View|Factory|Application
     {
-        return view("web.dashboard.sections.invoices.supplier.show",
+        return view("web.dashboard.sections.invoices.provider.show",
             compact("providerInvoice"),
         );
     }
@@ -96,7 +96,7 @@ class InvoiceProviderController extends Controller
      */
     public function edit(ProviderInvoice $providerInvoice): View|Factory|Application
     {
-        return view("web.dashboard.sections.invoices.supplier.edit",
+        return view("web.dashboard.sections.invoices.provider.edit",
             compact("providerInvoice")
         );
     }
@@ -113,7 +113,7 @@ class InvoiceProviderController extends Controller
         $validated = $request->validated();
         try{
             $providerInvoice->update($validated);
-            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
             return redirect()->back()->with("errors",__("messages.providerInvoice.update.failed"))->withInput();
         }
@@ -129,7 +129,7 @@ class InvoiceProviderController extends Controller
     {
         try{
             $providerInvoice->delete();
-            return redirect()->route("web.dashboard.sections.invoices.supplier.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
             return redirect()->back()->with('errors',__("messages.providerInvoice.delete.failed"));
         }

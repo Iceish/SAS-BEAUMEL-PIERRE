@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "cookies.message" => "Notre site utilise les cookies afin d'améliorer l'experiance utilisateur. Les acceptez-vous ?",
+    "cookies.message" => "Notre site utilise les cookies afin d'améliorer l'experiance utilisateur.",
 
     "greeting.morning" => "Bonjour :name",
     "greeting.afternoon" => "Bonjour :name",

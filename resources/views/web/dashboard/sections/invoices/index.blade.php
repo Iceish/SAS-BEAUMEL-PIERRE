@@ -4,5 +4,5 @@
 
 @section('main')
     <a class="btn" href="{{ route('dashboard.invoices.client.index') }}">Client</a>
-    <a class="btn" href="{{ route('dashboard.invoices.supplier.index') }}">Supplier</a>
+    <a class="btn" href="{{ route('dashboard.invoices.provider.index') }}">Supplier</a>
 @endsection
