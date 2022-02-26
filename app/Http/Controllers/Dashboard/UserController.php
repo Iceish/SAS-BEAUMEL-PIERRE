@@ -91,7 +91,6 @@ class UserController extends Controller
             return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
         }catch (Exception $e){
             return redirect()->back()->with("error",__('messages.user.create.failed'))->withInput();
-
         }
     }
 

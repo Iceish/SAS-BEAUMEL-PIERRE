@@ -11,8 +11,9 @@ use Illuminate\Contracts\View\View;
 
 class InvoiceController extends Controller
 {
-    function __construct(){
-
+    function __construct()
+    {
+        $this->middleware('permission:invoices.list', ['only' => ['index']]);
     }
 
     /**

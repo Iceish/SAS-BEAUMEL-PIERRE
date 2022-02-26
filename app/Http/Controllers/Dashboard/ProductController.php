@@ -16,6 +16,13 @@ use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:products.list', ['only' => ['index','show']]);
+        $this->middleware('permission:products.create', ['only' => ['create','store']]);
+        $this->middleware('permission:products.edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:products.delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
