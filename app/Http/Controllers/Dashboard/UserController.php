@@ -68,7 +68,7 @@ class UserController extends Controller
     {
         $validated = $request->only(['email','name']);
         $validatedRole = $request->only(['roles']);
-        $validatedRole = $validatedRole['roles'];
+        $validatedRole = $validatedRole['roles'] ?? [];
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         $password = Str::random();
         $validated = Arr::add($validated,"password",$password);
