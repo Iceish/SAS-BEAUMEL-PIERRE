@@ -10,5 +10,6 @@ class RolePermissionSeeder extends Seeder
     {
         $this->call(PermissionSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(AssignSeeder::class);
     }
 }
