@@ -9,8 +9,9 @@ class UserSeeder extends Seeder
 {
     public function run(){
         User::firstOrCreate([
-            'name' => 'admin',
             'email' => 'admin@test.com',
+        ],[
+            'name' => 'admin',
             'password' => 'rootroot',
         ]);
     }
