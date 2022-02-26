@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Role;
 class AssignSeeder extends Seeder
 {
     public function run(){
-        $user = User::where('email','admin@test.com')->first();
+        $user = User::find(1);
         $role = Role::findByName('SuperAdmin');
         $user->assignRole($role);
     }

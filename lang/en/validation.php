@@ -152,9 +152,9 @@ return [
         'username'              => 'Username',
         'year'                  => 'Year',
     ],
-    'custom'               => [
+    'custom'  => [
         'attribute-name' => [
-            'rule-name' => 'custom-message',
+//            'rule-name' => 'custom-message',
         ],
     ],
 ];
