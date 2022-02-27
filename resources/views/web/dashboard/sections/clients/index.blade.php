@@ -2,6 +2,5 @@
 
 @section('main')
     <h2>Clients</h2>
-    <a class="btn" href="{{ route('dashboard.clients.create') }}">Add a new client</a>
-    <x-Table.Table :content="$clients" columns="Name|name Email|email" route="dashboard.clients:client" crud="show edit destroy"/>
+    <x-Table.Table :content="$clients" columns="Name|name Email|email" route="dashboard.clients:client" crud="show edit destroy create"/>
 @endsection
