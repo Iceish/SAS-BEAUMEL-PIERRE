@@ -17,6 +17,7 @@ class Table extends Component
     public array $columns;
     public array $route;
     public array $crud;
+    public string $perm;
 
     /**
      * Create a new component instance.
@@ -29,6 +30,7 @@ class Table extends Component
         $this->route = $this->formatRouteString($route);
         $this->columns = $this->formatColumnString($columns);
         $this->crud = $this->formatCrudString($crud);
+        $this->perm = substr(strstr($this->route['route'], '.'),1);
     }
 
     /**

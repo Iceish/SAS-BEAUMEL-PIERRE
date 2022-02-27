@@ -1,5 +1,5 @@
 <div class="custom-table">
-    @if(in_array('create',$crud))
+    @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
         <a class="btn btn--bold custom-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
     @endif
     <div class="custom-table__head">
@@ -25,7 +25,7 @@
             @endforeach
             <div class="actions">
                 @foreach($crud as $action)
-                    @if($action == 'destroy')
+                    @if($action == 'destroy' && auth()->user()->can("$perm.destroy"))
                         <form id="destroy-row-{{ $row->id }}" style="display: none" method="post" action="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}">
                             @csrf
                             @method('DELETE')
@@ -37,7 +37,7 @@
                         ><i class="fa-solid fa-trash"></i></a>
                     @elseif($action == 'show')
                         <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    @elseif($action == 'edit')
+                    @elseif($action == 'edit' && auth()->user()->can("$perm.edit"))
                         <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-pen"></i></a>
                     @endif
                 @endforeach
