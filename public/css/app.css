@@ -64,23 +64,45 @@ a.backBtn i:hover {
   font-size: 1.5em;
   margin-right: 5px;
 }
-.custom-table__head {
-  font-weight: bold;
-}
 .custom-table__row, .custom-table__head {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
+  grid-auto-flow: row;
   align-items: center;
   padding: 10px;
+  grid-gap: 10px;
   border-bottom: 1px solid #e6e6e6;
+}
+.custom-table__row:hover, .custom-table__head:hover {
+  background-color: var(--primary-ghost);
 }
 .custom-table__row > div.actions i, .custom-table__head > div.actions i {
   font-size: 1.5em;
   margin-right: 20px;
 }
-.custom-table__row:hover, .custom-table__head:hover {
-  background-color: var(--primary-ghost);
+@media (min-width: 1000px) {
+  .custom-table__row, .custom-table__head {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    align-items: center;
+  }
+}
+.custom-table__head {
+  display: none;
+  font-weight: bold;
+}
+@media (min-width: 1000px) {
+  .custom-table__head {
+    display: grid;
+  }
+}
+.custom-table .label {
+  color: grey;
+  margin-right: 20px;
+}
+@media (min-width: 1000px) {
+  .custom-table .label {
+    display: none;
+  }
 }
 
 form {

@@ -4,7 +4,9 @@
     @endif
     <div class="custom-table__head">
             @foreach($columns as $column)
-                    <div>{{ $column["name"] }}</div>
+                <div>
+                    <p>{{ $column["name"] }}</p>
+                </div>
             @endforeach
         <div>Actions</div>
     </div>
@@ -14,10 +16,10 @@
                 <div>
                     @if(is_iterable($rowData = $row[$column["attributeName"]]))
                         @foreach($rowData as $val)
-                            {{ $val[$column["attributeNameF"]] }}
+                            <p><span class="label">{{ $column["name"] }}</span>{{ $val[$column["attributeNameF"]] }}</p>
                         @endforeach
                     @else
-                        {{ $rowData }}
+                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData }}</p>
                     @endif
                 </div>
             @endforeach
