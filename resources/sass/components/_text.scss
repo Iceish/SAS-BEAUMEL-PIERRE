@@ -1,18 +1,20 @@
 @use '../abstracts' as *;
 
-main h2{
-    position: relative;
-    border-left: 4px solid var(--primary-dark);
+main {
+    h2{
+        position: relative;
+        border-left: 4px solid var(--primary-dark);
 
-    padding-left: 15px;
+        padding-left: 15px;
 
-    &:before{
-        content: "";
-        display: block;
-        position: absolute;
-        width: 8px;
-        height: 100%;
-        background-color: var(--primary-light);
-        left: -1px;
+        &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 8px;
+            height: 100%;
+            background-color: var(--primary-light);
+            left: -1px;
+        }
     }
 }

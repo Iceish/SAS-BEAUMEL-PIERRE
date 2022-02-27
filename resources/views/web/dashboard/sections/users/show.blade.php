@@ -10,7 +10,7 @@
     <div class="card">
 
         <div class="card__general">
-            <img src="{{ asset('img/user.jpg') }}" alt="user" width="96px">
+            <img class="avatar" src="{{ asset('img/user.jpg') }}" alt="user" width="96px">
             <p>Approved</p>
         </div>
 

@@ -17,8 +17,6 @@ body#dashboard{
         flex-direction: column-reverse;
         align-items: center;
 
-        //background-color: red;
-
         input[type=checkbox]{
             display: none;
             &:checked ~ nav{
@@ -49,8 +47,14 @@ body#dashboard{
             $columns-max: 4;
             $gap: 40px;
 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
             width: 100%;
             height: 100%;
+
+            @include padding-y(16px);
 
             text-align: center;
 
@@ -69,11 +73,45 @@ body#dashboard{
                 width: 100%;
                 padding: 0;
                 grid-gap: $gap/2;
+
                 li a{
                     display: flex;
                     flex-direction: column;
                     i{
                         color: var(--primary-dark);
+                    }
+                }
+            }
+
+            #user-toast{
+                display: grid;
+                grid-template: 1fr / 1fr 1fr;
+
+                width: 100%;
+
+                padding: 10px;
+                grid-column-gap: 10px;
+
+                > img.avatar{
+                    grid-row: 1 / span 2;
+                    justify-self: flex-end;
+                }
+
+                > p.avatar-title{
+                    justify-self: flex-start;
+                }
+
+                &__nav{
+                    display: flex;
+                    gap: 10px;
+                }
+
+                @include respond-to('large'){
+                    justify-items: center;
+                    align-items: center;
+
+                    > img.avatar{
+                        justify-self: inherit;
                     }
                 }
             }
@@ -106,7 +144,7 @@ body#dashboard{
             }
 
             nav{
-                display: block !important;
+                display: flex !important;
                 ul{
                     grid-template-columns: 1fr;
                 }

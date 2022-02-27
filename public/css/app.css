@@ -188,6 +188,11 @@ form #multiselect .overSelect {
   bottom: 0;
 }
 
+img.avatar {
+  border: 3px solid var(--primary-dark);
+  border-radius: 64px;
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -346,8 +351,13 @@ body#dashboard header #dropdown__btn i {
   align-items: center;
 }
 body#dashboard header nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
   text-align: center;
   background-color: var(--background);
   border-right: 1px solid #e6e6e6;
@@ -367,6 +377,33 @@ body#dashboard header nav ul li a {
 }
 body#dashboard header nav ul li a i {
   color: var(--primary-dark);
+}
+body#dashboard header nav #user-toast {
+  display: grid;
+  grid-template: 1fr/1fr 1fr;
+  width: 100%;
+  padding: 10px;
+  grid-column-gap: 10px;
+}
+body#dashboard header nav #user-toast > img.avatar {
+  grid-row: 1/span 2;
+  justify-self: flex-end;
+}
+body#dashboard header nav #user-toast > p.avatar-title {
+  justify-self: flex-start;
+}
+body#dashboard header nav #user-toast__nav {
+  display: flex;
+  gap: 10px;
+}
+@media (min-width: 1000px) {
+  body#dashboard header nav #user-toast {
+    justify-items: center;
+    align-items: center;
+  }
+  body#dashboard header nav #user-toast > img.avatar {
+    justify-self: inherit;
+  }
 }
 body#dashboard main {
   margin: 32px;
@@ -389,7 +426,7 @@ body#dashboard footer {
     display: none;
   }
   body#dashboard header nav {
-    display: block !important;
+    display: flex !important;
   }
   body#dashboard header nav ul {
     grid-template-columns: 1fr;
@@ -508,10 +545,6 @@ body#static main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-#users .card > .card__general > img {
-  border: 3px solid var(--primary-dark);
-  border-radius: 64px;
 }
 #users .card > .card__header {
   display: grid;

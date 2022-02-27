@@ -36,8 +36,19 @@
             @endif
 
             <li><a href=""><i class="fa-solid fa-gears"></i>{{ ucfirst(__('word.settings')) }}</a></li>
-            <li><a href="{{ route('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i>{{ ucfirst(__('word.logout')) }}</a></li>
 
+{{--            <li><a href="{{ route('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i>{{ ucfirst(__('word.logout')) }}</a></li>--}}
         </ul>
+
+        <div id="user-toast">
+            <img class="avatar" src="{{ asset('img/user.jpg') }}" alt="user" width="48px">
+            <p class="avatar-title">{{ ucfirst(Auth::user()->name) }}</p>
+            <div id="user-toast__nav">
+                <a href="{{ route('home') }}"><i class="fa-solid fa-lg fa-house"></i></a>
+                <a href=""><i class="fa-solid fa-lg fa-user"></i></a>
+                <a href="{{ route('auth.logout') }}"><i class="fa-solid fa-lg fa-right-from-bracket"></i></a>
+            </div>
+
+        </div>
     </nav>
 </header>
