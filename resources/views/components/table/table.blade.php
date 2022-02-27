@@ -1,5 +1,7 @@
-{{--<a class="btn" href="{{ route('dashboard.users.create') }}">Create a user</a>--}}
 <div class="custom-table">
+    @if(in_array('create',$crud))
+        <a class="btn btn--bold custom-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
+    @endif
     <div class="custom-table__head">
             @foreach($columns as $column)
                     <div>{{ $column["name"] }}</div>

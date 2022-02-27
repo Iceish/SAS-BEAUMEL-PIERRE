@@ -6,6 +6,18 @@
 
     @include margin-y(16px);
 
+    & > *:nth-child(2n){
+        background-color: rgba(200,200,200,0.1);
+    }
+
+    &__button{
+        //margin-right: 15%;
+        align-self: flex-end;
+        i{
+            font-size: 1.5em;
+            margin-right: 5px;
+        }
+    }
     &__head{
         //background-color: var(--primary-light);
         font-weight: bold;
@@ -29,9 +41,5 @@
         &:hover{
             background-color: var(--primary-ghost);
         }
-    }
-
-    & > *:nth-child(2n){
-        //background-color: var(--primary-ghost);
     }
 }

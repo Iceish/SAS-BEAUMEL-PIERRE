@@ -76,7 +76,7 @@ class Table extends Component
      */
     private function formatCrudString(string $crudString): array
     {
-        return $crudArr = explode(" ",$crudString);
+        return $crudArr = explode(" ",$crudString) ?? [];
     }
 
 

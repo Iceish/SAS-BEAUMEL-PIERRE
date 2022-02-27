@@ -54,6 +54,16 @@ a.backBtn i:hover {
   margin-top: 16px;
   margin-bottom: 16px;
 }
+.custom-table > *:nth-child(2n) {
+  background-color: rgba(200, 200, 200, 0.1);
+}
+.custom-table__button {
+  align-self: flex-end;
+}
+.custom-table__button i {
+  font-size: 1.5em;
+  margin-right: 5px;
+}
 .custom-table__head {
   font-weight: bold;
 }
@@ -72,6 +82,7 @@ a.backBtn i:hover {
 .custom-table__row:hover, .custom-table__head:hover {
   background-color: var(--primary-ghost);
 }
+
 form {
   display: flex;
   flex-direction: column;
