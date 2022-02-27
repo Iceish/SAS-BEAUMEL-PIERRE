@@ -1,7 +1,7 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    <a class="backBtn" href="{{ route('dashboard.products.show',['product'=> $product->id]) }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
+    <a class="backBtn" href="{{ route('dashboard.products.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.editing_user')) }} {{ $product->name }}</h2>
     <form id="edit" action="{{ route('dashboard.products.update',['product'=>$product->id]) }}" method="post">
         @csrf

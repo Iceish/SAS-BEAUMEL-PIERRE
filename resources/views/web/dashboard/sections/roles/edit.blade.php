@@ -1,7 +1,7 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    <a class="backBtn" href="{{ route('dashboard.roles.show',['role'=> $role->id]) }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
+    <a class="backBtn" href="{{ route('dashboard.roles') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.editing.role')) }} {{ $role->name }}</h2>
     <form id="edit" action="{{ route('dashboard.roles.update',['role'=>$role->id]) }}" method="post">
         @csrf
