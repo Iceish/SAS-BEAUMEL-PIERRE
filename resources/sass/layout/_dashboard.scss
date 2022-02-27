@@ -63,6 +63,10 @@ body#dashboard{
             @include separator('right');
             @include separator('top');
 
+            i{
+                font-size: 1.25em;
+            }
+
 
             ul{
                 display: inline-grid;

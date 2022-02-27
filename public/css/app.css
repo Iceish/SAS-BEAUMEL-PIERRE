@@ -363,6 +363,9 @@ body#dashboard header nav {
   border-right: 1px solid #e6e6e6;
   border-top: 1px solid #e6e6e6;
 }
+body#dashboard header nav i {
+  font-size: 1.25em;
+}
 body#dashboard header nav ul {
   display: inline-grid;
   grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / 4 - 80px)));
