@@ -43,7 +43,7 @@ Route::controller(GuestController::class)->group(function (){
 
 });
 
-Route::name('dashboard.')->prefix('dashboard')->middleware(['permission:dashboard.*'])->group(function (){
+Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [HomeController::class,'index'])
         ->name('home');
     Route::resource('users',UserController::class);
