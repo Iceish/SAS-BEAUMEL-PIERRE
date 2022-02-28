@@ -67,7 +67,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $validated = $request->only(['email','name']);
+        $validated = $request->only(['email','name','address','postal_code','city']);
         $validatedRole = $request->only(['roles']);
         $validatedRole = $validatedRole['roles'] ?? [];
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();

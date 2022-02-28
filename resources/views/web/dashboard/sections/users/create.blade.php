@@ -44,16 +44,16 @@
         </div>
         <!-- rajout -->
         <div class="field">
-            <label for="name">adresse</label>
-            <input type="text" id="adresse" name="name" placeholder="adresse"/>
+            <label for="name">Adresse</label>
+            <input type="text" id="address" name="address" placeholder="adresse"/>
         </div>
         <div class="field">
-            <label for="name">code postale</label>
-            <input type="text" id="cdp" name="name" placeholder="code postale"/>
+            <label for="name">Code postal</label>
+            <input type="text" id="postal_code" name="postal_code" placeholder="code postale"/>
         </div>
         <div class="field">
-            <label for="name"> ville </label>
-            <input type="text" id="ville" name="name" placeholder="ville"/>
+            <label for="name">City</label>
+            <input type="text" id="city" name="city" placeholder="ville"/>
         </div>
 
         <!-- fin rajout -->
