@@ -431,7 +431,7 @@ body#dashboard footer {
   }
   body#dashboard header nav {
     display: flex !important;
-    overflow: scroll;
+    overflow-y: scroll;
   }
   body#dashboard header nav ul {
     grid-template-columns: 1fr;
