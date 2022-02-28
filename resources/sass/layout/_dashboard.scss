@@ -152,13 +152,14 @@ body#dashboard{
 
             nav{
                 display: flex !important;
+                overflow-y:scroll;
                 ul{
                     grid-template-columns: 1fr;
                     li a{
                         display: grid;
                         grid-template: 1fr / 1fr 1fr 1fr;
                         justify-items: flex-start;
-                        @include margin-x(20px);
+                        @include margin-x(30px);
                         i.arrow{
                             display: inline;
                             justify-self: flex-end;
