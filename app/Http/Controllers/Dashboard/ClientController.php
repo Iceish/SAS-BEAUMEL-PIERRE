@@ -90,7 +90,7 @@ class ClientController extends Controller
     public function edit(Client $client): Application|Factory|View
     {
         return view("web.dashboard.sections.clients.edit",
-            compact($client)
+            compact("client")
         );
     }
 
