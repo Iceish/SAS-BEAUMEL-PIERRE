@@ -29,7 +29,7 @@ class StoreProviderRequest extends FormRequest
             'email' => ['required','email','max:255'],
             'name' => ['required','string','max:50'],
             'postal_code' => ['required','max:5','min:5'],
-            'address' => ['required','max:255','min:30'],
+            'address' => ['required','max:255'],
             'city' => ['required','max:40','min:1']
         ];
     }
