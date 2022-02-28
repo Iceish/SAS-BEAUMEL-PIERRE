@@ -42,6 +42,21 @@
                 @endforeach
             </div>
         </div>
+        <!-- rajout -->
+        <div class="field">
+            <label for="name">adresse</label>
+            <input type="text" id="adresse" name="name" placeholder="adresse"/>
+        </div>
+        <div class="field">
+            <label for="name">code postale</label>
+            <input type="text" id="cdp" name="name" placeholder="code postale"/>
+        </div>
+        <div class="field">
+            <label for="name"> ville </label>
+            <input type="text" id="ville" name="name" placeholder="ville"/>
+        </div>
+
+        <!-- fin rajout -->
 
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
         <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> Password will be generated and sent to user's email.</p>
