@@ -31,9 +31,9 @@ class StoreUserRequest extends FormRequest
             'roles.*' => ['required',Rule::in(['true', 'false'])],
             'email' => ['required','email','max:255',Rule::unique('users')],
             'name' => ['required','string','max:255'],
-            'address' => ['string','max:255'],
-            'postal_code' => ['string','max:5'],
-            'city' => ['string','max:255'],
+            'address' => ['nullable','string','max:255'],
+            'postal_code' => ['nullable','string','max:5'],
+            'city' => ['nullable','string','max:255'],
         ];
     }
 }

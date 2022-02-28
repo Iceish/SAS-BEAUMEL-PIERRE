@@ -44,16 +44,16 @@
         </div>
         <!-- rajout -->
         <div class="field">
-            <label for="name">Adresse</label>
-            <input type="text" id="address" name="address" placeholder="adresse"/>
+            <label for="name">{{ ucfirst(__('word.address')) }}</label>
+            <input type="text" id="address" name="address" placeholder="12 rue de la paix"/>
         </div>
         <div class="field">
-            <label for="name">Code postal</label>
-            <input type="text" id="postal_code" name="postal_code" placeholder="code postale"/>
+            <label for="name">{{ ucfirst(__('word.postal')) }}</label>
+            <input type="text" id="postal_code" name="postal_code" placeholder="63000"/>
         </div>
         <div class="field">
-            <label for="name">City</label>
-            <input type="text" id="city" name="city" placeholder="ville"/>
+            <label for="name">{{ ucfirst(__('word.city')) }}</label>
+            <input type="text" id="city" name="city" placeholder="Clermont-Ferrand"/>
         </div>
 
         <!-- fin rajout -->

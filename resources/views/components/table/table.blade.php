@@ -15,9 +15,11 @@
             @foreach($columns as $column)
                 <div>
                     @if(is_iterable($rowData = $row[$column["attributeName"]]))
-                        @foreach($rowData as $val)
+                        @forelse($rowData as $val)
                             <p><span class="label">{{ $column["name"] }}</span>{{ $val[$column["attributeNameF"]] }}</p>
-                        @endforeach
+                        @empty
+                            Non renseigné
+                        @endforelse
                     @else
                         <p><span class="label">{{ $column["name"] }}</span>{{ $rowData }}</p>
                     @endif
