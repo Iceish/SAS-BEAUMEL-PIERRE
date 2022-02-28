@@ -15,12 +15,12 @@
         <h4>Create</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.name')) }}</label>
-            <input type="text" id="name" name="name" placeholder="John Doe"/>
+            <input type="text" id="name" name="name" placeholder="John Doe" required/>
         </div>
 
         <div class="field">
             <label for="email">{{ ucfirst(__('word.email')) }}</label>
-            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}"/>
+            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}" required/>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
