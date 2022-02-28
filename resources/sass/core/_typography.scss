@@ -9,7 +9,10 @@ a{
     text-decoration: none;
     color: var(--primary-dark);
     &:visited, &:focus, &:active { color: var(--primary-dark) }
-    &:hover { color: var(--primary) }
+
+    &:hover, &:hover i {
+        color: var(--primary)
+    }
 }
 
 hr {
