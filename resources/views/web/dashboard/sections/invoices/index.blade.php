@@ -3,6 +3,6 @@
 @section('tag','invoices')
 
 @section('main')
-    <a class="btn" href="{{ route('dashboard.invoices.client.index') }}">Client</a>
-    <a class="btn" href="{{ route('dashboard.invoices.provider.index') }}">Supplier</a>
+    <a class="btn" href="{{ route('dashboard.invoices.clients.index') }}">Client</a>
+    <a class="btn" href="{{ route('dashboard.invoices.providers.index') }}">Supplier</a>
 @endsection

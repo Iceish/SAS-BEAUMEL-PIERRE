@@ -6,7 +6,7 @@
     <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.creating_user')) }}</h2>
     <div>
-        @foreach ($errors as $error)
+        @foreach ($errors->all() as $error)
             {{$error}}
         @endforeach
     </div>
