@@ -7,7 +7,7 @@
 
     <h2>{{ ucfirst(__('word.user')) }}</h2>
 
-    <div class="card">
+    <div class="role-grid__card">
 
         <div class="card__general">
             <img class="avatar" src="{{ asset('img/user.jpg') }}" alt="user" width="96px">

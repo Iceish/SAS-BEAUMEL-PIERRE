@@ -1,4 +1,6 @@
 @extends('web.dashboard.layout')
+@section('tag','roles')
+
 
 @section('main')
     <form action="{{route("dashboard.roles.store")}}" method="POST">
@@ -6,12 +8,14 @@
         <label>
             <input name="role_name" type="text" placeholder="role name"/>
         </label>
-        <div class="role-card">
-            <div class="card">
+
+
+        <div class="roles-grid">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-tractor"></i>
+                <label id="vehicle_role" >{{ ucfirst(__('word.vehicles')) }}</label>
+                <input type="checkbox" name="vehicle_role"/>
                 <div class="container">
-                    <label id="vehicle_role" >{{ ucfirst(__('word.vehicles')) }}</label>
-                    <input type="checkbox" name="vehicle_role"/>
                     <p>
                         <div>
                             <label id="create_permission_vehicle" >{{ ucfirst(__('word.create')) }}</label>
@@ -28,11 +32,11 @@
                     </p>
                 </div>
             </div>
-            <div class="card">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-handshake"></i>
+                <label id="partner_role" >{{ ucfirst(__('word.partners')) }}</label>
+                <input type="checkbox" name="partner_role"/>
                 <div class="container">
-                    <label id="partner_role" >{{ ucfirst(__('word.partners')) }}</label>
-                    <input type="checkbox" name="partner_role"/>
                     <p>
                     <div>
                         <label id="create_permission_partner" >{{ ucfirst(__('word.create')) }}</label>
@@ -49,11 +53,11 @@
                     </p>
                 </div>
             </div>
-            <div class="card">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-cash-register"></i>
+                <label id="client_role" >{{ ucfirst(__('word.clients')) }}</label>
+                <input type="checkbox" name="client_role"/>
                 <div class="container">
-                    <label id="client_role" >{{ ucfirst(__('word.clients')) }}</label>
-                    <input type="checkbox" name="client_role"/>
                     <p>
                     <div>
                         <label id="create_permission_client" >{{ ucfirst(__('word.create')) }}</label>
@@ -70,11 +74,11 @@
                     </p>
                 </div>
             </div>
-            <div class="card">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-truck-pickup"></i>
+                <label id="provider_role" >{{ ucfirst(__('word.providers')) }}</label>
+                <input type="checkbox" name="provider_role"/>
                 <div class="container">
-                    <label id="provider_role" >{{ ucfirst(__('word.providers')) }}</label>
-                    <input type="checkbox" name="provider_role"/>
                     <p>
                     <div>
                         <label id="create_permission_provider" >{{ ucfirst(__('word.create')) }}</label>
@@ -91,11 +95,11 @@
                     </p>
                 </div>
             </div>
-            <div class="card">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-balance-scale-right"></i>
+                <label id="role_role" >{{ ucfirst(__('word.roles')) }}</label>
+                <input type="checkbox" name="role_role"/>
                 <div class="container">
-                    <label id="role_role" >{{ ucfirst(__('word.roles')) }}</label>
-                    <input type="checkbox" name="role_role"/>
                     <p>
                     <div>
                         <label id="create_permission_role" >{{ ucfirst(__('word.create')) }}</label>
@@ -112,11 +116,11 @@
                     </p>
                 </div>
             </div>
-            <div class="card">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-file-invoice"></i>
+                <label id="client_invoice_role" >{{ ucfirst(__('word.client-invoices')) }}</label>
+                <input type="checkbox" name="client_invoice_role"/>
                 <div class="container">
-                    <label id="client_invoice_role" >{{ ucfirst(__('word.client-invoices')) }}</label>
-                    <input type="checkbox" name="client_invoice_role"/>
                     <p>
                     <div>
                         <label id="create_permission_client_invoice" >{{ ucfirst(__('word.create')) }}</label>
@@ -133,11 +137,11 @@
                     </p>
                 </div>
             </div>
-            <div class="card">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-file-invoice"></i>
+                <label id="provider_invoice_role" >{{ ucfirst(__('word.provider-invoices')) }}</label>
+                <input type="checkbox" name="provider_invoice_role"/>
                 <div class="container">
-                    <label id="provider_invoice_role" >{{ ucfirst(__('word.provider-invoices')) }}</label>
-                    <input type="checkbox" name="provider_invoice_role"/>
                     <p>
                     <div>
                         <label id="create_permission_provider_invoice" >{{ ucfirst(__('word.create')) }}</label>
@@ -154,11 +158,11 @@
                     </p>
                 </div>
             </div>
-            <div class="card">
+            <div class="role-grid__card">
                 <i class="fa-solid fa-2x fa-feather-pointed"></i>
+                <label id="product_role" >{{ ucfirst(__('word.products')) }}</label>
+                <input type="checkbox" name="product_role"/>
                 <div class="container">
-                    <label id="product_role" >{{ ucfirst(__('word.products')) }}</label>
-                    <input type="checkbox" name="product_role"/>
                     <p>
                     <div>
                         <label id="create_permission_product" >{{ ucfirst(__('word.create')) }}</label>

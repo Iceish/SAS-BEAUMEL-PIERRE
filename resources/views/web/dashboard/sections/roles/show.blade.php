@@ -7,7 +7,7 @@
 
     <h2>{{ ucfirst(__('word.role')) }}</h2>
 
-    <div class="card">
+    <div class="role-grid__card">
         <div class="card__header">
             <div>
                 <h3>{{ $role->name }}</h3>

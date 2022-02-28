@@ -36,5 +36,6 @@ return [
     'city' => 'city',
     'accept' => 'Accept',
     'client-invoices' => 'client invoices',
-    'provider-invoices' => 'provider invoices'
+    'provider-invoices' => 'provider invoices',
+    'providers' => 'providers'
 ];

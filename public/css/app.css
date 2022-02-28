@@ -213,19 +213,18 @@ img.avatar {
   border-radius: 64px;
 }
 
-.role-card {
-  /* On mouse-over, add a deeper shadow */
-  /* Add some padding inside the card container */
-}
-.role-card .card {
+.role-grid__card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  border-radius: 5px;
+  /* On mouse-over, add a deeper shadow */
+  /* Add some padding inside the card container */
 }
-.role-card .card:hover {
+.role-grid__card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-.role-card .container {
+.role-grid__card .container {
   padding: 2px 16px;
 }
 
@@ -580,38 +579,38 @@ body#static main {
   /*Show*/
   /*Edit*/
 }
-#users .card {
+#users .role-grid__card {
   display: grid;
   grid-template-rows: 1fr 3fr;
   grid-template-columns: 1fr;
   grid-gap: 20px;
   background-color: var(--primary-ghost);
 }
-#users .card > * {
+#users .role-grid__card > * {
   width: 100%;
   height: 100%;
 }
-#users .card > .card__general {
+#users .role-grid__card > .card__general {
   grid-row: 1/span 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#users .card > .card__header {
+#users .role-grid__card > .card__header {
   display: grid;
   grid-template: 1fr/1fr 1fr;
 }
-#users .card > .card__header > .btn {
+#users .role-grid__card > .card__header > .btn {
   justify-self: flex-end;
   align-self: flex-start;
   margin: 6px;
 }
-#users .card > .card__description > ul {
+#users .role-grid__card > .card__description > ul {
   padding-left: 0;
 }
 @media (min-width: 1000px) {
-  #users .card {
+  #users .role-grid__card {
     grid-template-columns: 1fr 2fr;
   }
 }
@@ -619,6 +618,14 @@ body#static main {
   width: 50%;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#roles .roles-grid {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
 }
 
 section#contactus {
