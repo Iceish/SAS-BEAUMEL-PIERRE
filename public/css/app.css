@@ -69,63 +69,6 @@ a.backBtn i:hover {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.custom-table {
-  display: flex;
-  flex-direction: column;
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-.custom-table > *:nth-child(2n) {
-  background-color: rgba(200, 200, 200, 0.1);
-}
-.custom-table__button {
-  align-self: flex-end;
-}
-.custom-table__button i {
-  font-size: 1.5em;
-  margin-right: 5px;
-}
-.custom-table__row, .custom-table__head {
-  display: grid;
-  grid-auto-flow: row;
-  align-items: center;
-  padding: 10px;
-  grid-gap: 10px;
-  border-bottom: 1px solid #e6e6e6;
-}
-.custom-table__row:hover, .custom-table__head:hover {
-  background-color: var(--primary-ghost);
-}
-.custom-table__row > div.actions i, .custom-table__head > div.actions i {
-  font-size: 1.5em;
-  margin-right: 20px;
-}
-@media (min-width: 1000px) {
-  .custom-table__row, .custom-table__head {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    align-items: center;
-  }
-}
-.custom-table__head {
-  display: none;
-  font-weight: bold;
-}
-@media (min-width: 1000px) {
-  .custom-table__head {
-    display: grid;
-  }
-}
-.custom-table .label {
-  color: grey;
-  margin-right: 20px;
-}
-@media (min-width: 1000px) {
-  .custom-table .label {
-    display: none;
-  }
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -227,6 +170,63 @@ img.avatar {
 }
 .role-grid__card .container {
   padding: 2px 16px;
+}
+
+.generic-table {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.generic-table > *:nth-child(2n) {
+  background-color: rgba(200, 200, 200, 0.1);
+}
+.generic-table__button {
+  align-self: flex-end;
+}
+.generic-table__button i {
+  font-size: 1.5em;
+  margin-right: 5px;
+}
+.generic-table__row, .generic-table__head {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  padding: 10px;
+  grid-gap: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.generic-table__row:hover, .generic-table__head:hover {
+  background-color: var(--primary-ghost);
+}
+.generic-table__row > div.actions i, .generic-table__head > div.actions i {
+  font-size: 1.5em;
+  margin-right: 20px;
+}
+@media (min-width: 1000px) {
+  .generic-table__row, .generic-table__head {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    align-items: center;
+  }
+}
+.generic-table__head {
+  display: none;
+  font-weight: bold;
+}
+@media (min-width: 1000px) {
+  .generic-table__head {
+    display: grid;
+  }
+}
+.generic-table .label {
+  color: grey;
+  margin-right: 20px;
+}
+@media (min-width: 1000px) {
+  .generic-table .label {
+    display: none;
+  }
 }
 
 /* Box sizing rules */

@@ -4,5 +4,5 @@
 
 @section('main')
     <h2>Users</h2>
-    <x-Table.Table :content="$users" columns="Name|name Roles|roles:name" route="dashboard.users:user" crud="show edit destroy create"/>
+    <x-Generic.Table :content="$users" columns="Name|name Roles|roles:name" route="dashboard.users:user" crud="show edit destroy create"/>
 @endsection

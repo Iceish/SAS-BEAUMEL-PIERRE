@@ -1,6 +1,6 @@
-@use '../abstracts' as *;
+@use '../../abstracts' as *;
 
-.custom-table{
+.generic-table{
     display: flex;
     flex-direction: column;
 

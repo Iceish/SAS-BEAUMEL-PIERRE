@@ -1,4 +1,4 @@
-<div class="custom-table">
+<div class="generic-table">
     @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
         <a class="btn btn--bold custom-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
     @endif

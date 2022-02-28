@@ -1,9 +1,14 @@
 @extends('web.dashboard.layout')
 
 @section('main')
-    <a class="backBtn" href="{{ route('dashboard.partners.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
+    <a class="backBtn" href="{{ route('dashboard.providers.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.creating.partner')) }}</h2>
-    <form id="edit" action="{{ route("dashboard.partners.store") }}" method="post">
+
+    @foreach ($errors->all() as $error)
+        {{$error}}
+    @endforeach
+    
+    <form id="edit" action="{{ route("dashboard.providers.store") }}" method="post">
         @csrf
         <h4>Create</h4>
         <div class="field">

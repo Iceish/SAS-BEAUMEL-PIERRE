@@ -51,7 +51,7 @@ class ProviderController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        return view("web.dashboard.sections.providers.index");
+        return view("web.dashboard.sections.providers.create");
     }
 
     /**

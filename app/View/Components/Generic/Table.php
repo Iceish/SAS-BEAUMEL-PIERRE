@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Table;
+namespace App\View\Components\Generic;
 
 
 use ArrayAccess;
@@ -88,6 +88,6 @@ class Table extends Component
      */
     public function render(): Application|Factory|View
     {
-        return view('components.table.table');
+        return view('components.generic.table');
     }
 }
