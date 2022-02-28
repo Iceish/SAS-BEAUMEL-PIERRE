@@ -3,7 +3,7 @@
 @section('main')
     <a class="backBtn" href="{{ route('dashboard.products.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.creating.products')) }}</h2>
-    <form id="edit" action="{{ route("dashboard.products.store") }}" method="post">
+    <form id="edit" action="{{ route("dashboard.products.store") }}" method="post" enctype="multipart/form-data">
         @csrf
         <h4>Create</h4>
 
