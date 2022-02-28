@@ -23,8 +23,8 @@
         </div>
 
         <div class="field">
-            <label for="image">{{ucfirst(__('word.image_path'))}}</label>
-            <input type="text" id="file" name="file" >
+            <label for="file">{{ucfirst(__('word.image_path'))}}</label>
+            <input type="file" id="file" name="file">
         </div>
 
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
