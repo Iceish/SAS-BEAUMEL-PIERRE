@@ -70,17 +70,17 @@ body#dashboard{
 
             ul{
                 display: inline-grid;
-                grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / #{$columns-max} - #{$gap*2})));
+                grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / #{$columns-max} )));
 
                 justify-content: center;
 
                 width: 100%;
                 padding: 0;
-                grid-gap: $gap/2;
 
                 li a{
                     display: flex;
                     flex-direction: column;
+                    @include padding-y(10px);
                     i{
                         &.arrow{
                             display: none;

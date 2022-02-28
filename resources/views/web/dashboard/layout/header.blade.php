@@ -16,6 +16,9 @@
             @if(auth()->user()->can('clients.list'))
                     <li><a href="{{ route('dashboard.clients.index') }}"><i class="fa-solid fa-cash-register"></i>{{ ucfirst(__('word.clients')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
+            @if(auth()->user()->can('provider.list'))
+                <li><a href="{{ route('dashboard.providers.index') }}"><i class="fa-solid fa-truck-pickup"></i>{{ ucfirst(__('word.providers')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
+            @endif
             @if(auth()->user()->can('partners.list'))
                     <li><a href="{{ route('dashboard.partners.index') }}"><i class="fa-solid fa-handshake"></i>{{ ucfirst(__('word.partners')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif

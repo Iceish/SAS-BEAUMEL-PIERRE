@@ -27,6 +27,7 @@ main h2:before {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
@@ -403,15 +404,16 @@ body#dashboard header nav i {
 }
 body#dashboard header nav ul {
   display: inline-grid;
-  grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / 4 - 100px)));
+  grid-template-columns: repeat(auto-fit, minmax(128px, calc(100% / 4 )));
   justify-content: center;
   width: 100%;
   padding: 0;
-  grid-gap: 25px;
 }
 body#dashboard header nav ul li a {
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 body#dashboard header nav ul li a i.arrow {
   display: none;
