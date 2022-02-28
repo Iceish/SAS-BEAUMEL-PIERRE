@@ -45,7 +45,7 @@ body#dashboard{
 
         nav{
             $columns-max: 4;
-            $gap: 40px;
+            $gap: 50px;
 
             display: flex;
             flex-direction: column;
@@ -82,7 +82,9 @@ body#dashboard{
                     display: flex;
                     flex-direction: column;
                     i{
-                        color: var(--primary-dark);
+                        &.arrow{
+                            display: none;
+                        }
                     }
                 }
             }
@@ -152,6 +154,16 @@ body#dashboard{
                 display: flex !important;
                 ul{
                     grid-template-columns: 1fr;
+                    li a{
+                        display: grid;
+                        grid-template: 1fr / 1fr 1fr 1fr;
+                        justify-items: flex-start;
+                        @include margin-x(20px);
+                        i.arrow{
+                            display: inline;
+                            justify-self: flex-end;
+                        }
+                    }
                 }
             }
         }

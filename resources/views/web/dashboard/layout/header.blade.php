@@ -9,33 +9,33 @@
     <nav>
         <h1>{{ ucfirst(__('word.dashboard')) }}</h1>
         <ul role="list">
-            <li><a href="{{ route('dashboard.home') }}"><i class="fa-solid fa-house-user"></i>{{ ucfirst(__('word.home')) }}</a></li>
+            <li><a href="{{ route('dashboard.home') }}"><i class="fa-solid fa-house-user"></i>{{ ucfirst(__('word.home')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @if(auth()->user()->can('edit'))
-                    <li><a href=""><i class="fa-solid fa-video"></i>{{ ucfirst(__('word.cameras')) }}</a></li>
+                    <li><a href=""><i class="fa-solid fa-video"></i>{{ ucfirst(__('word.cameras')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('clients.list'))
-                    <li><a href="{{ route('dashboard.clients.index') }}"><i class="fa-solid fa-cash-register"></i>{{ ucfirst(__('word.clients')) }}</a></li>
+                    <li><a href="{{ route('dashboard.clients.index') }}"><i class="fa-solid fa-cash-register"></i>{{ ucfirst(__('word.clients')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('partners.list'))
-                    <li><a href="{{ route('dashboard.partners.index') }}"><i class="fa-solid fa-handshake"></i>{{ ucfirst(__('word.partners')) }}</a></li>
+                    <li><a href="{{ route('dashboard.partners.index') }}"><i class="fa-solid fa-handshake"></i>{{ ucfirst(__('word.partners')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('vehicles.list'))
-                    <li><a href="{{ route('dashboard.vehicles.index') }}"><i class="fa-solid fa-tractor"></i>{{ ucfirst(__('word.vehicles')) }}</a></li>
+                    <li><a href="{{ route('dashboard.vehicles.index') }}"><i class="fa-solid fa-truck-pickup"></i>{{ ucfirst(__('word.vehicles')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('invoices.list'))
-                    <li><a href="{{ route('dashboard.invoices.index') }}"><i class="fa-solid fa-file-invoice"></i>{{ ucfirst(__('word.invoices')) }}</a></li>
+                    <li><a href="{{ route('dashboard.invoices.index') }}"><i class="fa-solid fa-file-invoice"></i>{{ ucfirst(__('word.invoices')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('providers.list'))
-                    <li><a href="{{ route('dashboard.products.index') }}"><i class="fa-solid fa-feather-pointed"></i>{{ ucfirst(__('word.products')) }}</a></li>
+                    <li><a href="{{ route('dashboard.products.index') }}"><i class="fa-solid fa-feather-pointed"></i>{{ ucfirst(__('word.products')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('users.list'))
-                    <li><a href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-users"></i>{{ ucfirst(__('word.users')) }}</a></li>
+                    <li><a href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-users"></i>{{ ucfirst(__('word.users')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('roles.list'))
-                    <li><a href="{{ route('dashboard.roles.index') }}"><i class="fas fa-balance-scale-right"></i>{{ ucfirst(__('word.roles')) }}</a></li>
+                    <li><a href="{{ route('dashboard.roles.index') }}"><i class="fas fa-balance-scale-right"></i>{{ ucfirst(__('word.roles')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
 
-            <li><a href=""><i class="fa-solid fa-gears"></i>{{ ucfirst(__('word.settings')) }}</a></li>
+            <li><a href=""><i class="fa-solid fa-gears"></i>{{ ucfirst(__('word.settings')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
 
         </ul>
 
