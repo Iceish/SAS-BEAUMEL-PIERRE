@@ -39,7 +39,7 @@ class ProviderController extends Controller
 
         $providers = Provider::whereLike(["email","name"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.provider.index",
+        return view("web.dashboard.sections.providers.index",
             compact("providers")
         );
     }
@@ -51,7 +51,7 @@ class ProviderController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        return view("web.dashboard.sections.provider.index");
+        return view("web.dashboard.sections.providers.index");
     }
 
     /**
@@ -65,7 +65,7 @@ class ProviderController extends Controller
         $validated = $request->validated();
         try{
             Provider::create($validated);
-            return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.create.success"));
+            return redirect()->route("dashboard.providers.index")->with("success",__("messages.provider.create.success"));
         }catch (Exception){
             return redirect()->back()->with("errors",__("messages.provider.create.failed"))->withInput();
         }
@@ -79,7 +79,7 @@ class ProviderController extends Controller
      */
     public function show(Provider $provider): Application|Factory|View
     {
-        return view("web.dashboard.sections.provider.show",
+        return view("web.dashboard.sections.providers.show",
             compact("provider")
         );
     }
@@ -92,7 +92,7 @@ class ProviderController extends Controller
      */
     public function edit(Provider $provider): Application|Factory|View
     {
-        return view("web.dashboard.sections.provider.edit",
+        return view("web.dashboard.sections.providers.edit",
             compact($provider)
         );
     }
@@ -109,7 +109,7 @@ class ProviderController extends Controller
         $validated = $request->validated();
         try{
             $provider->update($validated);
-            return redirect()->route("dashboard.provider.index")->with("success",__("messages.provider.update.success"));
+            return redirect()->route("dashboard.providers.index")->with("success",__("messages.provider.update.success"));
         }catch (Exception){
             return redirect()->back()->with("errors",__("messages.provider.update.failed"))->withInput();
         }
@@ -125,7 +125,7 @@ class ProviderController extends Controller
     {
         try{
             $provider->delete();
-            return redirect()->route("dashboard.provider.index")->with('success',__("messages.provider.delete.success"));
+            return redirect()->route("dashboard.providers.index")->with('success',__("messages.provider.delete.success"));
         }catch (Exception){
             return redirect()->back()->with('errors',__("messages.provider.delete.success"));
         }

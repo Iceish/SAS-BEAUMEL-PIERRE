@@ -7,7 +7,7 @@
 
     <h2>{{ ucfirst(__('word.user')) }}</h2>
 
-    <div class="card">
+    <div class="role-grid__card">
 
         <div class="card__general">
             <img class="avatar" src="{{ asset('img/user.jpg') }}" alt="user" width="96px">
@@ -38,8 +38,6 @@
                         Non renseigné
                     @endforelse
                 </li>
-                <li>{{ ucfirst(__("text.account_creation_date")) }} : {{ $user->created_at }}</li>
-                <li>{{ ucfirst(__("text.email_verification_date")) }} : {{ $user->email_verified_at }}</li>
                 <li>{{ ucfirst(__("word.address")) }} :
                     @if($user->address)
                         {{ $user->address }}
@@ -61,6 +59,7 @@
                     @else
                         Non renseigné
                     @endif</li>
+                <li>{{ ucfirst(__("text.account_creation_date")) }} : {{ $user->created_at }}</li>
             </ul>
 
         </div>

@@ -16,11 +16,14 @@
             @if(auth()->user()->can('clients.list'))
                     <li><a href="{{ route('dashboard.clients.index') }}"><i class="fa-solid fa-cash-register"></i>{{ ucfirst(__('word.clients')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
+            @if(auth()->user()->can('provider.list'))
+                <li><a href="{{ route('dashboard.providers.index') }}"><i class="fa-solid fa-truck-pickup"></i>{{ ucfirst(__('word.providers')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
+            @endif
             @if(auth()->user()->can('partners.list'))
                     <li><a href="{{ route('dashboard.partners.index') }}"><i class="fa-solid fa-handshake"></i>{{ ucfirst(__('word.partners')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('vehicles.list'))
-                    <li><a href="{{ route('dashboard.vehicles.index') }}"><i class="fa-solid fa-truck-pickup"></i>{{ ucfirst(__('word.vehicles')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
+                    <li><a href="{{ route('dashboard.vehicles.index') }}"><i class="fa-solid fa-tractor"></i>{{ ucfirst(__('word.vehicles')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('invoices.list'))
                     <li><a href="{{ route('dashboard.invoices.index') }}"><i class="fa-solid fa-file-invoice"></i>{{ ucfirst(__('word.invoices')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>

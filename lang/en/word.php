@@ -27,10 +27,15 @@ return [
     'invoices' => 'invoices',
     'products' => 'products',
     'edit' => 'edit',
+    'create' => 'create',
+    'delete' => 'delete',
     'name' => 'name',
     'confirm' => 'confirm',
     'postal' => 'postal code',
     'address' => 'address',
     'city' => 'city',
-    'accept' => 'Accept'
+    'accept' => 'Accept',
+    'client-invoices' => 'client invoices',
+    'provider-invoices' => 'provider invoices',
+    'providers' => 'providers'
 ];
