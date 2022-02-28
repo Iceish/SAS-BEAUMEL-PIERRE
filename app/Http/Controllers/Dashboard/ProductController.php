@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -60,11 +61,13 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
+        $product = $request->except('file');
+        $file = $request->only('file')['file'];
+        $product['image_path'] = $file->store('images');
         try {
-            Product::create($validated);
+            Product::create($product);
             return redirect()->route("dashboard.products.index")->with("success", __("messages.product.create.success"));
-        } catch (Exception) {
+        } catch (Exception $e) {
             return redirect()->back()->with("errors", __("messages.product.create.failed"))->withInput();
         }
     }
