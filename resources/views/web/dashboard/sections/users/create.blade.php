@@ -15,12 +15,12 @@
         <h4>Create</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.name')) }}</label>
-            <input type="text" id="name" name="name" placeholder="John Doe" required/>
+            <input type="text" id="name" name="name" placeholder="John Doe" required value="{{ old('name') }}"/>
         </div>
 
         <div class="field">
             <label for="email">{{ ucfirst(__('word.email')) }}</label>
-            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}" required/>
+            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}" required {{ old('email') }}/>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
@@ -45,15 +45,15 @@
         <!-- rajout -->
         <div class="field">
             <label for="name">{{ ucfirst(__('word.address')) }}</label>
-            <input type="text" id="address" name="address" placeholder="12 rue de la paix"/>
+            <input type="text" id="address" name="address" placeholder="12 rue de la paix" {{ old('address') }}/>
         </div>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.postal')) }}</label>
-            <input type="text" id="postal_code" name="postal_code" placeholder="63000"/>
+            <input type="text" id="postal_code" name="postal_code" placeholder="63000" {{ old('postal_code') }}/>
         </div>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.city')) }}</label>
-            <input type="text" id="city" name="city" placeholder="Clermont-Ferrand"/>
+            <input type="text" id="city" name="city" placeholder="Clermont-Ferrand" {{ old('city') }}/>
         </div>
 
         <!-- fin rajout -->
