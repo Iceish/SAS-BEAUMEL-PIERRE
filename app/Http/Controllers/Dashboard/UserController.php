@@ -134,7 +134,7 @@ class UserController extends Controller
     {
         $validatedRole = $request->only(['roles']);
         $validatedRole = $validatedRole['roles'] ?? [];
-        $validated = $request->only(['email','name','password']);
+        $validated = $request->only(['email','name','password','address','postal_code','city']);
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         try{
             $user->update($validated);

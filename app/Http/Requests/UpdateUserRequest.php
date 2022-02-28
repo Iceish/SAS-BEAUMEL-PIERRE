@@ -32,6 +32,9 @@ class UpdateUserRequest extends FormRequest
             'roles.*' => ['required',Rule::in(['true', 'false'])],
             'email' => ['required','email','max:255',Rule::unique('users')->ignore($user->id)],
             'name' => ['required','string','max:255'],
+            'address' => ['nullable','string','max:255'],
+            'postal_code' => ['nullable','string','max:5'],
+            'city' => ['nullable','string','max:255'],
         ];
     }
 }
