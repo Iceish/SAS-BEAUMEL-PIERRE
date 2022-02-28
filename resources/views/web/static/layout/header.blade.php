@@ -22,7 +22,14 @@
                 <a href={{ route('about') }}>{{ ucfirst(__("word.about-us")) }}</a>
             </li>
             <li>
-                <a href="{{ route('auth.login.view') }}">{{ ucfirst(__("word.login")) }}</a>
+                <a href="{{ route('auth.login.view') }}">
+                @guest()
+                        {{ ucfirst(__("word.login")) }}
+                    @endguest
+                @auth()
+                        {{ ucfirst(__("word.dashboard")) }}
+                    @endauth
+                </a>
             </li>
         </ul>
     </nav>
