@@ -20,7 +20,7 @@
                     <li><a href="{{ route('dashboard.partners.index') }}"><i class="fa-solid fa-handshake"></i>{{ ucfirst(__('word.partners')) }}</a></li>
             @endif
             @if(auth()->user()->can('vehicles.list'))
-                    <li><a href="{{ route('dashboard.vehicles.index') }}"><i class="fa-solid fa-truck-pickup"></i>{{ ucfirst(__('word.vehicles')) }}</a></li>
+                    <li><a href="{{ route('dashboard.vehicles.index') }}"><i class="fa-solid fa-tractor"></i>{{ ucfirst(__('word.vehicles')) }}</a></li>
             @endif
             @if(auth()->user()->can('invoices.list'))
                     <li><a href="{{ route('dashboard.invoices.index') }}"><i class="fa-solid fa-file-invoice"></i>{{ ucfirst(__('word.invoices')) }}</a></li>

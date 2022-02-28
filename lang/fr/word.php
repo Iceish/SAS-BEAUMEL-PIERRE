@@ -27,10 +27,14 @@ return [
     'invoices' => 'factures',
     'products' => 'produits',
     'edit' => 'editer',
+    'create' => 'creer',
+    'delete' => 'supprimer',
     'name' => 'nom',
     'confirm' => 'comfimer',
     'postal' => 'code postal',
     'address' => 'adresse',
     'city' => 'Ville',
-    'accept' => 'Accepter'
+    'accept' => 'Accepter',
+    'client-invoices' => 'factures client',
+    'provider-invoices' => 'factures fournisseur'
 ];
