@@ -51,8 +51,8 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
 
     Route::name('invoices.')->prefix('invoices')->group(function (){
         Route::get('/', [InvoiceController::class,'index'])->name('index');
-        Route::resource('client', InvoiceClientController::class);
-        Route::resource('provider', InvoiceProviderController::class);
+        Route::resource('clients', InvoiceClientController::class);
+        Route::resource('providers', InvoiceProviderController::class);
     });
     Route::resource('clients', ClientController::class);
     Route::resource('providers', ProviderController::class);
