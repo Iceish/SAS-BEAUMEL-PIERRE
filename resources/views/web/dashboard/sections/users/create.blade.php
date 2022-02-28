@@ -5,22 +5,22 @@
 @section('main')
     <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.creating_user')) }}</h2>
+    <div>
+        @foreach ($errors->all() as $error)
+            {{$error}}
+        @endforeach
+    </div>
     <form id="edit" action="{{ route("dashboard.users.store") }}" method="post">
         @csrf
         <h4>Create</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.name')) }}</label>
-            <input type="text" id="name" name="name" placeholder="John Doe"/>
+            <input type="text" id="name" name="name" placeholder="John Doe" required value="{{ old('name') }}"/>
         </div>
 
         <div class="field">
             <label for="email">{{ ucfirst(__('word.email')) }}</label>
-            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}"/>
-            <div>
-                @foreach ($errors->get('email') as $message)
-                {{$message}}
-                @endforeach
-            </div>
+            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}" required {{ old('email') }}/>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
@@ -44,16 +44,16 @@
         </div>
         <!-- rajout -->
         <div class="field">
-            <label for="name">adresse</label>
-            <input type="text" id="adresse" name="name" placeholder="adresse"/>
+            <label for="name">{{ ucfirst(__('word.address')) }}</label>
+            <input type="text" id="address" name="address" placeholder="12 rue de la paix" {{ old('address') }}/>
         </div>
         <div class="field">
-            <label for="name">code postale</label>
-            <input type="text" id="cdp" name="name" placeholder="code postale"/>
+            <label for="name">{{ ucfirst(__('word.postal')) }}</label>
+            <input type="text" id="postal_code" name="postal_code" placeholder="63000" {{ old('postal_code') }}/>
         </div>
         <div class="field">
-            <label for="name"> ville </label>
-            <input type="text" id="ville" name="name" placeholder="ville"/>
+            <label for="name">{{ ucfirst(__('word.city')) }}</label>
+            <input type="text" id="city" name="city" placeholder="Clermont-Ferrand" {{ old('city') }}/>
         </div>
 
         <!-- fin rajout -->
