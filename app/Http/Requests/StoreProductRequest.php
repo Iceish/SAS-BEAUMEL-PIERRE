@@ -29,8 +29,8 @@ class StoreProductRequest extends FormRequest
         return [
             'name' => ['required','string',Rule::unique('products')],
             'quantity' => ['required','integer'],
-            'file' => ['image','size:10000'],
-            'price' => ['digits:6']
+            'file' => ['image','max:10000'],
+            'price' => ['integer']
         ];
     }
 }
