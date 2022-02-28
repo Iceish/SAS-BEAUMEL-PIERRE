@@ -5,6 +5,11 @@
 @section('main')
     <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
     <h2>{{ ucfirst(__('text.creating_user')) }}</h2>
+    <div>
+        @foreach ($errors as $error)
+            {{$error}}
+        @endforeach
+    </div>
     <form id="edit" action="{{ route("dashboard.users.store") }}" method="post">
         @csrf
         <h4>Create</h4>
@@ -16,11 +21,6 @@
         <div class="field">
             <label for="email">{{ ucfirst(__('word.email')) }}</label>
             <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}"/>
-            <div>
-                @foreach ($errors->get('email') as $message)
-                {{$message}}
-                @endforeach
-            </div>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
