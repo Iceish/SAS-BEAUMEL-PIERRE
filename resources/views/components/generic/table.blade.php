@@ -1,8 +1,8 @@
 <div class="generic-table">
     @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
-        <a class="btn btn--bold custom-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
+        <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
     @endif
-    <div class="custom-table__head">
+    <div class="generic-table__head">
             @foreach($columns as $column)
                 <div>
                     <p>{{ $column["name"] }}</p>
@@ -11,7 +11,7 @@
         <div>Actions</div>
     </div>
     @foreach($content as $row)
-        <div class="custom-table__row">
+        <div class="generic-table__row">
             @foreach($columns as $column)
                 <div>
                     @if(is_iterable($rowData = $row[$column["attributeName"]]))
