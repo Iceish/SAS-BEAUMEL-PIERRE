@@ -3,6 +3,7 @@
 
 
 @section('main')
+    <x-utils.backBtn/>
     <form action="{{route("dashboard.roles.store")}}" method="POST">
         @csrf
         <label>

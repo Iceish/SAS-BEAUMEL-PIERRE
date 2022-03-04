@@ -33,12 +33,3 @@ input[type="submit"].btn, a.btn{
         border: var(--border-size) solid var(--primary);
     }
 }
-
-a.backBtn i{
-    color: var(--primary-light);
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    &:hover{
-        color: var(--primary-dark);
-        text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-    }
-}

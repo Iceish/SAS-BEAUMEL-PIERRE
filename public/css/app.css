@@ -13,6 +13,10 @@ main h2:before {
   background-color: var(--primary-light);
   left: -1px;
 }
+main .label {
+  color: grey;
+  margin-right: 20px;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -58,15 +62,6 @@ input[type=submit].btn, input[type=submit].btn:hover, input[type=submit].btn:vis
 input[type=submit].btn:active, a.btn:active {
   color: var(--primary);
   border: var(--border-size) solid var(--primary);
-}
-
-a.backBtn i {
-  color: var(--primary-light);
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-}
-a.backBtn i:hover {
-  color: var(--primary-dark);
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 form {
@@ -219,14 +214,70 @@ img.avatar {
     display: grid;
   }
 }
-.generic-table .label {
-  color: grey;
-  margin-right: 20px;
-}
 @media (min-width: 1000px) {
   .generic-table .label {
     display: none;
   }
+}
+
+.generic-card {
+  display: grid;
+  grid-template: 3fr 1fr/1fr;
+  border: 1px solid var(--primary-ghost);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.generic-card__attributes p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: grid;
+  grid-template: 1fr/1fr 2fr;
+}
+@media (min-width: 1000px) {
+  .generic-card__attributes p {
+    grid-template: 1fr/1fr 4fr;
+  }
+}
+.generic-card__actions {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e6e6e6;
+}
+.generic-card__actions a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.generic-card__actions a:hover {
+  background-color: var(--primary-ghost);
+}
+.generic-card__actions i {
+  font-size: 1.5em;
+}
+@media (min-width: 1000px) {
+  .generic-card__actions {
+    border: none;
+    border-left: 1px solid #e6e6e6;
+  }
+}
+@media (min-width: 1000px) {
+  .generic-card {
+    grid-template: 1fr/6fr 1fr;
+  }
+}
+
+a.backBtn i {
+  color: var(--primary-light);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+a.backBtn i:hover {
+  color: var(--primary-dark);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 /* Box sizing rules */
