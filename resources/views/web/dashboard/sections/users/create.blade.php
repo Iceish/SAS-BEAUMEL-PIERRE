@@ -3,7 +3,7 @@
 @section('tag','users')
 
 @section('main')
-    <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
+    <x-utils.backBtn/>
     <h2>{{ ucfirst(__('text.creating_user')) }}</h2>
     <div>
         @foreach ($errors->all() as $error)

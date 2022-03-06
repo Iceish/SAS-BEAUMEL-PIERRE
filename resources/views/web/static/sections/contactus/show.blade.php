@@ -4,11 +4,12 @@
 
     <section id="contactus">
 
-        <form action="">
+        <form action="{{route('contactus.store')}}" method="POST">
+            @csrf
             <h4>Contact us</h4>
             <div class="field">
                 <label for="email">Email</label>
-                <input id="email" type="email" placeholder="{{ __('form.placeholder.email') }}" autocomplete="off"/>
+                <input id="email" type="email" placeholder="{{ __('form.placeholder.from') }}" autocomplete="off"/>
             </div>
             <div class="field">
                 <label for="text">Subject</label>
@@ -16,7 +17,7 @@
             </div>
             <div class="field">
                 <label for="text">Message</label>
-                <textarea id="text" placeholder="{{ __('form.placeholder.textarea') }}" maxlength="255"></textarea>
+                <textarea id="text" placeholder="{{ __('form.placeholder.content') }}" maxlength="255"></textarea>
             </div>
             <input class="btn" type="submit" value="{{ ucfirst(__('word.submit')) }}"/>
         </form>

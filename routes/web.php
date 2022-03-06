@@ -12,7 +12,9 @@ use App\Http\Controllers\Dashboard\ProviderController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VehicleController;
+use App\Http\Controllers\Guest\ContactUsController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\TicketsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,8 +41,16 @@ Route::controller(GuestController::class)->group(function (){
     Route::get('/partners', 'partners')
         ->name('partners');
 
-    Route::get('/contactus', 'contactus')
-        ->name('contactus');
+
+});
+
+
+
+Route::controller(ContactUsController::class)->name('contactus.')->group(function (){
+
+    Route::get('contactus','create')->name('create');
+
+    Route::post('contactus','store')->name('store');
 
 });
 

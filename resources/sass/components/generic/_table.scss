@@ -54,8 +54,6 @@
     }
 
     .label{
-        color: grey;
-        margin-right: 20px;
         @include respond-to('large'){
             display: none;
         }

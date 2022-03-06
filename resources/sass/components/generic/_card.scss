@@ -1,5 +1,55 @@
 @use '../../abstracts' as *;
 
 .generic-card{
-    //To do
+    display: grid;
+    grid-template: 3fr 1fr / 1fr;
+    border: 1px solid var(--primary-ghost);
+    border-radius: 10px;
+    padding: 10px;
+
+    @include margin-y(16px);
+
+    &__attributes{
+        p{
+            @include margin-y(2px);
+            display: grid;
+            grid-template: 1fr / 1fr 2fr;
+
+            @include respond-to('large'){
+                grid-template: 1fr / 1fr 4fr;
+            }
+        }
+    }
+
+    &__actions{
+        display: flex;
+        flex-direction: column;
+        @include separator('top');
+
+        a{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+
+            &:hover{
+                background-color: var(--primary-ghost);
+            }
+        }
+        i{
+            font-size: 1.5em;
+        }
+
+        @include respond-to('large'){
+            border: none;
+            @include separator('left');
+        }
+    }
+    @include respond-to('large'){
+        grid-template: 1fr / 6fr 1fr;
+
+    }
+
 }

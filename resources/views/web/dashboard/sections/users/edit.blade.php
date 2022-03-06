@@ -3,7 +3,7 @@
 @section('tag','users')
 
 @section('main')
-    <a class="backBtn" href="{{ route('dashboard.users.index') }}"><i class="fa-solid fa-caret-left fa-3x"></i></a>
+    <x-utils.backBtn/>
     <h2>{{ ucfirst(__('text.editing_user')) }} {{ $user->name }}</h2>
     <form id="edit" action="{{ route('dashboard.users.update',['user'=>$user->id]) }}" method="post">
         @csrf
