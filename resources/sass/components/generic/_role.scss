@@ -1,0 +1,14 @@
+@use '../../abstracts' as *;
+
+.generic-role{
+    .head{
+        font-weight: bold;
+        @include separator('bottom');
+    }
+    .content{
+        padding-left: 20px;
+    }
+    border: 1px solid var(--primary-light);
+    border-radius: 10px;
+    padding: 5px;
+}

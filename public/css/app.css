@@ -76,36 +76,36 @@ form > h4 {
   padding-left: 10%;
   margin-bottom: 15px;
 }
-form > .field {
+form .field {
   display: grid;
   grid-template: 1fr/1fr 3fr;
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-form > .field > input, form > .field select {
+form .field > input, form .field select {
   background-color: transparent;
 }
-form > .field > input {
+form .field > input {
   border: none;
   outline: none;
   border-bottom: 2px solid var(--primary-light);
 }
-form > .field > input:active, form > .field > input:focus {
+form .field > input:active, form .field > input:focus {
   border-bottom: 2px solid var(--primary);
 }
-form > .field select, form > .field textarea {
+form .field select, form .field textarea {
   outline: none;
   border: 2px solid var(--primary-light);
   border-radius: 5px;
 }
-form > .field select:active, form > .field select:focus, form > .field textarea:active, form > .field textarea:focus {
+form .field select:active, form .field select:focus, form .field textarea:active, form .field textarea:focus {
   border: 2px solid var(--primary);
 }
-form > .field.active select {
+form .field.active select {
   border: 2px solid var(--primary);
 }
-form > .field textarea {
+form .field textarea {
   resize: none;
   height: 150px;
 }
@@ -269,6 +269,19 @@ img.avatar {
   .generic-card {
     grid-template: 1fr/6fr 1fr;
   }
+}
+
+.generic-role {
+  border: 1px solid var(--primary-light);
+  border-radius: 10px;
+  padding: 5px;
+}
+.generic-role .head {
+  font-weight: bold;
+  border-bottom: 1px solid #e6e6e6;
+}
+.generic-role .content {
+  padding-left: 20px;
 }
 
 a.backBtn i {
@@ -673,12 +686,11 @@ body#static main {
   margin-bottom: 20px;
 }
 
-#roles .roles-grid {
-  margin-top: 50px;
-  margin-bottom: 50px;
+#roles form .category-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
+  grid-gap: 10px;
+  width: 100%;
 }
 
 section#contactus {
