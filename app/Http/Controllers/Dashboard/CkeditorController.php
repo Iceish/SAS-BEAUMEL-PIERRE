@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DeleteImageRequest;
 use App\Http\Requests\StoreCkeditorRequest;
 use App\Http\Requests\StoreImageRequest;
-use App\Models\Ckeditor;
 use App\Models\Language;
 use DragonCode\PrettyArray\Exceptions\FileDoesntExistsException;
 use Exception;

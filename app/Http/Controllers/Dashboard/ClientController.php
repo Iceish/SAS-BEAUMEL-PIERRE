@@ -90,6 +90,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client): Application|Factory|View
     {
+        $client = $client->language()->withPivot('content')->first() ?? $client;
         $langs = Language::all();
         return view("web.dashboard.sections.clients.edit",
             compact("client"),
