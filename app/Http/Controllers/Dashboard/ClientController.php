@@ -7,6 +7,7 @@ use App\Http\Requests\SearchRequest;
 use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use App\Models\Language;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -89,8 +90,10 @@ class ClientController extends Controller
      */
     public function edit(Client $client): Application|Factory|View
     {
+        $langs = Language::all();
         return view("web.dashboard.sections.clients.edit",
-            compact("client")
+            compact("client"),
+            compact('langs')
         );
     }
 

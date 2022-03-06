@@ -25,7 +25,7 @@ class CkeditorController extends Controller
         $file = $request->only('upload')['upload'];
         $path = $file->store(self::IMG_FOLDER);
         return response()->json([
-           "url" => $path
+           "url" => "/$path"
         ]);
     }
 
@@ -58,13 +58,16 @@ class CkeditorController extends Controller
     {
         $validated = $request->validated();
         $contents = $validated['htmls'];
-        $name = $validated['name'];
+        $id = $validated['id'];
+        $model = $validated['model'];
+        $model = app("App\Models\\$model");
 
-        $ckEditorName = Ckeditor::where('name',$name)->first();
+
+        $modelCK = $model::find($id);
         foreach ($contents as $content){
             $lang = Language::where('code',$content['lang'])->first();
 
-            $ckEditorName->language()->syncWithoutDetaching(
+            $modelCK->language()->syncWithoutDetaching(
                 [
                     $lang->id => [
                         'content' => $content['content']

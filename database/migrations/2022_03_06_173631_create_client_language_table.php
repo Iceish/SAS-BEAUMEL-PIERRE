@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Ckeditor;
+use App\Models\Client;
 use App\Models\Language;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,10 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ckeditor_language', function (Blueprint $table) {
+        Schema::create('client_language', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Language::class)->references('id')->on('languages')->onDelete("cascade");
-            $table->foreignIdFor(Ckeditor::class)->references('id')->on('ckeditor')->onDelete("cascade");
+            $table->foreignIdFor(Client::class)->references('id')->on('clients')->onDelete("cascade");
             $table->longText('content');
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ckeditor_language');
+        Schema::dropIfExists('client_language');
     }
 };

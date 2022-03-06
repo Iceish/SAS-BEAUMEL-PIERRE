@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use JetBrains\PhpStorm\ArrayShape;
 
 class StoreCkeditorRequest extends FormRequest
@@ -22,13 +23,14 @@ class StoreCkeditorRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(["htmls" => "string[]", "htmls.*" => "string[]"])]
+    #[ArrayShape(["htmls" => "string[]", "htmls.*" => "string[]", "id" => "string[]", "model" => "array"])]
     public function rules(): array
     {
         return [
             "htmls" => ['required','array'],
             "htmls.*" => ['required'],
-            "name" => ['required']
+            "id" => ['required','integer'],
+            "model" => ['required',Rule::in(['Partner','Client'])]
         ];
     }
 }
