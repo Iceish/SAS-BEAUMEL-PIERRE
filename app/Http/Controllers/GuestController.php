@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
@@ -28,8 +30,7 @@ class GuestController extends Controller
         return view("web.static.sections.partners.show");
     }
 
-    public function contactus(): Factory|View|Application
-    {
-        return view("web.static.sections.contactus.show");
-    }
+
+
+
 }
