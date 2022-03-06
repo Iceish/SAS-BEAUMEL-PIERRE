@@ -28,14 +28,6 @@ class CkeditorController extends Controller
         ]);
     }
 
-    public function index(): Factory|View|Application
-    {
-        $langs = Language::all();
-        return view('web.t',
-            compact('langs')
-        );
-    }
-
     public function deleteImage(DeleteImageRequest $request): JsonResponse
     {
         $file = $request->only('file')['file'];

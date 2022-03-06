@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\ClientController;
+use App\Http\Controllers\Guest\ClientController as GuestClientController;
+use App\Http\Controllers\Guest\PartnerController as GuestPartnerController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\InvoiceClientController;
 use App\Http\Controllers\Dashboard\InvoiceController;
@@ -12,9 +14,9 @@ use App\Http\Controllers\Dashboard\ProviderController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VehicleController;
+use App\Http\Controllers\Guest\AboutController;
 use App\Http\Controllers\Guest\ContactUsController;
-use App\Http\Controllers\GuestController;
-use App\Http\Controllers\TicketsController;
+use App\Http\Controllers\Dashboard\TicketsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,31 +30,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(GuestController::class)->group(function (){
-    Route::get('/', 'home')
-        ->name('home');
 
-    Route::get('/about', 'about')
-        ->name('about');
+/*
+|--------------------------------------------------------------------------
+| Guest Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register guest web routes for your application.
+|
+*/
+Route::get('/', ['home',HomeController::class])
+    ->name('home');
 
-    Route::get('/clients','clients')
-        ->name('clients');
+Route::get('/about', [AboutController::class,'about'])
+    ->name('about');
 
-    Route::get('/partners', 'partners')
-        ->name('partners');
+Route::get('/clients',[GuestClientController::class,'clients'])
+    ->name('clients');
 
-
-});
-
-
-
+Route::get('/partners', [GuestPartnerController::class,'partners'])
+    ->name('partners');
 Route::controller(ContactUsController::class)->name('contactus.')->group(function (){
-
     Route::get('contactus','create')->name('create');
-
     Route::post('contactus','store')->name('store');
-
 });
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register dashboard web routes for your application.
+|
+*/
 
 Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [HomeController::class,'index'])
@@ -70,15 +80,17 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('vehicles', VehicleController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('tickets',TicketsController::class)->only(['index','show','delete']);
+
+
     Route::post('/store-image', [CkeditorController::class,'storeImage'])
         ->name('store-image');
     Route::post('/delete-image', [CkeditorController::class,'deleteImage'])
         ->name('delete-image');
     Route::post('/upload-ck', [CkeditorController::class,'storeCkeditor'])
         ->name('store-content');
-});
-Route::get('/ck', [CkeditorController::class,'index']);
 
+});
 
 
 
