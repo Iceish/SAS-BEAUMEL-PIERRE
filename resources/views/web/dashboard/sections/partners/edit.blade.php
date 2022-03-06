@@ -2,6 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
+    Client edit page
 
     <div class="editor"></div>
     <button id="save">save</button>
@@ -13,10 +14,11 @@
         InlineEditor
             .create( document.querySelector( '.editor' ), {
                 languages:[
-                        @foreach($langs as $lang)
+                        @foreach($partner->language as $lang)
                     {
                         code:'{{$lang->code}}',
                         name:'{{$lang->name}}',
+                        html:'{!! $lang->pivot->content  !!}'
                     },
                     @endforeach
                 ],
@@ -87,7 +89,7 @@
                     'X-CSRF-TOKEN': '{{csrf_token()}}',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({'htmls':array,'id':{{$client->id}},'model':'Partner'})
+                body: JSON.stringify({'htmls':array,'id':{{$partner->id}},'model':'Partner'})
             });
             fetch(request)
                 .then(response => {

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * The models are created with the command « php artisan make:model ModelName »
@@ -35,4 +36,9 @@ class Partner extends Model
         'address',
         'email',
     ];
+
+    public function language(): BelongsToMany
+    {
+        return $this->belongsToMany(Language::class,'partner_language')->withPivot('content');
+    }
 }

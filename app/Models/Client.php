@@ -45,6 +45,6 @@ class Client extends Model
 
     public function language(): BelongsToMany
     {
-        return $this->belongsToMany(Language::class)->withPivot('content');
+        return $this->belongsToMany(Language::class,'client_language')->withPivot('content');
     }
 }

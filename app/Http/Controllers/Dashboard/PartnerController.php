@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePartnerRequest;
+use App\Models\Language;
 use App\Models\Partner;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -93,8 +94,9 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner): View|Factory|Application
     {
+        $partner = $partner->with('language')->first();
         return view("web.dashboard.sections.partners.edit",
-             compact("partner")
+            compact("partner")
         );
     }
 
