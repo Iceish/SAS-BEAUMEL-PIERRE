@@ -1,11 +1,14 @@
 @use '../../abstracts' as *;
 
 #roles{
+    form{
+        .category-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(192px,1fr));
 
-    .roles-grid{
-        @include margin-y(50px);
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 50px;
+            grid-gap: 10px;
+
+            width: 100%;
+        }
     }
 }
