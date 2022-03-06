@@ -9,7 +9,6 @@
 
         body{
             text-align: center;
-
         }
         div{
             margin: 2% auto;
