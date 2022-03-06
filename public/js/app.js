@@ -2148,6 +2148,31 @@ window.Utils = /*#__PURE__*/function () {
   return Utils;
 }();
 
+String.prototype.trim = function () {
+  var chars = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : " ";
+  if (chars === undefined) chars = "\s";else chars.replace('\\', '\\\\');
+  return this.replace(new RegExp("(^[".concat(chars, "]*)|([").concat(chars, "]*$)"), 'g'), "");
+};
+
+Object.defineProperty(URL.prototype, 'segments', {
+  get: function get() {
+    return this.pathname.trim('/').split('/');
+  },
+  configurable: true
+});
+
+URL.prototype.segment = function (n) {
+  return this.segments[n - 1];
+};
+
+URL.prototype.firstSegment = function () {
+  return this.segments[0];
+};
+
+URL.prototype.lastSegment = function () {
+  return this.segments[this.segments.length - 1];
+};
+
 /***/ }),
 
 /***/ "./resources/js/app.js":

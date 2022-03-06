@@ -35,4 +35,9 @@ class Language extends Model
     {
         return $this->belongsToMany(LanguageLine::class)->withPivot('text');
     }
+
+    public function ckeditor(): BelongsToMany
+    {
+        return $this->belongsToMany(Ckeditor::class)->withPivot('content');
+    }
 }
