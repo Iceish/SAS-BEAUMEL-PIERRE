@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Partner;
 use App\Models\Ticket;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -22,12 +24,28 @@ class GuestController extends Controller
 
     public function clients(): Factory|View|Application
     {
-        return view("web.static.sections.clients.show");
+        $clients = Client::with(['language' => function($q){
+                $q->where('code',app()->getLocale());
+            }])
+            ->whereRelation('language','content','!=','')
+            ->limit(5)
+            ->get();
+        return view("web.static.sections.clients.show",
+            compact('clients')
+        );
     }
 
     public function partners(): Factory|View|Application
     {
-        return view("web.static.sections.partners.show");
+        $partners = Partner::with(['language' => function($q){
+            $q->where('code',app()->getLocale());
+        }])
+            ->whereRelation('language','content','!=','')
+            ->limit(5)
+            ->get();
+        return view("web.static.sections.partners.show",
+            compact('partners')
+        );
     }
 
 
