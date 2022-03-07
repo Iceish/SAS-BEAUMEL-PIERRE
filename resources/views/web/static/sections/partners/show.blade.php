@@ -3,7 +3,7 @@
 @section('main')
     <div>
         @foreach($partners as $partner)
-            {!! $partner->language[0]->pivot->content !!}
+            {!! $partner->language[0]->pivot->content ?? "" !!}
         @endforeach
     </div>
 @endsection
