@@ -86,8 +86,9 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('profile',ProfileController::class);
     Route::resource('cameras', CameraController::class);
     Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
-    Route::resource('profiles',ProfileController::class)->only(['edit','update']);
 
+    Route::get('profile',[ProfileController::class,'edit'])->name('profile.edit');
+    Route::put('profile',[ProfileController::class,'update'])->name('profile.update');
 
     Route::post('/store-image', [CkeditorController::class,'storeImage'])
         ->name('store-image');
