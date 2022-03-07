@@ -19,8 +19,8 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->char('licence_plate',9);
-            $table->date('revision_date');
+            $table->char('licence_plate',9)->nullable();
+            $table->date('revision_date')->nullable();
             $table->boolean('available')->default(false);
             $table->timestamps();
         });

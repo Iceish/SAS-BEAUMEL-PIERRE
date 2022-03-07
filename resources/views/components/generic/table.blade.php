@@ -21,7 +21,7 @@
                             Non renseigné
                         @endforelse
                     @else
-                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData }}</p>
+                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? "Non renseigné" }}</p>
                     @endif
                 </div>
             @endforeach

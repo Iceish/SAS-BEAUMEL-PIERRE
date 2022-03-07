@@ -31,7 +31,7 @@ class VehicleController extends Controller
     public function index(SearchRequest $request): Application|Factory|View
     {
         $validated= $request->validated();
-        $searchText = $validated["search"] ?? "";
+        $searchText = $validated["search"] ?? null;
 
         $vehicles = Vehicle::query()
             ->whereLike(["licence_plate"],$searchText)
@@ -63,7 +63,7 @@ class VehicleController extends Controller
         try {
             Vehicle::create($validated);
             return redirect()->route("dashboard.vehicles.index")->with("success", __("messages.vehicle.create.success"));
-        } catch (Exception) {
+        } catch (Exception $e) {
             return redirect()->back()->withErrors(__("messages.vehicle.create.failed"))->withInput();
         }
     }
