@@ -2,10 +2,6 @@
 
 @section('tag','roles')
 
-{{--@foreach( $role->permissions as $permission)--}}
-{{--    {{ $permission->name }}{{ $loop->last ? "" : "," }}--}}
-{{--@endforeach--}}
-
 @section('main')
     <x-utils.backBtn/>
     <h2>Role</h2>

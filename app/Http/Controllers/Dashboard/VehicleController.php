@@ -36,7 +36,7 @@ class VehicleController extends Controller
         $vehicles = Vehicle::query()
             ->whereLike(["licence_plate"],$searchText)
             ->paginate(25);
-        return view("web.dashboard.sections.vehicle.index",
+        return view("web.dashboard.sections.vehicles.index",
             compact("vehicles")
         );
     }
@@ -48,7 +48,7 @@ class VehicleController extends Controller
      */
     public function create(): Application|Factory|View
     {
-        return view("web.dashboard.sections.vehicle.create");
+        return view("web.dashboard.sections.vehicles.create");
     }
 
     /**
@@ -62,9 +62,9 @@ class VehicleController extends Controller
         $validated = $request->validated();
         try {
             Vehicle::create($validated);
-            return redirect()->route("dashboard.vehicle.index")->with("success", __("messages.vehicle.create.success"));
+            return redirect()->route("dashboard.vehicles.index")->with("success", __("messages.vehicle.create.success"));
         } catch (Exception) {
-            return redirect()->back()->with("errors", __("messages.vehicle.create.failed"))->withInput();
+            return redirect()->back()->withErrors([__("messages.vehicle.create.failed")])->withInput();
         }
     }
 
@@ -76,7 +76,7 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle): View|Factory|Application
     {
-        return view("web.dashboard.sections.vehicle.show",
+        return view("web.dashboard.sections.vehicles.show",
             compact("vehicle")
         );
     }
@@ -89,7 +89,7 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle): Application|Factory|View
     {
-        return view("web.dashboard.sections.vehicle.edit",
+        return view("web.dashboard.sections.vehicles.edit",
             compact($vehicle)
         );
     }
@@ -106,7 +106,7 @@ class VehicleController extends Controller
         $validated = $request->validated();
         try{
             $vehicle->update($validated);
-            return redirect()->route("dashboard.vehicle.index")->with("success",__("messages.vehicle.update.success"));
+            return redirect()->route("dashboard.vehicles.index")->with("success",__("messages.vehicle.update.success"));
         }catch (Exception){
             return redirect()->back()->with("errors",__("messages.vehicle.update.success"))->withInput();
         }
@@ -122,7 +122,7 @@ class VehicleController extends Controller
     {
         try{
             $vehicle->delete();
-            return redirect()->route("dashboard.vehicle.index")->with('success',__("messages.vehicle.delete.success"));
+            return redirect()->route("dashboard.vehicles.index")->with('success',__("messages.vehicle.delete.success"));
         }catch (Exception){
             return redirect()->back()->with('errors',__("messages.vehicle.delete.success"));
         }
