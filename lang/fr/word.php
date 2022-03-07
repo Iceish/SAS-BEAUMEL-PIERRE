@@ -41,5 +41,6 @@ return [
     'licence_plate' => 'immatriculation',
     'revision_date' => 'date de révision',
     'not_specified'=>'non renseigné',
-    'actions' => 'actions'
+    'actions' => 'actions',
+    'search' => 'chercher'
 ];

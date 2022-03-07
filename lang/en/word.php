@@ -41,5 +41,6 @@ return [
     'licence_plate' => 'licence plate',
     'revision_date' => 'revision date',
     'not_specified'=>'not specified',
-    'actions' => 'actions'
+    'actions' => 'actions',
+    'search' => 'search',
 ];
