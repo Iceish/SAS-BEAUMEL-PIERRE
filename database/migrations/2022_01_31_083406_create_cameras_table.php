@@ -20,7 +20,7 @@ class CreateCamerasTable extends Migration
             $table->id();
             $table->string('name');
             $table->ipAddress('ip');
-            $table->string('user_name')->nullable();
+            $table->string('username')->nullable();
             $table->string('password');
             $table->string('place');
             $table->timestamps();
