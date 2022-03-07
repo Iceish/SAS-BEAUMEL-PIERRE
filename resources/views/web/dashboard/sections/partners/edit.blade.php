@@ -14,11 +14,11 @@
         InlineEditor
             .create( document.querySelector( '.editor' ), {
                 languages:[
-                        @foreach($partner->language as $lang)
+                    @foreach($languages as $lang)
                     {
                         code:'{{$lang->code}}',
                         name:'{{$lang->name}}',
-                        html:'{!! $lang->pivot->content  !!}'
+                        html:'{!! $partner->language->where('id',$lang->id)->first()->pivot->content ?? ""  !!}'
                     },
                     @endforeach
                 ],
