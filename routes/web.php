@@ -3,23 +3,23 @@
 use App\Http\Controllers\Dashboard\CameraController;
 use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\ClientController;
-use App\Http\Controllers\Guest\ClientController as GuestClientController;
-use App\Http\Controllers\Guest\PartnerController as GuestPartnerController;
-use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Dashboard\HomeController as HomeController;
 use App\Http\Controllers\Dashboard\InvoiceClientController;
 use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\InvoiceProviderController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProductController;
+use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\ProviderController;
 use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\TicketsController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VehicleController;
 use App\Http\Controllers\Guest\AboutController;
+use App\Http\Controllers\Guest\ClientController as GuestClientController;
 use App\Http\Controllers\Guest\ContactUsController;
-use App\Http\Controllers\Dashboard\TicketsController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Guest\HomeController as GuestHomeController;
+use App\Http\Controllers\Guest\PartnerController as GuestPartnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,6 +87,7 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('profile',ProfileController::class);
     Route::resource('cameras', CameraController::class);
     Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
+    Route::resource('profiles',ProfileController::class)->only(['edit','update']);
 
 
     Route::post('/store-image', [CkeditorController::class,'storeImage'])
