@@ -95,8 +95,10 @@ class PartnerController extends Controller
     public function edit(Partner $partner): View|Factory|Application
     {
         $partner = $partner->with('language')->first();
+        $languages = Language::all();
         return view("web.dashboard.sections.partners.edit",
-            compact("partner")
+            compact("partner"),
+            compact("languages")
         );
     }
 

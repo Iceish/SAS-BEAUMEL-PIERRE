@@ -6,6 +6,7 @@
 
     <div class="editor"></div>
     <button id="save">save</button>
+
 @endsection
 
 @push('js')
@@ -14,11 +15,11 @@
         InlineEditor
             .create( document.querySelector( '.editor' ), {
                 languages:[
-                    @foreach($client->language as $lang)
+                    @foreach($languages as $lang)
                     {
                         code:'{{$lang->code}}',
                         name:'{{$lang->name}}',
-                        html:'{!! $lang->pivot->content  !!}'
+                        html:'{!! $client->language->where('id',$lang->id)->first()->pivot->content ?? ""  !!}'
                     },
                     @endforeach
                 ],
