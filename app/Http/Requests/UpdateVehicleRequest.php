@@ -28,7 +28,7 @@ class UpdateVehicleRequest extends FormRequest
         return [
             'licence_plate' => ['required','max:9','min:9'],
             'revision_date' => ['required','date'],
-            'available' => ['required','boolean']
+            'available' => ['boolean']
         ];
     }
 }

@@ -16,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use InvalidArgumentException;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -40,6 +41,9 @@ class UserController extends Controller
         $searchText = $validated["search"] ?? "";
         $users = User::query()
             ->whereLike(["email","name"],$searchText)
+            ->whereDoesntHave('roles', function ($query) {
+                return $query->where('name','=', 'SuperAdmin');
+            })
             ->paginate(25);
         return view("web.dashboard.sections.users.index",
             compact("users")
@@ -116,6 +120,7 @@ class UserController extends Controller
      */
     public function edit(User $user): Application|Factory|View
     {
+        if($user->hasRole('SuperAdmin'))abort(404);
         $roles = Role::all()->whereNotIn("name",["SuperAdmin"]);
         return view("web.dashboard.sections.users.edit",
             compact("user"),
@@ -137,6 +142,7 @@ class UserController extends Controller
         $validated = $request->only(['email','name','password','address','postal_code','city']);
         $saRole = Role::whereIn("name",["SuperAdmin"])->first();
         try{
+            if($user->hasRole('SuperAdmin'))throw new InvalidArgumentException('Invalid user');
             $user->update($validated);
             foreach ($validatedRole as $key=>$bool){
                 $bool = $bool === "true";
@@ -159,6 +165,7 @@ class UserController extends Controller
     public function destroy(User $user): RedirectResponse
     {
         try{
+            if($user->hasRole('SuperAdmin'))throw new InvalidArgumentException('Invalid user');
             $user->delete();
             return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success'));
         }catch (Exception){

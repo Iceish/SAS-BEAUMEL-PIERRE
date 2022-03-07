@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * The models are created with the command « php artisan make:model ModelName »
- */
-class Camera extends Model
+class Profile extends Model
 {
     use HasFactory;
     /**
@@ -16,7 +13,7 @@ class Camera extends Model
      *
      * @var string = table name
      */
-    protected $table = 'cameras';
+    protected $table = 'users';
     /**
      * The primary key associated with the table.
      *
@@ -30,10 +27,10 @@ class Camera extends Model
      */
     protected $fillable = [
         'name',
-        'ip',
-        'username',
+        'email',
         'password',
-        'place',
+        'postal_code',
+        'city',
+        'address',
     ];
 }
-

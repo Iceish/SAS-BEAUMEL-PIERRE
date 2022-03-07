@@ -9,9 +9,6 @@ use App\Http\Requests\StoreImageRequest;
 use App\Models\Language;
 use DragonCode\PrettyArray\Exceptions\FileDoesntExistsException;
 use Exception;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
 
