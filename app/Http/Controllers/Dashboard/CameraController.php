@@ -36,7 +36,7 @@ class CameraController extends Controller
         $searchText = $validated["search"] ?? "";
 
         $cameras = Camera::query()
-            ->whereLike(["email","name"],$searchText)
+            ->whereLike(["ip","name","place","username"],$searchText)
             ->paginate(25);
         return view("web.dashboard.sections.cameras.index",
             compact("cameras")
