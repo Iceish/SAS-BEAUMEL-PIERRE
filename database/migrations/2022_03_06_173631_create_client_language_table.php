@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Language::class)->references('id')->on('languages')->onDelete("cascade");
             $table->foreignIdFor(Client::class)->references('id')->on('clients')->onDelete("cascade");
-            $table->longText('content');
+            $table->longText('content')->nullable();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Generic;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use JetBrains\PhpStorm\ArrayShape;
 use function dd;
@@ -33,7 +34,7 @@ class Card extends Component
     {
         $shows = [];
 
-        $showStringArr = explode(" ",$showStrings);
+        $showStringArr = explode("  ",$showStrings);
         foreach ($showStringArr as $showString){
             $showArr = explode("|",$showString);
             $showName = $showArr[0];
@@ -67,9 +68,9 @@ class Card extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return View|\Closure|string
      */
-    public function render()
+    public function render(): View|string|\Closure
     {
         return view('components.generic.card');
     }

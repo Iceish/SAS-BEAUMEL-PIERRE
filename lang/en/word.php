@@ -46,4 +46,8 @@ return [
     'my_profile' => 'my profile',
     'ip' => 'ip',
     'place' => 'place',
+    'camera' => 'camera',
+    'total_tax' => 'total incl. taxes',
+    'payment_date' => 'payment date',
+    'payment_mode' => 'payment mode',
 ];
