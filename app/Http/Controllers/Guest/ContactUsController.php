@@ -18,7 +18,7 @@ class ContactUsController extends Controller
         $validated=$request->validated();
 
         try{
-            Ticket::create($validated->all());
+            Ticket::create($validated);
 
             return redirect()->route("tickets.index")->with("success",__("messages.tickets.create.success"));
 
