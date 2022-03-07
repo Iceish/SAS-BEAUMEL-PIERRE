@@ -588,6 +588,7 @@ img.avatar {
 }
 @media (min-width: 1000px) {
   .generic-table__tools .btn {
+    grid-column-start: 2;
     grid-row-start: inherit;
     justify-self: flex-end;
   }
