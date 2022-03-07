@@ -23,9 +23,11 @@ class CameraController extends Controller
         $this->middleware('permission:cameras.edit', ['only' => ['edit','update']]);
         $this->middleware('permission:cameras.delete', ['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *
+     * @param SearchRequest $request
      * @return Application|Factory|View
      */
     public function index(SearchRequest $request): View|Factory|Application
