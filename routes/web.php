@@ -4,7 +4,8 @@ use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Guest\ClientController as GuestClientController;
 use App\Http\Controllers\Guest\PartnerController as GuestPartnerController;
-use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Guest\HomeController as GuestHomeController;
+use App\Http\Controllers\Dashboard\HomeController as HomeController;
 use App\Http\Controllers\Dashboard\InvoiceClientController;
 use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\InvoiceProviderController;
@@ -39,7 +40,7 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register guest web routes for your application.
 |
 */
-Route::get('/', ['home',HomeController::class])
+Route::get('/', [GuestHomeController::class,'home'])
     ->name('home');
 
 Route::get('/about', [AboutController::class,'about'])
@@ -65,7 +66,7 @@ Route::controller(ContactUsController::class)->name('contactus.')->group(functio
 */
 
 Route::name('dashboard.')->prefix('dashboard')->group(function (){
-    Route::get('/', [HomeController::class,'index'])
+    Route::get('/', [HomeController::class,'home'])
         ->name('home');
     Route::resource('users',UserController::class);
     Route::resource('roles',RoleController::class);
