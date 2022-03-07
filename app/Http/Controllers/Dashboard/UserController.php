@@ -41,8 +41,8 @@ class UserController extends Controller
         $searchText = $validated["search"] ?? "";
         $users = User::query()
             ->whereLike(["email","name"],$searchText)
-            ->whereHas('roles', function ($query) {
-                return $query->where('name','!=', 'SuperAdmin');
+            ->whereDoesntHave('roles', function ($query) {
+                return $query->where('name','=', 'SuperAdmin');
             })
             ->paginate(25);
         return view("web.dashboard.sections.users.index",
