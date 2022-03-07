@@ -6,7 +6,7 @@
             <p><span class="label">{{ $label["name"] }}</span>
 
         @if(!isset($content[$label["attributeName"]]))
-            Empty
+            Non renseigné
             @continue
         @endif
 
