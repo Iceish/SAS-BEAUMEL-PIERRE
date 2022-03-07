@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    public function index() : View
+    public function home() : View
     {
         return view("web.dashboard.sections.home.index");
     }
