@@ -3,6 +3,7 @@
 
 @section('main')
 <section id="auth">
+    @csrf
     @error('failed')
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror

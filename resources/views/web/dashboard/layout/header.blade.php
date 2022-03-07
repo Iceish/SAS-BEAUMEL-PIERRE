@@ -11,7 +11,7 @@
         <ul role="list">
             <li><a href="{{ route('dashboard.home') }}"><i class="fa-solid fa-house-user"></i>{{ ucfirst(__('word.home')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @if(auth()->user()->can('edit'))
-                    <li><a href=""><i class="fa-solid fa-video"></i>{{ ucfirst(__('word.cameras')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
+                    <li><a href="{{ route('dashboard.cameras.index') }}"><i class="fa-solid fa-video"></i>{{ ucfirst(__('word.cameras')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
             @if(auth()->user()->can('clients.list'))
                     <li><a href="{{ route('dashboard.clients.index') }}"><i class="fa-solid fa-cash-register"></i>{{ ucfirst(__('word.clients')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>

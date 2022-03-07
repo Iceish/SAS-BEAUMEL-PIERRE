@@ -31,7 +31,7 @@ class Camera extends Model
     protected $fillable = [
         'name',
         'ip',
-        'user_name',
+        'username',
         'password',
         'place',
     ];

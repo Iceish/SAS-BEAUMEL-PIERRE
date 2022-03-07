@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CameraController;
 use App\Http\Controllers\Dashboard\CkeditorController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Guest\ClientController as GuestClientController;
@@ -84,6 +85,9 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('products', ProductController::class);
     Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
     Route::resource('profile',ProfileController::class);
+    Route::resource('cameras', CameraController::class);
+    Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
+
 
     Route::post('/store-image', [CkeditorController::class,'storeImage'])
         ->name('store-image');
