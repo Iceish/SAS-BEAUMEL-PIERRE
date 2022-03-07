@@ -90,7 +90,7 @@ class VehicleController extends Controller
     public function edit(Vehicle $vehicle): Application|Factory|View
     {
         return view("web.dashboard.sections.vehicles.edit",
-            compact($vehicle)
+            compact('vehicle')
         );
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use JetBrains\PhpStorm\ArrayShape;
 
 class UpdateVehicleRequest extends FormRequest
@@ -22,12 +23,13 @@ class UpdateVehicleRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['licence_plate' => 'char[]', 'revision_date' => 'date', 'available' => 'boolean'])]
+    #[ArrayShape(['name' => "string[]", 'licence_plate' => "array", 'revision_date' => "string[]", 'available' => "string[]"])]
     public function rules(): array
     {
         return [
-            'licence_plate' => ['required','max:9','min:9'],
-            'revision_date' => ['required','date'],
+            'name' => ['required','string'],
+            'licence_plate' => ['nullable','max:9','min:9',Rule::unique('vehicles','licence_plate')],
+            'revision_date' => ['nullable','date'],
             'available' => ['boolean']
         ];
     }
