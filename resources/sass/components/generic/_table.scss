@@ -11,12 +11,41 @@
     }
 
     &__button{
-        align-self: flex-end;
         i{
             font-size: 1.5em;
             margin-right: 5px;
         }
     }
+
+    &__tools{
+        display: grid;
+        align-items: center;
+        grid-template: 1fr 1fr / 1fr;
+        grid-column-gap: 10px;
+        form.search{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            input[type='submit']{
+                align-self: inherit;
+            }
+            a{
+                align-self: center;
+            }
+        }
+        .btn{
+            grid-row-start: 1;
+            justify-self: flex-start;
+            @include respond-to('large'){
+                grid-row-start: inherit;
+                justify-self: flex-end;
+            }
+        }
+        @include respond-to('large'){
+            grid-template: 1fr / 1fr 1fr;
+        }
+    }
+
 
     &__row, &__head{
         display: grid;

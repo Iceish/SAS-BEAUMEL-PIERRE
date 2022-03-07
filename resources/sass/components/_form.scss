@@ -21,6 +21,10 @@ form{
 
         @include padding-y(10px);
 
+        &.no-label{
+            grid-template: 1fr / 1fr;
+        }
+
         > input, select{
             background-color: transparent;
         }

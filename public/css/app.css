@@ -83,6 +83,9 @@ form .field {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+form .field.no-label {
+  grid-template: 1fr/1fr;
+}
 form .field > input, form .field select {
   background-color: transparent;
 }
@@ -558,12 +561,41 @@ img.avatar {
 .generic-table > *:nth-child(2n) {
   background-color: rgba(200, 200, 200, 0.1);
 }
-.generic-table__button {
-  align-self: flex-end;
-}
 .generic-table__button i {
   font-size: 1.5em;
   margin-right: 5px;
+}
+.generic-table__tools {
+  display: grid;
+  align-items: center;
+  grid-template: 1fr 1fr/1fr;
+  grid-column-gap: 10px;
+}
+.generic-table__tools form.search {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.generic-table__tools form.search input[type=submit] {
+  align-self: inherit;
+}
+.generic-table__tools form.search a {
+  align-self: center;
+}
+.generic-table__tools .btn {
+  grid-row-start: 1;
+  justify-self: flex-start;
+}
+@media (min-width: 1000px) {
+  .generic-table__tools .btn {
+    grid-row-start: inherit;
+    justify-self: flex-end;
+  }
+}
+@media (min-width: 1000px) {
+  .generic-table__tools {
+    grid-template: 1fr/1fr 1fr;
+  }
 }
 .generic-table__row, .generic-table__head {
   display: grid;

@@ -1,16 +1,21 @@
 <div class="generic-table">
-    @if(in_array('search',$crud))
-        <form action="#">
-            <div class="field">
-                <label for="search"></label>
-                <input type="text" id="search" name="search" value="{{ old('search') }}" placeholder="{{ucfirst(__('word.search'))}}" />
-            </div>
-            <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.search')) }}" />
-        </form>
-    @endif
-    @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
-        <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
-    @endif
+    <div class="generic-table__tools">
+        @if(in_array('search',$crud))
+            <form class="search" action="#">
+                <div class="field no-label">
+                    <input type="text" id="search" name="search" value="{{ old('search') }}" placeholder="{{ucfirst(__('word.search'))}}" autocomplete="off"/>
+                </div>
+                <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.search')) }}" />
+
+                <a href="{{ url()->current() }}" @if( !app('request')->input('search')) style="visibility: hidden" @endif><i class="fa-solid fa-arrow-rotate-right"></i></a>
+
+            </form>
+        @endif
+        @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
+            <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
+        @endif
+    </div>
+
     <div class="generic-table__head">
             @foreach($columns as $column)
                 <div>
