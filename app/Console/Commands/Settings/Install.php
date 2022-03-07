@@ -35,7 +35,7 @@ class Install extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $this->callSilently('migrate:fresh');
         $this->call('settings:superadmin');

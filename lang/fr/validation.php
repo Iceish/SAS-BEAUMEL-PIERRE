@@ -146,6 +146,7 @@ return [
     'custom' => [
         'email' => [
             'unique' => 'L\'email est déjà utilisé.',
+            'required' => 'L\'email est obligatoire.'
         ],
     ],
 ];
