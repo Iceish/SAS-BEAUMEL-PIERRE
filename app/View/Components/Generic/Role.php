@@ -8,11 +8,13 @@ class Role extends Component{
 
     public mixed $permissions;
     public string $category;
+    public mixed $role;
 
-    public function __construct(mixed $permissions,string $category)
+    public function __construct(mixed $permissions,string $category, mixed $role = null)
     {
         $this->permissions = $permissions->keyBy('name');
         $this->category = $category;
+        $this->role = $role ? $role : new \Spatie\Permission\Models\Role();
     }
 
     public function render()
