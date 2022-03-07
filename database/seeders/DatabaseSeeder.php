@@ -21,6 +21,5 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(TranslationSeeder::class);
         $this->call(RolePermissionSeeder::class);
-
     }
 }

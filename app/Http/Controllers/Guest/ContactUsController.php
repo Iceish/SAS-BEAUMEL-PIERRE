@@ -5,24 +5,21 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactUsRequest;
 use App\Models\Ticket;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class ContactUsController extends Controller
 {
-    public function store(StoreContactUsRequest$request): \Illuminate\Http\RedirectResponse
+    public function store(StoreContactUsRequest$request): RedirectResponse
     {
         $validated=$request->validated();
-
         try{
-            Ticket::create($validated->all());
-
-            return redirect()->route("tickets.index")->with("success",__("messages.tickets.create.success"));
-
-        }catch (\Exception){
+            Ticket::create($validated);
+            return redirect()->back()->with("success",__("messages.tickets.create.success"));
+        }catch (Exception){
             return redirect()->back()->withErrors($validated)->withInput();
         }
 

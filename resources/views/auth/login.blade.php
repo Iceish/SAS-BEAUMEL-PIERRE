@@ -4,7 +4,7 @@
 @section('main')
 <section id="auth">
     @error('failed')
-    <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
     @enderror
     <form id="login" action="{{ route("auth.login") }}" method="post">
         @csrf
