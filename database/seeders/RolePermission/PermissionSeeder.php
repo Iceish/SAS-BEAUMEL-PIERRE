@@ -13,7 +13,6 @@ class PermissionSeeder extends Seeder
 
         $permissionsGroups = [
             "users" =>  ["list","create","edit","delete"],
-            "invoices" =>  ["list"],
             "partners" =>  ["list","create","edit","delete"],
             "clients" =>  ["list","create","edit","delete"],
             "providers" =>  ["list","create","edit","delete"],

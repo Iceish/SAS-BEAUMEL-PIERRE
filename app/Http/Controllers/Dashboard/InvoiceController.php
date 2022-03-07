@@ -13,7 +13,7 @@ class InvoiceController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:invoices.list', ['only' => ['index']]);
+        $this->middleware('permission:clientInvoices.list|providerInvoices.list', ['only' => ['index']]);
     }
 
     /**
