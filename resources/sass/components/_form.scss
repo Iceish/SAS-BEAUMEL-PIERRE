@@ -102,7 +102,10 @@ form{
     }
     .disabled{
         color: grey;
-        pointer-events: none;
+        cursor: not-allowed;
+        input[type='checkbox'], label{
+            pointer-events: none;
+        }
     }
 
 }

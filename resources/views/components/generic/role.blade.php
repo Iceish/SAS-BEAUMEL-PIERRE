@@ -1,7 +1,7 @@
 <div class="generic-role">
     @if($permissions->keys()->contains($category.'.list'))
     <div class="field head">
-        <label for="list_permission_{{ $category }}">{{ $category }}</label>
+        <label for="list_permission_{{ $category }}">{{ ucfirst($category) }}</label>
         <input type="hidden" id="list_permission_{{ $category }}_hidden" name="permissions[{{ $permissions[$category.'.list']->id }}]" value="{{ $role->hasPermissionTo($category.'.list') ? "true" : "false" }}"/>
         <input type="checkbox" {{ $role->hasPermissionTo($category.'.list') ? "checked" : "" }} id="list_permission_{{ $category }}" value="{{ $permissions[$category.'.list']->id }}" onclick="Utils.bindRoleCheckbox(this)"/>
     </div>
