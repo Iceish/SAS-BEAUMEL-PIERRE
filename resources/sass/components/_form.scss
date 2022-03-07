@@ -100,5 +100,9 @@ form{
             bottom: 0;
         }
     }
+    .disabled{
+        color: grey;
+        pointer-events: none;
+    }
 
 }

@@ -2148,23 +2148,14 @@ window.Utils = /*#__PURE__*/function () {
     value: function bindRoleCheckbox(element) {
       var id = element.getAttribute("id");
       var hiddenElement = document.querySelector("#".concat(id, "_hidden"));
-      hiddenElement.value = !!element.checked;
+      hiddenElement.value = element.checked;
 
       if (id.split('_')[0] === 'list') {
-        var crudInputs = element.parentNode.parentNode.querySelectorAll('.content input');
-
-        if (element.checked) {
-          crudInputs.forEach(function (e) {
-            e.removeAttribute('checked');
-            e.removeAttribute('disabled');
-          });
-        } else {
-          crudInputs.forEach(function (e) {
-            if (e.checked) e.click();
-            e.setAttribute('disabled', 'true');
-            e.removeAttribute('checked');
-          });
-        }
+        var content = element.parentNode.parentNode.querySelector('.content');
+        content.classList.contains('disabled') ? content.classList.remove('disabled') : content.classList.add('disabled');
+        content.querySelectorAll('input').forEach(function (e) {
+          if (e.checked) e.click();
+        });
       }
     }
   }]);
