@@ -14,6 +14,8 @@
             @foreach($content[$label["attributeName"]] as $row)
                 {{ $row[$label["attributeNameF"]] }}
             @endforeach
+        @elseif(is_bool($content[$label["attributeName"]]))
+            {{ $content[$label["attributeName"]] ? 'Vrai' : 'False' }}
         @else
              {{ $content[$label["attributeName"]] }}
         @endif

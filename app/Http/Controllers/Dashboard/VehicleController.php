@@ -76,6 +76,7 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle): View|Factory|Application
     {
+        $vehicle->available = (bool)$vehicle->available;
         return view("web.dashboard.sections.vehicles.show",
             compact("vehicle")
         );
