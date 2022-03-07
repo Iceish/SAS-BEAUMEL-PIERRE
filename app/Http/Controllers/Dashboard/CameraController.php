@@ -110,7 +110,7 @@ class CameraController extends Controller
             $camera->update($validated);
             return redirect()->route("dashboard.cameras.index")->with("success",__("messages.client.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.camera.update.success"));
+            return redirect()->back()->withErrors("errors",__("messages.camera.update.success"));
         }
     }
 
@@ -126,7 +126,7 @@ class CameraController extends Controller
             $camera->delete();
             return redirect()->route("dashboard.cameras.index")->with('success',__("messages.camera.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.camera.delete.success"));
+            return redirect()->back()->withErrors(__("messages.camera.delete.success"));
         }
     }
 }

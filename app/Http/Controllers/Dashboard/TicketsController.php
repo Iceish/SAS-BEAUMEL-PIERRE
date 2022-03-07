@@ -52,7 +52,7 @@ class TicketsController extends Controller
             $ticket->delete();
             return redirect()->route("dashboard.tickets.index")->with('success',__("messages.ticket.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.ticket.delete.success"));
+            return redirect()->back()->withErrors(__("messages.ticket.delete.success"));
         }
     }
 

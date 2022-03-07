@@ -12,4 +12,6 @@ return [
     "client.delete.success" => "",
     "client.update.success" => "",
     "client.create.success" => "",
+    "vehicle.create.failed" => "Addition of the failed vehicle",
+
 ];

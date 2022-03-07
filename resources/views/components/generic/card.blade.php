@@ -5,8 +5,8 @@
     @forelse($show as $label)
             <p><span class="label">{{ $label["name"] }}</span>
 
-        @if(empty($content[$label["attributeName"]]))
-            Empty
+        @if(!isset($content[$label["attributeName"]]))
+            Non renseigné
             @continue
         @endif
 
@@ -14,6 +14,8 @@
             @foreach($content[$label["attributeName"]] as $row)
                 {{ $row[$label["attributeNameF"]] }}
             @endforeach
+        @elseif(is_bool($content[$label["attributeName"]]))
+            {{ $content[$label["attributeName"]] ? 'Vrai' : 'False' }}
         @else
              {{ $content[$label["attributeName"]] }}
         @endif

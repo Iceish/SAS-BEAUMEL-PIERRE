@@ -68,7 +68,7 @@ class ProductController extends Controller
             Product::create($product);
             return redirect()->route("dashboard.products.index")->with("success", __("messages.product.create.success"));
         } catch (Exception $e) {
-            return redirect()->back()->with("errors", __("messages.product.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.product.create.failed"))->withInput();
         }
     }
 
@@ -112,7 +112,7 @@ class ProductController extends Controller
             $product->update($validated);
             return redirect()->route("dashboard.products.index")->with("success",__("messages.product.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.product.update.success"))->withInput();
+            return redirect()->back()->withErrors(__("messages.product.update.success"))->withInput();
         }
     }
 
@@ -128,7 +128,7 @@ class ProductController extends Controller
             $product->delete();
             return redirect()->route("dashboard.products.index")->with('success',__("messages.product.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.product.delete.success"));
+            return redirect()->back()->withErrors(__("messages.product.delete.success"));
         }
     }
 }

@@ -110,7 +110,7 @@ class ClientController extends Controller
             $client->update($validated);
             return redirect()->route("dashboard.clients.index")->with("success",__("messages.client.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.client.update.success"));
+            return redirect()->back()->withErrors("errors",__("messages.client.update.success"));
         }
     }
 
@@ -126,7 +126,7 @@ class ClientController extends Controller
             $client->delete();
             return redirect()->route("dashboard.clients.index")->with('success',__("messages.client.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.client.delete.success"));
+            return redirect()->back()->withErrors(__("messages.client.delete.success"));
         }
     }
 }

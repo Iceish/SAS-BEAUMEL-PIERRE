@@ -68,7 +68,7 @@ class PartnerController extends Controller
             Partner::create($validated);
             return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.create.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.partner.create"))->withInput();
+            return redirect()->back()->withErrors(__("messages.partner.create"))->withInput();
         }
     }
 
@@ -114,7 +114,7 @@ class PartnerController extends Controller
             $partner->update($validated);
             return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.partner.update.success"))->withInput();
+            return redirect()->back()->withErrors(__("messages.partner.update.success"))->withInput();
         }
     }
 
@@ -130,7 +130,7 @@ class PartnerController extends Controller
             $partner->delete();
             return redirect()->route("dashboard.partners.index")->with('success',__("messages.partner.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.partner.delete.success"));
+            return redirect()->back()->withErrors(__("messages.partner.delete.success"));
         }
 
     }

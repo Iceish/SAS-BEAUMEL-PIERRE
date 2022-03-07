@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Builder::macro('whereLike', function ($attributes, string $searchTerm) {
+        Builder::macro('whereLike', function ($attributes, string|null $searchTerm) {
             $this->where(function (Builder $query) use ($attributes, $searchTerm) {
                 foreach (Arr::wrap($attributes) as $attribute) {
                     $query->when(
@@ -35,11 +35,11 @@ class AppServiceProvider extends ServiceProvider
                             [$relationName, $relationAttribute] = explode('.', $attribute);
 
                             $query->orWhereHas($relationName, function (Builder $query) use ($relationAttribute, $searchTerm) {
-                                $query->where($relationAttribute, 'LIKE', "%{$searchTerm}%");
+                                if($searchTerm!=null)$query->where($relationAttribute, 'LIKE', "%{$searchTerm}%");
                             });
                         },
                         function (Builder $query) use ($attribute, $searchTerm) {
-                            $query->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
+                            if($searchTerm!=null)$query->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
                         }
                     );
                 }

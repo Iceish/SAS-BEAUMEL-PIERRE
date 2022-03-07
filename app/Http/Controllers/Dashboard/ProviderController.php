@@ -67,7 +67,7 @@ class ProviderController extends Controller
             Provider::create($validated);
             return redirect()->route("dashboard.providers.index")->with("success",__("messages.provider.create.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.provider.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.provider.create.failed"))->withInput();
         }
     }
 
@@ -111,7 +111,7 @@ class ProviderController extends Controller
             $provider->update($validated);
             return redirect()->route("dashboard.providers.index")->with("success",__("messages.provider.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.provider.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.provider.update.failed"))->withInput();
         }
     }
 
@@ -127,7 +127,7 @@ class ProviderController extends Controller
             $provider->delete();
             return redirect()->route("dashboard.providers.index")->with('success',__("messages.provider.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.provider.delete.success"));
+            return redirect()->back()->withErrors(__("messages.provider.delete.success"));
         }
     }
 }
