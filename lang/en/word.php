@@ -40,5 +40,6 @@ return [
     'providers' => 'providers',
     'licence_plate' => 'licence plate',
     'revision_date' => 'revision date',
-    'not_specified'=>'not specified'
+    'not_specified'=>'not specified',
+    'actions' => 'actions'
 ];

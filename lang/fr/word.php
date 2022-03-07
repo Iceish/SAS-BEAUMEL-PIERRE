@@ -40,5 +40,6 @@ return [
     'providers' => 'fournisseurs',
     'licence_plate' => 'immatriculation',
     'revision_date' => 'date de révision',
-    'not_specified'=>'non renseigné'
+    'not_specified'=>'non renseigné',
+    'actions' => 'actions'
 ];

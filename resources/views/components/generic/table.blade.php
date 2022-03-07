@@ -8,7 +8,7 @@
                     <p>{{ $column["name"] }}</p>
                 </div>
             @endforeach
-        <div>Actions</div>
+        <div>{{ucfirst(__('word.actions'))}}</div>
     </div>
     @foreach($content as $row)
         <div class="generic-table__row">
@@ -18,10 +18,10 @@
                         @forelse($rowData as $val)
                             <p><span class="label">{{ $column["name"] }}</span>{{ $val[$column["attributeNameF"]] }}</p>
                         @empty
-                            Non renseigné
+                            {{ucfirst(__('word.not_specified'))}}
                         @endforelse
                     @else
-                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? "Non renseigné" }}</p>
+                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('word.not_specified')) }}</p>
                     @endif
                 </div>
             @endforeach

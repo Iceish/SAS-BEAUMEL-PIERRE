@@ -47,7 +47,7 @@
             <p class="avatar-title">{{ ucfirst(Auth::user()->name) }}</p>
             <div id="user-toast__nav">
                 <a href="{{ route('home') }}"><i class="fa-solid fa-house"></i></a>
-                <a href=""><i class="fa-solid fa-user"></i></a>
+                <a href="{{route('dashboard.profile.edit')}}"><i class="fa-solid fa-user"></i></a>
                 <a href="{{ route('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
 
