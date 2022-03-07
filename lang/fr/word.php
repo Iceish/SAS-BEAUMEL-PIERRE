@@ -37,5 +37,7 @@ return [
     'accept' => 'Accepter',
     'client-invoices' => 'factures client',
     'provider-invoices' => 'factures fournisseur',
-    'providers' => 'fournisseurs'
+    'providers' => 'fournisseurs',
+    'licence_plate' => 'immatriculation',
+    'revision_date' => 'date de révision'
 ];

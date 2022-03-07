@@ -11,5 +11,6 @@ return [
     'creating.client' => 'creating client',
     'creating.partner' => 'creating partner',
     'creating.products' => 'creating products',
+    'creating.vehicle' => 'creating vehicle',
     'click_open' => 'click to open',
 ];
