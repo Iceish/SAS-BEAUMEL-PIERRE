@@ -29,6 +29,7 @@ class Vehicle extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
         'licence_plate',
         'revision_date',
         'available',
