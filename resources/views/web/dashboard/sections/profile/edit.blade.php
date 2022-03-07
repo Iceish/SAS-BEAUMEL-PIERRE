@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>My profile</h2>
+    <h2>{{ucfirst(__('word.my_profile'))}}</h2>
     <form action="{{route('dashboard.profile.update')}}" method="post" autocomplete="off">
         @csrf
         @method('put')

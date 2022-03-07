@@ -42,5 +42,8 @@ return [
     'revision_date' => 'date de révision',
     'not_specified'=>'non renseigné',
     'actions' => 'actions',
-    'search' => 'chercher'
+    'search' => 'chercher',
+    'my_profile' => 'mon profile',
+    'ip' => 'ip',
+    'place' => 'lieu',
 ];

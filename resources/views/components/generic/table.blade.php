@@ -12,7 +12,7 @@
             </form>
         @endif
         @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
-            <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
+            <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>{{ucfirst(__('word.create'))}}</a>
         @endif
     </div>
 

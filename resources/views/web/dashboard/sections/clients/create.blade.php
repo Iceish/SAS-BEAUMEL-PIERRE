@@ -37,7 +37,7 @@
         </div>
 
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
-        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> This action do not create an account.</p>
+        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i>{{ucfirst(__('text.client_info'))}}</p>
     </form>
 @endsection
 

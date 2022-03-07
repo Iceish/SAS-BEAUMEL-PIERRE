@@ -14,5 +14,8 @@ return [
     'creating.products' => 'creating products',
     'click_open' => 'click to open',
     'editing_vehicle' => 'editing vehicle :',
-    'table.nothing' => 'Nothing to show here.'
+    'table.nothing' => 'Nothing to show here.',
+    'camera_info' => 'this action do not connect camera on website.',
+    'client_info' => 'this action do not create an account.',
+
 ];

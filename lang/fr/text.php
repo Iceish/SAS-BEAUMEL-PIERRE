@@ -14,5 +14,8 @@ return [
     'creating.products' => 'creation d\'un produit',
     'click_open' => 'cliquez pour ouvrir',
     'editing_vehicle' => 'edition du vehicule :',
-    'table.nothing' => 'rien à montrer ici.'
+    'table.nothing' => 'rien à montrer ici.',
+    'camera_info' => 'cette action ne connecte pas la caméra sur le site Web.',
+    'client_info' => 'Cette action ne crée pas de compte.',
+
 ];

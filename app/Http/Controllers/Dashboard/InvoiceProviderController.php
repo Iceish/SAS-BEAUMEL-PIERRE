@@ -52,7 +52,7 @@ class InvoiceProviderController extends Controller
     public function create(): View|Factory|Application
     {
         $providers = Provider::all();
-        return view("web.dashboard.sections.providerInvoice.create",
+        return view("web.dashboard.sections.invoices.provider.create",
             compact("providers")
         );
     }

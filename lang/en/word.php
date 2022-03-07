@@ -43,4 +43,7 @@ return [
     'not_specified'=>'not specified',
     'actions' => 'actions',
     'search' => 'search',
+    'my_profile' => 'my profile',
+    'ip' => 'ip',
+    'place' => 'place',
 ];
