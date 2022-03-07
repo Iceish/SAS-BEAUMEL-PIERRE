@@ -18,6 +18,7 @@ use App\Http\Controllers\Dashboard\VehicleController;
 use App\Http\Controllers\Guest\AboutController;
 use App\Http\Controllers\Guest\ContactUsController;
 use App\Http\Controllers\Dashboard\TicketsController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,8 +82,8 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('vehicles', VehicleController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('products', ProductController::class);
-        Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
-
+    Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
+    Route::resource('profile',ProfileController::class);
 
     Route::post('/store-image', [CkeditorController::class,'storeImage'])
         ->name('store-image');
