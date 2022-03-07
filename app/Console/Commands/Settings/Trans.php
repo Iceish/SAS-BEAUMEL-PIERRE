@@ -2,24 +2,23 @@
 
 namespace App\Console\Commands\Settings;
 
-use App\Models\User;
 use Illuminate\Console\Command;
 
-class SuperUser extends Command
+class Trans extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'settings:superadmin';
+    protected $signature = 'settings:trans';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'configure the super user of this website';
+    protected $description = 'Reload translation';
 
     /**
      * Create a new command instance.
@@ -38,15 +37,7 @@ class SuperUser extends Command
      */
     public function handle(): int
     {
-        $name = $this->ask('Name of the super administrator');
-        $email = $this->ask('Email of the super administrator');
-        $password = $this->secret('Password of the super administrator');
-
-        User::updateOrCreate(["id"=>1],[
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-        ]);
+        $this->callSilently('db:seed',["--class"=>'Database\\Seeders\\Translation\\TranslationSeeder']);
         return 0;
     }
 }
