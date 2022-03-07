@@ -83,7 +83,6 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('vehicles', VehicleController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('products', ProductController::class);
-    Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
     Route::resource('profile',ProfileController::class);
     Route::resource('cameras', CameraController::class);
     Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
