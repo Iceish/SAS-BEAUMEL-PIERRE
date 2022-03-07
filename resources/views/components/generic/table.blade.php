@@ -1,4 +1,13 @@
 <div class="generic-table">
+    @if(in_array('search',$crud))
+        <form action="#">
+            <div class="field">
+                <label for="search"></label>
+                <input type="text" id="search" name="search" value="{{ old('search') }}" placeholder="{{ucfirst(__('word.search'))}}" />
+            </div>
+            <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.search')) }}" />
+        </form>
+    @endif
     @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
         <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>Create</a>
     @endif
@@ -8,7 +17,7 @@
                     <p>{{ $column["name"] }}</p>
                 </div>
             @endforeach
-        <div>Actions</div>
+        <div>{{ucfirst(__('word.actions'))}}</div>
     </div>
     @foreach($content as $row)
         <div class="generic-table__row">
@@ -18,10 +27,10 @@
                         @forelse($rowData as $val)
                             <p><span class="label">{{ $column["name"] }}</span>{{ $val[$column["attributeNameF"]] }}</p>
                         @empty
-                            Non renseigné
+                            {{ucfirst(__('word.not_specified'))}}
                         @endforelse
                     @else
-                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? "Non renseigné" }}</p>
+                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('word.not_specified')) }}</p>
                     @endif
                 </div>
             @endforeach

@@ -42,15 +42,15 @@
 
         <div class="field">
             <label for="name">{{ ucfirst(__('word.address')) }}</label>
-            <input type="text" id="address" name="address" @if($user->address)value="{{ $user->address }}" @else placeholder="Non renseigné"@endif/>
+            <input type="text" id="address" name="address" @if($user->address)value="{{ $user->address }}" @else placeholder="{{ucfirst(__('word.not_specified'))}}"@endif/>
         </div>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.postal')) }}</label>
-            <input type="text" id="postal_code" name="postal_code" @if($user->postal_code)value="{{ $user->postal_code }}" @else placeholder="Non renseigné"@endif/>
+            <input type="text" id="postal_code" name="postal_code" @if($user->postal_code)value="{{ $user->postal_code }}" @else placeholder="{{ucfirst(__('word.not_specified'))}}"@endif/>
         </div>
         <div class="field">
             <label for="name">{{ ucfirst(__('word.city')) }}</label>
-            <input type="text" id="city" name="city" @if($user->city)value="{{ $user->city }}" @else placeholder="Non renseigné"@endif/>
+            <input type="text" id="city" name="city" @if($user->city)value="{{ $user->city }}" @else placeholder="{{ucfirst(__('word.not_specified'))}}"@endif/>
         </div>
 
 

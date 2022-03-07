@@ -39,5 +39,8 @@ return [
     'provider-invoices' => 'factures fournisseur',
     'providers' => 'fournisseurs',
     'licence_plate' => 'immatriculation',
-    'revision_date' => 'date de révision'
+    'revision_date' => 'date de révision',
+    'not_specified'=>'non renseigné',
+    'actions' => 'actions',
+    'search' => 'chercher'
 ];

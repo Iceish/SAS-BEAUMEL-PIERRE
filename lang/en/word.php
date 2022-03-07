@@ -39,5 +39,8 @@ return [
     'provider-invoices' => 'provider invoices',
     'providers' => 'providers',
     'licence_plate' => 'licence plate',
-    'revision_date' => 'revision date'
+    'revision_date' => 'revision date',
+    'not_specified'=>'not specified',
+    'actions' => 'actions',
+    'search' => 'search',
 ];

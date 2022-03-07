@@ -2,7 +2,12 @@
 
 namespace App\View\Components\Generic;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use \Spatie\Permission\Models\Role as RoleS;
 
 class Role extends Component{
 
@@ -14,10 +19,10 @@ class Role extends Component{
     {
         $this->permissions = $permissions->keyBy('name');
         $this->category = $category;
-        $this->role = $role ? $role : new \Spatie\Permission\Models\Role();
+        $this->role = $role ?: new RoleS();
     }
 
-    public function render()
+    public function render(): View|Factory|Htmlable|\Closure|string|Application
     {
         return view('components.generic.role');
     }
