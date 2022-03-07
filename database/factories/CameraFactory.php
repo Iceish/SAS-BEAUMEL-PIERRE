@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use JetBrains\PhpStorm\ArrayShape;
 
 /**
  * The factories are created with the command « php artisan make:factory ModelNameFactory ».
@@ -15,6 +16,7 @@ class CameraFactory extends Factory
      *
      * @return array
      */
+    #[ArrayShape(['name' => "string", 'ip' => "string", 'username' => "string", 'password' => "string", 'place' => "string"])]
     public function definition()
     {
         return [

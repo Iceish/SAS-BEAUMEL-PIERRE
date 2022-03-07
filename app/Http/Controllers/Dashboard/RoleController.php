@@ -66,12 +66,14 @@ class RoleController extends Controller
     public function store(StoreRoleRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $permissions = DB::table('permissions')->whereIn("id",$validated["permissions"])->whereNotIn("name",["SuperAdmin"])->get();
+        $permissions = $validated["permissions"];
 
         try{
             $role = Role::create(['name' => $validated["role_name"]]);
-            foreach($permissions as $permission){
-                $role->givePermissionTo($permission->name);
+            foreach($permissions as $key=>$bool){
+                $bool = $bool === "true";
+                $permission = Permission::whereIn("id",[$key])->first();
+                if($bool)$role->givePermissionTo($permission->name);
             }
             return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.create.success"));
         }catch (Exception){
