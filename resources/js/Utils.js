@@ -15,6 +15,31 @@ window.Utils = class Utils {
             }
         })
     }
+
+    static bindRoleCheckbox(element){
+        let id = element.getAttribute("id");
+        let hiddenElement = document.querySelector(`#${id}_hidden`);
+        hiddenElement.value = !!element.checked;
+
+        if(id.split('_')[0] === 'list'){
+
+            let crudInputs = element.parentNode.parentNode.querySelectorAll('.content input');
+
+            if(element.checked){
+                crudInputs.forEach((e) => {
+                    e.removeAttribute('checked')
+                    e.removeAttribute('disabled')
+                })
+            }else{
+                crudInputs.forEach((e) => {
+                    if(e.checked) e.click();
+                    e.setAttribute('disabled','true')
+                    e.removeAttribute('checked')
+                })
+            }
+        }
+
+    }
 }
 String.prototype.trim = function (chars = " "){
     if (chars === undefined)

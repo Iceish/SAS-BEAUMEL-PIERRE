@@ -23,20 +23,3 @@
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
     </form>
 @endsection
-@push('js')
-    <script>
-        let expanded = false;
-
-        function showCheckboxes() {
-            const multiselect = document.querySelector("#multiselect");
-            expanded ? multiselect.classList.remove('active') : multiselect.classList.add('active');
-            expanded = !expanded;
-        }
-
-        function inputCheckBox(element){
-            let id = element.getAttribute("id");
-            let hiddenElement = document.querySelector(`#${id}_hidden`);
-            hiddenElement.value = !!element.checked;
-        }
-    </script>
-@endpush

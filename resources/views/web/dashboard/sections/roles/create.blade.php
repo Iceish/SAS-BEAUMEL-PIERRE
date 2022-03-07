@@ -21,20 +21,3 @@
         <input class="btn" type="submit">
     </form>
 @endsection
-
-@push('js')
-    <script>
-        let categories = document.querySelectorAll('.generic-role');
-        categories.forEach(function(categ){
-            let btn = categ.querySelector('.head input');
-            btn.onclick = function(){
-                alert(btn.value)
-            }
-        })
-        function inputCheckBox(element){
-            let id = element.getAttribute("id");
-            let hiddenElement = document.querySelector(`#${id}_hidden`);
-            hiddenElement.value = !!element.checked;
-        }
-    </script>
-@endpush
