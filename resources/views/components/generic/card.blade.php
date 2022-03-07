@@ -5,7 +5,7 @@
     @forelse($show as $label)
             <p><span class="label">{{ $label["name"] }}</span>
 
-        @if(empty($content[$label["attributeName"]]))
+        @if(!isset($content[$label["attributeName"]]))
             Empty
             @continue
         @endif
