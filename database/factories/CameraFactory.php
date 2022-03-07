@@ -20,7 +20,7 @@ class CameraFactory extends Factory
         return [
             'name' => $this->faker->name(),            // name: name / ex: Rossie Okuneva
             'ip' => $this->faker->ipv6(),              // ip: ipv6 / ex: b19b:b619:24db:4da1:3f7f:4f74:e860:5210
-            'user_name' => $this->faker->userName(),   // user_name: userName / ex: alfonso05
+            'username' => $this->faker->userName(),   // user_name: userName / ex: alfonso05
             'password' => $this->faker->password(),    // password: password / ex: %6$x;B
             'place' => $this->faker->streetName(),     // place: streetName / ex: Tamia Street
         ];
