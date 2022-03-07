@@ -77,7 +77,7 @@ class RoleController extends Controller
             }
             return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.create.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.role.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.role.create.failed"))->withInput();
         }
     }
 
@@ -133,7 +133,7 @@ class RoleController extends Controller
             }
             return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.role.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.role.update.failed"))->withInput();
         }
     }
 
@@ -150,7 +150,7 @@ class RoleController extends Controller
             $role->delete();
             return redirect()->route("dashboard.roles.index")->with('success',__("messages.role.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.role.delete.failed"));
+            return redirect()->back()->withErrors(__("messages.role.delete.failed"));
         }
     }
 }

@@ -93,7 +93,7 @@ class UserController extends Controller
             Mail::to($user)->queue($message);
             return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
         }catch (Exception $e){
-            return redirect()->back()->with("error",__('messages.user.create.failed'))->withInput();
+            return redirect()->back()->withErrors(__('messages.user.create.failed'))->withInput();
         }
     }
 
@@ -152,7 +152,7 @@ class UserController extends Controller
             }
             return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success'));
         }catch (Exception){
-            return redirect()->back()->with('errors',__('messages.user.update.failed'))->withInput();
+            return redirect()->back()->withErrors(__('messages.user.update.failed'))->withInput();
         }
     }
 
@@ -169,7 +169,7 @@ class UserController extends Controller
             $user->delete();
             return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success'));
         }catch (Exception){
-            return redirect()->with('errors',__('messages.user.delete.failed'));
+            return redirect()->withErrors(__('messages.user.delete.failed'));
         }
     }
 }

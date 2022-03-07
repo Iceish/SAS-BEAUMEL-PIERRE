@@ -63,12 +63,11 @@ class InvoiceClientController extends Controller
     public function store(StoreCustomerInvoiceRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $customerInvoice = CustomerInvoice::create($validated);
         try{
             CustomerInvoice::create($validated);
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.create.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.customerInvoice.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.customerInvoice.create.failed"))->withInput();
         }
     }
 
@@ -113,8 +112,7 @@ class InvoiceClientController extends Controller
             $customer->update($validated);
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.update.success"));
         }catch (Exception){
-            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("errors",__("messages.customerInvoice.update.failed"));
-            return redirect()->back()->with("errors",__("messages.customerInvoice.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.customerInvoice.update.failed"))->withInput();
         }
     }
 
@@ -130,7 +128,7 @@ class InvoiceClientController extends Controller
             $customer->delete();
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with('success',__("messages.customerInvoice.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.customerInvoice.delete.failed"));
+            return redirect()->back()->withErrors(__("messages.customerInvoice.delete.failed"));
         }
     }
 }

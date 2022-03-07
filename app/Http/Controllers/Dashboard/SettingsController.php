@@ -35,7 +35,7 @@ class SettingsController extends Controller
             Auth::user()->update($validated);
             return back()->with('success',__('messages.settings.user.update.success'));
         }catch (Exception){
-            return back()->with('error',__('messages.settings.user.update.error'));
+            return back()->withErrors(__('messages.settings.user.update.error'));
         }
     }
 }

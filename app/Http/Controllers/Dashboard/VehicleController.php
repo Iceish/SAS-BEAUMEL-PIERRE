@@ -64,7 +64,7 @@ class VehicleController extends Controller
             Vehicle::create($validated);
             return redirect()->route("dashboard.vehicles.index")->with("success", __("messages.vehicle.create.success"));
         } catch (Exception) {
-            return redirect()->back()->withErrors([__("messages.vehicle.create.failed")])->withInput();
+            return redirect()->back()->withErrors(__("messages.vehicle.create.failed"))->withInput();
         }
     }
 
@@ -108,7 +108,7 @@ class VehicleController extends Controller
             $vehicle->update($validated);
             return redirect()->route("dashboard.vehicles.index")->with("success",__("messages.vehicle.update.success"));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.vehicle.update.success"))->withInput();
+            return redirect()->back()->withErrors(__("messages.vehicle.update.success"))->withInput();
         }
     }
 
@@ -124,7 +124,7 @@ class VehicleController extends Controller
             $vehicle->delete();
             return redirect()->route("dashboard.vehicles.index")->with('success',__("messages.vehicle.delete.success"));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.vehicle.delete.success"));
+            return redirect()->back()->withErrors(__("messages.vehicle.delete.success"));
         }
     }
 }

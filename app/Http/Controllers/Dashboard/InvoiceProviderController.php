@@ -71,7 +71,7 @@ class InvoiceProviderController extends Controller
             ProviderInvoice::create($validated);
             return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.providerInvoice.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.providerInvoice.create.failed"))->withInput();
         }
     }
 
@@ -115,7 +115,7 @@ class InvoiceProviderController extends Controller
             $providerInvoice->update($validated);
             return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->back()->with("errors",__("messages.providerInvoice.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("messages.providerInvoice.update.failed"))->withInput();
         }
     }
 
@@ -131,7 +131,7 @@ class InvoiceProviderController extends Controller
             $providerInvoice->delete();
             return redirect()->route("web.dashboard.sections.invoices.provider.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
         }catch (Exception){
-            return redirect()->back()->with('errors',__("messages.providerInvoice.delete.failed"));
+            return redirect()->back()->withErrors(__("messages.providerInvoice.delete.failed"));
         }
     }
 }
