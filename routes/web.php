@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\ProviderController;
 use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\SettingsController;
 use App\Http\Controllers\Dashboard\TicketsController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VehicleController;
@@ -85,6 +86,7 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('products', ProductController::class);
     Route::resource('cameras', CameraController::class);
     Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
+    Route::get('settings',[SettingsController::class,'edit'])->name('settings.edit');
 
     Route::get('profile',[ProfileController::class,'edit'])->name('profile.edit');
     Route::put('profile',[ProfileController::class,'update'])->name('profile.update');

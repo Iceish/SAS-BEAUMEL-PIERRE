@@ -16,19 +16,16 @@ class SettingsController extends Controller
     /**
      * @return Factory|View|Application
      */
-    public function index(): Factory|View|Application
+    public function edit(): Factory|View|Application
     {
-        $user = Auth::user();
-        return view('web.dashboard.sections.settings',
-            compact('user')
-        );
+        return view('web.dashboard.sections.settings.edit');
     }
 
     /**
      * @param UpdateMeRequest $request
      * @return RedirectResponse
      */
-    public function edit(UpdateMeRequest $request): RedirectResponse
+    public function update(UpdateMeRequest $request): RedirectResponse
     {
         $validated = $request->validated();
         try{
