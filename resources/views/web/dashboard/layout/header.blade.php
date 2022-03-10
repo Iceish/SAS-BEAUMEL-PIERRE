@@ -38,7 +38,7 @@
                     <li><a href="{{ route('dashboard.roles.index') }}"><i class="fas fa-balance-scale-right"></i>{{ ucfirst(__('word.roles')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
 
-            <li><a href=""><i class="fa-solid fa-gears"></i>{{ ucfirst(__('word.settings')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
+            <li><a href="{{ route('dashboard.settings.edit') }}"><i class="fa-solid fa-gears"></i>{{ ucfirst(__('word.settings')) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
 
         </ul>
 
