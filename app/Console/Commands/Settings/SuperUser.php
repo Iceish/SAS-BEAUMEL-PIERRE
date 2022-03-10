@@ -4,6 +4,7 @@ namespace App\Console\Commands\Settings;
 
 use App\Models\User;
 use Illuminate\Console\Command;
+use Spatie\Permission\Models\Role;
 
 class SuperUser extends Command
 {
@@ -42,11 +43,14 @@ class SuperUser extends Command
         $email = $this->ask('Email of the super administrator');
         $password = $this->secret('Password of the super administrator');
 
-        User::updateOrCreate(["id"=>1],[
+        $user = User::updateOrCreate(["id"=>1],[
             'name' => $name,
             'email' => $email,
             'password' => $password,
         ]);
+        Role::firstOrCreate(['name' => 'SuperAdmin']);
+        $role = Role::findByName('SuperAdmin');
+        $user->assignRole($role);
         return 0;
     }
 }

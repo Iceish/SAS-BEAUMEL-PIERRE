@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use Database\Seeders\RolePermission\RolePermissionSeeder;
-use Database\Seeders\Translation\TranslationSeeder;
 use Illuminate\Database\Seeder;
 
 /**
@@ -19,7 +17,5 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TranslationSeeder::class);
-        $this->call(RolePermissionSeeder::class);
     }
 }

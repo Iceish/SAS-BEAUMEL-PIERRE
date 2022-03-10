@@ -1,17 +1,64 @@
 <?php
 
-namespace Database\Seeders\Translation;
+namespace App\Console\Commands\Settings;
 
 use App\File\File;
 use App\Models\Language;
 use App\Models\LanguageLine;
-use Exception;
-use Illuminate\Database\Seeder;
+use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 
-class LanguageLinesSeeder extends Seeder
+class Lang extends Command
 {
-    public function run()
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'settings:lang';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Reload translation';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle(): int
+    {
+        $this->createLang();
+        $this->createLines();
+        return 0;
+    }
+
+    private function createLang()
+    {
+        Language::firstOrCreate([
+            'name' => 'english',
+            'code' => 'en'
+        ]);
+        Language::firstOrCreate([
+            'name' => 'français',
+            'code' => 'fr'
+        ]);
+    }
+
+    private function createLines()
     {
         $langFolders = array_filter(glob('lang/*'), 'is_dir');
         foreach($langFolders as $langFolder)

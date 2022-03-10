@@ -1,14 +1,50 @@
 <?php
 
-namespace Database\Seeders\RolePermission;
+namespace App\Console\Commands\Settings;
 
-use Illuminate\Database\Seeder;
+use Illuminate\Console\Command;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\PermissionRegistrar;
 
-class PermissionSeeder extends Seeder
+class Permissions extends Command
 {
-    public function run(){
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'settings:permissions';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Reload permissions';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle(): int
+    {
+        $this->loadPermission();
+        return 0;
+    }
+
+    private function loadPermission()
+    {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissionsGroups = [
@@ -21,6 +57,7 @@ class PermissionSeeder extends Seeder
             "clientInvoices" => ["list","create","edit","delete"],
             "providerInvoices" => ["list","create","edit","delete"],
             "products" => ["list","create","edit","delete"],
+            "cameras" => ["list","create","edit","delete"],
         ];
 
         foreach ($permissionsGroups as $permissionsGroupName=>$permissions){
