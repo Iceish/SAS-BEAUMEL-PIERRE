@@ -91,7 +91,7 @@ class CameraController extends Controller
      */
     public function edit(Camera $camera): View|Factory|Application
     {
-        return view("web.dashboard.sections.clients.edit",
+        return view("web.dashboard.sections.cameras.edit",
             compact("camera"),
         );
     }
@@ -108,7 +108,7 @@ class CameraController extends Controller
         $validated = $request->validated();
         try{
             $camera->update($validated);
-            return redirect()->route("dashboard.cameras.index")->with("success",__("messages.client.update.success"));
+            return redirect()->route("dashboard.cameras.index")->with("success",__("messages.camera.update.success"));
         }catch (Exception){
             return redirect()->back()->withErrors("errors",__("messages.camera.update.success"));
         }
