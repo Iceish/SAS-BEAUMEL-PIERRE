@@ -6,7 +6,7 @@
 
     @include margin-y(16px);
 
-    & > *:nth-child(2n){
+    & > *:nth-child(2n):not(&__pagination){
         background-color: rgba(200,200,200,0.1);
     }
 
@@ -82,6 +82,13 @@
         @include respond-to('large'){
             display: grid;
         }
+    }
+
+    &__pagination{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include margin-x(16px);
     }
 
     .label{

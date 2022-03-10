@@ -558,7 +558,7 @@ img.avatar {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-.generic-table > *:nth-child(2n) {
+.generic-table > *:nth-child(2n):not(.generic-table__pagination) {
   background-color: rgba(200, 200, 200, 0.1);
 }
 .generic-table__button i {
@@ -628,6 +628,13 @@ img.avatar {
   .generic-table__head {
     display: grid;
   }
+}
+.generic-table__pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 @media (min-width: 1000px) {
   .generic-table .label {

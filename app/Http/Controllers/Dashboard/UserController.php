@@ -44,7 +44,7 @@ class UserController extends Controller
             ->whereDoesntHave('roles', function ($query) {
                 return $query->where('name','=', 'SuperAdmin');
             })
-            ->paginate(25);
+            ->paginate(3);
         return view("web.dashboard.sections.users.index",
             compact("users")
         );

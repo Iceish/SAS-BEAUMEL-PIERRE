@@ -3,5 +3,5 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>Providers</h2>
-    <x-Generic.Table :content="$providers" columns="Name|name Email|email" route="dashboard.providers:provider" crud="show edit destroy create"/>
+    <x-Generic.Table :content="$providers" columns="Name|name Email|email" route="dashboard.providers:provider" crud="show edit destroy create search"/>
 @endsection
