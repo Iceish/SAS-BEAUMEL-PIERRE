@@ -60,11 +60,13 @@
             </div>
         </div>
     @endforeach
+
+    @if($content instanceof \Illuminate\Pagination\AbstractPaginator && $content->hasPages())
     <div class="generic-table__pagination">
-        @if($content instanceof \Illuminate\Pagination\AbstractPaginator)
             <a href="{{$content->previousPageUrl() }}"><i class="fa-solid fa-caret-left fa-2x"></i></a>
             <a href="{{$content->nextPageUrl() }}"><i class="fa-solid fa-caret-right fa-2x"></i></a>
-        @endif
     </div>
+    @endif
+
 </div>
 
