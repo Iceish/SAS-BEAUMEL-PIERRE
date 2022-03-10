@@ -60,4 +60,8 @@
             </div>
         </div>
     @endforeach
+    @if($content instanceof \Illuminate\Pagination\AbstractPaginator)
+        <a href="{{$content->nextPageUrl() ?? null }}">Next</a>
+        <a href="{{$content->previousPageUrl() ?? null }}">Prev</a>
+    @endif
 </div>
