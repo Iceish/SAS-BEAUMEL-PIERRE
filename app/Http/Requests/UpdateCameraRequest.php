@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use JetBrains\PhpStorm\ArrayShape;
 
 class UpdateCameraRequest extends FormRequest
 {
@@ -11,9 +12,9 @@ class UpdateCameraRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +22,15 @@ class UpdateCameraRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    #[ArrayShape(["name" => "string[]", "ip" => "string[]", "username" => "string[]", "password" => "string[]", "place" => "string[]"])]
+    public function rules(): array
     {
         return [
-            //
+            "name" => ["required","string","max:255"],
+            "ip" => ["required","ip"],
+            "username" => ["required","string","max:255"],
+            "password" => ["required","string","max:255"],
+            "place" => ["required","string","max:255"],
         ];
     }
 }
