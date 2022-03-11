@@ -1,4 +1,8 @@
 {
+    "auth" : {
+        "failed": "test"
+    },
+    "auth.failed": "aa",
     "All rights reserved.": "All rights reserved.",
     "Forbidden": "Forbidden",
     "Go Home": "Go Home",

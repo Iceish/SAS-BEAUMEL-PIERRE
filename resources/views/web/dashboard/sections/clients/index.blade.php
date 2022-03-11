@@ -3,5 +3,5 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>Clients</h2>
-    <x-Generic.table :content="$clients" columns="{{ucfirst(__('word.name'))}}|name {{ucfirst(__('word.email'))}}|email" route="dashboard.clients:client" crud="show edit destroy create search"/>
+    <x-Generic.table :content="$clients" columns="{{ucfirst(__('custom/words.data.input.text.name.label'))}}|name {{ucfirst(__('custom/words.data.input.email.default.label'))}}|email" route="dashboard.clients:client" crud="show edit destroy create search"/>
 @endsection

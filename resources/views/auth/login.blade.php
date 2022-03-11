@@ -12,13 +12,13 @@
         <h4>Login</h4>
         <div class="field">
             <label for="emailInput">
-                {{ ucfirst(__("word.email")) }}
+                {{ ucfirst(__('custom/words.data.input.email.default.label')) }}
             </label>
-            <input id="emailInput" name="email" type="email" placeholder="{{ __('form.placeholder.email') }}" autocomplete="off"/>
+            <input id="emailInput" name="email" type="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" autocomplete="off"/>
         </div>
         <div class="field">
             <label for="passwordInput">
-                {{ ucfirst(__("word.password")) }}
+                {{ ucfirst(__('custom/words.data.input.password.default.label')) }}
             </label>
             <input id="passwordInput" name="password" type="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" autocomplete="off"/>
         </div>
@@ -29,7 +29,7 @@
             <input id="rememberInput" type="checkbox" name="remember">
         </div>
 
-        <input id="submit" class="btn btn--primary" type="submit" value="{{ ucfirst(__("word.submit")) }}">
+        <input id="submit" class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}">
 
         <a href="{{ route("auth.forgotPassword.view") }}">{{ucfirst(__("auth.passwordForgotten"))}}</a>
     </form>

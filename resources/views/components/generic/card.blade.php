@@ -6,7 +6,7 @@
             <p><span class="label">{{ $label["name"] }}</span>
 
         @if(!isset($content[$label["attributeName"]]))
-            {{ ucfirst(__('word.not_specified')) }}
+            {{ ucfirst(__('custom/words.data.null')) }}
             @continue
         @endif
 
@@ -15,7 +15,7 @@
                 {{ $row[$label["attributeNameF"]] }}
             @endforeach
         @elseif(is_bool($content[$label["attributeName"]]))
-            {{ $content[$label["attributeName"]] ? 'Vrai' : 'False' }}
+            {{ $content[$label["attributeName"]] ? 'True' : 'False' }}
         @else
              {{ $content[$label["attributeName"]] }}
         @endif

@@ -13,7 +13,7 @@
     </label>
     <input id="passwordConfirmationInput" type="password" name="password_confirmation" required>
     <input name="token" value="{{ $token }}" type="hidden">
-    <input type="submit" value="{{ ucfirst(__("word.submit")) }}">
+    <input type="submit" value="{{ ucfirst(__("custom/words.data.input.submit.default.label")) }}">
 </form>
 
 @if ($errors->any())

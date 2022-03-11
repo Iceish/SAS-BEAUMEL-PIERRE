@@ -10,25 +10,21 @@
         <img src="{{ @asset('img/logo.png') }}" alt="logo" height="96px">
         <ul role="list">
             <li>
-                <a href={{ route('home') }}>{{ ucfirst(__("word.home")) }}</a>
+                <a href={{ route('home') }}>{{ ucfirst(__('custom/words.home')) }}</a>
             </li>
             <li>
-                <a href={{ route('partners') }}>{{ ucfirst(__("word.partners")) }}</a>
+                <a href={{ route('partners') }}>{{ ucfirst(trans_choice('custom/words.partner',false)) }}</a>
             </li>
             <li>
-                <a href={{ route('clients') }}>{{ ucfirst(__("word.clients")) }}</a>
+                <a href={{ route('clients') }}>{{ucfirst(trans_choice('custom/words.client',false)) }}</a>
             </li>
             <li>
-                <a href={{ route('about') }}>{{ ucfirst(__("word.about-us")) }}</a>
+                <a href={{ route('about') }}>{{ ucfirst(__('custom/words.about-us')) }}</a>
             </li>
             <li>
                 <a href="{{ route('auth.login.view') }}">
-                @guest()
-                        {{ ucfirst(__("word.login")) }}
-                    @endguest
-                @auth()
-                        {{ ucfirst(__("word.dashboard")) }}
-                    @endauth
+                @guest() {{ ucfirst(__('custom/words.login')) }} @endguest
+                @auth() {{ ucfirst(__('custom/words.dashboard')) }} @endauth
                 </a>
             </li>
         </ul>

@@ -12,7 +12,7 @@
         @csrf
         <h4>Create</h4>
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.name')) }}</label>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
             <input type="text" id="name" name="name" placeholder="John Doe" value="{{ old('name') }}"/>
         </div>
 

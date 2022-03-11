@@ -8,12 +8,12 @@
             <h4>{{ ucfirst(__('auth.passwordForgotten')) }}</h4>
             <div class="field">
                 <label for="emailInput">
-                    {{ ucfirst(__("word.email")) }}
+                    {{ ucfirst(__("custom/words.data.input.email.default.label")) }}
                 </label>
-                <input id="emailInput" name="email" type="email" placeholder="{{ __('form.placeholder.email') }}" autocomplete="off"/>
+                <input id="emailInput" name="email" type="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" autocomplete="off"/>
             </div>
 
-            <input class="btn btn--primary" type="submit" value="{{ ucfirst(__("word.submit")) }}">
+            <input class="btn btn--primary" type="submit" value="{{ ucfirst(__("custom/words.data.input.submit.default.label")) }}">
         </form>
     </section>
 

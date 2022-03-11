@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ucfirst(__('word.cameras'))}}</h2>
+    <h2>{{ucfirst(__('custom/words.data.crud.creating', ['item'=>trans_choice('custom/words.camera',true)]))}}</h2>
 
     @foreach ($errors->all() as $error)
         {{$error}}
@@ -10,34 +10,34 @@
 
     <form id="edit" action="{{ route("dashboard.cameras.store") }}" method="post">
         @csrf
-        <h4>{{ucfirst(__('word.create'))}}</h4>
+        <h4>{{ucfirst(__('custom/words.data.crud.create'))}}</h4>
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.name')) }}</label>
-            <input type="text" id="name" name="name" placeholder="John Doe" value="{{ old('name') }}"/>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
+            <input type="text" id="name" name="name" placeholder="{{ ucfirst(__('custom/words.data.input.text.name.placeholder')) }}" value="{{ old('name') }}"/>
         </div>
 
         <div class="field">
-            <label for="ip">{{ucfirst(__('word.ip'))}}</label>
-            <input type="text" id="ip" name="ip" placeholder="192.168.0.1" value="{{ old('ip') }}"/>
+            <label for="ip">{{ucfirst(__('custom/words.data.input.text.ip.label'))}}</label>
+            <input type="text" id="ip" name="ip" placeholder="{{ __('custom/words.data.input.text.ip.placeholder') }}" value="{{ old('ip') }}"/>
         </div>
 
         <div class="field">
-            <label for="user_name">{{ucfirst(__('validation.attributes.username'))}}</label>
-            <input type="text" id="username" name="username" placeholder="Root" value="{{ old('username') }}"/>
+            <label for="user_name">{{ucfirst(__('custom/words.data.input.text.username.label'))}}</label>
+            <input type="text" id="username" name="username" placeholder="{{ __('custom/words.data.input.text.username.placeholder') }}" value="{{ old('username') }}"/>
         </div>
 
         <div class="field">
-            <label for="password">{{ucfirst(__('word.password'))}}</label>
-            <input type="password" id="password" name="password" placeholder="root" value="{{ old('password') }}"/>
+            <label for="password">{{ucfirst(__('custom/words.data.input.password.default.label'))}}</label>
+            <input type="password" id="password" name="password" placeholder="{{ __('custom/words.data.input.password.default.placeholder') }}" value="{{ old('password') }}"/>
         </div>
 
         <div class="field">
-            <label for="place">{{ucfirst(__('word.place'))}}</label>
-            <input type="text" id="place" name="place" placeholder="La grange" value="{{ old('place') }}"/>
+            <label for="place">{{ucfirst(__('custom/words.data.input.text.place.label'))}}</label>
+            <input type="text" id="place" name="place" placeholder="{{ ucfirst(__('custom/words.data.input.text.place.placeholder')) }}" value="{{ old('place') }}"/>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
-        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i>{{ucfirst(__('text.camera_info'))}}</p>
+        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i>{{ucfirst(__('custom/messages.informative.form.camera'))}}</p>
     </form>
 @endsection
 

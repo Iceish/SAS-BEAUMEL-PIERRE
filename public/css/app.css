@@ -674,6 +674,7 @@ img.avatar {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  padding: 5px;
 }
 .generic-card__actions a:hover {
   background-color: var(--primary-ghost);

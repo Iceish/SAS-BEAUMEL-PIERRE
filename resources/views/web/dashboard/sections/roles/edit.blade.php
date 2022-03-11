@@ -10,7 +10,7 @@
         @method('put')
         <h4>Edit</h4>
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.name')) }}</label>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
             <input type="text" id="name" name="name" value="{{ $role->name }}" />
         </div>
 

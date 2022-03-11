@@ -1,5 +1,5 @@
 <footer>
-    <p>{{ __('word.company-name') }}</p>
+    <p>{{ __('custom/words.company.name') }}</p>
     <hr>
-    <p>{{ __('text.copyright') }}</p>
+    <p>{{ __('custom/messages.informative.copyright') }}</p>
 </footer>

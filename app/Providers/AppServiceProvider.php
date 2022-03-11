@@ -51,12 +51,12 @@ class AppServiceProvider extends ServiceProvider
         Carbon::macro('greet', function ($name) {
             $hour = Carbon::now()->hour;
             if ($hour < 12) {
-                return __('messages.greeting.morning',['name' => $name]);
+                return __('custom/messages.informative.greetings.morning',['name' => $name]);
             }
             if ($hour < 17) {
-                return __('messages.greeting.afternoon',['name' => $name]);
+                return __('custom/messages.informative.greetings.afternoon',['name' => $name]);
             }
-            return __('messages.greeting.evening',['name'=> $name]);
+            return __('custom/messages.informative.greetings.evening',['name'=> $name]);
         });
     }
 }

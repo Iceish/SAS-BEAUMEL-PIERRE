@@ -3,16 +3,16 @@
         @if(in_array('search',$crud))
             <form class="search" action="#">
                 <div class="field no-label">
-                    <input type="text" id="search" name="search" value="{{ old('search') }}" placeholder="{{ucfirst(__('word.search'))}}" autocomplete="off"/>
+                    <input type="text" id="search" name="search" value="{{ old('search') }}" placeholder="{{ucfirst(__('custom/words.data.crud.search'))}}" autocomplete="off"/>
                 </div>
-                <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.search')) }}" />
+                <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.crud.search')) }}" />
 
                 <a href="{{ url()->current() }}" @if( !app('request')->input('search')) style="visibility: hidden" @endif><i class="fa-solid fa-arrow-rotate-right"></i></a>
 
             </form>
         @endif
         @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
-            <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>{{ucfirst(__('word.create'))}}</a>
+            <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>{{ucfirst(__('custom/words.data.crud.create'))}}</a>
         @endif
     </div>
 
@@ -22,7 +22,7 @@
                     <p>{{ $column["name"] }}</p>
                 </div>
             @endforeach
-        <div>{{ucfirst(__('word.actions'))}}</div>
+        <div>{{ucfirst(trans_choice('custom/words.data.crud.action',false))}}</div>
     </div>
     @foreach($content as $row)
         <div class="generic-table__row">
@@ -32,10 +32,10 @@
                         @forelse($rowData as $val)
                             <p><span class="label">{{ $column["name"] }}</span>{{ $val[$column["attributeNameF"]] }}</p>
                         @empty
-                            {{ucfirst(__('word.not_specified'))}}
+                            {{ucfirst(__('custom/words.data.null'))}}
                         @endforelse
                     @else
-                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('word.not_specified')) }}</p>
+                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
                     @endif
                 </div>
             @endforeach
