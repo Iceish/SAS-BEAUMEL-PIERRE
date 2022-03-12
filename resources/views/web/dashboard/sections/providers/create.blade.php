@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ ucfirst(__('text.creating.partner')) }}</h2>
+    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' => trans_choice('custom/words.provider',true)])) }}</h2>
 
     @foreach ($errors->all() as $error)
         {{$error}}
@@ -10,34 +10,35 @@
 
     <form id="edit" action="{{ route("dashboard.providers.store") }}" method="post">
         @csrf
-        <h4>Create</h4>
+        <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>
+
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
             <input type="text" id="name" name="name" placeholder="John Doe" value="{{ old('name') }}"/>
         </div>
 
         <div class="field">
-            <label for="email">{{ ucfirst(__('word.email')) }}</label>
-            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}" value="{{ old('email') }}"/>
+            <label for="email">{{ ucfirst(__('custom/words.data.input.email.default.label')) }}</label>
+            <input type="email" id="email" name="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" value="{{ old('email') }}"/>
         </div>
 
         <div class="field">
-            <label for="address">{{ ucfirst(__('word.address')) }}</label>
-            <input type="text" id="address" name="address" placeholder="{{ __('form.placeholder.address') }}" value="{{ old('address') }}"/>
+            <label for="address">{{ ucfirst(__('custom/words.data.input.text.address.label')) }}</label>
+            <input type="text" id="address" name="address" placeholder="{{ __('custom/words.data.input.text.address.placeholder') }}" value="{{ old('address') }}"/>
         </div>
 
         <div class="field">
-            <label for="city">{{ ucfirst(__('word.city')) }}</label>
-            <input type="text" id="city" name="city" placeholder="{{ __('form.placeholder.city') }}" value="{{ old('city') }}"/>
+            <label for="city">{{ ucfirst(__('custom/words.data.input.text.city.label')) }}</label>
+            <input type="text" id="city" name="city" placeholder="{{ __('custom/words.data.input.text.city.placeholder') }}" value="{{ old('city') }}"/>
         </div>
 
         <div class="field">
-            <label for="postal">{{ ucfirst(__('word.postal')) }}</label>
-            <input type="number" id="postal" name="postal_code" placeholder="{{ __('form.placeholder.postal') }}" value="{{ old('postal_code') }}"/>
+            <label for="postal">{{ ucfirst(__('custom/words.data.input.number.postal-code.label')) }}</label>
+            <input type="number" id="postal" name="postal_code" placeholder="{{ __('custom/words.data.input.number.postal-code.placeholder') }}" value="{{ old('postal_code') }}"/>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
-        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> This action do not create an account.</p>
+        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> {{ __('custom/messages.informative.form.provider') }}</p>
     </form>
 @endsection
 

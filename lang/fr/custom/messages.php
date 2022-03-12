@@ -23,8 +23,10 @@ return [
         'copyright' => '© 2022 - All right reserved',
         'nothing.here' => 'Nothing to show here.',
         'form' => [
-            'camera' => 'This action do not connect camera on website.',
-            'client' => 'This action do not create an account.',
+            'camera' => 'This action does not connect camera on website.',
+            'client' => 'This action does not create an account.',
+            'provider' => 'This action does not create an account.',
+            'partner' => 'This action does not create an account.',
         ],
         'greetings' => [
             'morning' => 'Good morning :name.',

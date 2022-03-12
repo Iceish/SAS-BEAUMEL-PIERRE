@@ -4,26 +4,26 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ ucfirst(__('text.editing_user')) }} {{ $user->name }}</h2>
-    <form id="edit" action="{{ route('dashboard.users.update',['user'=>$user->id]) }}" method="post">
+    <h2>{{ ucfirst(__('custom/words.data.crud.editing', ['item' => $user->name])) }}</h2>
+    <form action="{{ route('dashboard.users.update',['user'=>$user->id]) }}" method="post">
         @csrf
         @method('put')
-        <h4>Edit</h4>
+        <h4>{{ ucfirst(__('custom/words.data.crud.edit')) }}</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
             <input type="text" id="name" name="name" value="{{ $user->name }}" />
         </div>
 
         <div class="field">
-            <label for="email">{{ ucfirst(__('word.email')) }}</label>
+            <label for="email">{{ ucfirst(__('custom/words.data.input.email.default.label')) }}</label>
             <input type="email" id="email" name="email" value="{{ $user->email }}" />
         </div>
         <div id="multiselect" class="field">
-            <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
+            <label for="selectBoxOption">{{ ucfirst(trans_choice('custom/words.role', false)) }}</label>
             <div id="selectBoxOption" class="selectBox" onclick="showCheckboxes()">
                 <label>
                     <select>
-                        <option>{{ ucfirst(__('text.click_open')) }}</option>
+                        <option>{{ ucfirst(__('custom/words.click')) }}</option>
                     </select>
                 </label>
                 <div class="overSelect"></div>
@@ -41,20 +41,20 @@
         </div>
 
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.address')) }}</label>
-            <input type="text" id="address" name="address" @if($user->address)value="{{ $user->address }}" @else placeholder="{{ucfirst(__('word.not_specified'))}}"@endif/>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.address.label')) }}</label>
+            <input type="text" id="address" name="address" @if($user->address)value="{{ $user->address }}" @else placeholder="{{ucfirst(__('custom/words.data.input.text.address.placeholder'))}}"@endif/>
         </div>
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.postal')) }}</label>
-            <input type="text" id="postal_code" name="postal_code" @if($user->postal_code)value="{{ $user->postal_code }}" @else placeholder="{{ucfirst(__('word.not_specified'))}}"@endif/>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.number.postal-code.label')) }}</label>
+            <input type="text" id="postal_code" name="postal_code" @if($user->postal_code)value="{{ $user->postal_code }}" @else placeholder="{{ucfirst(__('custom/words.data.input.number.postal-code.placeholder'))}}"@endif/>
         </div>
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.city')) }}</label>
-            <input type="text" id="city" name="city" @if($user->city)value="{{ $user->city }}" @else placeholder="{{ucfirst(__('word.not_specified'))}}"@endif/>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.city.label')) }}</label>
+            <input type="text" id="city" name="city" @if($user->city)value="{{ $user->city }}" @else placeholder="{{ucfirst(__('custom/words.data.input.text.city.placeholder'))}}"@endif/>
         </div>
 
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
+        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
     </form>
 @endsection
 

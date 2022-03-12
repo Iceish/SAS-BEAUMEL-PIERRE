@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    Client edit page
+    <h2>{{ ucfirst(__('custom/words.data.crud.editing', ['item' => $client->name])) }}</h2>
 
     <div class="editor"></div>
     <button id="save">save</button>

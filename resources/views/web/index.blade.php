@@ -22,13 +22,13 @@
                 toast: true,
                 position: 'bottom-end',
                 title: 'Cookies Privacy Policy.',
-                text: "{{ __('messages.cookies.message') }}",
+                text: "{{ __('custom/messages.informative.cookies.core') }}",
                 imageUrl: '{{ asset('img/cookie.png') }}',
                 imageWidth: 100,
                 imageHeight: 100,
                 imageAlt: 'Cookie image',
                 confirmButtonColor: getComputedStyle(document.body).getPropertyValue('--primary'),
-                confirmButtonText: '{{ __('word.accept') }} !',
+                confirmButtonText: '{{ __('custom/words.accept') }} !',
             }).then((result) => {
                 if (result.isConfirmed) {
                     Cookies.setCookie('cookies','true',30);

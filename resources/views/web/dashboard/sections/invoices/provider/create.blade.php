@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>Create client invoice</h2>
+    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' =>  trans_choice('custom/words.invoice', true).' '.'('.trans_choice('custom/words.provider', true).')' ] )) }}</h2>
     <div>
         @foreach ($errors->all() as $error)
             {{$error}}
@@ -10,23 +10,23 @@
     </div>
     <form id="edit" action="{{ route("dashboard.clients.store") }}" method="post">
         @csrf
-        <h4>Create</h4>
+        <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>
 
         <div class="field">
-            <label for="path">Path</label>
-            <input type="text" id="path" name="path" placeholder="" value="{{ old('path') }}"/>
+            <label for="path">{{ ucfirst(__('custom/words.data.input.text.path.label')) }}</label>
+            <input type="text" id="path" name="path" placeholder="{{ __('custom/words.data.input.text.path.placeholder') }}" value="{{ old('path') }}"/>
         </div>
 
         <div class="field">
-            <label for="date">date</label>
-            <input type="date" id="date" name="date" placeholder="" value="{{ old('date') }}"/>
+            <label for="date">{{ ucfirst(__('custom/words.data.input.date.default.label')) }}</label>
+            <input type="date" id="date" name="date" value="{{ old('date') }}"/>
         </div>
 
         <div class="field">
-            <label for="provider_id">Provider</label>
-            <input type="number" id="provider_id" name="provider_id" placeholder="" value="{{ old('provider_id') }}"/>
+            <label for="provider_id">{{ ucfirst(trans_choice('custom/words.provider', true)) }}</label>
+            <input type="number" id="provider_id" name="provider_id" placeholder="n°2" value="{{ old('provider_id') }}"/>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
+        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
     </form>
 @endsection

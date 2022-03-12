@@ -10,17 +10,17 @@
             {{$error}}
         @endforeach
     </div>
-    <form id="edit" action="{{ route("dashboard.users.store") }}" method="post">
+    <form action="{{ route("dashboard.users.store") }}" method="post">
         @csrf
-        <h4>Create</h4>
+        <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
             <input type="text" id="name" name="name" placeholder="John Doe" required value="{{ old('name') }}"/>
         </div>
 
         <div class="field">
-            <label for="email">{{ ucfirst(__('word.email')) }}</label>
-            <input type="email" id="email" name="email" placeholder="{{ __('form.placeholder.email') }}" required {{ old('email') }}/>
+            <label for="email">{{ ucfirst(__('custom/words.data.input.email.default.label')) }}</label>
+            <input type="email" id="email" name="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" required {{ old('email') }}/>
         </div>
         <div id="multiselect" class="field">
             <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
@@ -44,15 +44,15 @@
         </div>
         <!-- rajout -->
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.address')) }}</label>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.address.label')) }}</label>
             <input type="text" id="address" name="address" placeholder="12 rue de la paix" {{ old('address') }}/>
         </div>
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.postal')) }}</label>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.number.postal-code.labelal')) }}</label>
             <input type="text" id="postal_code" name="postal_code" placeholder="63000" {{ old('postal_code') }}/>
         </div>
         <div class="field">
-            <label for="name">{{ ucfirst(__('word.city')) }}</label>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.city.label')) }}</label>
             <input type="text" id="city" name="city" placeholder="Clermont-Ferrand" {{ old('city') }}/>
         </div>
 

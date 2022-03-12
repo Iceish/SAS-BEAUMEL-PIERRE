@@ -4,6 +4,6 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>User</h2>
-    <x-Generic.card :content="$user" show="Id|id  Name|name  Email|email  Roles|roles:name  PostalCode|postal_code  City|city  Address|address  EmailVerifiedAt|email_verified_at  CreatedAt|created_at UpdatedAt|updated_at" route="dashboard.users:user"></x-Generic.card>
+    <h2>{{ ucfirst(trans_choice('custom/words.user', true)) }}</h2>
+    <x-Generic.card :content="$user" show="{{ ucfirst(__('custom/words.data.input.number.id.label')) }}|id  {{ ucfirst(__('custom/words.data.input.text.name.label')) }}|name  {{ucfirst(__('custom/words.data.input.email.default.label'))}}|email  {{ucfirst(trans_choice('custom/words.role', false))}}|roles:name  {{ucfirst(__('custom/words.data.input.number.postal-code.label'))}}|postal_code  {{ucfirst(__('custom/words.data.input.text.city.label')) }}|city  {{ucfirst(__('custom/words.data.input.text.address.label'))}}|address  {{ucfirst(__('custom/words.data.input.date.email-verified.label'))}}|email_verified_at  {{ucfirst(__('custom/words.data.input.date.email-created.label'))}}|created_at UpdatedAt|updated_at" route="dashboard.users:user"></x-Generic.card>
 @endsection

@@ -2,6 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>Vehicle</h2>
-    <x-Generic.card :content="$vehicle" show="Name|name  LicencePlate|licence_plate  RevisionDate|revision_date  Available|available" route="dashboard.vehicles:vehicle"></x-Generic.card>
+    <h2>{{ ucfirst(trans_choice('custom/words.vehicle', true)) }}</h2>
+
+    <x-Generic.card :content="$vehicle" show="{{ ucfirst(__('custom/words.data.input.text.name.label')) }}|name  {{ ucfirst(__('custom/words.data.input.text.license-plate.label')) }}|licence_plate  {{ ucfirst(__('custom/words.data.input.date.revision.label')) }}|revision_date  {{ ucfirst(__('custom/words.data.input.boolean.available.label')) }}|available" route="dashboard.vehicles:vehicle"></x-Generic.card>
 @endsection

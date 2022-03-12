@@ -16,7 +16,7 @@
             <h4>Contact us</h4>
             <div class="field">
                 <label for="email">Email</label>
-                <input name="from" id="email" type="email" placeholder="{{ __('form.placeholder.email') }}" autocomplete="off" value="{{ old('email') }}" required/>
+                <input name="from" id="email" type="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" autocomplete="off" value="{{ old('email') }}" required/>
             </div>
             <div class="field">
                 <label for="subject">Subject</label>

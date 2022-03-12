@@ -4,14 +4,15 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ ucfirst(__('text.editing.role')) }} {{ $role->name }}</h2>
+    <h2>{{ ucfirst(trans_choice('custom/words.role', true)) }}</h2>
+
     <form id="edit" action="{{ route('dashboard.roles.update',['role'=>$role->id]) }}" method="post">
         @csrf
         @method('put')
-        <h4>Edit</h4>
+        <h4>{{ ucfirst(__('custom/words.data.crud.edit')) }}</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
-            <input type="text" id="name" name="name" value="{{ $role->name }}" />
+            <input type="text" id="name" name="name" value="{{ $role->name }}" placeholder="{{ __('custom/words.data.input.text.name.placeholder') }}" />
         </div>
 
         <div class="category-grid">
@@ -20,6 +21,6 @@
             @endforeach
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
+        <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
     </form>
 @endsection

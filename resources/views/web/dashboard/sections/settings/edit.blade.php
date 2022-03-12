@@ -2,6 +2,6 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>Settings</h2>
+    <h2>{{ ucfirst(trans_choice('custom/words.setting', false)) }}</h2>
 
 @endsection

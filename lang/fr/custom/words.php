@@ -7,6 +7,8 @@
 
 return [
     'company.name' => 'SAS-BEAUMEL-PIERRE',
+    'click' => 'click',
+    'accept' => 'accept',
 
     'home' => 'home',
     'about-us' => 'about-us',
@@ -15,6 +17,7 @@ return [
 
     'login' => 'login',
     'dashboard' => 'dashboard',
+    'profile' => 'profile',
     'camera' => 'camera|cameras',
     'client' => 'client|clients',
     'provider' => 'provider|providers',
@@ -73,6 +76,22 @@ return [
                     'label' => 'place',
                     'placeholder' => 'red barn',
                 ],
+                'license-plate' => [
+                    'label' => 'license plate',
+                    'placeholder' => 'AK-124-FD',
+                ],
+                'path' => [
+                    'label' => 'path',
+                    'placeholder' => 'directory/document.pdf',
+                ],
+                'image-path' => [
+                    'label' => 'image path',
+                    'placeholder' => 'directory/image.png',
+                ],
+                'payment-mode' => [
+                    'label' => 'payment mode',
+                    'placeholder' => 'cash',
+                ],
                 'ip' => [
                     'label' => 'ip',
                     'placeholder' => '0.0.0.0',
@@ -101,9 +120,50 @@ return [
             ],
 
             'number' => [
+                'id' => [
+                    'label' => 'identifier',
+                    'placeholder' => '4',
+                ],
                 'postal-code' => [
                     'label' => 'postal code',
                     'placeholder' => '90 002',
+                ],
+                'price' => [
+                    'label' => 'price',
+                    'placeholder' => '35',
+                ],
+                'total' => [
+                    'label' => 'total',
+                    'placeholder' => '27',
+                ],
+                'quantity' => [
+                    'label' => 'quantity',
+                    'placeholder' => '9',
+                ],
+            ],
+
+            'date' => [
+                'default' => [
+                    'label' => 'date',
+                ],
+                'revision' => [
+                    'label' => 'revision date',
+                ],
+                'payment' => [
+                    'label' => 'payment date',
+                ],
+                'email-verified' => [
+                    'label' => 'email verified at',
+                ],
+                'email-created' => [
+                    'label' => 'email created at',
+                ],
+            ],
+
+            'boolean' => [
+                'available' => [
+                    'label' => 'available',
+                    'placeholder' => 'false',
                 ],
             ],
 

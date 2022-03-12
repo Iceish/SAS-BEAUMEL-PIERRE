@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ucfirst(__('custom/words.data.crud.creating', ['item'=>trans_choice('custom/words.camera',true)]))}}</h2>
+    <h2>{{ucfirst(__('custom/words.data.crud.creating', ['item'=> trans_choice('custom/words.camera',true)]))}}</h2>
 
     @foreach ($errors->all() as $error)
         {{$error}}
@@ -11,6 +11,7 @@
     <form id="edit" action="{{ route("dashboard.cameras.store") }}" method="post">
         @csrf
         <h4>{{ucfirst(__('custom/words.data.crud.create'))}}</h4>
+
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
             <input type="text" id="name" name="name" placeholder="{{ ucfirst(__('custom/words.data.input.text.name.placeholder')) }}" value="{{ old('name') }}"/>

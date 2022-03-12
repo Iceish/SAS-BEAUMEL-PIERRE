@@ -93,7 +93,7 @@ class ProviderController extends Controller
     public function edit(Provider $provider): Application|Factory|View
     {
         return view("web.dashboard.sections.providers.edit",
-            compact($provider)
+            compact('provider')
         );
     }
 
