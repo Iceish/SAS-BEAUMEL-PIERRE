@@ -22,7 +22,7 @@
         </p>
 
         @empty
-        <p>Nothing to show here.</p>
+        <p>{{ __('custom/messages.informative.nothing.here') }}</p>
     @endforelse
     </div>
 
