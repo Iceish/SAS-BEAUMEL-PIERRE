@@ -3,5 +3,5 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(trans_choice('custom/words.vehicle', false)) }}</h2>
-    <x-Generic.Table :content="$vehicles" columns="{{ ucfirst(__('custom/words.data.input.text.name.label')) }}|name {{ ucfirst(__('custom/words.data.input.text.license-plate.label')) }}|licence_plate {{ ucfirst(__('custom/words.data.input.date.revision.label')) }}|revision_date" route="dashboard.vehicles:vehicle" crud="show edit destroy create search"/>
+    <x-Generic.Table :content="$vehicles" columns="{{ ucfirst(__('custom/words.data.input.text.name.label')) }}|name,{{ ucfirst(__('custom/words.data.input.text.license-plate.label')) }}|licence_plate,{{ ucfirst(__('custom/words.data.input.date.revision.label')) }}|revision_date" route="dashboard.vehicles:vehicle" crud="show edit destroy create search"/>
 @endsection

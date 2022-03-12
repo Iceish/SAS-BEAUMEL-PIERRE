@@ -34,7 +34,7 @@ class Card extends Component
     {
         $shows = [];
 
-        $showStringArr = explode("  ",$showStrings);
+        $showStringArr = explode(",",$showStrings);
         foreach ($showStringArr as $showString){
             $showArr = explode("|",$showString);
             $showName = $showArr[0];

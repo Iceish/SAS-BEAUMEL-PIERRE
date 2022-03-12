@@ -41,7 +41,7 @@ class Table extends Component
     {
         $columns = [];
 
-        $columnsStringArr = explode(" ",$columnsString);
+        $columnsStringArr = explode(",",$columnsString);
         foreach ($columnsStringArr as $columnString){
             $columnArr = explode("|",$columnString);
             $columnName = $columnArr[0];
