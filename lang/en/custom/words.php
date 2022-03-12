@@ -152,11 +152,14 @@ return [
                 'payment' => [
                     'label' => 'payment date',
                 ],
-                'email-verified' => [
-                    'label' => 'email verified at',
+                'verified' => [
+                    'label' => ':item verified at'
                 ],
-                'email-created' => [
-                    'label' => 'email created at',
+                'created' => [
+                    'label' => ':item created at'
+                ],
+                'updated' => [
+                    'label' => ':item updated at'
                 ],
             ],
 
