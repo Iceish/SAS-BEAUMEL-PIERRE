@@ -33,6 +33,6 @@
             <input type="text" id="address" name="address" @if($user->address)value="{{ $user->address }}" @else placeholder="{{ucfirst(__('custom/words.data.input.text.address.placeholder'))}}" @endif autocomplete="off" />
         </div>
 
-        <input type="submit" class="btn" value="{{ __('custom/words.data.input.submit.default.label') }}">
+        <input type="submit" class="btn" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}">
     </form>
 @endsection
