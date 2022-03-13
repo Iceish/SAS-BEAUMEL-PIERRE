@@ -27,6 +27,7 @@
     </div>
 
     {{--  Actions  --}}
+    @if($crud)
     <div class="generic-card__actions">
 
         @if(auth()->user()->can("$perm.destroy"))
@@ -46,5 +47,6 @@
         @endif
 
     </div>
+    @endif
 
 </div>
