@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\CustomerInvoice;
+use App\Models\ClientInvoice;
 use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -24,7 +24,7 @@ class CreateInvoiceDetailsTable extends Migration
             $table->float('VAT');
             $table->unsignedInteger('quantity');
             $table->foreignIdFor(Product::class)->references('id')->on('products');
-            $table->foreignIdFor(CustomerInvoice::class)->references('id')->on('customer_invoices');
+            $table->foreignIdFor(ClientInvoice::class)->references('id')->on('client_invoices');
         });
     }
 

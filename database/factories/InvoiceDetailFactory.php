@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\CustomerInvoice;
+use App\Models\ClientInvoice;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,7 +24,7 @@ class InvoiceDetailFactory extends Factory
             'VAT' => $this->faker->vatPercent(),                            // VAT: vatPercent / ex: 44.25 / Creation faker: app/Faker/Economy.php
             'quantity' => $this->faker->randomFloat(),                      // quantity: randomFloat / ex: 16
             'product_id' => Product::all()->random()->id,                   // product_id: id / ex: 1
-            'customer_invoice_id' => CustomerInvoice::all()->random()->id,  // customer_invoice_id: id / ex: 3
+            'client_invoice_id' => ClientInvoice::all()->random()->id,  // client_invoice_id: id / ex: 3
         ];
     }
 }

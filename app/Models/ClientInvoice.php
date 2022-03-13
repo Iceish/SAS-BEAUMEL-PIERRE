@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * The models are created with the command « php artisan make:model ModelName »
  */
-class CustomerInvoice extends Model
+class ClientInvoice extends Model
 {
     use HasFactory;
     /**
@@ -17,7 +17,7 @@ class CustomerInvoice extends Model
      *
      * @var string = table name
      */
-    protected $table = 'customer_invoices';
+    protected $table = 'client_invoices';
     /**
      * The primary key associated with the table.
      *
