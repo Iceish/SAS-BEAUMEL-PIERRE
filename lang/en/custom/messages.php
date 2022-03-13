@@ -22,6 +22,9 @@ return [
     'informative' => [
         'copyright' => '© 2022 - All right reserved',
         'nothing.here' => 'Nothing to show here.',
+        'dashboard' => [
+            'admin' => 'Website administrator'
+        ],
         'invoice' => [
             'client' => 'Click here to show all clients invoices.',
             'provider' => 'Click here to show all providers invoices.',
