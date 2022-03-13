@@ -13,14 +13,16 @@ class Card extends Component
     public array $show;
     public array $route;
     public string $perm;
+    public bool $crud;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(mixed $content, string $show, string $route)
+    public function __construct(mixed $content, string $show, string $route, string $crud='true')
     {
         $this->content = $content;
+        $this->crud = $crud === 'true';
         $this->show = $this->formatShowString($show);
         $this->route = $this->formatRouteString($route);
         $this->perm = substr(strstr($this->route['route'], '.'),1);
