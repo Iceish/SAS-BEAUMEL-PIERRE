@@ -22,6 +22,9 @@ return [
     'informative' => [
         'copyright' => '© 2022 - Tout droits réservés',
         'nothing.here' => 'Rien a voir ici.',
+        'dashboard' => [
+            'admin' => 'Administrateur du site'
+        ],
         'form' => [
             'camera' => 'Cette action n\'a pas de connecter la caméra sur le site.',
             'client' => 'Cette action n\'a pas de créer un compte.',

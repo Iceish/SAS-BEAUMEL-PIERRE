@@ -4,7 +4,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' => trans_choice('custom/words.user', false)])) }}</h2>
+    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' => trans_choice('custom/words.user', 2)])) }}</h2>
     <div>
         @foreach ($errors->all() as $error)
             {{$error}}
@@ -24,7 +24,7 @@
             <input type="email" id="email" name="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" required value="{{ old('email') }}"/>
         </div>
         <div id="multiselect" class="field">
-            <label for="selectBoxOption">{{ ucfirst(trans_choice('custom/words.role', false)) }}</label>
+            <label for="selectBoxOption">{{ ucfirst(trans_choice('custom/words.role', 2)) }}</label>
             <div id="selectBoxOption" class="selectBox" onclick="showCheckboxes()">
                 <label>
                     <select>

@@ -19,7 +19,7 @@
             <input type="email" id="email" name="email" value="{{ $user->email }}" />
         </div>
         <div id="multiselect" class="field">
-            <label for="selectBoxOption">{{ ucfirst(trans_choice('custom/words.role', false)) }}</label>
+            <label for="selectBoxOption">{{ ucfirst(trans_choice('custom/words.role', 2)) }}</label>
             <div id="selectBoxOption" class="selectBox" onclick="showCheckboxes()">
                 <label>
                     <select>
