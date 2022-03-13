@@ -22,6 +22,10 @@ return [
     'informative' => [
         'copyright' => '© 2022 - All right reserved',
         'nothing.here' => 'Nothing to show here.',
+        'invoice' => [
+            'client' => 'Click here to show all clients invoices.',
+            'provider' => 'Click here to show all providers invoices.',
+        ],
         'form' => [
             'camera' => 'This action does not connect camera on website.',
             'client' => 'This action does not create an account.',
