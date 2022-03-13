@@ -34,7 +34,7 @@ return [
             'evening' => 'Bonsoir :name.',
         ],
         'cookies' => [
-            'core' => 'Notre site utilise des cookies seulement pour votre comfort.'
+            'core' => 'Notre site utilise des cookies seulement pour votre confort.'
         ],
 
     ],
