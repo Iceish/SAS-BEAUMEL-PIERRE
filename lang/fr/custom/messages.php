@@ -7,34 +7,34 @@
 return [
     'success' => [
         'crud' => [
-            'created' => ':item added successfully.',
-            'updated' => ':item updated successfully.',
-            'deleted' => ':item deleted successfully.',
+            'created' => ':item crée avec succès.',
+            'updated' => ':item modifié avec succès.',
+            'deleted' => ':item supprimé avec succès.',
         ]
     ],
     'error' => [
         'crud' => [
-            'created' => ':item creation failed.',
-            'updated' => ':item update failed.',
-            'deleted' => ':item delete failed.',
+            'created' => ':item creation échoué.',
+            'updated' => ':item modification échoué.',
+            'deleted' => ':item supprétion échoué.',
         ]
     ],
     'informative' => [
-        'copyright' => '© 2022 - All right reserved',
-        'nothing.here' => 'Nothing to show here.',
+        'copyright' => '© 2022 - Tout droits réservés',
+        'nothing.here' => 'Rien a voir ici.',
         'form' => [
-            'camera' => 'This action does not connect camera on website.',
-            'client' => 'This action does not create an account.',
-            'provider' => 'This action does not create an account.',
-            'partner' => 'This action does not create an account.',
+            'camera' => 'Cette action n\'a pas de connecter la caméra sur le site.',
+            'client' => 'Cette action n\'a pas de créer un compte.',
+            'provider' => 'Cette action n\'a pas crée un compte.',
+            'partner' => 'Cette action n\'a pas crée de compte.',
         ],
         'greetings' => [
-            'morning' => 'Good morning :name.',
-            'afternoon' => 'Good afternoon :name.',
-            'evening' => 'Good evening :name.',
+            'morning' => 'Bonjour :name.',
+            'afternoon' => 'Bonjour :name.',
+            'evening' => 'Bonsoir :name.',
         ],
         'cookies' => [
-            'core' => 'Our website is using cookies only for user experience.'
+            'core' => 'Notre site utilise des cookies seulement pour votre comfort.'
         ],
 
     ],
