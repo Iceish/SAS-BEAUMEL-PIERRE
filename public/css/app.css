@@ -1117,6 +1117,32 @@ body#static main {
   }
 }
 
+#invoices .cards {
+  display: grid;
+  grid-gap: 20px;
+  grid-template: 1fr 1fr/1fr;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+}
+#invoices .cards__item {
+  display: grid;
+  grid-template: 1fr 3fr/1fr;
+  min-width: 75%;
+  min-height: 256px;
+  border: 1px solid var(--primary-light);
+  border-radius: 10px;
+  padding: 10px;
+}
+#invoices .cards__item p {
+  color: black;
+}
+@media (min-width: 1000px) {
+  #invoices .cards {
+    grid-template: 1fr/1fr 1fr;
+  }
+}
+
 #roles form .category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
