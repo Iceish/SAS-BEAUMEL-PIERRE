@@ -1,0 +1,11 @@
+@use '../../abstracts' as *;
+
+#home{
+    .dashboard{
+        border: 1px dashed var(--primary-light);
+        border-radius: 10px;
+
+        padding: 20px;
+        @include margin-y(10px);
+    }
+}
