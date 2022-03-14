@@ -4,13 +4,13 @@
     <x-utils.backBtn/>
     <h2>{{ ucfirst(__('custom/words.data.crud.editing', ['item' => $partner->name])) }}</h2>
 
-    <form id="edit" action="{{ route("dashboard.partners.update",["id"=>$partner->id]) }}" method="post">
+    <form id="edit" action="{{ route("dashboard.partners.update",["partner"=>$partner->id]) }}" method="post">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.edit')) }}</h4>
 
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.fullname.label')) }}</label>
-            <input type="text" id="name" name="name" placeholder="{{ __('custom/words.data.input.text.name.placeholder') }}" value="{{ $partner->name }}"/>
+            <input type="text" id="name" name="name" placeholder="{{ __('custom/words.data.input.text.fullname.placeholder') }}" value="{{ $partner->name }}"/>
         </div>
 
         <div class="field">

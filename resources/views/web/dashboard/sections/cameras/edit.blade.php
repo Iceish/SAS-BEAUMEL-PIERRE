@@ -15,7 +15,7 @@
 
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.fullname.label')) }}</label>
-            <input type="text" id="name" name="name" placeholder="{{ ucfirst(__('custom/words.data.input.text.name.placeholder')) }}" value="{{ $camera->name }}"/>
+            <input type="text" id="name" name="name" placeholder="{{ ucfirst(__('custom/words.data.input.text.fullname.placeholder')) }}" value="{{ $camera->name }}"/>
         </div>
 
         <div class="field">
