@@ -7,8 +7,15 @@
     --primary-light: #{setColor(teal, 100)};
     --primary-ghost: #{setColor(teal, 50)};
 
+    --danger-unlit: #{setColor(red, 900)};
+    --danger-dark: #{setColor(red, 700)};
+    --danger: #{setColor(red, 400)};
+    --danger-light: #{setColor(red, 100)};
+    --danger-ghost: #{setColor(red, 50)};
+
     --background: #{setColor(white)};
 
+    //CK editor
     --ck-color-image-caption-background: hsl(0, 0%, 97%);
     --ck-color-image-caption-text: hsl(0, 0%, 20%);
     --ck-color-mention-background: hsla(341, 100%, 30%, 0.1);

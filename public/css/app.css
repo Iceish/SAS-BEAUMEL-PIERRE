@@ -40,6 +40,8 @@ main .label {
 }
 
 input[type=submit].btn, a.btn {
+  --color-dark: var(--primary-dark);
+  --color: var(--primary);
   display: inline-flex;
   padding: 5px;
   justify-content: center;
@@ -50,18 +52,22 @@ input[type=submit].btn, a.btn {
   background-color: transparent;
   cursor: pointer;
   --border-size: 1px;
-  border: var(--border-size) solid var(--primary-dark);
+  border: var(--border-size) solid var(--color-dark);
 }
 input[type=submit].btn--bold, a.btn--bold {
   --border-size: 2px;
   font-weight: bold;
 }
+input[type=submit].btn--danger, a.btn--danger {
+  --color-dark: var(--danger-dark);
+  --color: var(--danger);
+}
 input[type=submit].btn, input[type=submit].btn:hover, input[type=submit].btn:visited, a.btn, a.btn:hover, a.btn:visited {
-  color: var(--primary-dark);
+  color: var(--color-dark);
 }
 input[type=submit].btn:active, a.btn:active {
-  color: var(--primary);
-  border: var(--border-size) solid var(--primary);
+  color: var(--color);
+  border: var(--border-size) solid var(--color);
 }
 
 form {
@@ -811,6 +817,11 @@ select {
   --primary: #26A69A;
   --primary-light: #B2DFDB;
   --primary-ghost: #E0F2F1;
+  --danger-unlit: #B71C1C;
+  --danger-dark: #D32F2F;
+  --danger: #EF5350;
+  --danger-light: #FFCDD2;
+  --danger-ghost: #FFEBEE;
   --background: #FFFFFF;
   --ck-color-image-caption-background: hsl(0, 0%, 97%);
   --ck-color-image-caption-text: hsl(0, 0%, 20%);
