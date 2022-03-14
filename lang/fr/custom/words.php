@@ -84,6 +84,9 @@ return [
                     'label' => 'chemin',
                     'placeholder' => 'dossier/document.pdf',
                 ],
+                'file' => [
+                    'label' => 'file',
+                ],
                 'image-path' => [
                     'label' => 'chemin de l\' image',
                     'placeholder' => 'dossier/image.png',

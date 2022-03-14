@@ -22,12 +22,12 @@ class StoreProviderInvoiceRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['provider_id' => 'string[]', 'path' => 'string[]', 'date' => 'string[]'])]
+    #[ArrayShape(['provider_id' => 'string[]', 'file' => 'string[]', 'date' => 'string[]'])]
     public function rules(): array
     {
         return [
             'provider_id' => ['required','integer','exists:providers'],
-            'path' => ['required','string','max:255'],
+            'file' => ['required','file','max:5000'],
             'date' => ['required','date']
         ];
     }

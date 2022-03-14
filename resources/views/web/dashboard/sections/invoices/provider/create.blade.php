@@ -13,8 +13,8 @@
         <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>
 
         <div class="field">
-            <label for="path">{{ ucfirst(__('custom/words.data.input.text.path.label')) }}</label>
-            <input type="text" id="path" name="path" placeholder="{{ __('custom/words.data.input.text.path.placeholder') }}" value="{{ old('path') }}"/>
+            <label for="path">{{ ucfirst(__('custom/words.data.input.text.file.label')) }}</label>
+            <input type="file" id="path" name="path" placeholder="{{ __('custom/words.data.input.text.path.placeholder') }}" value="{{ old('path') }}"/>
         </div>
 
         <div class="field">

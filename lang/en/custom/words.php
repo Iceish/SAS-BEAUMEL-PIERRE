@@ -84,6 +84,9 @@ return [
                     'label' => 'path',
                     'placeholder' => 'directory/document.pdf',
                 ],
+                'file' => [
+                    'label' => 'file'
+                ],
                 'image-path' => [
                     'label' => 'image path',
                     'placeholder' => 'directory/image.png',

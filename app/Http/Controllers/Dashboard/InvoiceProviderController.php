@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Exception;
+use Illuminate\Support\Facades\Storage;
 use function view;
 
 class InvoiceProviderController extends Controller
@@ -65,13 +66,15 @@ class InvoiceProviderController extends Controller
      */
     public function store(StoreProviderInvoiceRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
-        $providerInvoice =  ProviderInvoice::create($validated);
+        $validated = $request->except("file");
+        $file = $request->only("file");
         try{
+            $path = $file->store("images");
+            $validated["path"] = $path;
             ProviderInvoice::create($validated);
-            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("messages.providerInvoice.create.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.providerInvoice.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']))->withInput();
         }
     }
 
@@ -110,12 +113,15 @@ class InvoiceProviderController extends Controller
      */
     public function update(UpdateProviderInvoiceRequest $request,ProviderInvoice $providerInvoice): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = $request->except("file");
+        $file = $request->only("file");
         try{
+            $path = $file->store("images");
+            $validated["path"] = $path;
             $providerInvoice->update($validated);
-            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("messages.providerInvoice.update.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.providerInvoice.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']))->withInput();
         }
     }
 
@@ -128,10 +134,11 @@ class InvoiceProviderController extends Controller
     public function destroy(ProviderInvoice $providerInvoice): RedirectResponse
     {
         try{
+            Storage::delete($providerInvoice->path);
             $providerInvoice->delete();
-            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with('success',__("messages.providerInvoice.delete.success",["providerInvoice"=>$providerInvoice]));
+            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.providerInvoice.delete.failed"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']));
         }
     }
 }
