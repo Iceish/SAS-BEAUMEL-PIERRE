@@ -30,9 +30,9 @@ class SettingsController extends Controller
         $validated = $request->validated();
         try{
             Auth::user()->update($validated);
-            return back()->with('success',__('messages.settings.user.update.success'));
+            return back()->with('success',__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.setting',1)]));
         }catch (Exception){
-            return back()->withErrors(__('messages.settings.user.update.error'));
+            return back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.setting',1)]));
         }
     }
 }

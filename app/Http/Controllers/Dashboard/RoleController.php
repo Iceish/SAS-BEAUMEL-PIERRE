@@ -75,9 +75,9 @@ class RoleController extends Controller
                 $permission = Permission::whereIn("id",[$key])->first();
                 if($bool)$role->givePermissionTo($permission->name);
             }
-            return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.create.success"));
+            return redirect()->route("dashboard.roles.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.role',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.role.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.role',1)]))->withInput();
         }
     }
 
@@ -131,9 +131,9 @@ class RoleController extends Controller
                 $permission = Permission::whereIn("id",[$key])->first();
                 $bool ? $role->givePermissionTo($permission->name) : $role->revokePermissionTo($permission->name);
             }
-            return redirect()->route("dashboard.roles.index")->with("success",__("messages.role.update.success"));
+            return redirect()->route("dashboard.roles.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.role',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.role.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.role',1)]))->withInput();
         }
     }
 
@@ -148,9 +148,9 @@ class RoleController extends Controller
         if($role->id === Role::findByName("SuperAdmin")->id)abort(404);
         try{
             $role->delete();
-            return redirect()->route("dashboard.roles.index")->with('success',__("messages.role.delete.success"));
+            return redirect()->route("dashboard.roles.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.role',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.role.delete.failed"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.role',1)]));
         }
     }
 }

@@ -91,9 +91,9 @@ class UserController extends Controller
             }
             $message = (new CreateUser($user,$password))->onQueue('emails');
             Mail::to($user)->queue($message);
-            return redirect()->route("dashboard.users.index")->with("success",__("messages.user.create.success"));
+            return redirect()->route("dashboard.users.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.user',1)]));
         }catch (Exception $e){
-            return redirect()->back()->withErrors(__('messages.user.create.failed'))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.user',1)]))->withInput();
         }
     }
 
@@ -150,9 +150,9 @@ class UserController extends Controller
                 if($key === $saRole->id)continue;
                 $bool ? $user->assignRole($role->name) : $user->removeRole($role->name);
             }
-            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.update.success'));
+            return redirect()->route('dashboard.users.index')->with('success',__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.user',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__('messages.user.update.failed'))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.user',1)]))->withInput();
         }
     }
 
@@ -167,9 +167,9 @@ class UserController extends Controller
         try{
             if($user->hasRole('SuperAdmin'))throw new InvalidArgumentException('Invalid user');
             $user->delete();
-            return redirect()->route('dashboard.users.index')->with('success',__('messages.user.delete.success'));
+            return redirect()->route('dashboard.users.index')->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.user',1)]));
         }catch (Exception){
-            return redirect()->withErrors(__('messages.user.delete.failed'));
+            return redirect()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.user',1)]));
         }
     }
 }

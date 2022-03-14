@@ -66,9 +66,9 @@ class ProductController extends Controller
         $product['image_path'] = $file->store('images');
         try {
             Product::create($product);
-            return redirect()->route("dashboard.products.index")->with("success", __("messages.product.create.success"));
+            return redirect()->route("dashboard.products.index")->with("success", __("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.product',1)]));
         } catch (Exception $e) {
-            return redirect()->back()->withErrors(__("messages.product.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.product',1)]))->withInput();
         }
     }
 
@@ -110,9 +110,9 @@ class ProductController extends Controller
         $validated = $request->validated();
         try{
             $product->update($validated);
-            return redirect()->route("dashboard.products.index")->with("success",__("messages.product.update.success"));
+            return redirect()->route("dashboard.products.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.product',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.product.update.success"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.product',1)]))->withInput();
         }
     }
 
@@ -126,9 +126,9 @@ class ProductController extends Controller
     {
         try{
             $product->delete();
-            return redirect()->route("dashboard.products.index")->with('success',__("messages.product.delete.success"));
+            return redirect()->route("dashboard.products.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.product',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.product.delete.success"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.product',1)]));
         }
     }
 }

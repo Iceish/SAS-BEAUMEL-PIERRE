@@ -64,9 +64,9 @@ class CameraController extends Controller
         $validated = $request->validated();
         try{
             Camera::create($validated);
-            return redirect()->route("dashboard.cameras.index")->with("success",__("messages.camera.create.success"));
+            return redirect()->route("dashboard.cameras.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.camera',1)]));
         }catch (Exception){
-            return redirect()->back()->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.camera',1)]))->withInput();
         }
     }
 
@@ -108,9 +108,9 @@ class CameraController extends Controller
         $validated = $request->validated();
         try{
             $camera->update($validated);
-            return redirect()->route("dashboard.cameras.index")->with("success",__("messages.camera.update.success"));
+            return redirect()->route("dashboard.cameras.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.camera',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors("errors",__("messages.camera.update.success"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.camera',1)]))->withInput();
         }
     }
 
@@ -124,9 +124,9 @@ class CameraController extends Controller
     {
         try{
             $camera->delete();
-            return redirect()->route("dashboard.cameras.index")->with('success',__("messages.camera.delete.success"));
+            return redirect()->route("dashboard.cameras.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.camera',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.camera.delete.success"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.camera',1)]));
         }
     }
 }

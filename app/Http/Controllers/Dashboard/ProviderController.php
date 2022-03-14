@@ -65,9 +65,9 @@ class ProviderController extends Controller
         $validated = $request->validated();
         try{
             Provider::create($validated);
-            return redirect()->route("dashboard.providers.index")->with("success",__("messages.provider.create.success"));
+            return redirect()->route("dashboard.providers.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.provider',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.provider.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.provider',1)]))->withInput();
         }
     }
 
@@ -109,9 +109,9 @@ class ProviderController extends Controller
         $validated = $request->validated();
         try{
             $provider->update($validated);
-            return redirect()->route("dashboard.providers.index")->with("success",__("messages.provider.update.success"));
+            return redirect()->route("dashboard.providers.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.provider',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.provider.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.provider',1)]))->withInput();
         }
     }
 
@@ -125,9 +125,9 @@ class ProviderController extends Controller
     {
         try{
             $provider->delete();
-            return redirect()->route("dashboard.providers.index")->with('success',__("messages.provider.delete.success"));
+            return redirect()->route("dashboard.providers.index")->with('success',__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.provider',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.provider.delete.success"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.provider',1)]));
         }
     }
 }

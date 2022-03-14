@@ -42,9 +42,9 @@ class ProfileController extends Controller
         $validated = $request->validated();
         try{
             $user->update($validated);
-            return redirect()->back()->with("success",__("messages.profile.update.success"));
+            return redirect()->back()->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.profile',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.profile.update.error"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.profile',1)]))->withInput();
         }
     }
 

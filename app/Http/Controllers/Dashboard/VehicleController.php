@@ -62,9 +62,9 @@ class VehicleController extends Controller
         $validated = $request->validated();
         try {
             Vehicle::create($validated);
-            return redirect()->route("dashboard.vehicles.index")->with("success", __("messages.vehicle.create.success"));
+            return redirect()->route("dashboard.vehicles.index")->with("success", __("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.vehicle',1)]));
         } catch (Exception $e) {
-            return redirect()->back()->withErrors(__("messages.vehicle.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.vehicle',1)]))->withInput();
         }
     }
 
@@ -107,9 +107,9 @@ class VehicleController extends Controller
         $validated = $request->validated();
         try{
             $vehicle->update($validated);
-            return redirect()->route("dashboard.vehicles.index")->with("success",__("messages.vehicle.update.success"));
+            return redirect()->route("dashboard.vehicles.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.vehicle',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.vehicle.update.success"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.vehicle',1)]))->withInput();
         }
     }
 
@@ -123,9 +123,9 @@ class VehicleController extends Controller
     {
         try{
             $vehicle->delete();
-            return redirect()->route("dashboard.vehicles.index")->with('success',__("messages.vehicle.delete.success"));
+            return redirect()->route("dashboard.vehicles.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.vehicle',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.vehicle.delete.success"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.vehicle',1)]));
         }
     }
 }

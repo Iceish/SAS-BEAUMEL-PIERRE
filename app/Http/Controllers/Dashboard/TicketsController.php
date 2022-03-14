@@ -50,9 +50,9 @@ class TicketsController extends Controller
     {
         try{
             $ticket->delete();
-            return redirect()->route("dashboard.tickets.index")->with('success',__("messages.ticket.delete.success"));
+            return redirect()->route("dashboard.tickets.index")->with('success',__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.ticket',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.ticket.delete.success"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.ticket',1)]));
         }
     }
 

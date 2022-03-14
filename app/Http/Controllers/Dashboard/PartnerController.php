@@ -66,9 +66,9 @@ class PartnerController extends Controller
         $validated = $request->validated();
         try{
             Partner::create($validated);
-            return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.create.success"));
+            return redirect()->route("dashboard.partners.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.partner',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.partner.create"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.partner',1)]))->withInput();
         }
     }
 
@@ -114,9 +114,9 @@ class PartnerController extends Controller
         $validated = $request->validated();
         try{
             $partner->update($validated);
-            return redirect()->route("dashboard.partners.index")->with("success",__("messages.partner.update.success"));
+            return redirect()->route("dashboard.partners.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.partner',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.partner.update.success"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.partner',1)]))->withInput();
         }
     }
 
@@ -130,9 +130,9 @@ class PartnerController extends Controller
     {
         try{
             $partner->delete();
-            return redirect()->route("dashboard.partners.index")->with('success',__("messages.partner.delete.success"));
+            return redirect()->route("dashboard.partners.index")->with('success',__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.partner',1)]));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.partner.delete.success"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.partner',1)]));
         }
 
     }

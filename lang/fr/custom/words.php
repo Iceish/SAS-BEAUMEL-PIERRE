@@ -28,6 +28,7 @@ return [
     'user' => 'utilisateur|utilisateurs',
     'role' => 'rôle|rôles',
     'setting' => 'paramètre|paramètres',
+    'ticket' => 'ticket|tickets',
 
     'data' => [
 
