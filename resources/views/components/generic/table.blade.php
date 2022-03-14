@@ -35,11 +35,7 @@
                             {{ucfirst(__('custom/words.data.null'))}}
                         @endforelse
                     @else
-                        @if($rowData)
-                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData[$column["attributeNameF"]] ?? ucfirst(__('custom/words.data.null')) }}</p>
-                        @else
-                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
-                        @endif
+                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
                     @endif
                 </div>
             @endforeach
