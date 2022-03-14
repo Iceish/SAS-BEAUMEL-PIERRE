@@ -8,7 +8,7 @@
         {{$error}}
     @endforeach
 
-    <form id="edit" action="{{ route("dashboard.cameras.store") }}" method="post">
+    <form action="{{ route("dashboard.cameras.store") }}" method="post">
         @csrf
         <h4>{{ucfirst(__('custom/words.data.crud.create'))}}</h4>
 
@@ -37,8 +37,8 @@
             <input type="text" id="place" name="place" placeholder="{{ ucfirst(__('custom/words.data.input.text.place.placeholder')) }}" value="{{ old('place') }}"/>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
-        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i>{{ucfirst(__('custom/messages.informative.form.camera'))}}</p>
+        <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> {{ucfirst(__('custom/messages.informative.form.camera'))}}</p>
     </form>
 @endsection
 
