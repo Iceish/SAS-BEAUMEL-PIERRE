@@ -82,12 +82,12 @@ class InvoiceProviderController extends Controller
     /**
      * Display the specified provider invoice.
      *
-     * @param ProviderInvoice $providerInvoice
+     * @param int $providerInvoice_id
      * @return Application|Factory|View
      */
-    public function show(ProviderInvoice $providerInvoice): View|Factory|Application
+    public function show(int $providerInvoice_id): View|Factory|Application
     {
-        dd($providerInvoice);
+        $providerInvoice = ProviderInvoice::find($providerInvoice_id);
         return view("web.dashboard.sections.invoices.provider.show",
             compact("providerInvoice"),
         );
@@ -96,11 +96,12 @@ class InvoiceProviderController extends Controller
     /**
      * Show the form for editing the specified provider invoice.
      *
-     * @param ProviderInvoice $providerInvoice
+     * @param int $providerInvoice_id
      * @return Application|Factory|View
      */
-    public function edit(ProviderInvoice $providerInvoice): View|Factory|Application
+    public function edit(int $providerInvoice_id): View|Factory|Application
     {
+        $providerInvoice = ProviderInvoice::find($providerInvoice_id);
         return view("web.dashboard.sections.invoices.provider.edit",
             compact("providerInvoice")
         );
@@ -110,14 +111,15 @@ class InvoiceProviderController extends Controller
      * Update the specified provider invoice in storage.
      *
      * @param UpdateProviderInvoiceRequest $request
-     * @param ProviderInvoice $providerInvoice
+     * @param int $providerInvoice_id
      * @return RedirectResponse
      */
-    public function update(UpdateProviderInvoiceRequest $request,ProviderInvoice $providerInvoice): RedirectResponse
+    public function update(UpdateProviderInvoiceRequest $request,int $providerInvoice_id): RedirectResponse
     {
         $validated = $request->except("file");
         $file = $request->only("file");
         try{
+            $providerInvoice = ProviderInvoice::find($providerInvoice_id);
             $path = $file->store("images");
             $validated["path"] = $path;
             $providerInvoice->update($validated);
@@ -130,12 +132,13 @@ class InvoiceProviderController extends Controller
     /**
      * Remove the specified provider invoice from storage.
      *
-     * @param ProviderInvoice $providerInvoice
+     * @param int $providerInvoice_id
      * @return RedirectResponse
      */
-    public function destroy(ProviderInvoice $providerInvoice): RedirectResponse
+    public function destroy(int $providerInvoice_id): RedirectResponse
     {
         try{
+            $providerInvoice = ProviderInvoice::find($providerInvoice_id);
             Storage::delete($providerInvoice->path);
             $providerInvoice->delete();
             return redirect()->route("web.dashboard.sections.invoices.provider.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']));

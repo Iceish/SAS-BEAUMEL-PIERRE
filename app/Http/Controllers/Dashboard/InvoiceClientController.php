@@ -74,11 +74,13 @@ class InvoiceClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param ClientInvoice $clientInvoice
+     * @param int $clientInvoice_id
      * @return Application|Factory|View
      */
-    public function show(ClientInvoice $clientInvoice): View|Factory|Application
+    public function show(int $clientInvoice_id): View|Factory|Application
     {
+        $clientInvoice = ClientInvoice::find($clientInvoice_id);
+
         $clientInvoice->load('client');
         return view("web.dashboard.sections.invoices.client.show",
             compact("clientInvoice")
@@ -88,11 +90,13 @@ class InvoiceClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param ClientInvoice $clientInvoice
+     * @param int $clientInvoice_id
      * @return Application|Factory|View
      */
-    public function edit(ClientInvoice $clientInvoice): View|Factory|Application
+    public function edit(int $clientInvoice_id): View|Factory|Application
     {
+        $clientInvoice = ClientInvoice::find($clientInvoice_id);
+
         return view("web.dashboard.sections.invoices.client.edit",
             compact("clientInvoice")
         );
@@ -102,13 +106,15 @@ class InvoiceClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateClientInvoiceRequest $request
-     * @param ClientInvoice $clientInvoice
+     * @param int $clientInvoice_id
      * @return RedirectResponse
      */
-    public function update(UpdateClientInvoiceRequest $request, ClientInvoice $clientInvoice): RedirectResponse
+    public function update(UpdateClientInvoiceRequest $request, int $clientInvoice_id): RedirectResponse
     {
         $validated = $request->validated();
         try{
+            $clientInvoice = ClientInvoice::find($clientInvoice_id);
+
             $clientInvoice->update($validated);
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception){
@@ -119,12 +125,14 @@ class InvoiceClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param ClientInvoice $clientInvoice
+     * @param int $clientInvoice_id
      * @return RedirectResponse
      */
-    public function destroy(ClientInvoice $clientInvoice): RedirectResponse
+    public function destroy(int $clientInvoice_id): RedirectResponse
     {
         try{
+            $clientInvoice = ClientInvoice::find($clientInvoice_id);
+
             $clientInvoice->delete();
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception){
