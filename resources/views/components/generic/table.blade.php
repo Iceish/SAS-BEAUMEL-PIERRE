@@ -64,6 +64,7 @@
     @if($content instanceof \Illuminate\Pagination\AbstractPaginator && $content->hasPages())
     <div class="generic-table__pagination">
             <a href="{{$content->previousPageUrl() }}"><i class="fa-solid fa-caret-left fa-2x"></i></a>
+            <p>{{ $content->currentPage() }}</p>
             <a href="{{$content->nextPageUrl() }}"><i class="fa-solid fa-caret-right fa-2x"></i></a>
     </div>
     @endif
