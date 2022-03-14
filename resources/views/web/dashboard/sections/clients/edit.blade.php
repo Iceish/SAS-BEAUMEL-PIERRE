@@ -10,7 +10,7 @@
             {{$error}}
         @endforeach
     </div>
-    <form id="edit" action="{{ route("dashboard.clients.update",["id"=>$client->id]) }}" method="post">
+    <form id="edit" action="{{ route("dashboard.clients.update",["client"=>$client->id]) }}" method="post">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.edit')) }}</h4>
 
