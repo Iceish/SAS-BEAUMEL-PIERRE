@@ -72,6 +72,10 @@ return [
                     'label' => 'ville',
                     'placeholder' => 'Paris',
                 ],
+                'tel' => [
+                    'label' => 'téléphone',
+                    'placeholder' => '07-05-65-86-89',
+                ],
                 'place' => [
                     'label' => 'place',
                     'placeholder' => 'red barn',

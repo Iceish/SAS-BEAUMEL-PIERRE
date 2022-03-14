@@ -57,6 +57,11 @@
             <input type="text" id="city" name="city" placeholder="Clermont-Ferrand" value="{{ old('city') }}"/>
         </div>
 
+        <div class="field">
+            <label for="tel">{{ ucfirst(__('custom/words.data.input.text.tel.label')) }}</label>
+            <input type="text" id="tel" name="tel" placeholder="{{ __('custom/words.data.input.text.tel.placeholder') }}" value="{{ old('tel') }}"/>
+        </div>
+
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
     </form>
 @endsection

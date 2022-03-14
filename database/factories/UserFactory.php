@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'postal_code' => $this->faker->frenchPostalCode(),  // postal_code: frenchPostalCode / ex: 65131 / Creation faker: app/Faker/Geography.php
             'city' => $this->faker->city(),                     // city: city / ex: Port Henriette
             'address' => $this->faker->address(),               // address: address / ex: 927 Jalon Via Apt. 755 Port Nicholas, OR 84357
+            'tel' => $this->faker->phoneNumber(),               // tel: tel / ex: 04 62 78 95 32
         ];
     }
 

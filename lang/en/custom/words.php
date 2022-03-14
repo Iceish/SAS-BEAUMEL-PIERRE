@@ -72,6 +72,10 @@ return [
                     'label' => 'city',
                     'placeholder' => 'Los Angeles',
                 ],
+                'tel' => [
+                    'label' => 'phone number',
+                    'placeholder' => '07-05-65-86-89',
+                ],
                 'place' => [
                     'label' => 'place',
                     'placeholder' => 'red barn',

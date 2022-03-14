@@ -23,7 +23,7 @@ class StorePartnerRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape([ 'name' => 'string[]', 'postal_code' => 'string[]', 'city' => 'string[]', 'address' => 'string[]','email' => 'string[]'])]
+    #[ArrayShape(['name' => "string[]", 'postal_code' => "string[]", 'city' => "string[]", 'address' => "string[]", 'email' => "array", 'tel' => "string[]"])]
     public function rules(): array
     {
         return [
@@ -31,7 +31,8 @@ class StorePartnerRequest extends FormRequest
             'postal_code' => ['required','max:5','min:5'],
             'city' => ['required','max:40'],
             'address' => ['required','max:255'],
-            'email' => ['required','email','max:255', Rule::unique('partners')]
+            'email' => ['required','email','max:255', Rule::unique('partners')],
+            'tel' => ['required','max:14']
         ];
     }
 }

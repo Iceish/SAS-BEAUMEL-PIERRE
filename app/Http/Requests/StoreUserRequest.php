@@ -23,7 +23,7 @@ class StoreUserRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['roles' => 'string[]', 'roles.*' => 'array', 'email' => 'array', 'name' => 'string[]'])]
+    #[ArrayShape(['roles' => "string[]", 'roles.*' => "array", 'email' => "array", 'name' => "string[]", 'address' => "string[]", 'postal_code' => "string[]", 'city' => "string[]", 'tel' => "string[]"])]
     public function rules(): array
     {
         return [
@@ -34,6 +34,7 @@ class StoreUserRequest extends FormRequest
             'address' => ['nullable','string','max:255'],
             'postal_code' => ['nullable','string','max:5'],
             'city' => ['nullable','string','max:255'],
+            'tel' => ['nullable','max:14']
         ];
     }
 }

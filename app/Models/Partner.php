@@ -35,6 +35,7 @@ class Partner extends Model
         'city',
         'address',
         'email',
+        'tel',
     ];
 
     public function language(): BelongsToMany

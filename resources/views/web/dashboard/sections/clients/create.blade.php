@@ -37,6 +37,11 @@
             <input type="number" id="postal" name="postal_code" placeholder="{{ __('custom/words.data.input.number.postal-code.placeholder') }}" value="{{ old('postal_code') }}"/>
         </div>
 
+        <div class="field">
+            <label for="tel">{{ ucfirst(__('custom/words.data.input.text.tel.label')) }}</label>
+            <input type="text" id="tel" name="tel" placeholder="{{ __('custom/words.data.input.text.tel.placeholder') }}" value="{{ old('tel') }}"/>
+        </div>
+
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
         <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> {{ucfirst(__('custom/messages.informative.form.client'))}}</p>
     </form>

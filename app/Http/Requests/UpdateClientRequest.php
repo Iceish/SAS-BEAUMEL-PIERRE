@@ -22,7 +22,7 @@ class UpdateClientRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['email' => 'string[]', 'name' => 'string[]', 'postal_code' => 'char[]','address' => 'string[]','city' =>'string[]'])]
+    #[ArrayShape(['email' => "string[]", 'name' => "string[]", 'postal_code' => "string[]", 'address' => "string[]", 'city' => "string[]", 'tel' => "string[]"])]
     public function rules(): array
     {
         return [
@@ -30,7 +30,8 @@ class UpdateClientRequest extends FormRequest
             'name' => ['required','string','max:50'],
             'postal_code' => ['required','max:5','min:5'],
             'address' => ['required','max:255'],
-            'city' => ['required','max:40']
+            'city' => ['required','max:40'],
+            'tel' => ['required','max:14']
         ];
     }
 }

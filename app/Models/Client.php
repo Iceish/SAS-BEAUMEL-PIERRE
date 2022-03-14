@@ -36,6 +36,7 @@ class Client extends Model
         'postal_code',
         'city',
         'address',
+        'tel',
     ];
 
     public function clientInvoice(): HasMany

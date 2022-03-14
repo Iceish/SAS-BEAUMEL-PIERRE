@@ -23,6 +23,7 @@ class ProviderFactory extends Factory
             'postal_code' => $this->faker->frenchPostalCode(),   // postal_code: frenchPostalCode / ex: 44981 / Creation faker: app/Faker/Geography.php
             'city' => $this->faker->city(),                      // city: city / ex: North Antwon
             'address' => $this->faker->address(),                // address: address / ex: 78919 Isai Key East Alysa, VA
+            'tel' => $this->faker->phoneNumber(),               // tel: tel / ex: 04 62 78 95 32
         ];
     }
 }

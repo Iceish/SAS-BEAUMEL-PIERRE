@@ -34,6 +34,7 @@ class Provider extends Model
         'city',
         'address',
         'email',
+        'tel',
     ];
 }
 
