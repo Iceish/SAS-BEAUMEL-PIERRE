@@ -35,7 +35,7 @@ class UpdateUserRequest extends FormRequest
             'address' => ['nullable','string','max:255'],
             'postal_code' => ['nullable','string','max:5'],
             'city' => ['nullable','string','max:255'],
-            'tel' => ['nullable','max:14']
+            'tel' => ['nullable','max:255']
         ];
     }
 }
