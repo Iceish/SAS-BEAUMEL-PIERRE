@@ -32,7 +32,7 @@ class StoreClientRequest extends FormRequest
             'postal_code' => ['required','max:5','min:5'],
             'address' => ['required','max:255'],
             'city' => ['required','max:40'],
-            'tel' => ['required','max:14']
+            'tel' => ['required','max:255']
         ];
     }
 }

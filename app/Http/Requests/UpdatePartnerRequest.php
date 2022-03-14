@@ -31,7 +31,7 @@ class UpdatePartnerRequest extends FormRequest
             'city' => ['required','max:40'],
             'address' => ['required','max:255'],
             'email' => ['required','email','max:255'],
-            'tel' => ['required','max:14']
+            'tel' => ['required','max:255']
         ];
     }
 }

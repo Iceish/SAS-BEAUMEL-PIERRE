@@ -32,7 +32,7 @@ class StorePartnerRequest extends FormRequest
             'city' => ['required','max:40'],
             'address' => ['required','max:255'],
             'email' => ['required','email','max:255', Rule::unique('partners')],
-            'tel' => ['required','max:14']
+            'tel' => ['required','max:255']
         ];
     }
 }
