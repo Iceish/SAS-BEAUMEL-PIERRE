@@ -67,13 +67,14 @@ class InvoiceProviderController extends Controller
     public function store(StoreProviderInvoiceRequest $request): RedirectResponse
     {
         $validated = $request->except("file");
-        $file = $request->only("file");
+        $file = $request->only("file")['file'];
         try{
             $path = $file->store("images");
             $validated["path"] = $path;
-            ProviderInvoice::create($validated);
-            return redirect()->route("web.dashboard.sections.invoices.provider.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']));
-        }catch (Exception){
+            $providerInvoice = new ProviderInvoice($validated);
+            $providerInvoice->save();
+            return redirect()->route("dashboard.invoices.providers.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']));
+        }catch (Exception $e){
             return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.provider',1).')']))->withInput();
         }
     }
@@ -86,6 +87,7 @@ class InvoiceProviderController extends Controller
      */
     public function show(ProviderInvoice $providerInvoice): View|Factory|Application
     {
+        dd($providerInvoice);
         return view("web.dashboard.sections.invoices.provider.show",
             compact("providerInvoice"),
         );

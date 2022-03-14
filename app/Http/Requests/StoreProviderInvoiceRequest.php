@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use JetBrains\PhpStorm\ArrayShape;
 
 class StoreProviderInvoiceRequest extends FormRequest
@@ -26,7 +27,7 @@ class StoreProviderInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'provider_id' => ['required','integer','exists:providers'],
+            'provider_id' => ['required','integer',Rule::exists('providers','id')],
             'file' => ['required','file','max:5000'],
             'date' => ['required','date']
         ];
