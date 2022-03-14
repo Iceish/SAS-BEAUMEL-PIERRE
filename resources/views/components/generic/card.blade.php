@@ -35,7 +35,7 @@
                 @csrf
                 @method('DELETE')
             </form>
-            <a href="" onclick="Utils.confirm(() => {
+            <a class="danger" href="" onclick="Utils.confirm(() => {
                 window.document.querySelector('#destroy-row-{{$content->id}}').submit();
                 });
                 return false;"
