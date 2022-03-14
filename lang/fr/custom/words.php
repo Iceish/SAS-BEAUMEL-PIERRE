@@ -61,6 +61,9 @@ return [
                     'label' => 'nom d\'utilisateur',
                     'placeholder' => 'administrateur',
                 ],
+                'available' => [
+                    'label' => 'disponible',
+                ],
                 'subject' => [
                     'label' => 'sujet',
                     'placeholder' => 'sujet',

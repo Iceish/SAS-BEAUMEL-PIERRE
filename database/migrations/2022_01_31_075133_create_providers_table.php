@@ -23,7 +23,7 @@ class CreateProvidersTable extends Migration
             $table->string('city');
             $table->string('address');
             $table->string('email')->unique();
-            $table->char('tel',14);
+            $table->string('tel');
             $table->timestamps();
         });
     }
