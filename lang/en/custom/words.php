@@ -53,8 +53,8 @@ return [
         'input' => [
 
             'text' => [
-                'name' => [
-                    'label' => 'name',
+                'fullname' => [
+                    'label' => 'fullname',
                     'placeholder' => 'John Doe',
                 ],
                 'username' => [
