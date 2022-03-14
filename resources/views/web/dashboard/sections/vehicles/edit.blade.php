@@ -20,6 +20,10 @@
             <label for="revision_date">{{ ucfirst(__('custom/words.data.input.date.revision.label')) }}</label>
             <input type="date" id="revision_date" name="revision_date" @if($vehicle->revision_date)value="{{ $vehicle->revision_date }}" @else placeholder="{{ __('custom/words.data.input.text.license-plate.placeholder')}}"@endif />
         </div>
+        <div class="field">
+            <label for="available">{{ ucfirst(__('custom/words.data.input.text.available.label')) }}</label>
+            <input type="checkbox" id="available" name="available" value="{{ $vehicle->available }}" />
+        </div>
 
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
 @endsection

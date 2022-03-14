@@ -61,6 +61,9 @@ return [
                     'label' => 'username',
                     'placeholder' => 'root',
                 ],
+                'available' => [
+                    'label' => 'available',
+                ],
                 'subject' => [
                     'label' => 'subject',
                     'placeholder' => 'issue',
@@ -75,7 +78,7 @@ return [
                 ],
                 'tel' => [
                     'label' => 'phone number',
-                    'placeholder' => '07-05-65-86-89',
+                    'placeholder' => '+1 202-456-1111',
                 ],
                 'place' => [
                     'label' => 'place',

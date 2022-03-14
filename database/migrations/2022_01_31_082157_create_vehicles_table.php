@@ -21,7 +21,7 @@ class CreateVehiclesTable extends Migration
             $table->string('name');
             $table->char('licence_plate',9)->nullable();
             $table->date('revision_date')->nullable();
-            $table->boolean('available')->default(false);
+            $table->boolean('available')->default(true);
             $table->timestamps();
         });
     }
