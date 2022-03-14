@@ -3,4 +3,4 @@
     array_pop($url);
     $url = implode('/', $url);
 @endphp
-<a class="btn btn--danger" href="{{ $url }}">{{ucfirst(__('cancel'))}}</a>
+<a class="btn danger" href="{{ $url }}">{{ucfirst(__('cancel'))}}</a>

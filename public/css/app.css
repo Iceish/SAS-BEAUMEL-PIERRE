@@ -58,7 +58,7 @@ input[type=submit].btn--bold, a.btn--bold {
   --border-size: 2px;
   font-weight: bold;
 }
-input[type=submit].btn--danger, a.btn--danger {
+input[type=submit].btn.danger, a.btn.danger {
   --color-dark: var(--danger-dark);
   --color: var(--danger);
 }
@@ -845,14 +845,20 @@ body {
 }
 
 a {
+  --color-dark: var(--primary-dark);
+  --color: var(--primary);
   text-decoration: none;
-  color: var(--primary-dark);
+  color: var(--color-dark);
+}
+a.danger {
+  --color-dark: var(--danger-dark);
+  --color: var(--danger);
 }
 a:visited, a:focus, a:active {
-  color: var(--primary-dark);
+  color: var(--color-dark);
 }
 a:hover, a:hover i {
-  color: var(--primary);
+  color: var(--color);
 }
 
 hr {

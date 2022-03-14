@@ -6,12 +6,20 @@ body{
 }
 
 a{
+    --color-dark : var(--primary-dark);
+    --color : var(--primary);
+
+    &.danger{
+        --color-dark: var(--danger-dark);
+        --color: var(--danger);
+    }
+
     text-decoration: none;
-    color: var(--primary-dark);
-    &:visited, &:focus, &:active { color: var(--primary-dark) }
+    color: var(--color-dark);
+    &:visited, &:focus, &:active { color: var(--color-dark) }
 
     &:hover, &:hover i {
-        color: var(--primary)
+        color: var(--color)
     }
 }
 

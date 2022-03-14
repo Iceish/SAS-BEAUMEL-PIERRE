@@ -24,7 +24,7 @@ input[type="submit"].btn, a.btn{
         font-weight: bold;
     }
 
-    &--danger{
+    &.danger{
         --color-dark: var(--danger-dark);
         --color: var(--danger);
     }
