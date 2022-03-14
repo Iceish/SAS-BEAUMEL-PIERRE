@@ -28,10 +28,13 @@
         </div>
 
         <div class="field">
-            <label for="client_id">{{ ucfirst(trans_choice('custom/words.client',1)) }}</label>
-            <input type="number" id="client_id" name="client_id" placeholder="n°2" value="{{ old('client_id') }}"/>
+            <label for="provider">{{ ucfirst(trans_choice('custom/words.client', 1)) }}</label>
+            <select id="provider" name="provider_id">
+                @foreach($clients as $client)
+                    <option value="{{$client->id}}">{{ $client->name }}</option>
+                @endforeach
+            </select>
         </div>
-
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
     </form>
 @endsection

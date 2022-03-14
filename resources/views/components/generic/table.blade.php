@@ -35,7 +35,11 @@
                             {{ucfirst(__('custom/words.data.null'))}}
                         @endforelse
                     @else
-                        <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
+                        @if($column["attributeNameF"])
+                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData[$column["attributeNameF"]] ?? ucfirst(__('custom/words.data.null')) }}</p>
+                        @else
+                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
+                        @endif
                     @endif
                 </div>
             @endforeach
@@ -52,7 +56,7 @@
                             return false;"
                         ><i class="fa-solid fa-trash"></i></a>
                     @elseif($action == 'show')
-                        <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-eye"></i></a>
                     @elseif($action == 'edit' && auth()->user()->can("$perm.edit"))
                         <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-pen"></i></a>
                     @endif

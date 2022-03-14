@@ -101,9 +101,11 @@ class InvoiceProviderController extends Controller
      */
     public function edit(int $providerInvoice_id): View|Factory|Application
     {
+        $providers = Provider::all();
         $providerInvoice = ProviderInvoice::find($providerInvoice_id);
         return view("web.dashboard.sections.invoices.provider.edit",
-            compact("providerInvoice")
+            compact("providerInvoice"),
+            compact('providers')
         );
     }
 

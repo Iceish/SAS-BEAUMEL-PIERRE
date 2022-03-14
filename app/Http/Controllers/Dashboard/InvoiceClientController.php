@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\StoreClientInvoiceRequest;
 use App\Http\Requests\UpdateClientInvoiceRequest;
+use App\Models\Client;
 use App\Models\ClientInvoice;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -48,9 +49,9 @@ class InvoiceClientController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        $clientInvoice = ClientInvoice::all();
+        $clients = Client::all();
         return view("web.dashboard.sections.invoices.client.create",
-            compact("clientInvoice")
+            compact("clients")
         );
     }
 
