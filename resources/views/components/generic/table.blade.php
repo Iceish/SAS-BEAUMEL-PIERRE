@@ -5,9 +5,8 @@
                 <div class="field no-label">
                     <input type="text" id="search" name="search" value="{{ old('search') }}" placeholder="{{ucfirst(__('custom/words.data.crud.search'))}}" autocomplete="off"/>
                 </div>
-                <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.crud.search')) }}" />
-
-                <a href="{{ url()->current() }}" @if( !app('request')->input('search')) style="visibility: hidden" @endif><i class="fa-solid fa-arrow-rotate-right"></i></a>
+                <a href="#" onclick="this.parentNode.submit();return false;"><i class="fa-solid fa-2x fa-magnifying-glass"></i></a>
+                <a href="{{ url()->current() }}" @if( !app('request')->input('search')) style="visibility: hidden" @endif><i class="fa-solid fa-2x fa-arrow-rotate-right"></i></a>
 
             </form>
         @endif
