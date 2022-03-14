@@ -10,7 +10,7 @@
 
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.fullname.label')) }}</label>
-            <input type="text" id="name" name="name" placeholder="{{ __('custom/words.data.input.text.name.placeholder') }}" value="{{ $partner->name }}"/>
+            <input type="text" id="name" name="name" placeholder="{{ __('custom/words.data.input.text.fullname.placeholder') }}" value="{{ $partner->name }}"/>
         </div>
 
         <div class="field">

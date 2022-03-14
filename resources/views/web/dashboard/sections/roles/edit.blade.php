@@ -12,7 +12,7 @@
         <h4>{{ ucfirst(__('custom/words.data.crud.edit')) }}</h4>
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.fullname.label')) }}</label>
-            <input type="text" id="name" name="name" value="{{ $role->name }}" placeholder="{{ __('custom/words.data.input.text.name.placeholder') }}" />
+            <input type="text" id="name" name="name" value="{{ $role->name }}" placeholder="{{ __('custom/words.data.input.text.fullname.placeholder') }}" />
         </div>
 
         <div class="category-grid">
