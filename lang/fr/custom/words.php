@@ -11,11 +11,11 @@ return [
     'accept' => 'accepter',
 
     'home' => 'acceuil',
-    'about-us' => 'à propos de nous',
+    'about-us' => 'a propos de nous',
     'contact-us' => 'contactez nous',
     'eula' => 'CGU',
 
-    'login' => 'login',
+    'login' => 'se connecter',
     'dashboard' => 'tableau de bord',
     'profile' => 'profile',
     'camera' => 'caméra|caméras',
