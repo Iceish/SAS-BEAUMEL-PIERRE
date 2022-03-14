@@ -19,5 +19,11 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.49.0",
         "sass-loader": "^12.4.0"
-    }
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.2"
+    },
+    "browserslist": [
+        "defaults"
+    ]
 }
