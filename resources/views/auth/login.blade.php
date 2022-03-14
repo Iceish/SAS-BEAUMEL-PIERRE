@@ -20,7 +20,10 @@
             <label for="passwordInput">
                 {{ ucfirst(__('custom/words.data.input.password.default.label')) }}
             </label>
-            <input id="passwordInput" name="password" type="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" autocomplete="off"/>
+            <div class="input">
+                <input id="passwordInput" style="padding-right: 30px" name="password" type="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" autocomplete="off"/>
+                <i class="fa-solid fa-eye" id="togglePassword" style="margin-left: -25px; cursor: pointer;"></i>
+            </div>
         </div>
         <div class="field">
             <label for="rememberInput">
@@ -35,5 +38,17 @@
     </form>
 </section>
 @endsection
+@push('js')
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#passwordInput');
+
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+@endpush
 
 

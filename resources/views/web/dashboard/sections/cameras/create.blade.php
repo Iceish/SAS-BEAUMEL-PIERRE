@@ -36,7 +36,7 @@
             <label for="place">{{ucfirst(__('custom/words.data.input.text.place.label'))}}</label>
             <input type="text" id="place" name="place" placeholder="{{ ucfirst(__('custom/words.data.input.text.place.placeholder')) }}" value="{{ old('place') }}"/>
         </div>
-
+        <x-utils.cancelBtn/>
         <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
         <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> {{ucfirst(__('custom/messages.informative.form.camera'))}}</p>
     </form>

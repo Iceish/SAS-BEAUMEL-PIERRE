@@ -89,7 +89,7 @@ return [
                     'placeholder' => 'dossier/document.pdf',
                 ],
                 'file' => [
-                    'label' => 'file',
+                    'label' => 'fichier',
                 ],
                 'image-path' => [
                     'label' => 'chemin de l\' image',

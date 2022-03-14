@@ -56,7 +56,7 @@
                             return false;"
                         ><i class="fa-solid fa-trash"></i></a>
                     @elseif($action == 'show')
-                        <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-eye"></i></a>
                     @elseif($action == 'edit' && auth()->user()->can("$perm.edit"))
                         <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-pen"></i></a>
                     @endif
@@ -68,6 +68,7 @@
     @if($content instanceof \Illuminate\Pagination\AbstractPaginator && $content->hasPages())
     <div class="generic-table__pagination">
             <a href="{{$content->previousPageUrl() }}"><i class="fa-solid fa-caret-left fa-2x"></i></a>
+            <p>{{ $content->currentPage() }}</p>
             <a href="{{$content->nextPageUrl() }}"><i class="fa-solid fa-caret-right fa-2x"></i></a>
     </div>
     @endif

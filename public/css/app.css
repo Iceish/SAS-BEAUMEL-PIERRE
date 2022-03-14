@@ -89,13 +89,22 @@ form .field.no-label {
 form .field > input, form .field select {
   background-color: transparent;
 }
-form .field > input {
+form .field > input, form .field .input {
   border: none;
   outline: none;
   border-bottom: 2px solid var(--primary-light);
 }
-form .field > input:active, form .field > input:focus {
+form .field .input input:active, form .field .input input:focus {
   border-bottom: 2px solid var(--primary);
+}
+form .field .input {
+  display: flex;
+  align-items: center;
+}
+form .field .input > input {
+  border: none;
+  outline: none;
+  width: 100%;
 }
 form .field select, form .field textarea {
   outline: none;
