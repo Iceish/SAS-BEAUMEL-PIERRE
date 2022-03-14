@@ -9,7 +9,7 @@
     @enderror
     <form id="login" action="{{ route("auth.login") }}" method="post">
         @csrf
-        <h4>Login</h4>
+        <h4>{{ ucfirst(__('custom/words.login')) }}</h4>
         <div class="field">
             <label for="emailInput">
                 {{ ucfirst(__('custom/words.data.input.email.default.label')) }}
