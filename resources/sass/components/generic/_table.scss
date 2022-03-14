@@ -58,7 +58,7 @@
         grid-gap: 10px;
         @include separator('bottom');
 
-        &:hover{
+        &:not(&__pagination):hover{
             background-color: var(--primary-ghost);
         }
 

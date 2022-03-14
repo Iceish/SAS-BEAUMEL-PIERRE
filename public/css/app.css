@@ -612,7 +612,7 @@ img.avatar {
   grid-gap: 10px;
   border-bottom: 1px solid #e6e6e6;
 }
-.generic-table__row:hover, .generic-table__head:hover {
+.generic-table__row:not(.generic-table__row__pagination, .generic-table__head__pagination):hover, .generic-table__head:not(.generic-table__row__pagination, .generic-table__head__pagination):hover {
   background-color: var(--primary-ghost);
 }
 .generic-table__row > div.actions i, .generic-table__head > div.actions i {
