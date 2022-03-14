@@ -57,7 +57,7 @@ return [
                     'placeholder' => 'John Doe',
                 ],
                 'username' => [
-                    'label' => 'nom d\' utilisateur',
+                    'label' => 'nom d\'utilisateur',
                     'placeholder' => 'administrateur',
                 ],
                 'subject' => [
