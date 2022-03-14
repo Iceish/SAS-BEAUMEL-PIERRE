@@ -42,6 +42,9 @@
             <input type="text" id="tel" name="tel" placeholder="{{ __('custom/words.data.input.text.tel.placeholder') }}" value="{{ $provider->tel }}"/>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        <div class="buttons">
+            <x-utils.cancelBtn/>
+            <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        </div>
     </form>
 @endsection
