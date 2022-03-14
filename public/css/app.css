@@ -94,9 +94,6 @@ form .field > input, form .field .input {
   outline: none;
   border-bottom: 2px solid var(--primary-light);
 }
-form .field .input input:active, form .field .input input:focus {
-  border-bottom: 2px solid var(--primary);
-}
 form .field .input {
   display: flex;
   align-items: center;
@@ -858,6 +855,18 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
+}
+
+::-moz-placeholder {
+  color: rgba(142, 142, 142, 0.5);
+}
+
+:-ms-input-placeholder {
+  color: rgba(142, 142, 142, 0.5);
+}
+
+::placeholder {
+  color: rgba(142, 142, 142, 0.5);
 }
 
 body#dashboard {
