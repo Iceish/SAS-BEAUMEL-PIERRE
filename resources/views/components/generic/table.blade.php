@@ -18,7 +18,7 @@
     <div class="generic-table__head">
             @foreach($columns as $column)
                 <div>
-                    <p>{{ $column["name"] }}</p>
+                    <p>{{ htmlspecialchars_decode($column["name"]) }}</p>
                 </div>
             @endforeach
         <div>{{ucfirst(trans_choice('custom/words.data.crud.action',false))}}</div>

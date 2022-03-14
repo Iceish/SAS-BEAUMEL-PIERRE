@@ -85,7 +85,7 @@ return [
                     'placeholder' => 'red barn',
                 ],
                 'license-plate' => [
-                    'label' => 'plaque d\' immatriculation',
+                    'label' => 'plaque d\'immatriculation',
                     'placeholder' => 'AK-124-FD',
                 ],
                 'path' => [
