@@ -7,16 +7,24 @@
     <meta name="description" content="Reset Password Email Template.">
     <style type="text/css">
 
-        body{
-            text-align: center;
+        html{
+            width: 100%;
         }
-        div{
-            margin: 2% auto;
-            max-width: 20%;
-            min-width: 240px;
-            padding: 2%;
 
-            background: rgb(100,100,100);
+        body{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        div#main{
+            width: 50%;
+            min-width: 240px;
+            padding: 50px;
+
+            background: rgba(32, 178, 170, 0.47);
+            border-radius: 10px;
         }
         img{
             max-width: 100px;
@@ -26,26 +34,27 @@
             font-family:sans-serif;
             font-size: 24px;
         }
-        .texteBase{
-        }
         .identifiants{
             font-size: 30px;
-            background: rgb(38,166,154, 0.3);
+            background: white;
+            border-radius: 10px;
+            padding: 5px;
             word-wrap: break-word;
         }
         a{
             font-size: 24px;
+            color: black;
         }
 
     </style>
 </head>
 <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
-<p  class="texteBase">
+<p>
     Bonjour {{ $user->name }},
     Un compte à été crée pour vous, voici vos identifiants :
 </p>
-<div >
-    <a href="https://dev.beaumel43.com/" id="siteweb">
+<div id="main">
+    <a href="https://dev.beaumel43.com/">
         <img src="https://dev.beaumel43.com/img/logo.png">
     </a>
     <p>
@@ -54,7 +63,7 @@
     <p>
         Mots de passe :<br> <span class="identifiants">{{ $password }}</span>
     </p>
-    <a href="https://dev.beaumel43.com/" id="siteweb">aller au site web</a>
+    <a href="https://dev.beaumel43.com/">Accèder au site web</a>
 </div>
 </body>
 

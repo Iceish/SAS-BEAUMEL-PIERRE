@@ -8,13 +8,13 @@
             {{$error}}
         @endforeach
     </div>
-    <form id="edit" action="{{ route("dashboard.clients.store") }}" method="post">
+    <form id="edit" action="{{ route("dashboard.invoices.providers.store") }}" method="post" enctype="multipart/form-data">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>
 
         <div class="field">
-            <label for="path">{{ ucfirst(__('custom/words.data.input.text.path.label')) }}</label>
-            <input type="text" id="path" name="path" placeholder="{{ __('custom/words.data.input.text.path.placeholder') }}" value="{{ old('path') }}"/>
+            <label for="file">{{ ucfirst(__('custom/words.data.input.text.file.label')) }}</label>
+            <input type="file" id="file" name="file" value="{{ old('file') }}"/>
         </div>
 
         <div class="field">
@@ -23,8 +23,12 @@
         </div>
 
         <div class="field">
-            <label for="provider_id">{{ ucfirst(trans_choice('custom/words.provider', 1)) }}</label>
-            <input type="number" id="provider_id" name="provider_id" placeholder="n°2" value="{{ old('provider_id') }}"/>
+            <label for="provider">{{ ucfirst(trans_choice('custom/words.provider', 1)) }}</label>
+            <select id="provider" name="provider_id">
+                @foreach($providers as $provider)
+                    <option value="{{$provider->id}}">{{ $provider->name }}</option>
+                @endforeach
+            </select>
         </div>
 
         <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />

@@ -11,11 +11,11 @@ return [
     'accept' => 'accepter',
 
     'home' => 'acceuil',
-    'about-us' => 'à propos de nous',
+    'about-us' => 'a propos de nous',
     'contact-us' => 'contactez nous',
     'eula' => 'CGU',
 
-    'login' => 'login',
+    'login' => 'se connecter',
     'dashboard' => 'tableau de bord',
     'profile' => 'profile',
     'camera' => 'caméra|caméras',
@@ -57,7 +57,7 @@ return [
                     'placeholder' => 'John Doe',
                 ],
                 'username' => [
-                    'label' => 'nom d\' utilisateur',
+                    'label' => 'nom d\'utilisateur',
                     'placeholder' => 'administrateur',
                 ],
                 'subject' => [
@@ -83,6 +83,9 @@ return [
                 'path' => [
                     'label' => 'chemin',
                     'placeholder' => 'dossier/document.pdf',
+                ],
+                'file' => [
+                    'label' => 'file',
                 ],
                 'image-path' => [
                     'label' => 'chemin de l\' image',

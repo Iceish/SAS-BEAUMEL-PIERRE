@@ -26,10 +26,10 @@ return [
             'admin' => 'Administrateur du site'
         ],
         'form' => [
-            'camera' => 'Cette action n\'a pas de connecter la caméra sur le site.',
-            'client' => 'Cette action n\'a pas de créer un compte.',
-            'provider' => 'Cette action n\'a pas crée un compte.',
-            'partner' => 'Cette action n\'a pas crée de compte.',
+            'camera' => 'Cette action ne connecte pas la caméra sur le site.',
+            'client' => 'Cette action ne créer pas de compte.',
+            'provider' => 'Cette action ne créer pas de compte.',
+            'partner' => 'Cette action ne créer pas de compte.',
         ],
         'greetings' => [
             'morning' => 'Bonjour :name.',
