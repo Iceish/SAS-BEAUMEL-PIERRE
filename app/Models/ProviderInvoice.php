@@ -32,6 +32,7 @@ class ProviderInvoice extends Model
     protected $fillable = [
         'path',
         'date',
+        'provider_id'
     ];
 
     public function provider(): BelongsTo
