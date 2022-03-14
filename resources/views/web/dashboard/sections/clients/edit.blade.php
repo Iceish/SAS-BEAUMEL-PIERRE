@@ -15,7 +15,7 @@
         <h4>{{ ucfirst(__('custom/words.data.crud.edit')) }}</h4>
 
         <div class="field">
-            <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.text.fullname.label')) }}</label>
             <input type="text" id="name" name="name" placeholder="{{ __('custom/words.data.input.text.name.placeholder') }}" value="{{$client->name}}"/>
         </div>
 

@@ -53,13 +53,16 @@ return [
         'input' => [
 
             'text' => [
-                'name' => [
-                    'label' => 'nom',
+                'fullname' => [
+                    'label' => 'nom complet',
                     'placeholder' => 'John Doe',
                 ],
                 'username' => [
                     'label' => 'nom d\'utilisateur',
                     'placeholder' => 'administrateur',
+                ],
+                'available' => [
+                    'label' => 'disponible',
                 ],
                 'subject' => [
                     'label' => 'sujet',
