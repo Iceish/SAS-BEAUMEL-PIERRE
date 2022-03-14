@@ -20,9 +20,9 @@
             <label for="passwordInput">
                 {{ ucfirst(__('custom/words.data.input.password.default.label')) }}
             </label>
-            <div>
+            <div class="input">
                 <input id="passwordInput" style="padding-right: 30px" name="password" type="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" autocomplete="off"/>
-                <i class="fa-solid fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+                <i class="fa-solid fa-eye" id="togglePassword" style="margin-left: -25px; cursor: pointer;"></i>
             </div>
         </div>
         <div class="field">

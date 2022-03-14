@@ -29,14 +29,20 @@ form{
             background-color: transparent;
         }
 
-        > input{
+        > input, .input{
             border: none;
             outline: none;
             border-bottom: 2px solid var(--primary-light);
+        }
 
-            &:active, &:focus{
-                border-bottom: 2px solid var(--primary);
-            }
+        .input{
+            display: flex;
+            align-items: center;
+        }
+        .input > input{
+            border: none;
+            outline: none;
+            width: 100%;
         }
 
         select, textarea{
