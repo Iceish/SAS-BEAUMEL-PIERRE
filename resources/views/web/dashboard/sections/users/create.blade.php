@@ -4,7 +4,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ ucfirst(__('text.creating_user')) }}</h2>
+    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' => trans_choice('custom/words.user', 2)])) }}</h2>
     <div>
         @foreach ($errors->all() as $error)
             {{$error}}
@@ -13,6 +13,7 @@
     <form action="{{ route("dashboard.users.store") }}" method="post">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>
+
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.name.label')) }}</label>
             <input type="text" id="name" name="name" placeholder="John Doe" required value="{{ old('name') }}"/>
@@ -20,14 +21,14 @@
 
         <div class="field">
             <label for="email">{{ ucfirst(__('custom/words.data.input.email.default.label')) }}</label>
-            <input type="email" id="email" name="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" required {{ old('email') }}/>
+            <input type="email" id="email" name="email" placeholder="{{ __('custom/words.data.input.email.default.placeholder') }}" required value="{{ old('email') }}"/>
         </div>
         <div id="multiselect" class="field">
-            <label for="selectBoxOption">{{ ucfirst(__('word.roles')) }}</label>
+            <label for="selectBoxOption">{{ ucfirst(trans_choice('custom/words.role', 2)) }}</label>
             <div id="selectBoxOption" class="selectBox" onclick="showCheckboxes()">
                 <label>
                     <select>
-                        <option>{{ ucfirst(__('text.click_open')) }}</option>
+                        <option>{{ ucfirst(__('custom/words.click')) }}</option>
                     </select>
                 </label>
                 <div class="overSelect"></div>
@@ -42,24 +43,21 @@
                 @endforeach
             </div>
         </div>
-        <!-- rajout -->
+
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.address.label')) }}</label>
-            <input type="text" id="address" name="address" placeholder="12 rue de la paix" {{ old('address') }}/>
+            <input type="text" id="address" name="address" placeholder="12 rue de la paix" value="{{ old('address') }}"/>
         </div>
         <div class="field">
-            <label for="name">{{ ucfirst(__('custom/words.data.input.number.postal-code.labelal')) }}</label>
-            <input type="text" id="postal_code" name="postal_code" placeholder="63000" {{ old('postal_code') }}/>
+            <label for="name">{{ ucfirst(__('custom/words.data.input.number.postal-code.label')) }}</label>
+            <input type="text" id="postal_code" name="postal_code" placeholder="63000" value="{{ old('postal_code') }}"/>
         </div>
         <div class="field">
             <label for="name">{{ ucfirst(__('custom/words.data.input.text.city.label')) }}</label>
-            <input type="text" id="city" name="city" placeholder="Clermont-Ferrand" {{ old('city') }}/>
+            <input type="text" id="city" name="city" placeholder="Clermont-Ferrand" value="{{ old('city') }}"/>
         </div>
 
-        <!-- fin rajout -->
-
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
-        <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> Password will be generated and sent to user's email.</p>
+        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
     </form>
 @endsection
 

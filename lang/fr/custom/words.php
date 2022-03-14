@@ -7,44 +7,44 @@
 
 return [
     'company.name' => 'SAS-BEAUMEL-PIERRE',
-    'click' => 'click',
-    'accept' => 'accept',
+    'click' => 'cliquez',
+    'accept' => 'accepter',
 
-    'home' => 'home',
-    'about-us' => 'about-us',
-    'contact-us' => 'contact-us',
-    'eula' => 'EULA',
+    'home' => 'acceuil',
+    'about-us' => 'à propos de nous',
+    'contact-us' => 'contactez nous',
+    'eula' => 'CGU',
 
     'login' => 'login',
-    'dashboard' => 'dashboard',
+    'dashboard' => 'tableau de bord',
     'profile' => 'profile',
-    'camera' => 'camera|cameras',
+    'camera' => 'caméra|caméras',
     'client' => 'client|clients',
-    'provider' => 'provider|providers',
-    'partner' => 'partner|partners',
-    'vehicle' => 'vehicle|vehicles',
-    'invoice' => 'invoice|invoices',
-    'product' => 'product|products',
-    'user' => 'user|users',
-    'role' => 'role|roles',
-    'setting' => 'setting|settings',
+    'provider' => 'fournisseur|fournisseurs',
+    'partner' => 'partenaire|partenaires',
+    'vehicle' => 'véhicule|véhicules',
+    'invoice' => 'facture|factures',
+    'product' => 'produit|produits',
+    'user' => 'utilisateur|utilisateurs',
+    'role' => 'rôle|rôles',
+    'setting' => 'paramètre|paramètres',
 
     'data' => [
 
-        'null' => 'not specified',
+        'null' => 'non spécifié',
 
         'crud' => [
-            'create' => 'create',
-            'creating' => 'creating :item',
+            'create' => 'créer',
+            'creating' => 'création de :item',
 
-            'edit' => 'edit',
-            'editing' => 'editing :item',
+            'edit' => 'modifier',
+            'editing' => 'modification de :item',
 
-            'delete' => 'delete',
-            'deleting' => 'deleting :item',
+            'delete' => 'supprimer',
+            'deleting' => 'suppretion de :item',
 
-            'search' => 'search',
-            'searching' => 'searching :item',
+            'search' => 'rechercher',
+            'searching' => 'recherche de :item',
 
             'action' => 'action|actions',
         ],
@@ -53,44 +53,44 @@ return [
 
             'text' => [
                 'name' => [
-                    'label' => 'name',
+                    'label' => 'nom',
                     'placeholder' => 'John Doe',
                 ],
                 'username' => [
-                    'label' => 'username',
-                    'placeholder' => 'root',
+                    'label' => 'nom d\' utilisateur',
+                    'placeholder' => 'administrateur',
                 ],
                 'subject' => [
-                    'label' => 'subject',
-                    'placeholder' => 'issue',
+                    'label' => 'sujet',
+                    'placeholder' => 'sujet',
                 ],
                 'address' => [
-                    'label' => 'address',
-                    'placeholder' => 'Hollywood Boulevard, Vine St',
+                    'label' => 'adresse',
+                    'placeholder' => 'Rue de la Paix',
                 ],
                 'city' => [
-                    'label' => 'city',
-                    'placeholder' => 'Los Angeles',
+                    'label' => 'ville',
+                    'placeholder' => 'Paris',
                 ],
                 'place' => [
                     'label' => 'place',
                     'placeholder' => 'red barn',
                 ],
                 'license-plate' => [
-                    'label' => 'license plate',
+                    'label' => 'plaque d\' immatriculation',
                     'placeholder' => 'AK-124-FD',
                 ],
                 'path' => [
-                    'label' => 'path',
-                    'placeholder' => 'directory/document.pdf',
+                    'label' => 'chemin',
+                    'placeholder' => 'dossier/document.pdf',
                 ],
                 'image-path' => [
-                    'label' => 'image path',
-                    'placeholder' => 'directory/image.png',
+                    'label' => 'chemin de l\' image',
+                    'placeholder' => 'dossier/image.png',
                 ],
                 'payment-mode' => [
-                    'label' => 'payment mode',
-                    'placeholder' => 'cash',
+                    'label' => 'mode de payement',
+                    'placeholder' => 'espèces',
                 ],
                 'ip' => [
                     'label' => 'ip',
@@ -100,8 +100,8 @@ return [
 
             'password' => [
                 'default' => [
-                    'label' => 'password',
-                    'placeholder' => 'to-do',
+                    'label' => 'mot de passe',
+                    'placeholder' => 'P8q5Fc7eD',
                 ],
             ],
 
@@ -121,15 +121,15 @@ return [
 
             'number' => [
                 'id' => [
-                    'label' => 'identifier',
+                    'label' => 'identifiant',
                     'placeholder' => '4',
                 ],
                 'postal-code' => [
-                    'label' => 'postal code',
-                    'placeholder' => '90 002',
+                    'label' => 'code postal',
+                    'placeholder' => '75002',
                 ],
                 'price' => [
-                    'label' => 'price',
+                    'label' => 'prix',
                     'placeholder' => '35',
                 ],
                 'total' => [
@@ -137,7 +137,7 @@ return [
                     'placeholder' => '27',
                 ],
                 'quantity' => [
-                    'label' => 'quantity',
+                    'label' => 'quantité',
                     'placeholder' => '9',
                 ],
             ],
@@ -147,32 +147,32 @@ return [
                     'label' => 'date',
                 ],
                 'revision' => [
-                    'label' => 'revision date',
+                    'label' => 'date de modification',
                 ],
                 'payment' => [
-                    'label' => 'payment date',
+                    'label' => 'date de paiement',
                 ],
                 'verified' => [
-                    'label' => ':item verified at'
+                    'label' => ':item vérifié le'
                 ],
                 'created' => [
-                    'label' => ':item created at'
+                    'label' => ':item créé le'
                 ],
                 'updated' => [
-                    'label' => ':item updated at'
+                    'label' => ':item actualisé le'
                 ],
             ],
 
             'boolean' => [
                 'available' => [
-                    'label' => 'available',
+                    'label' => 'disponible',
                     'placeholder' => 'false',
                 ],
             ],
 
             'submit' => [
               'default' => [
-                  'label' => 'submit'
+                  'label' => 'soumettre'
               ],
             ],
         ],

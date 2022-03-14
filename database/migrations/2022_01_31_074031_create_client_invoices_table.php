@@ -5,11 +5,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomerInvoicesTable extends Migration
+class CreateClientInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
-     * Allows to migrate the customer_invoices table in database
+     * Allows to migrate the client_invoices table in database
      * @return void
      * Create with the command « php artisan make:migration create_name_of_table_table »
      * Fill up() with the attributes of the table
@@ -17,7 +17,7 @@ class CreateCustomerInvoicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_invoices', function (Blueprint $table) {
+        Schema::create('client_invoices', function (Blueprint $table) {
             $table->id();
             $table->float('totalTTC');
             $table->date('payment_date');
@@ -34,6 +34,6 @@ class CreateCustomerInvoicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_invoices');
+        Schema::dropIfExists('client_invoices');
     }
 }

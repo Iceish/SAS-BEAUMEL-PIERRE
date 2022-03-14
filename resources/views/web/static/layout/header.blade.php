@@ -13,10 +13,10 @@
                 <a href={{ route('home') }}>{{ ucfirst(__('custom/words.home')) }}</a>
             </li>
             <li>
-                <a href={{ route('partners') }}>{{ ucfirst(trans_choice('custom/words.partner',false)) }}</a>
+                <a href={{ route('partners') }}>{{ ucfirst(trans_choice('custom/words.partner',2)) }}</a>
             </li>
             <li>
-                <a href={{ route('clients') }}>{{ucfirst(trans_choice('custom/words.client',false)) }}</a>
+                <a href={{ route('clients') }}>{{ucfirst(trans_choice('custom/words.client',2)) }}</a>
             </li>
             <li>
                 <a href={{ route('about') }}>{{ ucfirst(__('custom/words.about-us')) }}</a>

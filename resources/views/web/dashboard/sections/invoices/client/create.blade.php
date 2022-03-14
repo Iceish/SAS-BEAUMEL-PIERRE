@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' =>  trans_choice('custom/words.invoice', true).' '.'('.trans_choice('custom/words.client', true).')' ] )) }}</h2>
+    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' =>  trans_choice('custom/words.invoice', 1).' '.'('.trans_choice('custom/words.client', 1).')' ] )) }}</h2>
     <div>
         @foreach ($errors->all() as $error)
             {{$error}}
@@ -28,7 +28,7 @@
         </div>
 
         <div class="field">
-            <label for="client_id">{{ ucfirst(trans_choice('custom/words.client',true)) }}</label>
+            <label for="client_id">{{ ucfirst(trans_choice('custom/words.client',1)) }}</label>
             <input type="number" id="client_id" name="client_id" placeholder="n°2" value="{{ old('client_id') }}"/>
         </div>
 

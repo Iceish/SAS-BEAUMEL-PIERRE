@@ -2,7 +2,7 @@
 
 @section('main')
     <x-utils.backBtn/>
-    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' => trans_choice('custom/words.client', true)])) }}</h2>
+    <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' => trans_choice('custom/words.client', 1)])) }}</h2>
     <div>
         @foreach ($errors->all() as $error)
             {{$error}}

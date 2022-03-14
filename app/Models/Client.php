@@ -38,9 +38,9 @@ class Client extends Model
         'address',
     ];
 
-    public function customerInvoice(): HasMany
+    public function clientInvoice(): HasMany
     {
-        return $this->hasMany(CustomerInvoice::class);
+        return $this->hasMany(ClientInvoice::class);
     }
 
     public function language(): BelongsToMany

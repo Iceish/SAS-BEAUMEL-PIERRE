@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * The factories are created with the command « php artisan make:factory ModelNameFactory ».
  * Fill the definition function using the models
  */
-class CustomerInvoiceFactory extends Factory
+class ClientInvoiceFactory extends Factory
 {
     /**
      * Define the model's default state.

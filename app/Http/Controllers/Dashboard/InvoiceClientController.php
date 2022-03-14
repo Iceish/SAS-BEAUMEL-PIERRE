@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchRequest;
-use App\Http\Requests\StoreCustomerInvoiceRequest;
-use App\Http\Requests\UpdateCustomerInvoiceRequest;
-use App\Models\CustomerInvoice;
+use App\Http\Requests\StoreClientInvoiceRequest;
+use App\Http\Requests\UpdateClientInvoiceRequest;
+use App\Models\ClientInvoice;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -33,11 +33,11 @@ class InvoiceClientController extends Controller
         $validated= $request->validated();
         $searchText = $validated["search"] ?? "";
 
-        $customerInvoices = CustomerInvoice::with('client')
+        $clientInvoices = ClientInvoice::with('client')
             ->whereLike(["client.email","client.name","payment_mode"],$searchText)
             ->paginate(25);
         return view("web.dashboard.sections.invoices.client.index",
-            compact("customerInvoices")
+            compact("clientInvoices")
         );
     }
 
@@ -48,87 +48,87 @@ class InvoiceClientController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        $customerInvoice = CustomerInvoice::all();
+        $clientInvoice = ClientInvoice::all();
         return view("web.dashboard.sections.invoices.client.create",
-            compact("customerInvoice")
+            compact("clientInvoice")
         );
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreCustomerInvoiceRequest $request
+     * @param StoreClientInvoiceRequest $request
      * @return RedirectResponse
      */
-    public function store(StoreCustomerInvoiceRequest $request): RedirectResponse
+    public function store(StoreClientInvoiceRequest $request): RedirectResponse
     {
         $validated = $request->validated();
         try{
-            CustomerInvoice::create($validated);
-            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.create.success"));
+            ClientInvoice::create($validated);
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.customerInvoice.create.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']))->withInput();
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param CustomerInvoice $customerInvoice
+     * @param ClientInvoice $clientInvoice
      * @return Application|Factory|View
      */
-    public function show(CustomerInvoice $customerInvoice): View|Factory|Application
+    public function show(ClientInvoice $clientInvoice): View|Factory|Application
     {
-        $customerInvoice->load('client');
+        $clientInvoice->load('client');
         return view("web.dashboard.sections.invoices.client.show",
-            compact("customerInvoice")
+            compact("clientInvoice")
         );
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param CustomerInvoice $customerInvoice
+     * @param ClientInvoice $clientInvoice
      * @return Application|Factory|View
      */
-    public function edit(CustomerInvoice $customerInvoice): View|Factory|Application
+    public function edit(ClientInvoice $clientInvoice): View|Factory|Application
     {
         return view("web.dashboard.sections.invoices.client.edit",
-            compact("customerInvoice")
+            compact("clientInvoice")
         );
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateCustomerInvoiceRequest $request
-     * @param CustomerInvoice $customer
+     * @param UpdateClientInvoiceRequest $request
+     * @param ClientInvoice $clientInvoice
      * @return RedirectResponse
      */
-    public function update(UpdateCustomerInvoiceRequest $request,CustomerInvoice $customer): RedirectResponse
+    public function update(UpdateClientInvoiceRequest $request, ClientInvoice $clientInvoice): RedirectResponse
     {
         $validated = $request->validated();
         try{
-            $customer->update($validated);
-            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("messages.customerInvoice.update.success"));
+            $clientInvoice->update($validated);
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.customerInvoice.update.failed"))->withInput();
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']))->withInput();
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param CustomerInvoice $customer
+     * @param ClientInvoice $clientInvoice
      * @return RedirectResponse
      */
-    public function destroy(CustomerInvoice $customer): RedirectResponse
+    public function destroy(ClientInvoice $clientInvoice): RedirectResponse
     {
         try{
-            $customer->delete();
-            return redirect()->route("web.dashboard.sections.invoices.client.index")->with('success',__("messages.customerInvoice.delete.success"));
+            $clientInvoice->delete();
+            return redirect()->route("web.dashboard.sections.invoices.client.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception){
-            return redirect()->back()->withErrors(__("messages.customerInvoice.delete.failed"));
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.deleted",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }
     }
 }
