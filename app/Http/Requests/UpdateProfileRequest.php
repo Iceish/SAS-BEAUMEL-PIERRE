@@ -23,18 +23,17 @@ class UpdateProfileRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['email' => 'string[]', 'password' => 'string[]', 'name' => 'string[]', 'address' => 'string[]', 'postal_code' => 'string[]', 'city' => 'string[]'])]
+    #[ArrayShape(['email' => "string[]", 'name' => "string[]", 'address' => "string[]", 'postal_code' => "string[]", 'city' => "string[]", 'password' => "string[]", 'tel' => "string[]"])]
     public function rules(): array
     {
-
         return [
-
             'email' => ['required','email','max:255'],
             'name' => ['required','string','max:255'],
             'address' => ['nullable','string','max:255'],
             'postal_code' => ['nullable','string','max:5'],
             'city' => ['nullable','string','max:255'],
             'password' => ['string','max:255'],
+            'tel' => ['required','max:255']
         ];
     }
 }
