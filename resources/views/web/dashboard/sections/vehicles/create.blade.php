@@ -27,6 +27,10 @@
             <input type="date" id="revision_date" name="revision_date" value="{{ old('revision_date') }}"/>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        <div class="buttons">
+            <x-utils.cancelBtn/>
+            <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        </div>
+
     </form>
 @endsection

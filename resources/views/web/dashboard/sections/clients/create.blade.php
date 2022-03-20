@@ -42,7 +42,11 @@
             <input type="text" id="tel" name="tel" placeholder="{{ __('custom/words.data.input.text.tel.placeholder') }}" value="{{ old('tel') }}"/>
         </div>
 
-        <input class="btn btn--primary" type="submit" value="{{ ucfirst(__('word.confirm')) }}" />
+        <div class="buttons">
+            <x-utils.cancelBtn/>
+            <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}" />
+        </div>
+
         <p class="caption"><i class="fa-solid fa-circle-exclamation"></i> {{ucfirst(__('custom/messages.informative.form.client'))}}</p>
     </form>
 @endsection

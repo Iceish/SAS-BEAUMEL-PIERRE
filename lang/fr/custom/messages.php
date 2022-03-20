@@ -21,9 +21,13 @@ return [
     ],
     'informative' => [
         'copyright' => '© 2022 - Tout droits réservés',
-        'nothing.here' => 'Rien a voir ici.',
+        'nothing.here' => 'Rien à voir ici.',
         'dashboard' => [
             'admin' => 'Administrateur du site'
+        ],
+        'invoice' => [
+            'client' => 'Cliquez ici pour afficher toutes les factures clients.',
+            'provider' => 'Cliquez ici pour afficher toutes les factures fournisseurs.',
         ],
         'form' => [
             'camera' => 'Cette action ne connecte pas la caméra sur le site.',

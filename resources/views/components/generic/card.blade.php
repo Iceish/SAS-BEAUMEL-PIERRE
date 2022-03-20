@@ -3,7 +3,7 @@
     {{-- Attributes --}}
     <div class="generic-card__attributes">
     @forelse($show as $label)
-            <p><span class="label">{{ $label["name"] }}</span>
+            <p><span class="label">{{ htmlspecialchars_decode($label["name"]) }}</span>
 
         @if(!isset($content[$label["attributeName"]]))
             {{ ucfirst(__('custom/words.data.null')) }}
@@ -35,7 +35,7 @@
                 @csrf
                 @method('DELETE')
             </form>
-            <a href="" onclick="Utils.confirm(() => {
+            <a class="danger" href="" onclick="Utils.confirm(() => {
                 window.document.querySelector('#destroy-row-{{$content->id}}').submit();
                 });
                 return false;"

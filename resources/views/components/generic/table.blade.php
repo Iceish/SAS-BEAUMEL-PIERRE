@@ -18,7 +18,7 @@
     <div class="generic-table__head">
             @foreach($columns as $column)
                 <div>
-                    <p>{{ $column["name"] }}</p>
+                    <p>{{ htmlspecialchars_decode($column["name"]) }}</p>
                 </div>
             @endforeach
         <div>{{ucfirst(trans_choice('custom/words.data.crud.action',false))}}</div>
@@ -35,9 +35,9 @@
                         @endforelse
                     @else
                         @if($column["attributeNameF"])
-                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData[$column["attributeNameF"]] ?? ucfirst(__('custom/words.data.null')) }}</p>
+                            <p><span class="label">{{ htmlspecialchars_decode($column["name"]) }}</span>{{ $rowData[$column["attributeNameF"]] ?? ucfirst(__('custom/words.data.null')) }}</p>
                         @else
-                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
+                            <p><span class="label">{{ htmlspecialchars_decode($column["name"]) }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
                         @endif
                     @endif
                 </div>
@@ -49,7 +49,7 @@
                             @csrf
                             @method('DELETE')
                         </form>
-                        <a href="" onclick="Utils.confirm(() => {
+                        <a class="danger" href="" onclick="Utils.confirm(() => {
                                 window.document.querySelector('#destroy-row-{{$row->id}}').submit();
                             });
                             return false;"

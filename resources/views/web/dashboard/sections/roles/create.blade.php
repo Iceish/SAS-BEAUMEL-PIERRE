@@ -20,6 +20,9 @@
             @endforeach
         </div>
 
-        <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}">
+        <div class="buttons">
+            <x-utils.cancelBtn/>
+            <input class="btn" type="submit" value="{{ ucfirst(__('custom/words.data.input.submit.default.label')) }}">
+        </div>
     </form>
 @endsection

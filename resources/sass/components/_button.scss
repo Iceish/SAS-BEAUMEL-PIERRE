@@ -1,6 +1,8 @@
 @use '../abstracts' as *;
 
 input[type="submit"].btn, a.btn{
+    --color-dark : var(--primary-dark);
+    --color : var(--primary);
     display: inline-flex;
     padding: 5px;
 
@@ -22,14 +24,19 @@ input[type="submit"].btn, a.btn{
         font-weight: bold;
     }
 
-    border: var(--border-size) solid var(--primary-dark);
+    &.danger{
+        --color-dark: var(--danger-dark);
+        --color: var(--danger);
+    }
+
+    border: var(--border-size) solid var(--color-dark);
 
     &, &:hover, &:visited{
-        color: var(--primary-dark);
+        color: var(--color-dark);
     }
 
     &:active{
-        color: var(--primary);
-        border: var(--border-size) solid var(--primary);
+        color: var(--color);
+        border: var(--border-size) solid var(--color);
     }
 }
