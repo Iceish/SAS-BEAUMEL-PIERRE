@@ -3,11 +3,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' =>  trans_choice('custom/words.invoice', 1).' '.'('.trans_choice('custom/words.provider', 1).')' ] )) }}</h2>
-    <div>
-        @foreach ($errors->all() as $error)
-            {{$error}}
-        @endforeach
-    </div>
+    <x-utils.returnedMessage/>
     <form id="edit" action="{{ route("dashboard.invoices.providers.store") }}" method="post" enctype="multipart/form-data">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>

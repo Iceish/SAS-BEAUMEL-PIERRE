@@ -3,11 +3,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ucfirst(__('custom/words.data.crud.editing', ['item'=> $camera->name ]))}}</h2>
-
-    @foreach ($errors->all() as $error)
-        {{$error}}
-    @endforeach
-
+    <x-utils.returnedMessage/>
     <form action="{{ route("dashboard.cameras.update", ['camera' => $camera->id]) }}" method="post">
         @csrf
         @method('put')

@@ -3,11 +3,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ucfirst(__('custom/words.data.crud.creating', ['item'=> trans_choice('custom/words.camera',1)]))}}</h2>
-
-    @foreach ($errors->all() as $error)
-        {{$error}}
-    @endforeach
-
+    <x-utils.returnedMessage/>
     <form action="{{ route("dashboard.cameras.store") }}" method="post">
         @csrf
         <h4>{{ucfirst(__('custom/words.data.crud.create'))}}</h4>

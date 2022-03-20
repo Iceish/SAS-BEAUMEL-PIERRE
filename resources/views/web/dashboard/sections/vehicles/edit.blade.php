@@ -3,6 +3,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(__('custom/words.data.crud.editing', ['item' => $vehicle->name ])) }}</h2>
+    <x-utils.returnedMessage/>
     <form id="edit" action="{{ route('dashboard.vehicles.update',['vehicle'=>$vehicle->id]) }}" method="post">
         @csrf
         @method('put')

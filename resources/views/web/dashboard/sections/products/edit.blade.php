@@ -3,7 +3,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(__('custom/words.data.crud.editing', ['item' => $product->name ])) }}</h2>
-
+    <x-utils.returnedMessage/>
     <form id="edit" action="{{ route('dashboard.products.update',['product'=>$product->id]) }}" method="post">
         @csrf
         @method('put')

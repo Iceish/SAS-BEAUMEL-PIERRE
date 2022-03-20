@@ -5,7 +5,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(trans_choice('custom/words.role', 1)) }}</h2>
-
+    <x-utils.returnedMessage/>
     <form id="edit" action="{{ route('dashboard.roles.update',['role'=>$role->id]) }}" method="post">
         @csrf
         @method('put')

@@ -3,6 +3,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(__('custom/words.data.crud.creating', ['item' => trans_choice('custom/words.product', true)])) }}</h2>
+    <x-utils.returnedMessage/>
     <form id="edit" action="{{ route("dashboard.products.store") }}" method="post" enctype="multipart/form-data">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>

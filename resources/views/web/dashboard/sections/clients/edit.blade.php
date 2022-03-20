@@ -3,13 +3,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(__('custom/words.data.crud.editing', ['item' => $client->name])) }}</h2>
-
-
-    <div>
-        @foreach ($errors->all() as $error)
-            {{$error}}
-        @endforeach
-    </div>
+    <x-utils.returnedMessage/>
     <form id="edit" action="{{ route("dashboard.clients.update",["client"=>$client->id]) }}" method="post">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.edit')) }}</h4>

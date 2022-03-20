@@ -5,7 +5,7 @@
 @section('main')
 
     <x-utils.backBtn/>
-
+    <x-utils.returnedMessage/>
     <form action="{{route("dashboard.roles.store")}}" method="POST">
         @csrf
         <h4>{{ ucfirst(__('custom/words.data.crud.create')) }}</h4>

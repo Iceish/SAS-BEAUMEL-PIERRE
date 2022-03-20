@@ -5,6 +5,7 @@
 @section('main')
     <x-utils.backBtn/>
     <h2>{{ ucfirst(__('custom/words.data.crud.editing', ['item' => $user->name])) }}</h2>
+    <x-utils.returnedMessage/>
     <form action="{{ route('dashboard.users.update',['user'=>$user->id]) }}" method="post">
         @csrf
         @method('put')
