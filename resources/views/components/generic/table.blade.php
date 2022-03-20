@@ -35,9 +35,9 @@
                         @endforelse
                     @else
                         @if($column["attributeNameF"])
-                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData[$column["attributeNameF"]] ?? ucfirst(__('custom/words.data.null')) }}</p>
+                            <p><span class="label">{{ htmlspecialchars_decode($column["name"]) }}</span>{{ $rowData[$column["attributeNameF"]] ?? ucfirst(__('custom/words.data.null')) }}</p>
                         @else
-                            <p><span class="label">{{ $column["name"] }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
+                            <p><span class="label">{{ htmlspecialchars_decode($column["name"]) }}</span>{{ $rowData ?? ucfirst(__('custom/words.data.null')) }}</p>
                         @endif
                     @endif
                 </div>

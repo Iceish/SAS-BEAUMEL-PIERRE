@@ -3,7 +3,7 @@
     {{-- Attributes --}}
     <div class="generic-card__attributes">
     @forelse($show as $label)
-            <p><span class="label">{{ $label["name"] }}</span>
+            <p><span class="label">{{ htmlspecialchars_decode($label["name"]) }}</span>
 
         @if(!isset($content[$label["attributeName"]]))
             {{ ucfirst(__('custom/words.data.null')) }}
