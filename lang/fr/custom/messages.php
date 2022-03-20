@@ -25,6 +25,10 @@ return [
         'dashboard' => [
             'admin' => 'Administrateur du site'
         ],
+        'invoice' => [
+            'client' => 'Cliquez ici pour afficher toutes les factures clients.',
+            'provider' => 'Cliquez ici pour afficher toutes les factures fournisseurs.',
+        ],
         'form' => [
             'camera' => 'Cette action ne connecte pas la caméra sur le site.',
             'client' => 'Cette action ne créer pas de compte.',
