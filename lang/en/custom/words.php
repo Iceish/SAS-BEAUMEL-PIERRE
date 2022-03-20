@@ -107,6 +107,10 @@ return [
                     'label' => 'ip',
                     'placeholder' => '0.0.0.0',
                 ],
+                'from' => [
+                    'label' => 'From',
+                    'placeholder' => 'joe@doe.com'
+                ],
             ],
 
             'password' => [
@@ -126,7 +130,7 @@ return [
             'textarea' => [
                 'message' => [
                     'label' => 'message',
-                    'placeholder' => 'john.doe@example.com',
+                    'placeholder' => 'Hello ...',
                 ],
             ],
 

@@ -126,7 +126,7 @@ return [
             'textarea' => [
                 'message' => [
                     'label' => 'message',
-                    'placeholder' => 'john.doe@example.com',
+                    'placeholder' => 'bonjour ...',
                 ],
             ],
 

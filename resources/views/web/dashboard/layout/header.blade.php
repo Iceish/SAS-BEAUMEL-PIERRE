@@ -37,6 +37,9 @@
             @if(auth()->user()->can('roles.list'))
                     <li><a href="{{ route('dashboard.roles.index') }}"><i class="fas fa-balance-scale-right"></i>{{ ucfirst(trans_choice('custom/words.role', 2)) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
+            @if(auth()->user()->can('tickets.list'))
+                <li><a href="{{ route('dashboard.tickets.index') }}"><i class="fas fa-ticket"></i>{{ ucfirst(trans_choice('custom/words.ticket', 2)) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
+            @endif
 
             <li><a href="{{ route('dashboard.settings.edit') }}"><i class="fa-solid fa-gears"></i>{{ ucfirst(trans_choice('custom/words.setting', 2)) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
 
