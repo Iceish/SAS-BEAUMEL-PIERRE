@@ -21,7 +21,7 @@ return [
     ],
     'informative' => [
         'copyright' => '© 2022 - Tout droits réservés',
-        'nothing.here' => 'Rien a voir ici.',
+        'nothing.here' => 'Rien à voir ici.',
         'dashboard' => [
             'admin' => 'Administrateur du site'
         ],
