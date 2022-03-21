@@ -20,7 +20,7 @@ class CreateInvoiceDetailsTable extends Migration
     {
         Schema::create('invoice_details', function (Blueprint $table) {
             $table->id();
-            $table->string('transport');
+            $table->string('transport')->nullable();
             $table->float('VAT');
             $table->unsignedInteger('quantity');
             $table->foreignIdFor(Product::class)->references('id')->on('products');

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * The models are created with the command « php artisan make:model ModelName »
@@ -33,10 +34,18 @@ class ClientInvoice extends Model
         'totalTTC',
         'payment_date',
         'payment_mode',
+        'client_id'
     ];
+
+    protected $with = ['client','InvoiceDetail'];
 
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function InvoiceDetail(): HasMany
+    {
+        return $this->hasMany(InvoiceDetail::class,'client_invoice_id');
     }
 }

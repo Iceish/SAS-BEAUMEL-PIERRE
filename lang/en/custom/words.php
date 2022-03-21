@@ -108,8 +108,20 @@ return [
                     'placeholder' => '0.0.0.0',
                 ],
                 'from' => [
-                    'label' => 'From',
+                    'label' => 'from',
                     'placeholder' => 'joe@doe.com'
+                ],
+                'content' => [
+                    'label' => 'content',
+                    'placeholder' => 'hello ...'
+                ],
+                'transport' => [
+                    'label' => 'transport',
+                    'placeholder' => 'truck'
+                ],
+                'vat' => [
+                    'label' => 'vat',
+                    'placeholder' => '10.8'
                 ],
             ],
 

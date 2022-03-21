@@ -62,8 +62,10 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request): RedirectResponse
     {
         $product = $request->except('file');
-        $file = $request->only('file')['file'];
-        $product['image_path'] = $file->store('images');
+        if($file = $request->only('file')) {
+            $file = $file['file'];
+            $product['image_path'] = $file->store('images');
+        }
         try {
             Product::create($product);
             return redirect()->route("dashboard.products.index")->with("success", __("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.product',1)]));

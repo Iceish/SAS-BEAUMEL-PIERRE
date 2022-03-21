@@ -107,6 +107,22 @@ return [
                     'label' => 'ip',
                     'placeholder' => '0.0.0.0',
                 ],
+                'from' => [
+                    'label' => 'De',
+                    'placeholder' => 'joe@doe.com'
+                ],
+                'content' => [
+                    'label' => 'content',
+                    'placeholder' => 'Bonjour ...'
+                ],
+                'transport' => [
+                    'label' => 'transport',
+                    'placeholder' => 'camion'
+                ],
+                'vat' => [
+                    'label' => 'tva',
+                    'placeholder' => '10.8'
+                ],
             ],
 
             'password' => [

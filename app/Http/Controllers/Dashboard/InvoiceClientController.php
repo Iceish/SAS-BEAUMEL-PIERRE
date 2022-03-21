@@ -8,6 +8,9 @@ use App\Http\Requests\StoreClientInvoiceRequest;
 use App\Http\Requests\UpdateClientInvoiceRequest;
 use App\Models\Client;
 use App\Models\ClientInvoice;
+use App\Models\InvoiceDetail;
+use App\Models\Product;
+use DB;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -50,8 +53,10 @@ class InvoiceClientController extends Controller
     public function create(): View|Factory|Application
     {
         $clients = Client::all();
+        $products = Product::all();
+        $vat = DB::table('settings')->pluck('VAT')->first();
         return view("web.dashboard.sections.invoices.client.create",
-            compact("clients")
+            compact(["clients","products","vat"])
         );
     }
 
@@ -63,11 +68,21 @@ class InvoiceClientController extends Controller
      */
     public function store(StoreClientInvoiceRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = $request->except('products');
+        $products = $request->only('products')['products'] ?? [];
         try{
-            ClientInvoice::create($validated);
-            return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
-        }catch (Exception){
+            $clientInvoice = ClientInvoice::create($validated);
+            foreach ($products as $key=>$product){
+                InvoiceDetail::create([
+                    'transport' => $product['transport'],
+                    'VAT' => $product['vat'],
+                    'quantity' => $product['quantity'],
+                    'product_id' => $key,
+                    'client_invoice_id' => $clientInvoice->id,
+                ]);
+            }
+            return redirect()->route("dashboard.invoices.clients.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
+        }catch (Exception $e){
             return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']))->withInput();
         }
     }
@@ -81,8 +96,6 @@ class InvoiceClientController extends Controller
     public function show(int $clientInvoice_id): View|Factory|Application
     {
         $clientInvoice = ClientInvoice::find($clientInvoice_id);
-
-        $clientInvoice->load('client');
         return view("web.dashboard.sections.invoices.client.show",
             compact("clientInvoice")
         );
