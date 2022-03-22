@@ -14,6 +14,7 @@ return [
     'about-us' => 'about-us',
     'contact-us' => 'contact-us',
     'eula' => 'EULA',
+    'about-developers' => 'about-developers',
 
     'login' => 'login',
     'dashboard' => 'dashboard',
