@@ -38,7 +38,7 @@ class InvoiceClientController extends Controller
         $validated= $request->validated();
         $searchText = $validated["search"] ?? "";
 
-        $clientInvoices = ClientInvoice::with('client')
+        $clientInvoices = ClientInvoice::with('clients')
             ->whereLike(["client.email","client.name"],$searchText)
             ->paginate(25);
         return view("web.dashboard.sections.invoices.client.index",

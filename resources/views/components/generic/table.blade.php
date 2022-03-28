@@ -11,7 +11,7 @@
             </form>
         @endif
             <div class="buttons">
-                <a class="btn btn--bold generic-table__button" id="printBtn"><i class="fa-solid fa-print"></i> {{ ucfirst(__('custom/words.print')) }}</a>
+                <a class="btn btn--bold generic-table__button gray" id="printBtn"><i class="fa-solid fa-print"></i> {{ ucfirst(__('custom/words.print')) }}</a>
                 @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
                     <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>{{ucfirst(__('custom/words.data.crud.create'))}}</a>
                 @endif

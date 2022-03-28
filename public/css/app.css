@@ -621,6 +621,8 @@ img.avatar {
 }
 @media (min-width: 1000px), print {
   .generic-table__tools .buttons {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
     justify-content: flex-end;
   }
 }

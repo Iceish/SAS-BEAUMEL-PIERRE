@@ -41,9 +41,4 @@ class ClientInvoice extends Model
     {
         return $this->belongsTo(Client::class);
     }
-
-    public function InvoiceDetail(): HasMany
-    {
-        return $this->hasMany(InvoiceDetail::class,'client_invoice_id');
-    }
 }
