@@ -882,6 +882,49 @@ select {
   --ck-todo-list-checkmark-size: 16px;
 }
 
+main {
+  -webkit-animation: fadein 1s;
+          animation: fadein 1s;
+}
+
+main.animate-out {
+  -webkit-animation: fadeout 1s;
+          animation: fadeout 1s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 body {
   font-family: Nunito, sans-serif;
 }
