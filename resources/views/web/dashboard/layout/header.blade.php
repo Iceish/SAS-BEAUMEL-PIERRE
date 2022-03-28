@@ -41,7 +41,7 @@
                 <li><a href="{{ route('dashboard.tickets.index') }}"><i class="fas fa-ticket"></i>{{ ucfirst(trans_choice('custom/words.ticket', 2)) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
             @endif
 
-            <li><a href="{{ route('dashboard.settings.edit') }}"><i class="fa-solid fa-gears"></i>{{ ucfirst(trans_choice('custom/words.setting', 2)) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>
+{{--            <li><a href="{{ route('dashboard.settings.edit') }}"><i class="fa-solid fa-gears"></i>{{ ucfirst(trans_choice('custom/words.setting', 2)) }}<i class="arrow fa-solid fa-caret-right"></i></a></li>--}}
 
         </ul>
 
