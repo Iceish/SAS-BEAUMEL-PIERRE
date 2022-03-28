@@ -105,6 +105,8 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
         ->name('delete-image');
     Route::post('/upload-ck', [CkeditorController::class,'storeCkeditor'])
         ->name('store-content');
+    Route::post('/upload-ck1', [CkeditorController::class,'storeCkeditor1'])
+        ->name('store-content1');
 
 });
 

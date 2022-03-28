@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DeleteImageRequest;
+use App\Http\Requests\StoreCkeditor1Request;
 use App\Http\Requests\StoreCkeditorRequest;
 use App\Http\Requests\StoreImageRequest;
+use App\Models\Ckeditor;
 use App\Models\Language;
 use DragonCode\PrettyArray\Exceptions\FileDoesntExistsException;
 use Exception;
@@ -62,6 +64,24 @@ class CkeditorController extends Controller
                     ]
                 ]
             );
+        }
+        return response()->json(["error"]);
+    }
+
+    public function storeCkeditor1(StoreCkeditor1Request $request): JsonResponse
+    {
+        $validated = $request->validated();
+        $contents = $validated['htmls'];
+        $name = $validated['name'];
+
+        foreach ($contents as $content){
+            $lang = Language::where('code',$content['lang'])->first();
+            Ckeditor::updateOrCreate([
+                'name' => $name,
+                'language_id' => $lang->id
+            ],[
+                'content' => $content
+            ]);
         }
         return response()->json(["error"]);
     }
