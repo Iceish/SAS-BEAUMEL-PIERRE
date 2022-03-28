@@ -19,9 +19,8 @@ class CreateClientInvoicesTable extends Migration
     {
         Schema::create('client_invoices', function (Blueprint $table) {
             $table->id();
-            $table->float('totalTTC');
-            $table->date('payment_date');
-            $table->string('payment_mode');
+            $table->string('path');
+            $table->date('date');
             $table->foreignIdFor(Client::class)->references('id')->on('clients');
             $table->timestamps();
         });

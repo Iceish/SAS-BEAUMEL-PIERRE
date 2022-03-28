@@ -19,10 +19,9 @@ class ClientInvoiceFactory extends Factory
     public function definition()
     {
         return [
-            'totalTTC' => $this->faker->price(max:999999.99),     // totalTTC: price / ex: 489146.34 / Creation faker: app/Faker/Economy.php
-            'payment_date' => $this->faker->date(),               // payment_date: date / ex: 2013-02-27
-            'payment_mode' => $this->faker->paymentMode(),        // payment_mode: paymentMode / ex: cash / Creation faker: app/Faker/Economy.php
-            'client_id' => Client::all()->random()->id,           // client_id: id reference to the table Client / ex: 3
+            'path' => $this->faker->filePath(),                // path: filePath / ex: C:\Users\adrie\AppData\Local\Temp\fakEF2D.tmp
+            'date' => $this->faker->date(),                    // date: date / ex: 1977-09-23
+            'client_id' => Client::all()->random()->id,    // client_id: id / ex: 4
         ];
     }
 }
