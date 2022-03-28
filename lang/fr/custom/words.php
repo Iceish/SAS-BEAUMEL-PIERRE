@@ -14,6 +14,7 @@ return [
     'about-us' => 'a propos de nous',
     'contact-us' => 'contactez nous',
     'eula' => 'CGU',
+    'about-developers' => 'a propos des développeurs',
 
     'login' => 'se connecter',
     'dashboard' => 'tableau de bord',

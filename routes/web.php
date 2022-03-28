@@ -21,6 +21,8 @@ use App\Http\Controllers\Guest\ClientController as GuestClientController;
 use App\Http\Controllers\Guest\ContactUsController;
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Guest\PartnerController as GuestPartnerController;
+use App\Http\Controllers\Guest\EulaController as GuestEulaController;
+use App\Http\Controllers\Guest\AboutDevController as GuestAboutDevController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +56,11 @@ Route::get('/clients',[GuestClientController::class,'clients'])
 
 Route::get('/partners', [GuestPartnerController::class,'partners'])
     ->name('partners');
+Route::get('/eula', [GuestEulaController::class,'eula'])
+    ->name('eula');
+Route::get('/aboutdev', [GuestAboutDevController::class,'about'])
+    ->name('aboutdev');
+
 Route::controller(ContactUsController::class)->name('contactus.')->group(function (){
     Route::get('contactus','create')->name('create');
     Route::post('contactus','store')->name('store');
