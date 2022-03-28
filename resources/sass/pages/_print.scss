@@ -1,0 +1,48 @@
+@media print{
+
+    //*:not(.generic-table, .generic-table *, main, body, html){
+    //    display: none;
+    //}
+    //
+    //body#dashboard > header{
+    //    display: none;
+    //}
+    //
+    //#printBtn{
+    //    display: none;
+    //}
+    //
+    //.generic-table__tools{
+    //    display: none;
+    //}
+    //
+    //.generic-table__head > div:last-child, .generic-table__row > div:last-child{
+    //    display: none;
+    //}
+    //
+    //body#dashboard, html, body#dashboard main{
+    //    padding: 0;
+    //    margin: 0;
+    //}
+    body#dashboard{
+        padding: 10px;
+        margin: 0;
+        header, footer, main > h2, main > a{
+            display: none;
+        }
+
+        .generic-table{
+            &__tools{
+                display: none;
+            }
+            &__row > div:last-child, &__head > div:last-child{
+                display: none;
+            }
+        }
+        .generic-card{
+            &__actions{
+                display: none;
+            }
+        }
+    }
+}

@@ -46,6 +46,8 @@
             <a href="{{ route($route["route"] . ".edit",[$route['parameters'] => $content->id]) }}"><i class="fa-solid fa-pen"></i></a>
         @endif
 
+            <a class="gray" href="#" onclick="window.print()"><i class="fa-solid fa-print"></i></a>
+
     </div>
     @endif
 
