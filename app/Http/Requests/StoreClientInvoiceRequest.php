@@ -27,7 +27,7 @@ class StoreClientInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => ['required','integer',Rule::exists('client','id')],
+            'client_id' => ['required','integer',Rule::exists('clients','id')],
             'file' => ['required','file','max:5000'],
             'date' => ['required','date']
         ];
