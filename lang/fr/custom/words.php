@@ -10,6 +10,7 @@ return [
     'click' => 'cliquez',
     'accept' => 'accepter',
     'print' => 'imprimer',
+    'map' => 'carte',
 
     'home' => 'acceuil',
     'about-us' => 'a propos de nous',

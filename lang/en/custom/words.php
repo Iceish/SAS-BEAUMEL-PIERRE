@@ -10,6 +10,7 @@ return [
     'click' => 'click',
     'accept' => 'accept',
     'print' => 'print',
+    'map' => 'map',
 
     'home' => 'home',
     'about-us' => 'about-us',

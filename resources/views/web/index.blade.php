@@ -17,6 +17,12 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script type="text/javascript">
+        window.addEventListener("beforeunload", function () {
+            document.querySelector('main').classList.add("animate-out");
+        });
+    </script>
+
+    <script type="text/javascript">
         if(Cookies.getCookie('cookies') !== 'true'){
             Swal.fire({
                 toast: true,
