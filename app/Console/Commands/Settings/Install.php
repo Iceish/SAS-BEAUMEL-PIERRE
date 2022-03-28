@@ -39,6 +39,7 @@ class Install extends Command
     {
         $this->callSilently('migrate:fresh');
         $this->call('settings:superadmin');
+        $this->call('settings:permissions');
         $this->callSilently('db:seed');
         return 0;
     }
