@@ -23,18 +23,13 @@ class StoreClientInvoiceRequest extends FormRequest
      *
      * @return array
      */
+    #[ArrayShape(['client_id' => 'string[]', 'file' => 'string[]', 'date' => 'string[]'])]
     public function rules(): array
     {
         return [
-            'client_id' => ['required','integer',Rule::exists('clients','id')],
-            'totalTTC' => ['required','numeric'],
-            'payment_date' => ['required','date'],
-            'payment_mode' => ['required','string','max:255'],
-            'products' => ['array'],
-            'products.*' => ['required','array'],
-            'products.*.transport' => ['string'],
-            'products.*.vat' => ['required','numeric'],
-            'products.*.quantity' => ['required','integer'],
+            'client_id' => ['required','integer',Rule::exists('client','id')],
+            'file' => ['required','file','max:5000'],
+            'date' => ['required','date']
         ];
     }
 }
