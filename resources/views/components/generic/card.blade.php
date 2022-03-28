@@ -11,9 +11,11 @@
         @endif
 
         @if(is_iterable($content[$label["attributeName"]]))
-            @foreach($content[$label["attributeName"]] as $row)
+            @forelse($content[$label["attributeName"]] as $row)
                 {{ $row[$label["attributeNameF"]] }}
-            @endforeach
+                @empty
+                {{ ucfirst(__('custom/words.data.null')) }}
+            @endforelse
         @elseif(is_bool($content[$label["attributeName"]]))
             {{ $content[$label["attributeName"]] ? 'True' : 'False' }}
         @else
