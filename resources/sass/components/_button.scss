@@ -35,8 +35,8 @@ input[type="submit"].btn, a.btn{
     }
 
     &.gray{
-        --color-dark: var(--gray);
-        --color: var(--gray-light);
+        --color-dark: var(--gray-dark);
+        --color: var(--gray);
     }
 
     border: var(--border-size) solid var(--color-dark);

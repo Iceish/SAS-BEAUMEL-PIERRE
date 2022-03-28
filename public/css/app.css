@@ -67,8 +67,8 @@ input[type=submit].btn.light, a.btn.light {
   --color: var(--primary-ghost);
 }
 input[type=submit].btn.gray, a.btn.gray {
-  --color-dark: var(--gray);
-  --color: var(--gray-light);
+  --color-dark: var(--gray-dark);
+  --color: var(--gray);
 }
 input[type=submit].btn, input[type=submit].btn:hover, input[type=submit].btn:visited, a.btn, a.btn:hover, a.btn:visited {
   color: var(--color-dark);
@@ -899,8 +899,8 @@ a.light {
   --color: var(--primary-light);
 }
 a.gray {
-  --color-dark: var(--gray);
-  --color: var(--gray-light);
+  --color-dark: var(--gray-dark);
+  --color: var(--gray);
 }
 a:visited, a:focus, a:active {
   color: var(--color-dark);

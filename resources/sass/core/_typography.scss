@@ -20,8 +20,8 @@ a{
     }
 
     &.gray{
-        --color-dark: var(--gray);
-        --color: var(--gray-light);
+        --color-dark: var(--gray-dark);
+        --color: var(--gray);
     }
 
     text-decoration: none;
