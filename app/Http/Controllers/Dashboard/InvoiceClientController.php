@@ -16,6 +16,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Storage;
 
 class InvoiceClientController extends Controller
 {
@@ -38,7 +39,7 @@ class InvoiceClientController extends Controller
         $searchText = $validated["search"] ?? "";
 
         $clientInvoices = ClientInvoice::with('client')
-            ->whereLike(["client.email","client.name","payment_mode"],$searchText)
+            ->whereLike(["client.email","client.name"],$searchText)
             ->paginate(25);
         return view("web.dashboard.sections.invoices.client.index",
             compact("clientInvoices")
@@ -53,10 +54,8 @@ class InvoiceClientController extends Controller
     public function create(): View|Factory|Application
     {
         $clients = Client::all();
-        $products = Product::all();
-        $vat = DB::table('settings')->pluck('VAT')->first();
         return view("web.dashboard.sections.invoices.client.create",
-            compact(["clients","products","vat"])
+            compact("clients")
         );
     }
 
@@ -68,20 +67,14 @@ class InvoiceClientController extends Controller
      */
     public function store(StoreClientInvoiceRequest $request): RedirectResponse
     {
-        $validated = $request->except('products');
-        $products = $request->only('products')['products'] ?? [];
+        $validated = $request->except("file");
+        $file = $request->only("file")['file'];
         try{
-            $clientInvoice = ClientInvoice::create($validated);
-            foreach ($products as $key=>$product){
-                InvoiceDetail::create([
-                    'transport' => $product['transport'],
-                    'VAT' => $product['vat'],
-                    'quantity' => $product['quantity'],
-                    'product_id' => $key,
-                    'client_invoice_id' => $clientInvoice->id,
-                ]);
-            }
-            return redirect()->route("dashboard.invoices.clients.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
+            $path = $file->store("images");
+            $validated["path"] = $path;
+            $providerInvoice = new ClientInvoice($validated);
+            $providerInvoice->save();
+            return redirect()->route("dashboard.invoices.client.index")->with("success",__("custom/messages.success.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception $e){
             return redirect()->back()->withErrors(__("custom/messages.error.crud.created",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']))->withInput();
         }
@@ -97,7 +90,7 @@ class InvoiceClientController extends Controller
     {
         $clientInvoice = ClientInvoice::find($clientInvoice_id);
         return view("web.dashboard.sections.invoices.client.show",
-            compact("clientInvoice")
+            compact("clientInvoice"),
         );
     }
 
@@ -109,10 +102,11 @@ class InvoiceClientController extends Controller
      */
     public function edit(int $clientInvoice_id): View|Factory|Application
     {
+        $clients = Client::all();
         $clientInvoice = ClientInvoice::find($clientInvoice_id);
-
         return view("web.dashboard.sections.invoices.client.edit",
-            compact("clientInvoice")
+            compact("clientInvoice"),
+            compact('clients')
         );
     }
 
@@ -125,11 +119,13 @@ class InvoiceClientController extends Controller
      */
     public function update(UpdateClientInvoiceRequest $request, int $clientInvoice_id): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = $request->except("file");
+        $file = $request->only("file");
         try{
-            $clientInvoice = ClientInvoice::find($clientInvoice_id);
-
-            $clientInvoice->update($validated);
+            $providerInvoice = ClientInvoice::find($clientInvoice_id);
+            $path = $file->store("images");
+            $validated["path"] = $path;
+            $providerInvoice->update($validated);
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with("success",__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception){
             return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']))->withInput();
@@ -146,7 +142,7 @@ class InvoiceClientController extends Controller
     {
         try{
             $clientInvoice = ClientInvoice::find($clientInvoice_id);
-
+            Storage::delete($clientInvoice->path);
             $clientInvoice->delete();
             return redirect()->route("web.dashboard.sections.invoices.client.index")->with('success',__("custom/messages.success.crud.deleted",["item"=>trans_choice('custom/words.invoice',1).' ('.trans_choice('custom/words.client',1).')']));
         }catch (Exception){
