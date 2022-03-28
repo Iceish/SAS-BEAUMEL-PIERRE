@@ -610,7 +610,7 @@ img.avatar {
       grid-row-start: 1;
   justify-self: flex-start;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-table__tools .btn {
     -ms-grid-column: 2;
         grid-column-start: 2;
@@ -619,7 +619,7 @@ img.avatar {
     justify-self: flex-end;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-table__tools {
     -ms-grid-rows: 1fr;
     -ms-grid-columns: 1fr 1fr;
@@ -642,7 +642,7 @@ img.avatar {
   font-size: 1.5em;
   margin-right: 20px;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-table__row, .generic-table__head {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
@@ -653,7 +653,7 @@ img.avatar {
   display: none;
   font-weight: bold;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-table__head {
     display: -ms-grid;
     display: grid;
@@ -666,7 +666,7 @@ img.avatar {
   margin-left: 16px;
   margin-right: 16px;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-table .label {
     display: none;
   }
@@ -693,7 +693,7 @@ img.avatar {
   -ms-grid-columns: 1fr 2fr;
       grid-template: 1fr/1fr 2fr;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-card__attributes p {
     -ms-grid-rows: 1fr;
     -ms-grid-columns: 1fr 4fr;
@@ -720,13 +720,13 @@ img.avatar {
 .generic-card__actions i {
   font-size: 1.5em;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-card__actions {
     border: none;
     border-left: 1px solid #e6e6e6;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   .generic-card {
     -ms-grid-rows: 1fr;
     -ms-grid-columns: 6fr 1fr;
@@ -1012,7 +1012,7 @@ body#dashboard header nav #user-toast__nav {
   display: flex;
   gap: 10px;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   body#dashboard header nav #user-toast {
     justify-items: center;
     align-items: center;
@@ -1030,7 +1030,7 @@ body#dashboard footer {
   background-color: var(--background);
   border-top: 1px solid #e6e6e6;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   body#dashboard {
     padding-left: 17.5%;
   }
@@ -1150,7 +1150,7 @@ body#static footer ul {
 body#static main {
   background-color: var(--background);
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   body#static header nav {
     display: flex !important;
     height: 96px;
@@ -1205,7 +1205,7 @@ body#static main {
 #users .role-grid__card > .card__description > ul {
   padding-left: 0;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   #users .role-grid__card {
     -ms-grid-columns: 1fr 2fr;
     grid-template-columns: 1fr 2fr;
@@ -1238,7 +1238,7 @@ body#static main {
 #invoices .cards__item p {
   color: black;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1000px), print {
   #invoices .cards {
     -ms-grid-rows: 1fr;
     -ms-grid-columns: 1fr 20px 1fr;
@@ -1284,4 +1284,31 @@ section#auth {
 }
 section#auth form {
   width: 40%;
+}
+
+@media print {
+  *:not(.generic-table, .generic-table *, main, body, html) {
+    display: none;
+  }
+
+  body#dashboard > header {
+    display: none;
+  }
+
+  #printBtn {
+    display: none;
+  }
+
+  .generic-table__tools {
+    display: none;
+  }
+
+  .generic-table__head > div:last-child, .generic-table__row > div:last-child {
+    display: none;
+  }
+
+  body#dashboard, html, body#dashboard main {
+    padding: 0;
+    margin: 0;
+  }
 }

@@ -87,6 +87,7 @@ Route::name('dashboard.')->prefix('dashboard')->group(function (){
     Route::resource('cameras', CameraController::class);
     Route::resource('tickets',TicketsController::class)->only(['index','show','destroy']);
     Route::get('settings',[SettingsController::class,'edit'])->name('settings.edit');
+    Route::put('settings',[SettingsController::class,'update'])->name('settings.update');
 
     Route::get('profile',[ProfileController::class,'edit'])->name('profile.edit');
     Route::put('profile',[ProfileController::class,'update'])->name('profile.update');

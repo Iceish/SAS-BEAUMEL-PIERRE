@@ -71,6 +71,15 @@
             <a href="{{$content->nextPageUrl() }}"><i class="fa-solid fa-caret-right fa-2x"></i></a>
     </div>
     @endif
-
+    <a class="btn btn--bold" id="printBtn">Imprimer</a>
 </div>
+
+@push('js')
+    <script>
+        let btnPrint = document.querySelector('#printBtn');
+        btnPrint.addEventListener('click',()=>{
+            window.print()
+        })
+    </script>
+@endpush
 

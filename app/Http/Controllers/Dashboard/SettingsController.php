@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateMeRequest;
+use App\Http\Requests\UpdateSettingsRequest;
+use DB;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -21,18 +23,16 @@ class SettingsController extends Controller
         return view('web.dashboard.sections.settings.edit');
     }
 
-    /**
-     * @param UpdateMeRequest $request
-     * @return RedirectResponse
-     */
-    public function update(UpdateMeRequest $request): RedirectResponse
+    public function update(UpdateSettingsRequest $request): RedirectResponse
     {
         $validated = $request->validated();
         try{
-            Auth::user()->update($validated);
-            return back()->with('success',__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.setting',1)]));
-        }catch (Exception){
-            return back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.setting',1)]));
+            $settings = DB::table('settings')->first();
+            $settings->update($validated);
+            return redirect()->route('dashboard.settings.update')->with('success',__("custom/messages.success.crud.updated",["item"=>trans_choice('custom/words.setting',1)]));
+        }catch (Exception)
+        {
+            return redirect()->back()->withErrors(__("custom/messages.error.crud.updated",["item"=>trans_choice('custom/words.setting',1)]))->withInput();
         }
     }
 }
