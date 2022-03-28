@@ -62,6 +62,14 @@ input[type=submit].btn.danger, a.btn.danger {
   --color-dark: var(--danger-dark);
   --color: var(--danger);
 }
+input[type=submit].btn.light, a.btn.light {
+  --color-dark: var(--primary-light);
+  --color: var(--primary-ghost);
+}
+input[type=submit].btn.gray, a.btn.gray {
+  --color-dark: var(--gray);
+  --color: var(--gray-light);
+}
 input[type=submit].btn, input[type=submit].btn:hover, input[type=submit].btn:visited, a.btn, a.btn:hover, a.btn:visited {
   color: var(--color-dark);
 }
@@ -605,18 +613,15 @@ img.avatar {
   -ms-grid-row-align: center;
       align-self: center;
 }
-.generic-table__tools .btn {
-  -ms-grid-row: 1;
-      grid-row-start: 1;
-  justify-self: flex-start;
+.generic-table__tools .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 12px;
 }
 @media (min-width: 1000px), print {
-  .generic-table__tools .btn {
-    -ms-grid-column: 2;
-        grid-column-start: 2;
-    -ms-grid-row: inherit;
-        grid-row-start: inherit;
-    justify-self: flex-end;
+  .generic-table__tools .buttons {
+    justify-content: flex-end;
   }
 }
 @media (min-width: 1000px), print {
@@ -853,6 +858,11 @@ select {
   --danger-light: #FFCDD2;
   --danger-ghost: #FFEBEE;
   --background: #FFFFFF;
+  --gray-unlit: #212121;
+  --gray-dark: #616161;
+  --gray: #bdbdbd;
+  --gray-light: #f5f5f5;
+  --gray-ghost: #fafafa;
   --ck-color-image-caption-background: hsl(0, 0%, 97%);
   --ck-color-image-caption-text: hsl(0, 0%, 20%);
   --ck-color-mention-background: hsla(341, 100%, 30%, 0.1);
@@ -883,6 +893,14 @@ a {
 a.danger {
   --color-dark: var(--danger-dark);
   --color: var(--danger);
+}
+a.light {
+  --color-dark: var(--primary);
+  --color: var(--primary-light);
+}
+a.gray {
+  --color-dark: var(--gray);
+  --color: var(--gray-light);
 }
 a:visited, a:focus, a:active {
   color: var(--color-dark);
@@ -1287,28 +1305,20 @@ section#auth form {
 }
 
 @media print {
-  *:not(.generic-table, .generic-table *, main, body, html) {
-    display: none;
-  }
-
-  body#dashboard > header {
-    display: none;
-  }
-
-  #printBtn {
-    display: none;
-  }
-
-  .generic-table__tools {
-    display: none;
-  }
-
-  .generic-table__head > div:last-child, .generic-table__row > div:last-child {
-    display: none;
-  }
-
-  body#dashboard, html, body#dashboard main {
-    padding: 0;
+  body#dashboard {
+    padding: 10px;
     margin: 0;
+  }
+  body#dashboard header, body#dashboard footer, body#dashboard main > h2, body#dashboard main > a {
+    display: none;
+  }
+  body#dashboard .generic-table__tools {
+    display: none;
+  }
+  body#dashboard .generic-table__row > div:last-child, body#dashboard .generic-table__head > div:last-child {
+    display: none;
+  }
+  body#dashboard .generic-card__actions {
+    display: none;
   }
 }

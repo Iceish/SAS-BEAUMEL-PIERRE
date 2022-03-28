@@ -31,13 +31,11 @@ class ClientInvoice extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'totalTTC',
-        'payment_date',
-        'payment_mode',
-        'client_id'
+        'path',
+        'date',
+        'provider_id'
     ];
 
-    protected $with = ['client','InvoiceDetail'];
 
     public function client(): BelongsTo
     {

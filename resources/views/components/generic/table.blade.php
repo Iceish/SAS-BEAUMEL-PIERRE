@@ -10,9 +10,13 @@
 
             </form>
         @endif
-        @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
-            <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>{{ucfirst(__('custom/words.data.crud.create'))}}</a>
-        @endif
+            <div class="buttons">
+                <a class="btn btn--bold generic-table__button" id="printBtn"><i class="fa-solid fa-print"></i> {{ ucfirst(__('custom/words.print')) }}</a>
+                @if(in_array('create',$crud) && auth()->user()->can("$perm.create"))
+                    <a class="btn btn--bold generic-table__button" href="{{ route($route["route"].".create") }}"><i class="fa-solid fa-plus"></i>{{ucfirst(__('custom/words.data.crud.create'))}}</a>
+                @endif
+            </div>
+
     </div>
 
     <div class="generic-table__head">
@@ -58,7 +62,10 @@
                         <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-eye"></i></a>
                     @elseif($action == 'edit' && auth()->user()->can("$perm.edit"))
                         <a href="{{ route($route["route"].".".$action,[$route["parameters"]=>$row->id]) }}"><i class="fa-solid fa-pen"></i></a>
+                    @elseif($action == 'print')
+                        <a class="gray" href="#" onclick="elemPrint('{{ route($route["route"].".show",[$route["parameters"]=>$row->id]) }}')"><i class="fa-solid fa-print"></i></a>
                     @endif
+
                 @endforeach
             </div>
         </div>
@@ -71,7 +78,6 @@
             <a href="{{$content->nextPageUrl() }}"><i class="fa-solid fa-caret-right fa-2x"></i></a>
     </div>
     @endif
-    <a class="btn btn--bold" id="printBtn">Imprimer</a>
 </div>
 
 @push('js')
@@ -80,6 +86,15 @@
         btnPrint.addEventListener('click',()=>{
             window.print()
         })
+
+        function elemPrint(route){
+            let printw = window.open(route, 'PRINT', 'height=auto,width=auto');
+            printw.onload = () => {
+                printw.print();
+                printw.close();
+            }
+
+        }
     </script>
 @endpush
 

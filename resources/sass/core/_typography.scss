@@ -14,6 +14,16 @@ a{
         --color: var(--danger);
     }
 
+    &.light{
+        --color-dark: var(--primary);
+        --color: var(--primary-light);
+    }
+
+    &.gray{
+        --color-dark: var(--gray);
+        --color: var(--gray-light);
+    }
+
     text-decoration: none;
     color: var(--color-dark);
     &:visited, &:focus, &:active { color: var(--color-dark) }

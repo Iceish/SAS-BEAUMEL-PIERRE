@@ -9,6 +9,7 @@ return [
     'company.name' => 'SAS-BEAUMEL-PIERRE',
     'click' => 'cliquez',
     'accept' => 'accepter',
+    'print' => 'imprimer',
 
     'home' => 'acceuil',
     'about-us' => 'a propos de nous',

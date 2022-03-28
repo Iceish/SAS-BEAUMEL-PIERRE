@@ -29,6 +29,16 @@ input[type="submit"].btn, a.btn{
         --color: var(--danger);
     }
 
+    &.light{
+        --color-dark: var(--primary-light);
+        --color: var(--primary-ghost);
+    }
+
+    &.gray{
+        --color-dark: var(--gray);
+        --color: var(--gray-light);
+    }
+
     border: var(--border-size) solid var(--color-dark);
 
     &, &:hover, &:visited{

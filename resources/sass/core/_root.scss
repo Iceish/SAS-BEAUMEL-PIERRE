@@ -15,6 +15,12 @@
 
     --background: #{setColor(white)};
 
+    --gray-unlit: #{setColor(gray, 900)};
+    --gray-dark: #{setColor(gray, 700)};
+    --gray: #{setColor(gray, 400)};
+    --gray-light: #{setColor(gray, 100)};
+    --gray-ghost: #{setColor(gray, 50)};
+
     //CK editor
     --ck-color-image-caption-background: hsl(0, 0%, 97%);
     --ck-color-image-caption-text: hsl(0, 0%, 20%);

@@ -22,14 +22,13 @@ class UpdateClientInvoiceRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['client_id' => 'string[]', 'totalTTC' => 'string[]', 'payment_date' => 'string[]', 'payment_mode' => 'string[]'])]
+    #[ArrayShape(['client_id' => 'string[]', 'path' => 'string[]', 'date' => 'string[]'])]
     public function rules(): array
     {
         return [
-            'client_id' => ['required','integer','exists:clients'],
-            'totalTTC' => ['required','string','max:255'],
-            'payment_date' => ['required','date'],
-            'payment_mode' => ['required','string','max:255']
+            'client_id' => ['required','integer','exists:client'],
+            'path' => ['required','string','max:255'],
+            'date' => ['required','date']
         ];
     }
 }

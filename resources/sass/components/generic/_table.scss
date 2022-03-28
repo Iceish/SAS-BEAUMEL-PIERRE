@@ -33,16 +33,25 @@
                 align-self: center;
             }
         }
-        .btn{
-            grid-row-start: 1;
-            justify-self: flex-start;
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 12px;
             @include respond-to('large'){
-                grid-column-start: 2;
-                grid-row-start: inherit;
-                justify-self: flex-end;
-
+                justify-content: flex-end;
             }
         }
+        //.btn{
+        //    grid-row-start: 1;
+        //    justify-self: flex-end;
+        //    @include respond-to('large'){
+        //        grid-column-start: 2;
+        //        grid-row-start: inherit;
+        //        justify-self: flex-end;
+        //
+        //    }
+        //}
         @include respond-to('large'){
             grid-template: 1fr / 1fr 1fr;
         }
